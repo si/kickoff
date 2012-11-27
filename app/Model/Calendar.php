@@ -6,7 +6,12 @@ class Calendar extends AppModel {
 
 	var $belongsTo = 'Sport';
 	var $hasMany = array(
-	 'Event',
-	 'Subscription',
+	  'Event' => array(
+      'className'   => 'Event',
+      'conditions' => array('start >= NOW()'),
+      'limit' => 10,
+      'order' => 'Event.start ASC',
+    ),
+    'Subscription',
   );
 }
