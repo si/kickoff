@@ -11,8 +11,6 @@ class Calendar extends AppModel {
 	var $hasMany = array(
 	  'Event' => array(
       'className'   => 'Event',
-      'conditions' => array('start >= NOW()'),
-      'limit' => 10,
       'order' => 'Event.start ASC',
     ),
     'Subscription',
