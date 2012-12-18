@@ -15,7 +15,18 @@ class CalendarsController extends AppController {
 	  parent::beforeRender();
 	}
 
+	function view($id='') {
+	
+	
+  
+    $calendar = $this->Calendar->findById($id);
+    $this->set('calendar',$calendar);
+	
+	
+	}
+
   function export($id='') { 
+    $this->layout = 'ics/default';
     // Stop Cake from displaying action's execution time 
 //    Configure::write('debug',0); 
     // Find fields needed without recursing through associated models 
@@ -27,19 +38,6 @@ class CalendarsController extends AppController {
 //        'order' => array("Event.created ASC"), 
       )
     ); 
-    // Define column headers for CSV file, in same array format as the data itself 
-    $headers = array( 
-      'Calendar'=>array( 
-//	      'id' => 'Event.id', 
-	      'start' => 'Event.start', 
-	      'end' => 'Event.end', 
-	      'summary' => 'Event.summary', 
-	      'location' => 'Event.location',
-	      'created' => 'Event.created',
-      ) 
-    ); 
-    // Add headers to start of data array 
-    array_unshift($data,$headers); 
     // Make the data available to the view (and the resulting CSV file) 
     $this->set(compact('data')); 
   }
