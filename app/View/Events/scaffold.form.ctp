@@ -1,4 +1,4 @@
-<h1>New Event</h1>
+<h1>Event Details</h1>
 <?php
 echo $this->Form->create('Event'); 
 ?>
@@ -15,7 +15,10 @@ echo $this->Form->create('Event');
   ?>
   <?php
   echo $this->Form->input('end', array(
-    'type'=>'time',
+//    'type'=>'time',
+    'dateFormat' => 'DMY', 
+    'minYear' => date('Y'),
+    'maxYear' => (date('Y')+5),
     'interval' => 5,
   ));
   ?>
@@ -25,6 +28,9 @@ echo $this->Form->create('Event');
   <legend>Extra</legend>
   <?php echo $this->Form->input('location'); ?>
   <?php echo $this->Form->input('description'); ?>
+  <?php echo $this->Form->input('home'); ?>
+  <?php echo $this->Form->input('away'); ?>
+  <?php echo $this->Form->input('group'); ?>
 </fieldset>
 <?php
   echo $this->Form->submit('Save'); 
