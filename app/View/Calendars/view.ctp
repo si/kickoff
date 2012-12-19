@@ -15,7 +15,7 @@
 </ul>
 
 <table>
-  <caption><?php echo count($calendar['Event']); ?> events</caption>
+  <caption><?php echo count($future_events); ?> upcoming events</caption>
   <thead>
     <tr>
       <th>Starts</th>
@@ -24,16 +24,41 @@
     </tr>
   </thead>
   <tbody>
-  <?php foreach($calendar['Event'] as $event) : ?>
+  <?php foreach($future_events as $event) : ?>
     <tr>
       <td>
       <?php 
         $format = 'd M Y';
         if($calendar['Sport']['id']!=1) $format .= ' H:i';
-        echo $this->Html->link($this->Time->format($format,$event['start']), array('controller'=>'events','action'=>'view',$event['id'])); ?>
+        echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'events','action'=>'view',$event['Event']['id'])); ?>
       </td>
-      <td><?php echo $event['summary']; ?></td>
-      <td><?php echo $event['location']; ?></td>
+      <td><?php echo $event['Event']['summary']; ?></td>
+      <td><?php echo $event['Event']['location']; ?></td>
+    </tr>
+  <?php endforeach; ?>
+  </tbody>
+</table>
+
+<table>
+  <caption><?php echo count($past_events); ?> previous events</caption>
+  <thead>
+    <tr>
+      <th>Starts</th>
+      <th>Summary</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach($past_events as $event) : ?>
+    <tr>
+      <td>
+      <?php 
+        $format = 'd M Y';
+        if($calendar['Sport']['id']!=1) $format .= ' H:i';
+        echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'events','action'=>'view',$event['Event']['id'])); ?>
+      </td>
+      <td><?php echo $event['Event']['summary']; ?></td>
+      <td><?php echo $event['Event']['location']; ?></td>
     </tr>
   <?php endforeach; ?>
   </tbody>

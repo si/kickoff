@@ -17,11 +17,26 @@ class CalendarsController extends AppController {
 
 	function view($id='') {
 	
-	
-  
     $calendar = $this->Calendar->findById($id);
     $this->set('calendar',$calendar);
 	
+    $future_events = $this->Calendar->Event->find('all',array(
+      'conditions' => array(
+        'calendar_id' => $id,
+        'start >= NOW()',
+      ),
+      'recursive' => 1
+    ));
+    $this->set('future_events',$future_events);
+
+    $past_events = $this->Calendar->Event->find('all',array(
+      'conditions' => array(
+        'calendar_id' => $id,
+        'start < NOW()',
+      ),
+      'recursive' => 1
+    ));
+    $this->set('past_events',$past_events);
 	
 	}
 
