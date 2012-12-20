@@ -1,3 +1,6 @@
+<?php
+$this->viewVars['title_for_layout'] = 'Event Details';
+?>
 <h1>Event Details</h1>
 <?php
 echo $this->Form->create('Event'); 
