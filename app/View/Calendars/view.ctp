@@ -10,11 +10,11 @@
 </small></p>
 
 <ul>
-  <li><?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true)); ?></li>
+  <li><?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true, 'class'=>'btn btn-large')); ?></li>
   <li><?php echo $this->Html->link('Edit',array('action'=>'edit',$calendar['Calendar']['id'])); ?></li>
 </ul>
 
-<table>
+<table class="table">
   <caption><?php echo count($future_events); ?> upcoming events</caption>
   <thead>
     <tr>
@@ -39,7 +39,7 @@
   </tbody>
 </table>
 
-<table>
+<table class="table">
   <caption><?php echo count($past_events); ?> previous events</caption>
   <thead>
     <tr>
