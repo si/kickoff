@@ -11,7 +11,7 @@
 
 <ul>
   <li><?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true, 'class'=>'btn btn-large')); ?></li>
-  <li><?php echo $this->Html->link('Edit',array('action'=>'edit',$calendar['Calendar']['id'])); ?></li>
+  <li><?php echo $this->Html->link('Edit',array('action'=>'edit',$calendar['Calendar']['id']),array('class'=>'btn')); ?></li>
 </ul>
 
 <table class="table">

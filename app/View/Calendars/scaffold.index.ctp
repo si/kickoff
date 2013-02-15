@@ -1,6 +1,6 @@
 <h1>Calendars</h1>
-<?php echo $this->Html->link('New Calendar',array('action'=>'add')); ?>
-<table>
+<?php echo $this->Html->link('New Calendar',array('action'=>'add'),array('class'=>'btn btn-large')); ?>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
