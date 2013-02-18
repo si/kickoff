@@ -48,15 +48,14 @@
             <li><a href="/calendars/">Calendars</a></li>
             <li><a href="/sports/">Sports</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Username <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="#">My Calendars</a></li>
                 <li class="divider"></li>
-                <li class="nav-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li class="nav-header">Profile</li>
+                <li><a href="#">Account</a></li>
+                <li><a href="#">Password</a></li>
+                <li><a href="#">Log out</a></li>
               </ul>
             </li>
           </ul>
