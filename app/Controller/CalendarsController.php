@@ -40,7 +40,8 @@ class CalendarsController extends AppController {
 	
 	}
 
-  function export($id='') { 
+  function export($id='',$format='ics') { 
+  
     $this->layout = 'ics/default';
     // Stop Cake from displaying action's execution time 
 //    Configure::write('debug',0); 
@@ -54,7 +55,7 @@ class CalendarsController extends AppController {
       )
     ); 
     // Make the data available to the view (and the resulting CSV file) 
-    $this->set(compact('data')); 
+    $this->set(compact('data','format')); 
   }
         
 }

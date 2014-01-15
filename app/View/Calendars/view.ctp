@@ -9,9 +9,16 @@
   in <?php echo $this->Html->link($calendar['Sport']['name'],array('controller'=>'sports','action'=>'view',$calendar['Sport']['id'])); ?>
 </small></p>
 
+<div class="pull-left">
 <?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true, 'class'=>'btn btn-large')); ?>
+<?php echo $this->Html->link('Add Event',array('controller'=>'events','action'=>'add','calendar'=>$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
+</div>
+
+<div class="pull-right">
 <?php echo $this->Html->link('Edit',array('action'=>'edit',$calendar['Calendar']['id']),array('class'=>'btn')); ?>
 <?php //echo $this->Html->link('Delete',array('action'=>'delete',$calendar['Calendar']['id']),array('class'=>'btn btn-warning'),'Are you sure you want to delete this calendar?'); ?>
+<?php echo $this->Html->link('Export',array('action'=>'export',$calendar['Calendar']['id'],'json'),array('download'=>true, 'class'=>'btn ')); ?>
+</div>
 
 <table class="table">
   <caption><?php echo count($future_events); ?> upcoming events</caption>
@@ -27,7 +34,7 @@
     <tr>
       <td>
       <?php 
-        $format = 'd M Y h:i';
+        $format = 'd M Y H:i';
         if($calendar['Sport']['id']!=1) $format .= ' H:i';
         echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'events','action'=>'view',$event['Event']['id'])); ?>
       </td>
