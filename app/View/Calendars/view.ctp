@@ -10,7 +10,7 @@
 </small></p>
 
 <div class="pull-left">
-<?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true, 'class'=>'btn btn-large')); ?>
+<?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
 <?php echo $this->Html->link('Add Event',array('controller'=>'events','action'=>'add','calendar'=>$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
 </div>
 
