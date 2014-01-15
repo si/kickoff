@@ -34,8 +34,7 @@
     <tr>
       <td>
       <?php 
-        $format = 'd M Y H:i';
-        if($calendar['Sport']['id']!=1) $format .= ' H:i';
+        $format = 'D d M Y H:i';
         echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'events','action'=>'view',$event['Event']['id'])); ?>
       </td>
       <td><?php echo $event['Event']['summary']; ?></td>
