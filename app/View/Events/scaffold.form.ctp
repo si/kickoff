@@ -10,7 +10,7 @@ echo $this->Form->create('Event');
   <div class="row">
 		<?php echo $this->Form->input('home', array('label'=>'Home Team','div'=>'span-3')); ?>
 		<?php echo $this->Form->input('away', array('label'=>'Away Team','div'=>'span-3')); ?>
-	  <?php echo $this->Form->input('summary', array('disabled'=>true,'div'=>'span-6')); ?>
+	  <?php echo $this->Form->input('summary', array('readonly'=>true,'div'=>'span-6')); ?>
   </div>
   <div class="row">
 	  <?php echo $this->Form->input('location',array('class'=>'span-12','div'=>'span-12')); ?>
@@ -28,7 +28,6 @@ echo $this->Form->create('Event');
 	  ?>
 	  <?php
 	  echo $this->Form->input('end', array(
-	    'type'=>'time',
 	    'dateFormat' => 'DMY', 
 	    'minYear' => date('Y'),
 	    'maxYear' => (date('Y')+5),
