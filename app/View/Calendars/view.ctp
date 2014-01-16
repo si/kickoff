@@ -20,6 +20,7 @@
 <?php echo $this->Html->link('Export',array('action'=>'export',$calendar['Calendar']['id'],'json'),array('download'=>true, 'class'=>'btn ')); ?>
 </div>
 
+<?php if(count($future_events)>0) : ?>
 <table class="table">
   <caption><?php echo count($future_events); ?> upcoming events</caption>
   <thead>
@@ -43,6 +44,15 @@
   <?php endforeach; ?>
   </tbody>
 </table>
+<?php else: ?>
+
+<div class="well">
+
+  <p class="lead">No upcoming events. <?php echo $this->Html->link('Add one!',array('controller'=>'events','action'=>'add','calendar'=>$calendar['Calendar']['id'])); ?></p>
+  
+</div>
+
+<?php endif; ?>
 
 <table class="table">
   <caption><?php echo count($past_events); ?> previous events</caption>
