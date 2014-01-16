@@ -5,4 +5,10 @@ $(document).ready(function(){
     $('#EventSummary').val($('#EventHome').val() + ' v ' + $('#EventAway').val());
   });
 
+  $('#EventStart').datetimepicker({
+    language: 'en',
+    pick12HourFormat: true,
+    pickSeconds: false
+  });
+
 });
