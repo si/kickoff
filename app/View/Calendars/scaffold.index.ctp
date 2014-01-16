@@ -19,7 +19,7 @@
       <td><?php echo $this->Html->link($calendar['Sport']['name'],array('controller'=>'sports','action'=>'view',$calendar['Sport']['id'])); ?></td>
       <td><?php echo $this->Time->niceShort($calendar['Calendar']['created']); ?></td>
       <td><?php echo $this->Html->link($calendar['User']['username'],array('controller'=>'users','action'=>'view',$calendar['User']['id'])); ?></td>
-      <td><?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true)); ?></td>
+      <td><?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true, 'class'=>'btn')); ?></td>
     </tr>
   <?php endforeach; ?>
   </tbody>
