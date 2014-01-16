@@ -9,6 +9,7 @@
 
   <!-- Le styles -->
   <link href="/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css" />
   <style type="text/css">
     body {
       padding-top: 60px;
@@ -83,6 +84,7 @@
 
   <script src="/js/jquery-1.10.2.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap-datetimepicker.min.js"></script>
   <script src="/js/events.js"></script>
 
   <?php 

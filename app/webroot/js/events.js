@@ -5,7 +5,7 @@ $(document).ready(function(){
     $('#EventSummary').val($('#EventHome').val() + ' v ' + $('#EventAway').val());
   });
 
-  $('#EventStart').datetimepicker({
+  $('#EventStart, #EventEnd').datetimepicker({
     language: 'en',
     pick12HourFormat: true,
     pickSeconds: false

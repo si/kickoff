@@ -15,28 +15,18 @@ echo $this->Form->create('Event');
   <div class="row">
 	  <?php echo $this->Form->input('location',array('class'=>'span-12','div'=>'span-12')); ?>
   </div>
-  <div class="row">
-	  <?php 
-	  echo $this->Form->input('start', array(
-	    'dateFormat' => 'DMY', 
-	    'minYear' => date('Y'),
-	    'maxYear' => (date('Y')+5),
-	    'interval' => 5,
-	  	'label'=>'Starts',
-	    'div' => 'span-6',
-	  ));
-	  ?>
-	  <?php
-	  echo $this->Form->input('end', array(
-	    'dateFormat' => 'DMY', 
-	    'minYear' => date('Y'),
-	    'maxYear' => (date('Y')+5),
-	    'interval' => 5,
-	  	'label'=>'Ends',
-	    'div' => 'span-6',
-	  ));
-	  ?>
+  
+  <div class="well">
+    <div class="date input-append">
+      <input type="text" name="data[Event][start]" id="EventStart" data-format="dd/MM/yyyy HH:mm PP" value="<?php if(isset($this->data['Event']['start'])) echo $this->Time->format('d/m/Y H:i A',$this->data['Event']['start']); ?>">
+      <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+    </div>
+    <div class="date input-append">
+      <input type="text" name="data[Event][end]" id="EventEnd" data-format="dd/MM/yyyy HH:mm PP" value="<?php if(isset($this->data['Event']['end'])) echo $this->Time->format('d/m/Y H:i A',$this->data['Event']['end']); ?>">
+      <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+    </div>
   </div>
+
   <?php 
   $default_calendar = (isset($this->request['named']['calendar'])) ?
   	$this->request['named']['calendar'] :
