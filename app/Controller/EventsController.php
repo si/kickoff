@@ -14,6 +14,21 @@ class EventsController extends AppController {
 	function beforeRender() {
 	  parent::beforeRender();
 	}
+	
+	function form($id='') {
+	  if(isset($this->data) && count($this->data)>0) {
+	    $form_data = $this->data;
+  	  $form_data['Event']['start'] = date('Y-m-d H:i:s',strtotime($this->data['Event']['start']));  // Needs fixing for UK date format! Helper?!
+  	  $form_data['Event']['end'] = date('Y-m-d H:i:s',strtotime($this->data['Event']['end']));
+  	  $this->Event->save($form_data);
+  	  $this->redirect(array('action'=>'view',$this->data['Event']['id']));
+	  }
+	
+  	if($id!='') {
+    	$this->data = $this->Event->findById($id);
+    	$this->set('calendars', $this->Event->Calendar->find('list'));
+  	}
+	}
 
 	function export($id='') { 
     // Stop Cake from displaying action's execution time 
