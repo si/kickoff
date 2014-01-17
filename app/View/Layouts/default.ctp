@@ -49,7 +49,7 @@
             <li><a href="/calendars/">Calendars</a></li>
             <li><a href="/sports/">Sports</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Username <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Username}} <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">My Calendars</a></li>
                 <li class="divider"></li>
