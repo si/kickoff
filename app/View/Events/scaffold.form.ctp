@@ -7,32 +7,33 @@ echo $this->Form->create('Event');
 ?>
 <fieldset>
   <legend>Basics</legend>
+
   <div class="row">
-		<?php echo $this->Form->input('home', array('label'=>'Home Team','div'=>'span-3')); ?>
-		<?php echo $this->Form->input('away', array('label'=>'Away Team','div'=>'span-3')); ?>
-	  <?php echo $this->Form->input('summary', array('readonly'=>true,'div'=>'span-6')); ?>
-  </div>
-  <div class="row">
-	  <?php echo $this->Form->input('location',array('class'=>'span-12','div'=>'span-12')); ?>
-  </div>
-  
-  <div class="well">
-    <div class="date input-append">
-      <input type="text" name="data[Event][start]" id="EventStart" data-format="dd/MM/yyyy HH:mm PP" value="<?php if(isset($this->data['Event']['start'])) echo $this->Time->format('d/m/Y H:i A',$this->data['Event']['start']); ?>">
-      <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+    <div class="span3=">
+      <label for="EventStart">Starts</label>
+      <input type="text" name="data[Event][start]" id="EventStart" data-format="dd/MM/yyyy HH:mm PP" value="<?php if(isset($this->data['Event']['start'])) echo $this->Time->format('d/m/Y H:i A',$this->data['Event']['start']); ?>" class="span3" />
     </div>
-    <div class="date input-append">
-      <input type="text" name="data[Event][end]" id="EventEnd" data-format="dd/MM/yyyy HH:mm PP" value="<?php if(isset($this->data['Event']['end'])) echo $this->Time->format('d/m/Y H:i A',$this->data['Event']['end']); ?>">
-      <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+    <div class="span3">
+      <label for="EventEnd">Ends</label>
+      <input type="text" name="data[Event][end]" id="EventEnd" data-format="dd/MM/yyyy HH:mm PP" class="span3" value="<?php if(isset($this->data['Event']['end'])) echo $this->Time->format('d/m/Y H:i A',$this->data['Event']['end']); ?>">
     </div>
   </div>
 
-  <?php 
-  $default_calendar = (isset($this->request['named']['calendar'])) ?
-  	$this->request['named']['calendar'] :
-  	'';
-  	
-  echo $this->Form->input('calendar_id', array('default'=>$default_calendar)); ?>
+  <div class="row">
+		<?php echo $this->Form->input('home', array('label'=>'Home Team','class'=>'span3','div'=>'span3')); ?>
+		<?php echo $this->Form->input('away', array('label'=>'Away Team','class'=>'span3','div'=>'span3')); ?>
+	  <?php echo $this->Form->input('summary', array('readonly'=>true,'class'=>'span6','div'=>'span6')); ?>
+  </div>
+
+  <div class="row">
+	  <?php echo $this->Form->input('location',array('class'=>'span6','div'=>'span6')); ?>
+    <?php 
+      $default_calendar = (isset($this->request['named']['calendar'])) ?
+      	$this->request['named']['calendar'] :
+      	'';
+      echo $this->Form->input('calendar_id', array('default'=>$default_calendar,'class'=>'span3','div'=>'span3')); 
+    ?>
+  </div>
 </fieldset>
 <fieldset>
   <legend>Extra</legend>
