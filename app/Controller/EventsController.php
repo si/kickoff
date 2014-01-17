@@ -18,8 +18,8 @@ class EventsController extends AppController {
 	function form($id='') {
 	  if(isset($this->data) && count($this->data)>0) {
 	    $form_data = $this->data;
-  	  $form_data['Event']['start'] = date('Y-m-d H:i:s',strtotime($this->data['Event']['start']));  // Needs fixing for UK date format! Helper?!
-  	  $form_data['Event']['end'] = date('Y-m-d H:i:s',strtotime($this->data['Event']['end']));
+  	  $form_data['Event']['start'] = uk_date_to_mysql($this->data['Event']['start']);
+  	  $form_data['Event']['end'] = uk_date_to_mysql($this->data['Event']['end']);
   	  $this->Event->save($form_data);
   	  $this->redirect(array('action'=>'view',$this->data['Event']['id']));
 	  }

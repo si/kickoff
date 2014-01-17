@@ -63,3 +63,8 @@ Cache::config('default', array('engine' => 'File'));
  * CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
+ 
+ function uk_date_to_mysql($str) {
+   $arr = explode('/',str_replace(array(' ',':'), '/', $str));
+   return date('Y-m-d H:i:s',strtotime($arr[2] . '-' . $arr[1] . '-' . $arr[0] . ' ' . $arr[3] . ':' . $arr[4] . $arr[5]));
+ }
