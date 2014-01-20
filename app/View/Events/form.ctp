@@ -38,8 +38,10 @@ echo $this->Form->create('Event');
 </fieldset>
 <fieldset>
   <legend>Extra</legend>
-  <?php echo $this->Form->input('description'); ?>
-  <?php echo $this->Form->input('group'); ?>
+  <div class="row">
+    <?php echo $this->Form->input('description', array('div'=>'span6','class'=>'span6')); ?>
+    <?php echo $this->Form->input('group', array('div'=>'span6','class'=>'span6')); ?>
+  </div>
 </fieldset>
 <?php
 	if(isset($this->data['Event']['id'])) {
