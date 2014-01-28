@@ -54,6 +54,7 @@
 
 <?php endif; ?>
 
+<?php if(count($past_events)>0) : ?>
 <table class="table">
   <caption><?php echo count($past_events); ?> previous events</caption>
   <thead>
@@ -78,5 +79,6 @@
   <?php endforeach; ?>
   </tbody>
 </table>
+<?php endif; ?>
 
 <?php echo $this->Html->link('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
