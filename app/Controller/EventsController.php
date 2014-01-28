@@ -26,8 +26,9 @@ class EventsController extends AppController {
 	
   	if($id!='') {
     	$this->data = $this->Event->findById($id);
-    	$this->set('calendars', $this->Event->Calendar->find('list'));
   	}
+
+  	$this->set('calendars', $this->Event->Calendar->find('list'));
 	}
 
 	function export($id='') { 
