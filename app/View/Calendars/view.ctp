@@ -5,9 +5,13 @@
 
 <p><small>
   Created on <?php echo $this->Time->niceShort($calendar['Calendar']['created']); ?> 
-  by <?php echo $this->Html->link($calendar['User']['username'],array('controller'=>'users','action'=>'view',$calendar['User']['id'])); ?>
+  <?php if(isset($calendar['User'])) : ?> 
+    by <?php echo $this->Html->link($calendar['User']['username'],array('controller'=>'users','action'=>'view',$calendar['User']['id'])); ?> 
+  <?php endif; ?>
   in <?php echo $this->Html->link($calendar['Sport']['name'],array('controller'=>'sports','action'=>'view',$calendar['Sport']['id'])); ?>
 </small></p>
+
+<div class="clearfix">
 
 <div class="pull-left">
 <?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
@@ -18,6 +22,8 @@
 <?php echo $this->Html->link('Edit',array('action'=>'edit',$calendar['Calendar']['id']),array('class'=>'btn')); ?>
 <?php //echo $this->Html->link('Delete',array('action'=>'delete',$calendar['Calendar']['id']),array('class'=>'btn btn-warning'),'Are you sure you want to delete this calendar?'); ?>
 <?php echo $this->Html->link('Export',array('action'=>'export',$calendar['Calendar']['id'],'json'),array('download'=>true, 'class'=>'btn ')); ?>
+</div>
+
 </div>
 
 <?php if(count($future_events)>0) : ?>
