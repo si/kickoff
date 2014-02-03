@@ -6,13 +6,13 @@ class Calendar extends AppModel {
 
 	var $belongsTo = array(
 	  'Sport',
-	  'User',
+//	  'User',
 	);
 	var $hasMany = array(
 	  'Event' => array(
       'className'   => 'Event',
       'order' => 'Event.start ASC',
     ),
-    'Subscription',
+//    'Subscription',
   );
 }

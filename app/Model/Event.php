@@ -6,7 +6,7 @@ class Event extends AppModel {
   var $order = 'Event.start ASC';
   var $belongsTo = array(
     'Calendar',
-    'User',
+//    'User',
   );
 
 }
