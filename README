@@ -1,8 +1,12 @@
 KickOff is a web application for sports-based calendar subscriptions.
 
-Originally developed as a prototype for the 2006 World Cup, the KickOff franchise extended into EURO 2008, Formula 1, 6 Nations rugby and the Rugby World Cup.
+Originally developed as a prototype for the 2006 World Cup, the KickOff model extended into EURO 2008, Formula 1, 6 Nations rugby and the Rugby World Cup.
 This application is bringing together all these sports into a centralised system to support more sports, competitions and tournaments.
 
-Follow @kickoffcal for updates on Twitter.
+The first edition will be built to support our existing network, establishing a sound robust API for managing these sites.
 
-Built by @Si and @briansuda
+The second edition will allow anyone to create their own calendar to share with the public. This will evolve over time.
+
+Follow [@kickoffcal](http://twitter.com/kickoffcal) for updates on Twitter.
+
+Built by [@Si](http://twitter.com/si) and [@briansuda](http://twitter.com/briansuda)
