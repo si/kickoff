@@ -26,65 +26,21 @@
 
 </div>
 
-<?php if(count($future_events)>0) : ?>
-<table class="table">
-  <caption><?php echo count($future_events); ?> upcoming events</caption>
-  <thead>
-    <tr>
-      <th>Starts</th>
-      <th>Summary</th>
-      <th>Location</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php foreach($future_events as $event) : ?>
-    <tr>
-      <td>
-      <?php 
-        $format = 'D d M Y H:i';
-        echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'events','action'=>'view',$event['Event']['id'])); ?>
-      </td>
-      <td><?php echo $event['Event']['summary']; ?></td>
-      <td><?php echo $event['Event']['location']; ?></td>
-    </tr>
-  <?php endforeach; ?>
-  </tbody>
-</table>
-<?php else: ?>
-
-<div class="well">
-
-  <p class="lead">No upcoming events. <?php echo $this->Html->link('Add one!',array('controller'=>'events','action'=>'add','calendar'=>$calendar['Calendar']['id'])); ?></p>
+<?php
+if(count($future_events)>0) : 
   
+  echo $this->element('events_table',array('events'=>$future_events)); 
+      
+else: ?>
+<div class="well">
+  <p class="lead">No upcoming events. <?php echo $this->Html->link('Add one!',array('controller'=>'events','action'=>'add','calendar'=>$calendar['Calendar']['id'])); ?></p>
 </div>
-
 <?php endif; ?>
 
-<?php if(count($past_events)>0) : ?>
-<table class="table">
-  <caption><?php echo count($past_events); ?> previous events</caption>
-  <thead>
-    <tr>
-      <th>Starts</th>
-      <th>Summary</th>
-      <th>Location</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php foreach($past_events as $event) : ?>
-    <tr>
-      <td>
-      <?php 
-        $format = 'd M Y';
-        if($calendar['Sport']['id']!=1) $format .= ' H:i';
-        echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'events','action'=>'view',$event['Event']['id'])); ?>
-      </td>
-      <td><?php echo $event['Event']['summary']; ?></td>
-      <td><?php echo $event['Event']['location']; ?></td>
-    </tr>
-  <?php endforeach; ?>
-  </tbody>
-</table>
-<?php endif; ?>
+<?php 
+if(count($past_events)>0) : 
+  echo $this->element('events_table',array('events'=>$past_events)); 
+endif; 
+?>
 
 <?php echo $this->Html->link('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
