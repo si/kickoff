@@ -4,6 +4,12 @@ if($events>0) {
   $first_month = date('M Y', $first_date);
   $days_in_month = date('t', $first_date);
   $first_day = date('N', strtotime('01 ' . $first_month));
+  
+  $month_events = array();
+  foreach($events as $event) {
+    $month_events[date('d',strtotime($event['Event']['start']))][] = $event;
+  }
+  
 }
 ?>
 <table class="table">
@@ -35,7 +41,18 @@ if($events>0) {
       <?php 
           echo '<span class="pull-left">'.$d.'</span>';
           
-//        echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'events','action'=>'view',$event['Event']['id'])); ?>
+          if(isset($month_events[$d]) && count($month_events[$d])>0) {
+            echo '<ol class="unstyled pull-right">';
+            foreach($month_events[$d] as $event) {
+              echo '<li>' . $this->Html->link(
+                $this->Time->format('H:i',$event['Event']['start']) . ' ' . $event['Event']['summary']
+                , array('controller'=>'events','action'=>'view',$event['Event']['id'])
+              )
+              . '</li>';
+            }
+            echo '</ol>';
+          }
+      ?>
       </td>
       <?php 
         if( $i % 7 == 0) echo '</tr><tr>';
@@ -49,6 +66,4 @@ if($events>0) {
     </tr>
   </tbody>
 </table>
-
-<textarea><?php var_dump($events); ?></textarea>
 
