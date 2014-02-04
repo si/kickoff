@@ -21,7 +21,7 @@ class EventsController extends AppController {
   	  $form_data['Event']['start'] = uk_date_to_mysql($this->data['Event']['start']);
   	  $form_data['Event']['end'] = uk_date_to_mysql($this->data['Event']['end']);
   	  $this->Event->save($form_data);
-  	  $this->redirect(array('action'=>'view',$this->data['Event']['id']));
+  	  $this->redirect(array('action'=>'view',$this->Event->id));
 	  }
 	
   	if($id!='') {
