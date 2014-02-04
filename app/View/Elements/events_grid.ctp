@@ -24,20 +24,26 @@ if($events>0) {
     <?php 
       $i = $d = 1;
       if($first_day>1) { 
-        echo '<td colspan="' . ($first_day-1) . '"></td>';
+        echo '<td colspan="' . ($first_day-1) . '" class="">'
+          . $this->Html->link(date('M Y', strtotime($first_month . ' -1 month')),'#prevMonth')
+          . '</td>';
         $i = $first_day;
       }
       
       while($i <= $days_in_month+($first_day-1)) { ?>
       <td>
       <?php 
-          echo $d;
-          if( $i % 7 == 0) echo '</tr><tr>';
+          echo '<span class="pull-left">'.$d.'</span>';
+          
 //        echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'events','action'=>'view',$event['Event']['id'])); ?>
       </td>
-      <?php $d++; $i++;
+      <?php 
+        if( $i % 7 == 0) echo '</tr><tr>';
+        $d++; $i++;
       } 
-      if($i % 7 > 0) echo '<td colspan="' . ($i % 7) . '"></td>'
+      if($i % 7 > 0) echo '<td colspan="' . ($i % 7) . '">'
+          . $this->Html->link(date('M Y', strtotime($first_month . ' +1 month')),'#nextMonth')
+          . '</td>'
       
       ?>
     </tr>
