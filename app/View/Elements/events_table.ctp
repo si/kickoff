@@ -1,5 +1,5 @@
 <table class="table">
-  <caption><?php echo count($events); ?> upcoming events</caption>
+  <caption><?php echo count($events) . (isset($context) ? ' '.$context : '') ; ?> events</caption>
   <thead>
     <tr>
       <th>Starts</th>
