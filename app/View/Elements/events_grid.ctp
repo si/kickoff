@@ -7,7 +7,7 @@ if($events>0) {
   
   $month_events = array();
   foreach($events as $event) {
-    $month_events[date('d',strtotime($event['Event']['start']))][] = $event;
+    if($first_month == date('M Y',strtotime($event['Event']['start']))) $month_events[date('d',strtotime($event['Event']['start']))][] = $event;
   }
   
 }
@@ -31,7 +31,7 @@ if($events>0) {
       $i = $d = 1;
       if($first_day>1) { 
         echo '<td colspan="' . ($first_day-1) . '" class="">'
-          . $this->Html->link(date('M Y', strtotime($first_month . ' -1 month')),'#prevMonth')
+          . $this->Html->link(date('M Y', strtotime($first_month . ' -1 month')),'#prevMonth', array('style'=>'color:#CCC'))
           . '</td>';
         $i = $first_day;
       }
@@ -59,7 +59,7 @@ if($events>0) {
         $d++; $i++;
       } 
       if($i % 7 > 0) echo '<td colspan="' . ($i % 7) . '">'
-          . $this->Html->link(date('M Y', strtotime($first_month . ' +1 month')),'#nextMonth')
+          . $this->Html->link(date('M Y', strtotime($first_month . ' +1 month')),'#nextMonth', array('style'=>'color:#CCC'))
           . '</td>'
       
       ?>
