@@ -6,7 +6,14 @@ class Event extends AppModel {
   var $order = 'Event.start ASC';
   var $belongsTo = array(
     'Calendar',
-//    'User',
+    'HomeTeam' => array(
+        'className'    => 'Team',
+        'foreignKey'   => 'home_team_id',
+    ),
+    'AwayTeam' => array(
+        'className'    => 'User',
+        'foreignKey'   => 'away_team_id',
+    ),
   );
 
 }
