@@ -10,7 +10,7 @@ echo $this->Form->create('Event');
   <legend>Basics</legend>
 
   <div class="row">
-    <div class="span3=">
+    <div class="span3">
       <label for="EventStart">Starts</label>
       <input type="text" name="data[Event][start]" id="EventStart" data-format="dd/MM/yyyy HH:mm PP" value="<?php if(isset($this->data['Event']['start'])) echo $this->Time->format('d/m/Y h:i A',$this->data['Event']['start']); ?>" class="span3" />
     </div>
@@ -18,22 +18,24 @@ echo $this->Form->create('Event');
       <label for="EventEnd">Ends</label>
       <input type="text" name="data[Event][end]" id="EventEnd" data-format="dd/MM/yyyy HH:mm PP" class="span3" value="<?php if(isset($this->data['Event']['end'])) echo $this->Time->format('d/m/Y h:i A',$this->data['Event']['end']); ?>">
     </div>
-  </div>
-
-  <div class="row">
-		<?php echo $this->Form->input('home', array('label'=>'Home Team','class'=>'span3','div'=>'span3')); ?>
-		<?php echo $this->Form->input('away', array('label'=>'Away Team','class'=>'span3','div'=>'span3')); ?>
-	  <?php echo $this->Form->input('summary', array('readonly'=>true,'class'=>'span6','div'=>'span6')); ?>
-  </div>
-
-  <div class="row">
-	  <?php echo $this->Form->input('location',array('class'=>'span6','div'=>'span6')); ?>
     <?php 
       $default_calendar = (isset($this->request['named']['calendar'])) ?
       	$this->request['named']['calendar'] :
       	'';
       echo $this->Form->input('calendar_id', array('default'=>$default_calendar,'class'=>'span6','div'=>'span6')); 
     ?>
+  </div>
+
+  <div class="row">
+		<?php echo $this->Form->input('home_team_id', array('label'=>'Home Team','options'=>$teams,'class'=>'span3','div'=>'span3')); ?>
+		<?php echo $this->Form->input('home', array('label'=>'Home Team','class'=>'span3','div'=>'span3')); ?>
+		<?php echo $this->Form->input('away_team_id', array('label'=>'Away Team','options'=>$teams,'class'=>'span3','div'=>'span3')); ?>
+		<?php echo $this->Form->input('away', array('label'=>'Away Team','class'=>'span3','div'=>'span3')); ?>
+  </div>
+
+  <div class="row">
+	  <?php echo $this->Form->input('summary', array('readonly'=>true,'class'=>'span6','div'=>'span6')); ?>
+	  <?php echo $this->Form->input('location',array('class'=>'span6','div'=>'span6')); ?>
   </div>
 </fieldset>
 <fieldset>

@@ -29,6 +29,8 @@ class EventsController extends AppController {
   	}
 
   	$this->set('calendars', $this->Event->Calendar->find('list'));
+  	$this->set('teams', $this->Event->HomeTeam->find('list')); 
+  	
 	}
 
 	function export($id='') { 
