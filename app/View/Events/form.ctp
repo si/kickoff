@@ -27,10 +27,13 @@ echo $this->Form->create('Event');
   </div>
 
   <div class="row">
-		<?php echo $this->Form->input('home_team_id', array('label'=>'Home Team','options'=>$teams,'class'=>'span3','div'=>'span3')); ?>
-		<?php echo $this->Form->input('home', array('label'=>'Home Team','class'=>'span3','div'=>'span3')); ?>
-		<?php echo $this->Form->input('away_team_id', array('label'=>'Away Team','options'=>$teams,'class'=>'span3','div'=>'span3')); ?>
-		<?php echo $this->Form->input('away', array('label'=>'Away Team','class'=>'span3','div'=>'span3')); ?>
+		<datalist id="teams">
+		<?php foreach($teams as $id=>$name) : ?>
+		  <option value="<?php echo $name; ?>">
+    <?php endforeach; ?>
+		</datalist>
+		<?php echo $this->Form->input('home', array('label'=>'Home Team','class'=>'span3','div'=>'span3', 'list'=>'teams')); ?>
+		<?php echo $this->Form->input('away', array('label'=>'Away Team','class'=>'span3','div'=>'span3', 'list'=>'teams')); ?>
   </div>
 
   <div class="row">

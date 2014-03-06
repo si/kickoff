@@ -11,7 +11,7 @@ class Event extends AppModel {
         'foreignKey'   => 'home_team_id',
     ),
     'AwayTeam' => array(
-        'className'    => 'User',
+        'className'    => 'Team',
         'foreignKey'   => 'away_team_id',
     ),
   );

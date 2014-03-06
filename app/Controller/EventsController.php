@@ -20,6 +20,39 @@ class EventsController extends AppController {
 	    $form_data = $this->data;
   	  $form_data['Event']['start'] = uk_date_to_mysql($this->data['Event']['start']);
   	  $form_data['Event']['end'] = uk_date_to_mysql($this->data['Event']['end']);
+  	  
+  	  // Check home team exists
+  	  $home_team = $this->Event->HomeTeam->findByName($this->data['Event']['home']);
+  	  // If not, create them
+  	  if(empty($home_team)) {
+  	    $team_data = array(
+	        'name' => $this->data['Event']['home'],
+	        'sport_id' => 1,
+        );
+    	  $home_team = $this->Event->HomeTeam->save($team_data);
+    	  // Set the home_team_id
+        $form_data['Event']['home_team_id'] = $home_team['HomeTeam']['id'];
+  	  } else {
+    	  // Set the home_team_id
+        $form_data['Event']['home_team_id'] = $home_team['HomeTeam']['id'];
+  	  }
+
+  	  // Check away team exists
+  	  $away_team = $this->Event->AwayTeam->findByName($this->data['Event']['away']);
+  	  // If not, create them
+  	  if(empty($away_team)) {
+  	    $team_data = array(
+	        'name' => $this->data['Event']['away'],
+	        'sport_id' => 1,
+        );
+    	  $away_team = $this->Event->AwayTeam->save($team_data);
+    	  // Set the home_team_id
+        $form_data['Event']['away_team_id'] = $away_team['AwayTeam']['id'];
+  	  } else {
+    	  // Set the home_team_id
+        $form_data['Event']['away_team_id'] = $away_team['AwayTeam']['id'];
+  	  }
+
   	  $this->Event->save($form_data);
   	  $this->redirect(array('action'=>'view',$this->Event->id));
 	  }

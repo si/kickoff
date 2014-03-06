@@ -9,7 +9,8 @@
 
 
 
-<small class="text-muted">Added to the <?php echo $this->Html->link($event['Calendar']['name'],array('controller'=>'calendars','action'=>'view',$event['Calendar']['id'])); ?> calendar by <?php echo $this->Html->link($event['User']['username'],array('controller'=>'users','action'=>'view',$event['Event']['user_id'])); ?> on <?php echo $this->Time->nice($event['Event']['created']); ?></small>
+<small class="text-muted">Added to the <?php echo $this->Html->link($event['Calendar']['name'],array('controller'=>'calendars','action'=>'view',$event['Calendar']['id'])); ?> calendar 
+on <?php echo $this->Time->nice($event['Event']['created']); ?></small>
 
 <div>
 <?php echo $this->Html->link('Edit',array('action'=>'form',$event['Event']['id']),array('class'=>'btn btn-default btn-sm'));?>
