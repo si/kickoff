@@ -9,6 +9,7 @@
 
   <!-- Le styles -->
   <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/kickoff.app.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css" />
   <style type="text/css">
     body {

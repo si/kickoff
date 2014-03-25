@@ -26,21 +26,10 @@
 
 </div>
 
+<pre class="hidden"><?php var_dump($future_params); ?></pre>
 <?php
-if(count($future_events)>0) : 
-  
   echo $this->element('events_grid',array('events'=>$future_events,'context'=>'upcoming')); 
-      
-else: ?>
-<div class="well">
-  <p class="lead">No upcoming events. <?php echo $this->Html->link('Add one!',array('controller'=>'events','action'=>'form','calendar'=>$calendar['Calendar']['id'])); ?></p>
-</div>
-<?php endif; ?>
-
-<?php 
-if(count($past_events)>0) : 
-  echo $this->element('events_table',array('events'=>$past_events,'context'=>'previous')); 
-endif; 
 ?>
+
 
 <?php echo $this->Html->link('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>

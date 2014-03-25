@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $('.navbar-form').bind('submit',function(e){
+  $('.navbar-form').on('submit',function(e){
     e.preventDefault();
     alert("Authentication hasn't been built yet.");
     return false;
@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 
   /* Auto-populate Event Summary from home and away teams */
-  $('#EventHome, #EventAway').keydown(function(e){
+  $('#EventHome, #EventAway').on('keydown', function(e){
     $('#EventSummary').val($('#EventHome').val() + ' v ' + $('#EventAway').val());
   });
 
@@ -17,5 +17,5 @@ $(document).ready(function(){
     pick12HourFormat: true,
     pickSeconds: false
   });
-
+  
 });

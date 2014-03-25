@@ -1,0 +1,14 @@
+.calendar {
+
+  & td {
+    width: (100%/7);
+    height: 4rem;
+    
+    .event {
+      font-size: 0.8rem;
+      height: 1.5rem;
+      overflow: hidden;
+    }
+  }
+
+}

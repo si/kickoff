@@ -1,0 +1,11 @@
+/* line 3, ../sass/_components/_calendars.scss */
+.calendar td {
+  width: 14.28571%;
+  height: 4rem;
+}
+/* line 7, ../sass/_components/_calendars.scss */
+.calendar td .event {
+  font-size: 0.8rem;
+  height: 1.5rem;
+  overflow: hidden;
+}

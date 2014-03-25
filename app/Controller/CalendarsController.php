@@ -20,13 +20,26 @@ class CalendarsController extends AppController {
     $calendar = $this->Calendar->findById($id);
     $this->set('calendar',$calendar);
 	
-    $future_events = $this->Calendar->Event->find('all',array(
+    if(isset($this->params['named']['month'])) {
+      $start = strtotime($this->params['named']['month']."-01 00:00:00");
+      $end = strtotime('+1 month',$start);
+    } else {
+      $start = strtotime(date('Y-m')."-01 00:00:00");
+      $end = strtotime('first day of next month');
+    } 
+    $start_date = "'" . date('Y-m-d H:i:s',$start) . "'";
+    $end_date = "'" . date('Y-m-d H:i:s',$end) . "'";
+    $this->set(compact('start','end'));
+    $future_params = array(
       'conditions' => array(
         'calendar_id' => $id,
-        'start >= NOW()',
+        "start >= " . $start_date,
+        "end < " . $end_date,
       ),
       'recursive' => 1
-    ));
+    );
+    $this->set('future_params', $future_params);
+    $future_events = $this->Calendar->Event->find('all',$future_params);
     $this->set('future_events',$future_events);
 
     $past_events = $this->Calendar->Event->find('all',array(
