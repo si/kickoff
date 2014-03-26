@@ -1,6 +1,12 @@
 <h1><?php echo $event['Event']['summary']; ?></h1>
 
-<p class="lead"><?php echo $this->Time->format('D d M Y h:ia', $event['Event']['start']) . '–' . $this->Time->format('D d M Y h:ia', $event['Event']['end']); ?></p>
+<p class="lead">
+  <?php 
+  echo $this->Time->format('D j M Y g:ia', $event['Event']['start']) 
+    . '–' 
+    . $this->Time->format('g:ia', $event['Event']['end']); 
+  ?>
+</p>
 <p><?php echo $event['Event']['location']; ?></p>
 
 <p>Group: <?php echo $event['Event']['group']; ?></p>
