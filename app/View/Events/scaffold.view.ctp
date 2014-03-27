@@ -18,13 +18,27 @@
 <small class="text-muted">Added to the <?php echo $this->Html->link($event['Calendar']['name'],array('controller'=>'calendars','action'=>'view',$event['Calendar']['id'])); ?> calendar 
 on <?php echo $this->Time->nice($event['Event']['created']); ?></small>
 
-<div>
-<?php echo $this->Html->link('Download',array('action'=>'export',$event['Event']['id']),array('class'=>'btn btn-primary btn-sm'));?>
-<?php echo $this->Html->link('Edit',array('action'=>'form',$event['Event']['id']),array('class'=>'btn btn-default btn-sm'));?>
-<?php echo $this->Html->link('Delete',array('action'=>'delete',$event['Event']['id']),array('class'=>'btn btn-default btn-sm'),'Are you sure you want to delete this event?');?>
+<div class="btn-group btn-block">
+
+  <?php echo $this->Html->link('<i class="icon-time"></i> Download'
+    , array('action'=>'export', $event['Event']['id'])
+    , array('class'=>'btn btn-info btn-sm', 'escape' => false));?>
+
+  <?php echo $this->Html->link('<i class="icon-edit"></i> Edit'
+    , array('action'=>'form', $event['Event']['id'])
+    , array('class'=>'btn btn-default btn-sm', 'escape' => false));?>
+
+  <?php echo $this->Html->link('<i class="icon-trash"></i> Delete'
+    , array('action'=>'delete', $event['Event']['id'])
+    , array('class'=>'btn btn-default btn-sm', 'escape' => false)
+    , 'Are you sure you want to delete this event?');?>
+
+  <?php echo $this->Html->link('<i class="icon-calendar"></i> Back to Calendar'
+    , array('controller'=>'calendars', 'action'=>'view', $event['Calendar']['id'])
+    , array('class'=>'btn btn-default btn-sm', 'escape' => false)); ?>
+
 </div>
 
-<?php echo $this->Html->link('Back to calendar',array('controller'=>'calendars','action'=>'view',$event['Calendar']['id'])); ?>
 <?php
 //var_dump($event);
 ?>
