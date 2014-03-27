@@ -14,6 +14,21 @@ class CalendarsController extends AppController {
 	function beforeRender() {
 	  parent::beforeRender();
 	}
+	
+	function form($id='') {
+	
+	  if(isset($this->data) && count($this->data)>0) {
+  	  $this->Calendar->save($this->data);
+  	  $this->redirect(array('action'=>'view',$this->Calendar->id));
+	  }
+	
+  	if($id!='') {
+    	$this->data = $this->Calendar->findById($id);
+  	}
+  	
+  	$this->set('sports', $this->Calendar->Sport->find('list'));
+  	
+	}
 
 	function view($id='') {
 	

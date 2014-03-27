@@ -4,7 +4,7 @@ $this->viewVars['title_for_layout'] = 'Calendar Details';
 <h1>Calendar Details</h1>
 <?php
 echo $this->Form->create('Calendar'); 
-  echo $this->Form->input('user_id', array('type'=>'hidden','value'=>1));
+  if(isset($this->data['Calendar']['id'])) echo $this->Form->input('id',array('type'=>'hidden'));
 ?>
 <fieldset>
   <legend>Details</legend>
@@ -13,7 +13,7 @@ echo $this->Form->create('Calendar');
   </div>
   <div class="row">
 		<?php echo $this->Form->input('description', array('label'=>'Description','div'=>'span6','class'=>'span6')); ?>
-	  <?php echo $this->Form->input('sport',array('div'=>'span6','class'=>'span6')); ?>
+	  <?php echo $this->Form->input('sport_id',array('options'=>$sports,'div'=>'span6','class'=>'span6')); ?>
   </div>
 </fieldset>
 <?php
