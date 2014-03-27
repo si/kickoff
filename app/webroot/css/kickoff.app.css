@@ -1,9 +1,28 @@
 /* line 3, ../sass/_components/_calendars.scss */
 .calendar td {
-  width: 14.28571%;
   height: 4rem;
+  position: relative;
+  width: 14.28571%;
 }
-/* line 7, ../sass/_components/_calendars.scss */
+/* line 8, ../sass/_components/_calendars.scss */
+.calendar td .date {
+  color: rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  font-size: 3.5rem;
+  font-weight: bold;
+  position: absolute;
+  top: 0.7rem;
+  left: 0;
+}
+/* line 18, ../sass/_components/_calendars.scss */
+.calendar td.today {
+  background: rgba(0, 0, 0, 0.05);
+}
+/* line 21, ../sass/_components/_calendars.scss */
+.calendar td.today .date {
+  color: #FFF;
+}
+/* line 27, ../sass/_components/_calendars.scss */
 .calendar td .event {
   font-size: 0.8rem;
   height: 1.5rem;

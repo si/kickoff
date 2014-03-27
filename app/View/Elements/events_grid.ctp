@@ -54,10 +54,15 @@ if(count($events)>0) {
         $i = $first_day;
       }
       
-      while($i <= $days_in_month+($first_day-1)) { ?>
-      <td>
+      while($i <= $days_in_month+($first_day-1)) { 
+        
+        $td_title = $d . " " . $first_month;
+        $td_class = (strtotime($d . " " . $first_month) == strtotime('today')) ? "today" : "";
+        
+      ?>
+      <td title="<?php echo $td_title; ?>" class="<?php echo $td_class; ?>">
       <?php 
-          echo '<span class="pull-left">'.$d.'</span>';
+          echo '<span class="date">'.$d.'</span>';
           
           if(isset($month_events[$d]) && count($month_events[$d])>0) {
             echo '<ol class="unstyled pull-right">';
