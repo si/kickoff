@@ -19,6 +19,7 @@
 on <?php echo $this->Time->nice($event['Event']['created']); ?></small>
 
 <div>
+<?php echo $this->Html->link('Download',array('action'=>'export',$event['Event']['id']),array('class'=>'btn btn-primary btn-sm'));?>
 <?php echo $this->Html->link('Edit',array('action'=>'form',$event['Event']['id']),array('class'=>'btn btn-default btn-sm'));?>
 <?php echo $this->Html->link('Delete',array('action'=>'delete',$event['Event']['id']),array('class'=>'btn btn-default btn-sm'),'Are you sure you want to delete this event?');?>
 </div>
