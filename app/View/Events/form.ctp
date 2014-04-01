@@ -56,7 +56,13 @@ echo $this->Form->create('Event');
 	} else {
 		$cancel_link = array('controller'=>'calendars','action'=>'index');
 	}
-  echo $this->Form->submit('Save',array('class'=>'btn btn-default btn-sm')); 
-  echo $this->Html->link('Cancel',$cancel_link,array('class'=>'btn btn-default btn-sm')); 
+	?>
+	<div class="btn-group btn-block">
+	<?php
+  echo $this->Form->submit('Save',array('class'=>'btn btn-primary btn-sm', 'div'=>null)); 
+  echo $this->Html->link('Cancel',$cancel_link,array('class'=>'btn btn-default btn-sm', 'div'=>null)); 
+  ?>
+	</div>
+<?php
 echo $this->Form->end(); 
 ?>
