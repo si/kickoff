@@ -49,6 +49,7 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="/calendars/">Calendars</a></li>
             <li><a href="/sports/">Sports</a></li>
+            <li><a href="/teams/">Teams</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Username}} <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -57,15 +58,13 @@
                 <li class="nav-header">Profile</li>
                 <li><a href="#">Account</a></li>
                 <li><a href="#">Password</a></li>
+                <li class="divider"></li>
+                <li class="nav-header">Admin</li>
+                <li><a href="/themes">Themes</a></li>
                 <li><a href="#">Log out</a></li>
               </ul>
             </li>
           </ul>
-          <form class="navbar-form pull-right" action="/users/login/">
-            <input class="span2" type="text" name="username" placeholder="Email">
-            <input class="span2" type="password" name="password" placeholder="Password">
-            <button type="submit" class="btn">Sign in</button>
-          </form>
         </div><!--/.nav-collapse -->
       </div>
     </div>
