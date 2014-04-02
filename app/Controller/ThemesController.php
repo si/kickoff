@@ -13,10 +13,13 @@ class ThemesController extends AppController {
 	}
 
 	function form($id='') {
-	
-		if ($this->request->is('post')) {
+
+		if (count($this->data)>0) {
+
 			// create
-			$this->Theme->create();
+			if(isset($this->data['Theme']['id']) && $this->data['Theme']['id']=='') {
+  			$this->Theme->create();
+  		}
 
 			// attempt to save
 			if ($this->Theme->save($this->request->data)) {

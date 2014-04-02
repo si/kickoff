@@ -10,14 +10,6 @@ echo $this->Form->create('Theme', array('type' => 'file'));
   <legend>Details</legend>
   <div class="row">
 		<?php 
-		echo $this->Form->input('name', 
-		  array(
-		    'label'=>'Name',
-		    'div'=>'span4',
-		    'class'=>'span4'
-		  )
-		); ?>
-		<?php 
 		echo $this->Form->input('image', 
 		  array(
 		    'type'=>'file',
@@ -32,6 +24,14 @@ echo $this->Form->create('Theme', array('type' => 'file'));
 		    'type'=>'color',
 		    'label'=>'Primary Colour (RGB)',
 		    'placeholder'=>'255,255,255',
+		    'div'=>'span4',
+		    'class'=>'span4'
+		  )
+		); ?>
+		<?php 
+		echo $this->Form->input('name', 
+		  array(
+		    'label'=>'Name',
 		    'div'=>'span4',
 		    'class'=>'span4'
 		  )
