@@ -9,6 +9,8 @@
 
   <!-- Le styles -->
   <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
   <link href="/css/kickoff.app.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css" />
   <style type="text/css">
