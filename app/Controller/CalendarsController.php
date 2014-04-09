@@ -27,6 +27,7 @@ class CalendarsController extends AppController {
   	}
   	
   	$this->set('sports', $this->Calendar->Sport->find('list'));
+  	$this->set('themes', $this->Calendar->Theme->find('list'));
   	
 	}
 
@@ -39,7 +40,7 @@ class CalendarsController extends AppController {
       'conditions' => array(
         'calendar_id' => $id,
       ),
-      'recursive' => 1
+      //'recursive' => 1
     );
 
     if(isset($this->params['named']['month'])) {
@@ -62,7 +63,7 @@ class CalendarsController extends AppController {
         'calendar_id' => $id,
         'start < NOW()',
       ),
-      'recursive' => 1
+      //'recursive' => 1
     ));
     $this->set('past_events',$past_events);
 	

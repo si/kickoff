@@ -6,6 +6,7 @@ class Calendar extends AppModel {
 
 	var $belongsTo = array(
 	  'Sport',
+	  'Theme',
 //	  'User',
 	);
 	var $hasMany = array(

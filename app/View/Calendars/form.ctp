@@ -12,8 +12,9 @@ echo $this->Form->create('Calendar');
 		<?php echo $this->Form->input('name', array('label'=>'Name','div'=>'span12','class'=>'span12')); ?>
   </div>
   <div class="row">
-		<?php echo $this->Form->input('description', array('label'=>'Description','div'=>'span6','class'=>'span6')); ?>
-	  <?php echo $this->Form->input('sport_id',array('options'=>$sports,'div'=>'span6','class'=>'span6')); ?>
+		<?php echo $this->Form->input('description', array('label'=>'Description','div'=>'span4','class'=>'span4')); ?>
+	  <?php echo $this->Form->input('sport_id',array('options'=>$sports,'div'=>'span4','class'=>'span4')); ?>
+	  <?php echo $this->Form->input('theme_id',array('options'=>$themes,'empty'=>'-','div'=>'span4','class'=>'span4')); ?>
   </div>
 </fieldset>
 <?php
