@@ -58,9 +58,10 @@ if(count($events)>0) {
         
         $td_title = $d . " " . $first_month;
         $td_class = (strtotime($d . " " . $first_month) == strtotime('today')) ? "today" : "";
+        $td_day = date('D', strtotime($td_title));
         
       ?>
-      <td title="<?php echo $td_title; ?>" class="<?php echo $td_class; ?>">
+      <td title="<?php echo $td_title; ?>" class="<?php echo $td_class; ?>" data-day="<?php echo $td_day; ?>">
       <?php 
           echo '<span class="date">'.$d.'</span>';
           

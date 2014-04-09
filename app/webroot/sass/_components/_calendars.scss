@@ -1,3 +1,5 @@
+$break-small: 700px;
+
 .calendar {
 
   & td {
@@ -14,7 +16,6 @@
       text-align: center;
       top: 50%;
       left: 50%;
-      z-index: 10;
     }
 
     &.today {
@@ -27,7 +28,6 @@
     }
     
     .event {
-      z-index: 20;
       
       a {
         background: rgba(255,40,40,0.5);
@@ -38,8 +38,66 @@
         padding: 0.5em;
         margin: 0 0 0.2em;
         text-align: center;
+        
+        &:hover, &:focus {
+          background: rgba(255,40,40,0.7);
+        }
       }
     }
   }
 
+  @media screen and (max-width: $break-small) {
+    
+    table, 
+    thead, 
+    tbody, 
+    th, 
+  	td, 
+  	tr { 
+  		display: block; 
+  	}    
+
+  	/* Hide table headers (but not display: none;, for accessibility) */
+  	thead tr { 
+  		position: absolute;
+  		top: -9999px;
+  		left: -9999px;
+  	}  
+
+    td { 
+  		/* Behave  like a "row" */
+  		border: none;
+  		border-bottom: 1px solid #eee; 
+      height: auto;
+      overflow: hidden;
+  		padding-left: 0; 
+  		text-align:left;
+  		white-space: normal;
+      width: 100%;
+
+      .date {
+        text-align: left;
+        top: 2.5rem;
+        left: 0;
+        width: 1em;
+      }
+      
+      &:before { 
+        content: attr(data-day);
+        color: rgba(0,0,0,0.05);
+        letter-spacing: 0.2rem;
+        margin: 0 0 0 1rem;
+        text-transform: uppercase;
+      }
+      
+      .event {
+        margin: 0 0 0 6em;
+      }
+
+    }
+
+  
+  }
+
 }
+
