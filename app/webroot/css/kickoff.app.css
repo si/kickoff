@@ -1,3 +1,18 @@
+/* line 1, ../sass/_components/_themes.scss */
+.cover {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) no-repeat 50% 50%;
+  background-size: cover;
+  color: #FFF;
+  padding: 1em;
+  text-align: center;
+}
+/* line 8, ../sass/_components/_themes.scss */
+.cover h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 2em 0;
+  text-transform: uppercase;
+}
+
 /* line 3, ../sass/_components/_calendars.scss */
 .calendar td {
   height: 4rem;
@@ -11,20 +26,31 @@
   font-size: 3.5rem;
   font-weight: bold;
   position: absolute;
-  top: 0.7rem;
-  left: 0;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
 }
-/* line 18, ../sass/_components/_calendars.scss */
+/* line 20, ../sass/_components/_calendars.scss */
 .calendar td.today {
   background: rgba(0, 0, 0, 0.05);
 }
-/* line 21, ../sass/_components/_calendars.scss */
+/* line 23, ../sass/_components/_calendars.scss */
 .calendar td.today .date {
   color: #FFF;
 }
-/* line 27, ../sass/_components/_calendars.scss */
+/* line 29, ../sass/_components/_calendars.scss */
 .calendar td .event {
+  z-index: 20;
+}
+/* line 32, ../sass/_components/_calendars.scss */
+.calendar td .event a {
+  background: rgba(255, 40, 40, 0.5);
+  color: #FFF;
+  display: block;
   font-size: 0.8rem;
-  height: 1.5rem;
   overflow: hidden;
+  padding: 0.5em;
+  margin: 0 0 0.2em;
+  text-align: center;
 }

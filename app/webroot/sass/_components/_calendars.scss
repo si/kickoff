@@ -11,8 +11,10 @@
       font-size: 3.5rem;
       font-weight: bold;
       position: absolute;
-      top: 0.7rem;
-      left: 0;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      z-index: 10;
     }
 
     &.today {
@@ -25,9 +27,18 @@
     }
     
     .event {
-      font-size: 0.8rem;
-      height: 1.5rem;
-      overflow: hidden;
+      z-index: 20;
+      
+      a {
+        background: rgba(255,40,40,0.5);
+        color: #FFF;
+        display: block;
+        font-size: 0.8rem;
+        overflow: hidden;
+        padding: 0.5em;
+        margin: 0 0 0.2em;
+        text-align: center;
+      }
     }
   }
 
