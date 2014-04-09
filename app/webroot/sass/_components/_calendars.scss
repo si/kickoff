@@ -38,6 +38,7 @@ $break-small: 700px;
         padding: 0.5em;
         margin: 0 0 0.2em;
         text-align: center;
+        transition: 0.3s all ease;
         
         &:hover, &:focus {
           background: rgba(255,40,40,0.7);
@@ -69,6 +70,7 @@ $break-small: 700px;
   		border: none;
   		border-bottom: 1px solid #eee; 
       height: auto;
+      min-height: 4.5rem;
       overflow: hidden;
   		padding-left: 0; 
   		text-align:left;
@@ -86,7 +88,7 @@ $break-small: 700px;
         content: attr(data-day);
         color: rgba(0,0,0,0.05);
         letter-spacing: 0.2rem;
-        margin: 0 0 0 1rem;
+        //margin: 0 0 0 1rem;
         text-transform: uppercase;
       }
       
