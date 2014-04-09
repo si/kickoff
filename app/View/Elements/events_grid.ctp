@@ -65,10 +65,11 @@ if(count($events)>0) {
           echo '<span class="date">'.$d.'</span>';
           
           if(isset($month_events[$d]) && count($month_events[$d])>0) {
-            echo '<ol class="unstyled pull-right">';
+            echo '<ol class="unstyled">';
             foreach($month_events[$d] as $event) {
               echo '<li class="event">' . $this->Html->link(
-                $this->Time->format('H:i',$event['Event']['start']) . ' ' . $event['Event']['summary']
+                //$this->Time->format('H:i',$event['Event']['start']) . ' ' .
+                $event['Event']['summary']
                 , array('controller'=>'events','action'=>'view',$event['Event']['id'])
               )
               . '</li>';
