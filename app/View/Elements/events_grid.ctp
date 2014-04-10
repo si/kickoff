@@ -72,8 +72,16 @@ if(count($events)>0) {
               . $this->Html->link(
                 $event['Event']['summary']
                 , array('controller'=>'events','action'=>'view',$event['Event']['id'])
-                , array('title'=>$this->Time->format('d-m-Y H:i',$event['Event']['start']))
-              )
+                , array(
+                  'title'=>$this->Time->format('d-m-Y H:i',$event['Event']['start']),
+                  'escape' => false,
+                  )
+                )
+              . $this->Html->link(
+                'Download'
+                , array('controller'=>'events','action'=>'export',$event['Event']['id'])
+                , array('title'=>'Add to your calendar', 'class'=>'download')
+                )
               . '</li>';
             }
             echo '</ol>';

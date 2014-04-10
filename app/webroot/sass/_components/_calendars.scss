@@ -28,9 +28,12 @@ $break-small: 700px;
     }
     
     .event {
-      
+
+      background: rgba(255,40,40,0.5);
+      position: relative;
+      transition: 0.3s all ease;
+    
       a {
-        background: rgba(255,40,40,0.5);
         color: #FFF;
         display: block;
         font-size: 0.8rem;
@@ -40,11 +43,32 @@ $break-small: 700px;
         text-align: center;
         transition: 0.3s all ease;
         
-        &:hover, &:focus {
-          background: rgba(255,40,40,0.7);
+        &:before {
+          content: attr(data-time);
         }
+        
       }
+
+      .download {
+        display: none;
+        background: rgba(0,0,0,0.8);
+        position: absolute;
+        bottom: -2.6em;
+        left: 0;
+        z-index: 20;
+      }
+      
+      &:hover, &:focus {
+        background: rgba(255,40,40,0.7);
+
+        .download {
+          display: inline-block;
+        }      
+
+      }
+
     }
+    
   }
 
   @media screen and (max-width: $break-small) {
@@ -94,6 +118,23 @@ $break-small: 700px;
       
       .event {
         margin: 0 0 0 6em;
+
+        .download {
+          top: 0em;
+          bottom: -0.2em;
+          left: auto;
+          right: 0;
+          z-index: 20;
+        }
+        
+        &:hover, &:focus {
+          background: rgba(255,40,40,0.7);
+  
+          .download {
+            display: inline-block;
+          }      
+  
+        }
       }
 
     }
