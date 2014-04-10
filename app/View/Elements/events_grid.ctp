@@ -82,6 +82,11 @@ if(count($events)>0) {
                 , array('controller'=>'events','action'=>'export',$event['Event']['id'])
                 , array('title'=>'Add to your calendar', 'class'=>'download')
                 )
+              . $this->Html->link(
+                'Share'
+                , array('controller'=>'events','action'=>'share',$event['Event']['id'])
+                , array('title'=>'Share with friends', 'class'=>'share')
+                )
               . '</li>';
             }
             echo '</ol>';
