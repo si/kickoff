@@ -43,8 +43,8 @@ $break-small: 700px;
         text-align: center;
         transition: 0.3s all ease;
         
-        &:before {
-          content: attr(data-time);
+        .time, .location {
+          display: none;
         }
         
       }
@@ -67,7 +67,23 @@ $break-small: 700px;
       }
       
       &:hover, &:focus {
+      
         background: rgba(255,40,40,0.7);
+        
+        a {
+          text-decoration: none;
+          .time {
+            display: block;
+            font-size: 0.8em;
+            font-weight: bold;
+          }
+          .location {
+            display: block;
+            font-size: 0.8em;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+          }
+        }
 
         .download, .share {
           display: inline-block;

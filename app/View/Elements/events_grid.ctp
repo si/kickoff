@@ -70,7 +70,9 @@ if(count($events)>0) {
             foreach($month_events[$d] as $event) {
               echo '<li class="event" data-time="' . $this->Time->format('H:i',$event['Event']['start']) .'">' 
               . $this->Html->link(
-                $event['Event']['summary']
+                $this->Html->tag('span', $this->Time->format('H:i',$event['Event']['start']) . ' UTC', array('class'=>'time'))
+                . $event['Event']['summary']
+                . $this->Html->tag('span', $event['Event']['location'], array('class'=>'location'))
                 , array('controller'=>'events','action'=>'view',$event['Event']['id'])
                 , array(
                   'title'=>$this->Time->format('d-m-Y H:i',$event['Event']['start']),
@@ -78,14 +80,14 @@ if(count($events)>0) {
                   )
                 )
               . $this->Html->link(
-                'Download'
+                'Download' // '<i class="icon-download icon-white"></i>'
                 , array('controller'=>'events','action'=>'export',$event['Event']['id'])
-                , array('title'=>'Add to your calendar', 'class'=>'download')
+                , array('title'=>'Add to your calendar', 'class'=>'download', 'escape'=>false)
                 )
               . $this->Html->link(
-                'Share'
+                'Share'   //  '<i class="icon-share icon-white"></i>'
                 , array('controller'=>'events','action'=>'share',$event['Event']['id'])
-                , array('title'=>'Share with friends', 'class'=>'share')
+                , array('title'=>'Share with friends', 'class'=>'share', 'escape'=>false)
                 )
               . '</li>';
             }
