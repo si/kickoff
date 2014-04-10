@@ -133,6 +133,10 @@ $break-small: 700px;
   		text-align:left;
   		white-space: normal;
       width: 100%;
+      
+      &.empty {
+        display: none;
+      }
 
       .date {
         text-align: left;

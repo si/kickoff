@@ -58,6 +58,7 @@ if(count($events)>0) {
         
         $td_title = $d . " " . $first_month;
         $td_class = (strtotime($d . " " . $first_month) == strtotime('today')) ? "today" : "";
+        $td_class .= (!isset($month_events[$d])) ? ' empty' : '';
         $td_day = date('D', strtotime($td_title));
         
       ?>
