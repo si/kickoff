@@ -51,19 +51,28 @@ $break-small: 700px;
 
       .download {
         display: none;
-        background: rgba(0,0,0,0.8);
+        background: rgba(0,40,210,0.6);
         position: absolute;
         bottom: -2.6em;
         left: 0;
         z-index: 20;
+
+        &:hover, &:focus {
+          background: rgba(0,40,210,1);
+        }
       }
+      
       .share {
         display: none;
-        background: rgba(0,0,0,0.7);
+        background: rgba(0,210,40,0.6);
         position: absolute;
         bottom: -2.6em;
         right: 0;
         z-index: 20;
+
+        &:hover, &:focus {
+          background: rgba(0,210,40,1);
+        }
       }
       
       &:hover, &:focus {
@@ -153,10 +162,40 @@ $break-small: 700px;
         
         &:hover, &:focus {
           background: rgba(255,40,40,0.7);
+          
+          a {
+            color: rgba(255,255,255,0.25);
+    
+            .time {
+              display: inline-block;
+              color: rgba(255,255,255,1);
+              position: absolute;
+              top: 0.1rem;
+              left: 1rem;
+            }
+            .location {
+              display: inline-block;
+              color: rgba(255,255,255,1);
+              position: absolute;
+              top: 0.7rem;
+              left: 1rem;
+            }
+          }
   
-          .download {
+          .download, .share {
             display: inline-block;
-          }      
+            position: absolute;
+            text-indent: -9999em;
+            top: 0;
+            width: 1.24rem;
+            height: 1.24rem;
+          }
+          .download {
+            right: 2rem;
+          }
+          .share {
+            right: 0;
+          }
   
         }
       }
