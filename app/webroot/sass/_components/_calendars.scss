@@ -51,27 +51,29 @@ $break-small: 700px;
 
       .download {
         display: none;
-        background: rgba(0,40,210,0.6);
+        background: rgba(4,125,255,0.9);
         position: absolute;
-        bottom: -2.6em;
+        bottom: -2.7em;
         left: 0;
+        right: 50%;
         z-index: 20;
 
         &:hover, &:focus {
-          background: rgba(0,40,210,1);
+          background: rgba(4,125,255,1);
         }
       }
       
       .share {
         display: none;
-        background: rgba(0,210,40,0.6);
+        background: rgba(134,207,117,0.9);
         position: absolute;
-        bottom: -2.6em;
+        bottom: -2.7em;
+        left: 50%;
         right: 0;
         z-index: 20;
 
         &:hover, &:focus {
-          background: rgba(0,210,40,1);
+          background: rgba(134,207,117,1);
         }
       }
       
