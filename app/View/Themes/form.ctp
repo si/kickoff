@@ -37,6 +37,9 @@ echo $this->Form->create('Theme', array('type' => 'file'));
 		  )
 		); ?>
   </div>
+  <div class="row">
+    <?php echo $this->Form->input('Team.theme_id', array('options'=>$teams, 'empty'=>'-', 'multiple' => 'checkbox')); ?>
+  </div>
 </fieldset>
 <?php
 	if(isset($this->data['Theme']['id'])) {

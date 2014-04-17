@@ -2,6 +2,13 @@
 class Theme extends AppModel {
 	public $name = 'Theme';
 	
+	public $hasMany = array(
+	  'Team' => array(
+	    'foreignKey' => 'theme_id',
+	    'order' => 'Team.name ASC',
+	  ),
+  );
+	
 	public $validate = array(
 		'image' => array(
 			// http://book.cakephp.org/2.0/en/models/data-validation.html#Validation::uploadError
