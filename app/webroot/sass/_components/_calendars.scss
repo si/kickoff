@@ -1,5 +1,9 @@
 $break-small: 700px;
 
+$color-event: rgb(0,0,0);
+$color-download: rgb(255,255,255);
+$color-share: rgb(255,255,255);
+
 .calendar {
 
   & td {
@@ -29,7 +33,7 @@ $break-small: 700px;
     
     .event {
 
-      background: rgba(255,40,40,0.5);
+      background: rgba($color-event,0.8);
       position: relative;
       transition: 0.3s all ease;
     
@@ -50,8 +54,9 @@ $break-small: 700px;
       }
 
       .download {
+        color: #000;
         display: none;
-        background: rgba(4,125,255,0.9);
+        background: rgba($color-download,0.8);
         position: absolute;
         bottom: -2.7em;
         left: 0;
@@ -59,13 +64,14 @@ $break-small: 700px;
         z-index: 20;
 
         &:hover, &:focus {
-          background: rgba(4,125,255,1);
+          background: rgba($color-download,1);
         }
       }
       
       .share {
+        color: #000;
         display: none;
-        background: rgba(134,207,117,0.9);
+        background: rgba($color-share,0.8);
         position: absolute;
         bottom: -2.7em;
         left: 50%;
@@ -73,13 +79,13 @@ $break-small: 700px;
         z-index: 20;
 
         &:hover, &:focus {
-          background: rgba(134,207,117,1);
+          background: rgba($color-share,1);
         }
       }
       
       &:hover, &:focus {
       
-        background: rgba(255,40,40,0.7);
+        background: rgba($color-event,0.9);
         
         a {
           text-decoration: none;
