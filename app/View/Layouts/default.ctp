@@ -13,12 +13,6 @@
 
   <link href="/css/kickoff.app.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css" />
-  <style type="text/css">
-    body {
-      padding-top: 60px;
-      padding-bottom: 40px;
-    }
-  </style>
   <link href="/css/bootstrap-responsive.css" rel="stylesheet">
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -35,7 +29,7 @@
 
 </head>
 
-<body>
+<body class="<?php echo $this->params['controller'] . ' ' . $this->params['action']; ?>">
 
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
