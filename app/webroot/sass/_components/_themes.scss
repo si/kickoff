@@ -1,14 +1,28 @@
-.cover {
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)) no-repeat 50% 50%; 
-  background-size: cover;
+.calendars.view .container {
+  margin: 0;
+  width: auto;
+}
+
+
+.theme {
+  background-size: contain;
   color: #FFF;
   padding: 1em;
   text-align: center;
+  width: 100%;
+  margin: 0;
   
   h1 {
     font-family: 'Source Sans Pro', sans-serif;
-    margin: 2em 0;
+    font-size: 3em;
+    margin: 15rem 0 0;
     text-transform: uppercase;
+  }
+  .lead {
+    font-family: Georgia;
+    font-style: italic;
+    font-size: 1em;
+    margin: 0 0 15rem;
   }
 }
 
