@@ -141,8 +141,9 @@ $break-small: 700px;
       }
 
       .date {
+        font-size: 2.5em;
         text-align: left;
-        top: 2.5rem;
+        top: 1.75rem;
         left: 0;
         width: 1em;
       }
@@ -150,22 +151,24 @@ $break-small: 700px;
       &:before { 
         content: attr(data-day);
         color: rgba(0,0,0,0.05);
+        display: inline-block;
         letter-spacing: 0.2rem;
         //margin: 0 0 0 1rem;
+        text-indent: 0.25em;
         text-transform: uppercase;
       }
       
+      ol {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        left: 3.7em;
+      }
+      
       .event {
-        margin: 0 0 0 6em;
+        display: block;
+        text-align: center;
 
-        .download {
-          top: 0em;
-          bottom: -0.2em;
-          left: auto;
-          right: 0;
-          z-index: 20;
-        }
-        
         &:hover, &:focus {
           background: rgba(255,40,40,0.7);
           
@@ -187,20 +190,36 @@ $break-small: 700px;
               left: 1rem;
             }
           }
-  
+    
           .download, .share {
             display: inline-block;
-            position: absolute;
-            text-indent: -9999em;
-            top: 0;
-            width: 1.24rem;
+            color: rgba(255,255,255,0.9);
             height: 1.24rem;
+            position: absolute;
+            top: 0;
+            transition: 0.3s all ease;
+            width: 10%;
+            z-index: 20;
+            
+            &:hover {
+/*               width: auto; */
+            }
           }
           .download {
-            right: 2rem;
+            left: 80%;
+            right: 90%;
+            
+            &:hover {
+              left: 50%;
+            }
           }
           .share {
+            left: 90%;
             right: 0;
+
+            &:hover {
+              left: 60%;
+            }
           }
   
         }

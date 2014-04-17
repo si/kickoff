@@ -11,3 +11,34 @@
     text-transform: uppercase;
   }
 }
+
+.tiled {
+  overflow: hidden;
+  
+  li {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    
+    h2 {
+      position: absolute;
+      top:0;
+      left: 0;
+      z-index: 20;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+    var {
+      display: block;
+      font-family: monospace;
+      font-style: normal;
+      z-index: 20;
+    }
+  }
+}
