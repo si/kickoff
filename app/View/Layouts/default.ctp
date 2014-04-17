@@ -31,41 +31,8 @@
 
 <body class="<?php echo $this->params['controller'] . ' ' . $this->params['action']; ?>">
 
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="brand" href="/">KickOff Calendars</a>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="/calendars/">Calendars</a></li>
-            <li><a href="/sports/">Sports</a></li>
-            <li><a href="/teams/">Teams</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Username}} <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">My Calendars</a></li>
-                <li class="divider"></li>
-                <li class="nav-header">Profile</li>
-                <li><a href="#">Account</a></li>
-                <li><a href="#">Password</a></li>
-                <li class="divider"></li>
-                <li class="nav-header">Admin</li>
-                <li><a href="/themes">Themes</a></li>
-                <li><a href="#">Log out</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-  </div>
-
+  <?php echo $this->element('navigation'); ?>
+  
   <div class="container">
 
     <?php echo $content_for_layout; ?>
