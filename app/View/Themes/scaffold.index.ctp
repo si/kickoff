@@ -1,29 +1,35 @@
 <h1>Themes</h1>
 
+<?php echo $this->Html->link('New theme', array('action'=>'form'), array('class'=>'btn btn-primary')); ?>
+
 <?php if(isset($themes) && count($themes)>0) : ?>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th>Primary Colour</th>
-      <th>Created</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<ul class="unstyled tiled">
     <?php foreach($themes as $theme) : ?>
-    <tr>
-      <td><?php echo $this->Html->link($theme['Theme']['name'], array('action'=>'view', $theme['Theme']['id'])); ?></td>
-      <td><?php echo $this->Html->image('/'.$theme['Theme']['image']); ?></td>
-      <td><?php echo $this->Html->tag('var',$theme['Theme']['primary_colour']); ?></td>
-      <td><?php echo $this->Time->niceShort($theme['Theme']['created']); ?></td>
-      <td><?php echo $this->Html->link('Edit', array('action'=>'form', $theme['Theme']['id'])); ?></td>
-    </tr>
-    
+    <li class="thumb" 
+      <?php 
+      if($theme['Theme']['primary_colour']!='') {
+        echo 'style="background-color: ' 
+          . ((strpos($theme['Theme']['primary_colour'],',')) ? 
+            'rgba('.$theme['Theme']['primary_colour'].',0.8)' 
+            : $theme['Theme']['primary_colour']) . ';"'; 
+      } else {
+        echo 'style="background-color: rgba(0,0,0,0.3);"';
+      }
+      ?>>
+      <?php 
+        echo $this->Html->link(
+          $this->Html->tag('h2',$theme['Theme']['name'])
+          . (($theme['Theme']['image']!='') ? $this->Html->image('/'.$theme['Theme']['image']) : '') 
+          . $this->Html->tag('var',$theme['Theme']['primary_colour']), 
+          array('action'=>'view', $theme['Theme']['id']),
+          array(
+            'escape' => false,
+            'style' => 'color:#FFF',
+          )
+        ); ?>
+    </li>
     <?php endforeach; ?>
-  </tbody>
-</table>
+</ul>
 <?php endif; ?>
 
 <?php echo $this->Html->link('New theme', array('action'=>'form'), array('class'=>'btn btn-primary')); ?>
