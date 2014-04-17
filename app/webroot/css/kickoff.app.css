@@ -1,36 +1,51 @@
 /* line 1, ../sass/_components/_themes.scss */
-.cover {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) no-repeat 50% 50%;
-  background-size: cover;
+.calendars.view .container {
+  margin: 0;
+  width: auto;
+}
+
+/* line 7, ../sass/_components/_themes.scss */
+.theme {
+  background-size: contain;
   color: #FFF;
   padding: 1em;
   text-align: center;
+  width: 100%;
+  margin: 0;
 }
-/* line 8, ../sass/_components/_themes.scss */
-.cover h1 {
+/* line 15, ../sass/_components/_themes.scss */
+.theme h1 {
   font-family: 'Source Sans Pro', sans-serif;
-  margin: 2em 0;
+  font-size: 3em;
+  margin: 15rem 0 0;
   text-transform: uppercase;
 }
+/* line 21, ../sass/_components/_themes.scss */
+.theme .lead {
+  font-family: Georgia;
+  font-style: italic;
+  font-size: 1em;
+  margin: 0 0 15rem;
+}
 
-/* line 15, ../sass/_components/_themes.scss */
+/* line 29, ../sass/_components/_themes.scss */
 .tiled {
   overflow: hidden;
 }
-/* line 18, ../sass/_components/_themes.scss */
+/* line 32, ../sass/_components/_themes.scss */
 .tiled li {
   display: inline-block;
   position: relative;
   overflow: hidden;
 }
-/* line 23, ../sass/_components/_themes.scss */
+/* line 37, ../sass/_components/_themes.scss */
 .tiled li h2 {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 20;
 }
-/* line 29, ../sass/_components/_themes.scss */
+/* line 43, ../sass/_components/_themes.scss */
 .tiled li img {
   width: 200px;
   height: 200px;
@@ -39,7 +54,7 @@
   left: 0;
   z-index: 10;
 }
-/* line 37, ../sass/_components/_themes.scss */
+/* line 51, ../sass/_components/_themes.scss */
 .tiled li var {
   display: block;
   font-family: monospace;
@@ -170,7 +185,7 @@
   .calendar td {
     /* Behave  like a "row" */
     border: none;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     height: auto;
     min-height: 4.5rem;
     overflow: hidden;
@@ -269,4 +284,9 @@
   .calendar td .event:hover .share:hover, .calendar td .event:focus .share:hover {
     left: 60%;
   }
+}
+
+/* line 7, ../sass/kickoff.app.scss */
+body {
+  padding: 40px 0;
 }
