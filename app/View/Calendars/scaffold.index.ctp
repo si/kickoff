@@ -23,7 +23,13 @@
           <?php echo $this->Html->link($calendar['User']['username'],array('controller'=>'users','action'=>'view',$calendar['User']['id'])); ?>
         <?php endif; ?>
       </td>
-      <td><?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true, 'class'=>'btn')); ?></td>
+      <td>
+        <?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true, 'class'=>'btn')); ?>
+        <?php echo $this->Form->postLink( 'Delete',
+            array('action' => 'delete', $calendar['Calendar']['id']),
+            array('confirm' => 'Are you sure?', 'class'=>'btn') );
+        ?>
+      </td>
     </tr>
   <?php endforeach; ?>
   </tbody>
