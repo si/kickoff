@@ -18,4 +18,9 @@ if(isset($theme['Theme']['primary_colour']) && $theme['Theme']['primary_colour']
 <p><small>Created <?php echo $this->Time->niceShort($theme['Theme']['created']); ?></small></p> 
 
 <?php echo $this->Html->link('Edit', array('action'=>'form', $theme['Theme']['id']), array('class'=>'btn')); ?>
+<?php echo $this->Form->postLink( 'Delete',
+    array('action' => 'delete', $theme['Theme']['id']),
+    array('confirm' => 'Are you sure?', 'class'=>'btn') );
+?>
+
 <?php echo $this->Html->link('Back to themes', array('action'=>'index')); ?>
