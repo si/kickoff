@@ -1,6 +1,10 @@
+
 <h1>Sports</h1>
 
-<ul>
+
+<?php echo $this->Html->link('New sport', array('action'=>'add'), array('class'=>'btn')); ?>
+
+<ul class="tiled">
   <?php foreach($sports as $sport) : ?>
   <li class="<?php echo $sport['Sport']['slug']; ?>">
     <?php 

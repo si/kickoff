@@ -20,6 +20,10 @@ if(isset($sport['Calendar'])) :
 
 <div class="btn-group">
   <?php echo $this->Html->link('Edit sport', array('action'=>'edit', $sport['Sport']['id']), array('class'=>'btn')); ?>
+  <?php echo $this->Form->postLink( 'Delete sport',
+      array('action' => 'delete', $sport['Sport']['id']),
+      array('confirm' => 'Are you sure?', 'class'=>'btn') );
+  ?>
   <?php echo $this->Html->link('Create calendar', array('controller'=>'calendars','action'=>'form'), array('class'=>'btn')); ?>
   <?php echo $this->Html->link('Back to sports', array('action'=>'index'), array('class'=>'btn')); ?>
 </div>
