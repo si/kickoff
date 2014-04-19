@@ -28,10 +28,10 @@ on <?php echo $this->Time->nice($event['Event']['created']); ?></small>
     , array('action'=>'form', $event['Event']['id'])
     , array('class'=>'btn btn-default btn-sm', 'escape' => false));?>
 
-  <?php echo $this->Html->link('<i class="icon-trash"></i> Delete'
-    , array('action'=>'delete', $event['Event']['id'])
-    , array('class'=>'btn btn-default btn-sm', 'escape' => false)
-    , 'Are you sure you want to delete this event?');?>
+  <?php echo $this->Form->postLink( '<i class="icon-trash"></i> Delete',
+      array('action' => 'delete', $event['Event']['id']),
+      array('confirm' => 'Are you sure?', 'class'=>'btn btn-sm', 'escape' => false) );
+  ?>
 
   <?php echo $this->Html->link('<i class="icon-calendar"></i> Back to Calendar'
     , array('controller'=>'calendars', 'action'=>'view', $event['Calendar']['id'])
