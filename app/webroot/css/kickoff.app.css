@@ -1,3 +1,16 @@
+/* line 4, ../sass/_components/_buttons.scss */
+.btn {
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: none;
+}
+/* line 10, ../sass/_components/_buttons.scss */
+.btn:hover {
+  background: black;
+  color: white;
+}
+
 /* line 1, ../sass/_components/_themes.scss */
 .calendars.view .container {
   margin: 0;
@@ -288,7 +301,7 @@
   }
 }
 
-/* line 7, ../sass/kickoff.app.scss */
+/* line 8, ../sass/kickoff.app.scss */
 body {
   padding: 40px 0;
 }
