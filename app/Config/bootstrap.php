@@ -68,3 +68,11 @@ Cache::config('default', array('engine' => 'File'));
    $arr = explode('/',str_replace(array(' ',':'), '/', $str));
    return date('Y-m-d H:i:s',strtotime($arr[2] . '-' . $arr[1] . '-' . $arr[0] . ' ' . $arr[3] . ':' . $arr[4] . $arr[5]));
  }
+
+CakePlugin::load('Opauth', array('routes' => true, 'bootstrap' => true));
+
+// Using Facebook strategy as an example
+Configure::write('Opauth.Strategy.Facebook', array(
+   'app_id' => '1498133113743918',
+   'app_secret' => 'fe091fe92acfebe16fad2f7c6337ea7a'
+));
