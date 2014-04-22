@@ -1,11 +1,11 @@
 <?php
 class CalendarsController extends AppController {
 
-  var $name = 'Calendars';
-  var $helpers = array('Time','Form');
-  var $components = array('RequestHandler');
+  public $name = 'Calendars';
+  public $helpers = array('Time','Form');
+  public $components = array('RequestHandler');
   
-  var $scaffold;
+  public $scaffold;
   
 	function beforeFilter() {
 		parent::beforeFilter();
@@ -34,7 +34,7 @@ class CalendarsController extends AppController {
 	function view($id='') {
 	
     $calendar = $this->Calendar->findById($id);
-    $this->set('calendar',$calendar);
+    $this->set('calendar', $calendar);
 	
     $future_params = array(
       'conditions' => array(
@@ -53,19 +53,47 @@ class CalendarsController extends AppController {
       $future_params['conditions'][] = "start >= '" . date('Y-m-d H:i:s',$start) . "'";
       //$end = strtotime('first day of next month');
     } 
-    $this->set('future_params', $future_params);
-    $future_events = $this->Calendar->Event->find('all',$future_params);
     $this->set(compact('start','end'));
-    $this->set('future_events',$future_events);
+    $this->set('future_params', $future_params);
 
-    $past_events = $this->Calendar->Event->find('all',array(
-      'conditions' => array(
-        'calendar_id' => $id,
-        'start < NOW()',
-      ),
-      //'recursive' => 1
-    ));
-    $this->set('past_events',$past_events);
+    $events = $this->Calendar->Event->find('all',$future_params);
+    $this->set('events', $events);
+
+    $export_data = array();
+    $export_data['calendar'] = array(
+      'id' => $events[0]['Calendar']['id'],
+      'name' => $events[0]['Calendar']['name'],
+      'description' => $events[0]['Calendar']['description'],
+      'theme_id' => $events[0]['Calendar']['theme_id'],
+      'created' => $events[0]['Calendar']['created'],
+    );
+    foreach($events as $event) {
+      $export_data['events'][] = array(
+        'event_id' => $event['Event']['id'],
+        'start' => $event['Event']['start'],
+        'end' => $event['Event']['end'],
+        'summary' => utf8_encode($event['Event']['summary']),
+        'home_team' => array(
+          'id' => $event['HomeTeam']['id'],
+          'name' => utf8_encode($event['HomeTeam']['name']),
+          'theme_id' => $event['HomeTeam']['theme_id']
+        ),
+        'away_team' => array(
+          'id' => $event['AwayTeam']['id'],
+          'name' => utf8_encode($event['AwayTeam']['name']),
+          'theme_id' => $event['AwayTeam']['theme_id']
+        ),
+        'group' => $event['Event']['group'],
+        'description' => utf8_encode($event['Event']['description']),
+        'all_day' => $event['Event']['all_day'],
+        'location' => utf8_encode($event['Event']['location']),
+        'created' => $event['Event']['created'],
+        'updated' => $event['Event']['updated'],
+      );
+    }
+
+    $this->set('export_data', $export_data);
+
 	
 	}
 
