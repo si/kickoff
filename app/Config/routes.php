@@ -36,8 +36,8 @@
  * how to customize the loading of plugin routes.
  */
  
-	Router::parseExtensions('csv','ics');
-	
+	Router::parseExtensions('ics','json');	
+
 	CakePlugin::routes();
 
 /**
