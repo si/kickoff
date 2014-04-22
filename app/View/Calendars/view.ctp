@@ -50,7 +50,7 @@
   
   <pre class="hidden"><?php var_dump($future_params); ?></pre>
   <?php
-    echo $this->element('events_grid',array('events'=>$future_events,'context'=>'upcoming')); 
+    echo $this->element('events_grid',array('events'=>$events,'context'=>'upcoming')); 
   ?>
   
   
