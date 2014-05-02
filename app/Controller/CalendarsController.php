@@ -66,6 +66,8 @@ class CalendarsController extends AppController {
       'description' => $events[0]['Calendar']['description'],
       'theme_id' => $events[0]['Calendar']['theme_id'],
       'created' => $events[0]['Calendar']['created'],
+      'url' => 'http://' . $_SERVER['SERVER_NAME'] . '/calendars/view/' . $id,
+      'ics_url' => 'http://' . $_SERVER['SERVER_NAME'] . '/calendars/export/' . $id,
     );
     foreach($events as $event) {
       $export_data['events'][] = array(
@@ -89,6 +91,8 @@ class CalendarsController extends AppController {
         'location' => utf8_encode($event['Event']['location']),
         'created' => $event['Event']['created'],
         'updated' => $event['Event']['updated'],
+        'url' => 'http://' . $_SERVER['SERVER_NAME'] . '/events/view/' . $event['Event']['id'],
+        'ics_url' => 'http://' . $_SERVER['SERVER_NAME'] . '/events/export/' . $event['Event']['id'],
       );
     }
 
