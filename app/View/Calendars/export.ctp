@@ -23,9 +23,10 @@ BEGIN:VEVENT
 UID:". md5($data[0]['Calendar']['name'] . $event['id']) . "
 SUMMARY:".  $event['summary'] . "
 LOCATION:" . $event['location'] . "
-DTSTART;VALUE=DATETIME:".$this->Time->format('Ymd\This\Z',$event['start']) . "
-DTSTAMP:" . $this->Time->format('Ymd\This\Z',$event['start']) . "
+DTSTART;VALUE=DATETIME:".$this->Time->format('Ymd\THis\Z',$event['start']) . "
+DTSTAMP:" . $this->Time->format('Ymd\THis\Z',$event['start']) . "
 DTEND:" . $this->Time->format('Ymd\THis\Z',$event['end']) . "
+DESCRIPTION:".  (($event['group']!='') ? 'Group: ' . $event['group'] . "\r\n" : '') . $event['description'] . "
 CLASS:PUBLIC
 STATUS:FREE
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
