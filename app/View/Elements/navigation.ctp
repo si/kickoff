@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <?php echo $this->Html->link('KickOff Calendars', array('controller'=>'pages','action'=>'view','home'), array('class'=>'brand')); ?>
+        <?php echo $this->Html->link('KickOff Calendars', array('controller'=>'pages','action'=>'display','home'), array('class'=>'brand')); ?>
 
         <div class="nav-collapse collapse">
           <ul class="nav">
