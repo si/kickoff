@@ -33,8 +33,12 @@
     display: inline-block;
     position: relative;
     overflow: hidden;
+    width: 11rem;
+    height: 12rem;
     
     h2 {
+      font-size: 1rem;
+      font-weight: normal;
       position: absolute;
       top:0;
       left: 0;
