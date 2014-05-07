@@ -22,7 +22,7 @@ class ThemesController extends AppController {
   		}
 
 			// attempt to save
-			if ($this->Theme->saveAll($this->request->data)) {
+			if ($this->Theme->save($this->request->data)) {
 				$this->Session->setFlash('Your theme has been saved');
         $this->redirect(array('action'=>'view',$this->Theme->id));
 			}
