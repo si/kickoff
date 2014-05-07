@@ -60,42 +60,45 @@ class CalendarsController extends AppController {
     $this->set('events', $events);
 
     $export_data = array();
-    $export_data['calendar'] = array(
-      'id' => $events[0]['Calendar']['id'],
-      'name' => $events[0]['Calendar']['name'],
-      'description' => $events[0]['Calendar']['description'],
-      'theme_id' => $events[0]['Calendar']['theme_id'],
-      'created' => $events[0]['Calendar']['created'],
-      'url' => 'http://' . $_SERVER['SERVER_NAME'] . '/calendars/view/' . $id,
-      'ics_url' => 'http://' . $_SERVER['SERVER_NAME'] . '/calendars/export/' . $id,
-    );
-    foreach($events as $event) {
-      $export_data['events'][] = array(
-        'event_id' => $event['Event']['id'],
-        'start' => $event['Event']['start'],
-        'end' => $event['Event']['end'],
-        'summary' => utf8_encode($event['Event']['summary']),
-        'home_team' => array(
-          'id' => $event['HomeTeam']['id'],
-          'name' => utf8_encode($event['HomeTeam']['name']),
-          'theme_id' => $event['HomeTeam']['theme_id']
-        ),
-        'away_team' => array(
-          'id' => $event['AwayTeam']['id'],
-          'name' => utf8_encode($event['AwayTeam']['name']),
-          'theme_id' => $event['AwayTeam']['theme_id']
-        ),
-        'group' => $event['Event']['group'],
-        'description' => utf8_encode($event['Event']['description']),
-        'all_day' => $event['Event']['all_day'],
-        'location' => utf8_encode($event['Event']['location']),
-        'created' => $event['Event']['created'],
-        'updated' => $event['Event']['updated'],
-        'url' => 'http://' . $_SERVER['SERVER_NAME'] . '/events/view/' . $event['Event']['id'],
-        'ics_url' => 'http://' . $_SERVER['SERVER_NAME'] . '/events/export/' . $event['Event']['id'],
-      );
-    }
 
+    if(count($events)>0) {
+      $export_data['calendar'] = array(
+        'id' => $events[0]['Calendar']['id'],
+        'name' => $events[0]['Calendar']['name'],
+        'description' => $events[0]['Calendar']['description'],
+        'theme_id' => $events[0]['Calendar']['theme_id'],
+        'created' => $events[0]['Calendar']['created'],
+        'url' => 'http://' . $_SERVER['SERVER_NAME'] . '/calendars/view/' . $id,
+        'ics_url' => 'http://' . $_SERVER['SERVER_NAME'] . '/calendars/export/' . $id,
+      );
+      foreach($events as $event) {
+        $export_data['events'][] = array(
+          'event_id' => $event['Event']['id'],
+          'start' => $event['Event']['start'],
+          'end' => $event['Event']['end'],
+          'summary' => utf8_encode($event['Event']['summary']),
+          'home_team' => array(
+            'id' => $event['HomeTeam']['id'],
+            'name' => utf8_encode($event['HomeTeam']['name']),
+            'theme_id' => $event['HomeTeam']['theme_id']
+          ),
+          'away_team' => array(
+            'id' => $event['AwayTeam']['id'],
+            'name' => utf8_encode($event['AwayTeam']['name']),
+            'theme_id' => $event['AwayTeam']['theme_id']
+          ),
+          'group' => $event['Event']['group'],
+          'description' => utf8_encode($event['Event']['description']),
+          'all_day' => $event['Event']['all_day'],
+          'location' => utf8_encode($event['Event']['location']),
+          'created' => $event['Event']['created'],
+          'updated' => $event['Event']['updated'],
+          'url' => 'http://' . $_SERVER['SERVER_NAME'] . '/events/view/' . $event['Event']['id'],
+          'ics_url' => 'http://' . $_SERVER['SERVER_NAME'] . '/events/export/' . $event['Event']['id'],
+        );
+      }
+    }
+    
     $this->set('export_data', $export_data);
 
 	
