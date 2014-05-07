@@ -37,7 +37,7 @@ echo $this->Form->create('Event');
   </div>
 
   <div class="row">
-	  <?php echo $this->Form->input('summary', array('readonly'=>true,'class'=>'span6','div'=>'span6')); ?>
+	  <?php echo $this->Form->input('summary', array('class'=>'span6','div'=>'span6')); ?>
 	  <?php echo $this->Form->input('location',array('class'=>'span6','div'=>'span6')); ?>
   </div>
 </fieldset>
