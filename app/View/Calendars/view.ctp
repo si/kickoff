@@ -20,7 +20,7 @@
     <?php endif; ?>
     
     <p><small>
-      Created on <?php echo $this->Time->niceShort($calendar['Calendar']['created']); ?> 
+      Created <?php echo $this->Time->niceShort($calendar['Calendar']['created']); ?> 
       <?php if(isset($calendar['User'])) : ?> 
         by <?php echo $this->Html->link($calendar['User']['username'],array('controller'=>'users','action'=>'view',$calendar['User']['id'])); ?> 
       <?php endif; ?>
