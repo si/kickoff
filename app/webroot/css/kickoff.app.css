@@ -38,14 +38,20 @@
   font-family: Georgia;
   font-style: italic;
   font-size: 1em;
-  margin: 0 0 15rem;
+  margin: 0 0 1rem;
+}
+/* line 27, ../sass/_components/_themes.scss */
+.theme p small {
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  margin: 0 0 12rem;
 }
 
-/* line 29, ../sass/_components/_themes.scss */
+/* line 34, ../sass/_components/_themes.scss */
 .tiled {
   overflow: hidden;
 }
-/* line 32, ../sass/_components/_themes.scss */
+/* line 37, ../sass/_components/_themes.scss */
 .tiled li {
   display: inline-block;
   position: relative;
@@ -53,7 +59,7 @@
   width: 11rem;
   height: 12rem;
 }
-/* line 39, ../sass/_components/_themes.scss */
+/* line 44, ../sass/_components/_themes.scss */
 .tiled li h2 {
   font-size: 1rem;
   font-weight: normal;
@@ -62,7 +68,7 @@
   left: 0;
   z-index: 20;
 }
-/* line 47, ../sass/_components/_themes.scss */
+/* line 52, ../sass/_components/_themes.scss */
 .tiled li img {
   width: 200px;
   height: 200px;
@@ -71,7 +77,7 @@
   left: 0;
   z-index: 10;
 }
-/* line 55, ../sass/_components/_themes.scss */
+/* line 60, ../sass/_components/_themes.scss */
 .tiled li var {
   display: block;
   font-family: monospace;
