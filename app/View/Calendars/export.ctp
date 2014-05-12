@@ -26,7 +26,7 @@ LOCATION:" . $event['location'] . "
 DTSTART;VALUE=DATETIME:".$this->Time->format('Ymd\THis\Z',$event['start']) . "
 DTSTAMP:" . $this->Time->format('Ymd\THis\Z',$event['start']) . "
 DTEND:" . $this->Time->format('Ymd\THis\Z',$event['end']) . "
-DESCRIPTION:".  (($event['group']!='') ? 'Group: ' . $event['group'] . "\r\n" : '') . $event['description'] . "
+DESCRIPTION:".  (($event['group']!='') ? 'Group: ' . $event['group'] . "\r\n" : '') . "
 CLASS:PUBLIC
 STATUS:FREE
 X-MICROSOFT-CDO-BUSYSTATUS:FREE
