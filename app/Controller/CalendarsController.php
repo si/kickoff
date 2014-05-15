@@ -106,7 +106,7 @@ class CalendarsController extends AppController {
 
   function export($id='',$format='ics') { 
   
-    $this->layout = 'ics/default';
+    $this->layout = $format.'/default';
     // Stop Cake from displaying action's execution time 
 //    Configure::write('debug',0); 
     // Find fields needed without recursing through associated models 
