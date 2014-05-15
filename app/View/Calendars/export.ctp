@@ -7,7 +7,6 @@ switch($format) {
     unset($data['Sport']);  
 
     header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[0]['Calendar']['name']).'.json"');
-    header('Content-type:text/json'); 
     
     echo json_encode($data);
     break;
@@ -15,7 +14,6 @@ switch($format) {
   default:  // ICS
   
     header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[0]['Calendar']['name']).'.ics"');
-    header('Content-type:text/calendar'); 
 
     foreach($data[0]['Event'] as $event) : 
       echo "
