@@ -15,9 +15,11 @@
             <li><?php echo $this->Html->link('Calendars', array('controller'=>'calendars','action'=>'index')); ?></li>
             <li><?php echo $this->Html->link('Sports', array('controller'=>'sports','action'=>'index')); ?></li>
             <li><?php echo $this->Html->link('Teams', array('controller'=>'teams','action'=>'index')); ?></li>
-
+            <li><?php echo $this->Html->link('Login with Facebook', '#', array('id'=>'LoginFacebook')); ?></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span id="LoginResult"></span>
+              <b class="caret"></b></a>
               <ul class="dropdown-menu">
 
                 <li class="nav-header">Profile</li>
