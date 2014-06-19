@@ -69,8 +69,10 @@ class EventsController extends AppController {
 	function export($id='',$format='ics') { 
 
     $this->layout = 'ics/default';
+
     // Stop Cake from displaying action's execution time 
 //    Configure::write('debug',0); 
+
     // Find fields needed without recursing through associated models 
     $data = $this->Event->find( 
       'all', 
@@ -88,6 +90,7 @@ class EventsController extends AppController {
         'conditions' => array('Event.id'=>$id),
       )
     ); 
+
     // Define column headers for CSV file, in same array format as the data itself 
     $headers = array( 
       'Event' => array( 
@@ -101,10 +104,16 @@ class EventsController extends AppController {
 	      'created' => 'Created',
       ) 
     ); 
+
     // Add headers to start of data array 
     array_unshift($data,$headers); 
+
     // Make the data available to the view (and the resulting CSV file) 
     $this->set(compact('data','format')); 
+
+    // Set calendar reminder to 1 hour
+    $this->set('reminder_value',1);
+    $this->set('reminder_unit','H');
   }
     
 }
