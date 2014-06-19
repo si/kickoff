@@ -5,15 +5,14 @@
   <title><?php echo $title_for_layout?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="Simon Jobling">
 
-  <!-- Le styles -->
   <link href="/css/bootstrap.css" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="/css/bootstrap-datetimepicker.min.css" />
+  <link href="http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic" rel="stylesheet">
 
   <link href="/css/kickoff.app.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css" />
-  <link href="/css/bootstrap-responsive.css" rel="stylesheet">
 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
@@ -40,50 +39,20 @@
     <hr>
 
     <footer>
-      <p>&copy; KickOff Calendars 2013</p>
+      <p class="pull-left">&copy; KickOff Calendars 2013</p>
+      <p class="pull-right">Another <a href="http://unstyled.com/">unstyled</a> product</p>
     </footer>
 
   </div> <!-- /container -->
 
-  <script src="/js/jquery-1.10.2.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/bootstrap-datetimepicker.min.js"></script>
-  <script src="/js/events.js"></script>
-  <script src="/js/oauth.js"></script>
-  <script>
-  OAuth.initialize('PrAC1biiHZKuugQ5HjkpFP5FN5w');
+  <script src="/js/libs/jquery-1.10.2.min.js"></script>
+  <script src="/js/libs/bootstrap.min.js"></script>
+  <script src="/js/libs/bootstrap-datetimepicker.min.js"></script>
+  <script src="/js/libs/oauth.js"></script>
+  <script src="/js/app/events.js"></script>
+  <script src="/js/app/users.js"></script>
 
-  $('#LoginFacebook').on('click', function() {
-    OAuth.popup('facebook', function(err, result) {
-      // handle error with err
-      if(err) console.log(err);
-      // use result.access_token in your API request
-      if(result) {
-        console.log(result);
-        result.get("/me").done(function(me) {
-          $('#LoginResult').html(' <a href="' + me.link + '" target="_blank"><img src="http://graph.facebook.com/' + me.id + '/picture" class="img-thumbnail pull-left"/>' + me.name + '</a>').fadeIn('fast');
-          
-        });
-      }
-    });
-  });
-
-  </script>
+  <?php echo $this->element('intercom'); ?>
   
-  <?php 
-  // Intercom.io integration
-  if(isset($this->Session)) : ?>
-  <script id="IntercomSettingsScriptTag">
-    window.intercomSettings = {
-      // TODO: The current logged in user's email address.
-      email: "<?php echo $this->Session->read('Auth.User.email') ?>",
-      // TODO: The current logged in user's sign-up date as a Unix timestamp.
-      created_at: <?php echo strotime($this->Session->read('Auth.User.created_at')) ?>,
-      app_id: "krofbee5"
-    };
-  </script>
-  <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://api.intercom.io/api/js/library.js';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}};})()</script>
-  <?php endif; ?>
-
 </body>
 </html>
