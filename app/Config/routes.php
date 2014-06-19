@@ -26,6 +26,26 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/calendars', array('controller' => 'calendars', 'action' => 'index'));
+	Router::connect('/calendars/:action/*', array('controller' => 'calendars'));
+
+	Router::connect('/events', array('controller' => 'events', 'action' => 'index'));
+	Router::connect('/events/view/*', array('controller' => 'events', 'action' => 'view'));
+	Router::connect('/events/form/*', array('controller' => 'events', 'action' => 'form'));
+	Router::connect('/events/export/*', array('controller' => 'events', 'action' => 'export'));
+
+	Router::connect('/sports', array('controller' => 'sports', 'action'=>'index'));
+	Router::connect('/sports/:action/*', array('controller' => 'sports'));
+
+	Router::connect('/teams', array('controller' => 'teams', 'action'=>'index'));
+	Router::connect('/teams/:action/*', array('controller' => 'teams'));
+
+	Router::connect('/themes', array('controller' => 'themes', 'action'=>'index'));
+	Router::connect('/themes/:action/*', array('controller' => 'themes'));
+
+	Router::connect('/*', array('controller' => 'calendars', 'action' => 'view'));
+
+
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
