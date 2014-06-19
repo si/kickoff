@@ -27,8 +27,32 @@ DTEND:" . $this->Time->format('Ymd\THis\Z',$event['end']) . "
 DESCRIPTION:".  (($event['group']!='') ? 'Group: ' . $event['group'] . "\r\n" : '') . "
 CLASS:PUBLIC
 STATUS:FREE
-X-MICROSOFT-CDO-BUSYSTATUS:FREE
-END:VEVENT
+X-MICROSOFT-CDO-BUSYSTATUS:FREE";
+
+    if(isset($reminder_value) && isset($reminder_unit)){
+      $reminder_date = '-P';
+      switch($reminder_unit){
+        default: 
+        case 'H': 
+        case 'M': 
+        case 'S': 
+          $reminder_date .= 'T' . (int)$reminder_value . $reminder_unit; 
+          break;
+        case 'D': 
+          $reminder_date .= (int)$reminder_value . $reminder_unit; 
+          break;
+      }
+      
+      echo 'BEGIN:VALARM'."\n";
+      echo 'ACTION:DISPLAY'."\n";
+      echo 'DESCRIPTION:REMINDER'."\n";
+      echo 'TRIGGER;RELATED=START:'.$reminder_date."\n";
+      echo 'END:VALARM'."\n";
+    }
+
+
+
+"END:VEVENT
 ";    
 
     endforeach; 
