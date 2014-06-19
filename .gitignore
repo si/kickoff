@@ -10,3 +10,5 @@ app/webroot/files/8332_127034295841_1794403_n.jpg
 *.scssc
 
 *.log
+
+app/tmp/*
