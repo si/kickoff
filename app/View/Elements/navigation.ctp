@@ -7,16 +7,15 @@
           <span class="icon-bar"></span>
         </button>
 
-        <?php echo $this->Html->link('KickOff Calendars', array('controller'=>'pages','action'=>'display','home'), array('class'=>'brand')); ?>
-
         <div class="nav-collapse collapse">
           <ul class="nav">
 
-            <li><?php echo $this->Html->link('Calendars', array('controller'=>'calendars','action'=>'index')); ?></li>
             <li><?php echo $this->Html->link('Sports', array('controller'=>'sports','action'=>'index')); ?></li>
             <li><?php echo $this->Html->link('Teams', array('controller'=>'teams','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('Calendars', array('controller'=>'calendars','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('( KO )', array('controller'=>'pages','action'=>'display', 'home')); ?></li>
             <li><?php echo $this->Html->link('Login with Facebook', '#', array('id'=>'LoginFacebook')); ?></li>
-            <li class="dropdown">
+            <li class="dropdown hidden">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span id="LoginResult"></span>
               <b class="caret"></b></a>
