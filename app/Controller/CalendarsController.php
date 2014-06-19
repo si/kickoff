@@ -33,7 +33,11 @@ class CalendarsController extends AppController {
 
 	function view($id='') {
 	
-    $calendar = $this->Calendar->findById($id);
+    if(is_numeric($id)) {
+      $calendar = $this->Calendar->findById($id);
+    } else {
+      $calendar = $this->Calendar->findByName($id);
+    }
     $this->set('calendar', $calendar);
 	
     $future_params = array(
@@ -120,6 +124,11 @@ class CalendarsController extends AppController {
     ); 
     // Make the data available to the view (and the resulting CSV file) 
     $this->set(compact('data','format')); 
+
+    // Set calendar reminder to 1 hour
+    $this->set('reminder_value',1);
+    $this->set('reminder_unit','H');
+
   }
         
 }
