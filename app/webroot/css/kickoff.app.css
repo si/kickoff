@@ -1,3 +1,62 @@
+/* line 1, ../sass/_components/_navigation.scss */
+nav {
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+/* line 9, ../sass/_components/_navigation.scss */
+nav a {
+  color: rgba(255, 255, 255, 0.9);
+}
+/* line 12, ../sass/_components/_navigation.scss */
+nav a:hover {
+  color: white;
+  text-decoration: none;
+}
+/* line 18, ../sass/_components/_navigation.scss */
+nav .logo {
+  font-family: 'HelveticaNeue-Light',Helvetica,Arial,sans-serif;
+  font-size: 1.8rem;
+  font-weight: 100;
+  left: 47%;
+  line-height: 2rem;
+  position: absolute;
+  right: 47%;
+  text-align: center;
+}
+/* line 30, ../sass/_components/_navigation.scss */
+nav .discover,
+nav .engage {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 45%;
+}
+/* line 37, ../sass/_components/_navigation.scss */
+nav .discover li,
+nav .engage li {
+  display: inline;
+}
+/* line 40, ../sass/_components/_navigation.scss */
+nav .discover li a,
+nav .engage li a {
+  display: inline-block;
+  padding: 0.5rem;
+}
+/* line 48, ../sass/_components/_navigation.scss */
+nav .discover {
+  text-align: right;
+}
+/* line 52, ../sass/_components/_navigation.scss */
+nav .engage {
+  float: right;
+  text-align: left;
+}
+
 /* line 4, ../sass/_components/_buttons.scss */
 .btn {
   background: rgba(0, 0, 0, 0.7);
@@ -311,7 +370,7 @@
   }
 }
 
-/* line 8, ../sass/kickoff.app.scss */
+/* line 9, ../sass/kickoff.app.scss */
 body {
   padding: 40px 0;
 }
