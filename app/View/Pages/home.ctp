@@ -7,20 +7,23 @@
   <div class="carousel-inner">
     <div class="active item">
       <p class="lead">Every year, 6 nations from UK, France and Italy battle it out for the 6 Nations Rugby Cup.</p>
-      <a href="http://twitter.com/6nko">@6nko</a> and <a href="http://6nationskickoff.com/">6nationskickoff.com</a> for upcoming fixtures.
+      <a href="http://6nationskickoff.com/">6nationskickoff.com</a>
+      <a href="http://twitter.com/6nko">@6nko</a>
     </div>
     <div class="item">
       <p class="lead">Formula 1 – the fastest sport on the planet – through the middle of the year.</p>
-      <a href="http://twitter.com/f1calendar">@F1Calendar</a> and <a href="http://f1calendar.com/">f1calendar.com</a>
+      <a href="http://f1calendar.com/">f1calendar.com</a>
+      <a href="http://twitter.com/f1calendar">@F1Calendar</a>
     </div>
     <div class="item">
       <p class="lead">The biggest football tournament in the world with the top 16 teams aiming to take the cup</p>
-      <a href="http://twitter.com/worldcupko">@WorldCupKO</a> and <a href="http://worldcupkickoff.com/">worldcupkickoff.com</a>
+      <a href="http://worldcupkickoff.com/">worldcupkickoff.com</a>
+      <a href="http://twitter.com/worldcupko">@WorldCupKO</a> 
     </div>
     <div class="item">
-      <p class="lead">The Rugby World Cup returns to England in 2013 - and we have all the fixtures so you don't miss it! </p>
-      <a href="http://twitter.com/rugbywcko" class="">@RugbyWCKO</a>
+      <p class="lead">The Rugby World Cup returns to England in 2015 - and we have all the fixtures so you don't miss it! </p>
       <a href="http://rugbyworldcupkickoff.com/" class="">rugbyworldcupkickoff.com</a>
+      <a href="http://twitter.com/rugbywcko" class="">@RugbyWCKO</a>
     </div>
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active">6 Nations</li>
