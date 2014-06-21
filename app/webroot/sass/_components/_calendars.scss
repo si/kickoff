@@ -4,237 +4,242 @@ $color-event: rgb(0,0,0);
 $color-download: rgb(255,255,255);
 $color-share: rgb(255,255,255);
 
-.calendar {
+.content {
+  background: rgba(#FFF,0.9);
+  padding: 1rem;
 
-  & td {
-    height: 4rem;
-    position: relative;
-    width: (100%/7);
-    
-    .date {
-      color: rgba(0,0,0,0.05);
-      display: inline-block;
-      font-size: 3.5rem;
-      font-weight: bold;
-      position: absolute;
-      text-align: center;
-      top: 50%;
-      left: 50%;
-    }
-
-    &.today {
-      background: rgba(0,0,0,0.05);
-      
-      .date {
-        color: #FFF;
-      }
-
-    }
-    
-    .event {
-
-      background: rgba($color-event,0.8);
+  .calendar {
+  
+    & td {
+      height: 4rem;
       position: relative;
-      transition: 0.3s all ease;
-    
-      a {
-        color: #FFF;
-        display: block;
-        font-size: 0.8rem;
-        overflow: hidden;
-        padding: 0.5em;
-        margin: 0 0 0.2em;
-        text-align: center;
-        transition: 0.3s all ease;
-        
-        .time, .location {
-          display: none;
-        }
-        
-      }
-
-      .download {
-        color: #000;
-        display: none;
-        background: rgba($color-download,0.8);
-        position: absolute;
-        bottom: -2.7em;
-        left: 0;
-        right: 50%;
-        z-index: 20;
-
-        &:hover, &:focus {
-          background: rgba($color-download,1);
-        }
-      }
+      width: (100%/7);
       
-      .share {
-        color: #000;
-        display: none;
-        background: rgba($color-share,0.8);
-        position: absolute;
-        bottom: -2.7em;
-        left: 50%;
-        right: 0;
-        z-index: 20;
-
-        &:hover, &:focus {
-          background: rgba($color-share,1);
-        }
-      }
-      
-      &:hover, &:focus {
-      
-        background: rgba($color-event,0.9);
-        
-        a {
-          text-decoration: none;
-          .time {
-            display: block;
-            font-size: 0.8em;
-            font-weight: bold;
-          }
-          .location {
-            display: block;
-            font-size: 0.8em;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-          }
-        }
-
-        .download, .share {
-          display: inline-block;
-        }      
-
-      }
-
-    }
-    
-  }
-
-  @media screen and (max-width: $break-small) {
-    
-    table, 
-    thead, 
-    tbody, 
-    th, 
-  	td, 
-  	tr { 
-  		display: block; 
-  	}    
-
-  	/* Hide table headers (but not display: none;, for accessibility) */
-  	thead tr { 
-  		position: absolute;
-  		top: -9999px;
-  		left: -9999px;
-  	}  
-
-    td { 
-  		/* Behave  like a "row" */
-  		border: none;
-      border-bottom: 1px solid rgba(0,0,0,0.3);
-      height: auto;
-      min-height: 4.5rem;
-      overflow: hidden;
-  		padding-left: 0; 
-  		text-align:left;
-  		white-space: normal;
-      width: 100%;
-      
-      &.empty {
-        display: none;
-      }
-
       .date {
-        font-size: 2.5em;
-        text-align: left;
-        top: 1.75rem;
-        left: 0;
-        width: 1em;
-      }
-      
-      &:before { 
-        content: attr(data-day);
         color: rgba(0,0,0,0.05);
         display: inline-block;
-        letter-spacing: 0.2rem;
-        //margin: 0 0 0 1rem;
-        text-indent: 0.25em;
-        text-transform: uppercase;
-      }
-      
-      ol {
+        font-size: 3.5rem;
+        font-weight: bold;
         position: absolute;
-        top: 0.5em;
-        right: 0.5em;
-        left: 3.7em;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+      }
+  
+      &.today {
+        background: rgba(0,0,0,0.05);
+        
+        .date {
+          color: #FFF;
+        }
+  
       }
       
       .event {
-        display: block;
-        text-align: center;
-
+  
+        background: rgba($color-event,0.8);
+        position: relative;
+        transition: 0.3s all ease;
+      
+        a {
+          color: #FFF;
+          display: block;
+          font-size: 0.8rem;
+          overflow: hidden;
+          padding: 0.5em;
+          margin: 0 0 0.2em;
+          text-align: center;
+          transition: 0.3s all ease;
+          
+          .time, .location {
+            display: none;
+          }
+          
+        }
+  
+        .download {
+          color: #000;
+          display: none;
+          background: rgba($color-download,0.8);
+          position: absolute;
+          bottom: -2.7em;
+          left: 0;
+          right: 50%;
+          z-index: 20;
+  
+          &:hover, &:focus {
+            background: rgba($color-download,1);
+          }
+        }
+        
+        .share {
+          color: #000;
+          display: none;
+          background: rgba($color-share,0.8);
+          position: absolute;
+          bottom: -2.7em;
+          left: 50%;
+          right: 0;
+          z-index: 20;
+  
+          &:hover, &:focus {
+            background: rgba($color-share,1);
+          }
+        }
+        
         &:hover, &:focus {
-          background: rgba(255,40,40,0.7);
+        
+          background: rgba($color-event,0.9);
           
           a {
-            color: rgba(255,255,255,0.25);
-    
+            text-decoration: none;
             .time {
-              display: inline-block;
-              color: rgba(255,255,255,1);
-              position: absolute;
-              top: 0.1rem;
-              left: 1rem;
+              display: block;
+              font-size: 0.8em;
+              font-weight: bold;
             }
             .location {
-              display: inline-block;
-              color: rgba(255,255,255,1);
-              position: absolute;
-              top: 0.7rem;
-              left: 1rem;
+              display: block;
+              font-size: 0.8em;
+              letter-spacing: 0.3em;
+              text-transform: uppercase;
             }
           }
-    
+  
           .download, .share {
             display: inline-block;
-            color: rgba(255,255,255,0.9);
-            height: 1.24rem;
-            position: absolute;
-            top: 0;
-            transition: 0.3s all ease;
-            width: 10%;
-            z-index: 20;
-            
-            &:hover {
-/*               width: auto; */
-            }
-          }
-          .download {
-            left: 80%;
-            right: 90%;
-            
-            &:hover {
-              left: 50%;
-            }
-          }
-          .share {
-            left: 90%;
-            right: 0;
-
-            &:hover {
-              left: 60%;
-            }
-          }
+          }      
   
         }
+  
       }
-
+      
     }
-
+  
+    @media screen and (max-width: $break-small) {
+      
+      table, 
+      thead, 
+      tbody, 
+      th, 
+    	td, 
+    	tr { 
+    		display: block; 
+    	}    
+  
+    	/* Hide table headers (but not display: none;, for accessibility) */
+    	thead tr { 
+    		position: absolute;
+    		top: -9999px;
+    		left: -9999px;
+    	}  
+  
+      td { 
+    		/* Behave  like a "row" */
+    		border: none;
+        border-bottom: 1px solid rgba(0,0,0,0.3);
+        height: auto;
+        min-height: 4.5rem;
+        overflow: hidden;
+    		padding-left: 0; 
+    		text-align:left;
+    		white-space: normal;
+        width: 100%;
+        
+        &.empty {
+          display: none;
+        }
+  
+        .date {
+          font-size: 2.5em;
+          text-align: left;
+          top: 1.75rem;
+          left: 0;
+          width: 1em;
+        }
+        
+        &:before { 
+          content: attr(data-day);
+          color: rgba(0,0,0,0.05);
+          display: inline-block;
+          letter-spacing: 0.2rem;
+          //margin: 0 0 0 1rem;
+          text-indent: 0.25em;
+          text-transform: uppercase;
+        }
+        
+        ol {
+          position: absolute;
+          top: 0.5em;
+          right: 0.5em;
+          left: 3.7em;
+        }
+        
+        .event {
+          display: block;
+          text-align: center;
+  
+          &:hover, &:focus {
+            background: rgba(255,40,40,0.7);
+            
+            a {
+              color: rgba(255,255,255,0.25);
+      
+              .time {
+                display: inline-block;
+                color: rgba(255,255,255,1);
+                position: absolute;
+                top: 0.1rem;
+                left: 1rem;
+              }
+              .location {
+                display: inline-block;
+                color: rgba(255,255,255,1);
+                position: absolute;
+                top: 0.7rem;
+                left: 1rem;
+              }
+            }
+      
+            .download, .share {
+              display: inline-block;
+              color: rgba(255,255,255,0.9);
+              height: 1.24rem;
+              position: absolute;
+              top: 0;
+              transition: 0.3s all ease;
+              width: 10%;
+              z-index: 20;
+              
+              &:hover {
+  /*               width: auto; */
+              }
+            }
+            .download {
+              left: 80%;
+              right: 90%;
+              
+              &:hover {
+                left: 50%;
+              }
+            }
+            .share {
+              left: 90%;
+              right: 0;
+  
+              &:hover {
+                left: 60%;
+              }
+            }
+    
+          }
+        }
+  
+      }
+  
+    
+    }
   
   }
-
+  
 }
-

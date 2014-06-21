@@ -1,6 +1,6 @@
 /* line 1, ../sass/_components/_navigation.scss */
 nav {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.8);
   position: fixed;
   overflow: hidden;
   top: 0;
@@ -80,7 +80,7 @@ nav .engage {
 .theme {
   background-size: contain;
   color: #FFF;
-  padding: 1em;
+  padding: 1em 0;
   text-align: center;
   width: 100%;
   margin: 0;
@@ -144,14 +144,19 @@ nav .engage {
   z-index: 20;
 }
 
-/* line 9, ../sass/_components/_calendars.scss */
-.calendar td {
+/* line 7, ../sass/_components/_calendars.scss */
+.content {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+}
+/* line 13, ../sass/_components/_calendars.scss */
+.content .calendar td {
   height: 4rem;
   position: relative;
   width: 14.28571%;
 }
-/* line 14, ../sass/_components/_calendars.scss */
-.calendar td .date {
+/* line 18, ../sass/_components/_calendars.scss */
+.content .calendar td .date {
   color: rgba(0, 0, 0, 0.05);
   display: inline-block;
   font-size: 3.5rem;
@@ -161,22 +166,22 @@ nav .engage {
   top: 50%;
   left: 50%;
 }
-/* line 25, ../sass/_components/_calendars.scss */
-.calendar td.today {
+/* line 29, ../sass/_components/_calendars.scss */
+.content .calendar td.today {
   background: rgba(0, 0, 0, 0.05);
 }
-/* line 28, ../sass/_components/_calendars.scss */
-.calendar td.today .date {
+/* line 32, ../sass/_components/_calendars.scss */
+.content .calendar td.today .date {
   color: #FFF;
 }
-/* line 34, ../sass/_components/_calendars.scss */
-.calendar td .event {
+/* line 38, ../sass/_components/_calendars.scss */
+.content .calendar td .event {
   background: rgba(0, 0, 0, 0.8);
   position: relative;
   transition: 0.3s all ease;
 }
-/* line 40, ../sass/_components/_calendars.scss */
-.calendar td .event a {
+/* line 44, ../sass/_components/_calendars.scss */
+.content .calendar td .event a {
   color: #FFF;
   display: block;
   font-size: 0.8rem;
@@ -186,12 +191,12 @@ nav .engage {
   text-align: center;
   transition: 0.3s all ease;
 }
-/* line 50, ../sass/_components/_calendars.scss */
-.calendar td .event a .time, .calendar td .event a .location {
+/* line 54, ../sass/_components/_calendars.scss */
+.content .calendar td .event a .time, .content .calendar td .event a .location {
   display: none;
 }
-/* line 56, ../sass/_components/_calendars.scss */
-.calendar td .event .download {
+/* line 60, ../sass/_components/_calendars.scss */
+.content .calendar td .event .download {
   color: #000;
   display: none;
   background: rgba(255, 255, 255, 0.8);
@@ -201,12 +206,12 @@ nav .engage {
   right: 50%;
   z-index: 20;
 }
-/* line 66, ../sass/_components/_calendars.scss */
-.calendar td .event .download:hover, .calendar td .event .download:focus {
+/* line 70, ../sass/_components/_calendars.scss */
+.content .calendar td .event .download:hover, .content .calendar td .event .download:focus {
   background: white;
 }
-/* line 71, ../sass/_components/_calendars.scss */
-.calendar td .event .share {
+/* line 75, ../sass/_components/_calendars.scss */
+.content .calendar td .event .share {
   color: #000;
   display: none;
   background: rgba(255, 255, 255, 0.8);
@@ -216,57 +221,57 @@ nav .engage {
   right: 0;
   z-index: 20;
 }
-/* line 81, ../sass/_components/_calendars.scss */
-.calendar td .event .share:hover, .calendar td .event .share:focus {
+/* line 85, ../sass/_components/_calendars.scss */
+.content .calendar td .event .share:hover, .content .calendar td .event .share:focus {
   background: white;
 }
-/* line 86, ../sass/_components/_calendars.scss */
-.calendar td .event:hover, .calendar td .event:focus {
+/* line 90, ../sass/_components/_calendars.scss */
+.content .calendar td .event:hover, .content .calendar td .event:focus {
   background: rgba(0, 0, 0, 0.9);
 }
-/* line 90, ../sass/_components/_calendars.scss */
-.calendar td .event:hover a, .calendar td .event:focus a {
+/* line 94, ../sass/_components/_calendars.scss */
+.content .calendar td .event:hover a, .content .calendar td .event:focus a {
   text-decoration: none;
 }
-/* line 92, ../sass/_components/_calendars.scss */
-.calendar td .event:hover a .time, .calendar td .event:focus a .time {
+/* line 96, ../sass/_components/_calendars.scss */
+.content .calendar td .event:hover a .time, .content .calendar td .event:focus a .time {
   display: block;
   font-size: 0.8em;
   font-weight: bold;
 }
-/* line 97, ../sass/_components/_calendars.scss */
-.calendar td .event:hover a .location, .calendar td .event:focus a .location {
+/* line 101, ../sass/_components/_calendars.scss */
+.content .calendar td .event:hover a .location, .content .calendar td .event:focus a .location {
   display: block;
   font-size: 0.8em;
   letter-spacing: 0.3em;
   text-transform: uppercase;
 }
-/* line 105, ../sass/_components/_calendars.scss */
-.calendar td .event:hover .download, .calendar td .event:hover .share, .calendar td .event:focus .download, .calendar td .event:focus .share {
+/* line 109, ../sass/_components/_calendars.scss */
+.content .calendar td .event:hover .download, .content .calendar td .event:hover .share, .content .calendar td .event:focus .download, .content .calendar td .event:focus .share {
   display: inline-block;
 }
 @media screen and (max-width: 700px) {
-  /* line 7, ../sass/_components/_calendars.scss */
-  .calendar {
+  /* line 11, ../sass/_components/_calendars.scss */
+  .content .calendar {
     /* Hide table headers (but not display: none;, for accessibility) */
   }
-  /* line 122, ../sass/_components/_calendars.scss */
-  .calendar table,
-  .calendar thead,
-  .calendar tbody,
-  .calendar th,
-  .calendar td,
-  .calendar tr {
+  /* line 126, ../sass/_components/_calendars.scss */
+  .content .calendar table,
+  .content .calendar thead,
+  .content .calendar tbody,
+  .content .calendar th,
+  .content .calendar td,
+  .content .calendar tr {
     display: block;
   }
-  /* line 127, ../sass/_components/_calendars.scss */
-  .calendar thead tr {
+  /* line 131, ../sass/_components/_calendars.scss */
+  .content .calendar thead tr {
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
-  /* line 133, ../sass/_components/_calendars.scss */
-  .calendar td {
+  /* line 137, ../sass/_components/_calendars.scss */
+  .content .calendar td {
     /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
@@ -278,20 +283,20 @@ nav .engage {
     white-space: normal;
     width: 100%;
   }
-  /* line 145, ../sass/_components/_calendars.scss */
-  .calendar td.empty {
+  /* line 149, ../sass/_components/_calendars.scss */
+  .content .calendar td.empty {
     display: none;
   }
-  /* line 149, ../sass/_components/_calendars.scss */
-  .calendar td .date {
+  /* line 153, ../sass/_components/_calendars.scss */
+  .content .calendar td .date {
     font-size: 2.5em;
     text-align: left;
     top: 1.75rem;
     left: 0;
     width: 1em;
   }
-  /* line 157, ../sass/_components/_calendars.scss */
-  .calendar td:before {
+  /* line 161, ../sass/_components/_calendars.scss */
+  .content .calendar td:before {
     content: attr(data-day);
     color: rgba(0, 0, 0, 0.05);
     display: inline-block;
@@ -299,44 +304,44 @@ nav .engage {
     text-indent: 0.25em;
     text-transform: uppercase;
   }
-  /* line 167, ../sass/_components/_calendars.scss */
-  .calendar td ol {
+  /* line 171, ../sass/_components/_calendars.scss */
+  .content .calendar td ol {
     position: absolute;
     top: 0.5em;
     right: 0.5em;
     left: 3.7em;
   }
-  /* line 174, ../sass/_components/_calendars.scss */
-  .calendar td .event {
+  /* line 178, ../sass/_components/_calendars.scss */
+  .content .calendar td .event {
     display: block;
     text-align: center;
   }
-  /* line 178, ../sass/_components/_calendars.scss */
-  .calendar td .event:hover, .calendar td .event:focus {
+  /* line 182, ../sass/_components/_calendars.scss */
+  .content .calendar td .event:hover, .content .calendar td .event:focus {
     background: rgba(255, 40, 40, 0.7);
   }
-  /* line 181, ../sass/_components/_calendars.scss */
-  .calendar td .event:hover a, .calendar td .event:focus a {
+  /* line 185, ../sass/_components/_calendars.scss */
+  .content .calendar td .event:hover a, .content .calendar td .event:focus a {
     color: rgba(255, 255, 255, 0.25);
   }
-  /* line 184, ../sass/_components/_calendars.scss */
-  .calendar td .event:hover a .time, .calendar td .event:focus a .time {
+  /* line 188, ../sass/_components/_calendars.scss */
+  .content .calendar td .event:hover a .time, .content .calendar td .event:focus a .time {
     display: inline-block;
     color: white;
     position: absolute;
     top: 0.1rem;
     left: 1rem;
   }
-  /* line 191, ../sass/_components/_calendars.scss */
-  .calendar td .event:hover a .location, .calendar td .event:focus a .location {
+  /* line 195, ../sass/_components/_calendars.scss */
+  .content .calendar td .event:hover a .location, .content .calendar td .event:focus a .location {
     display: inline-block;
     color: white;
     position: absolute;
     top: 0.7rem;
     left: 1rem;
   }
-  /* line 200, ../sass/_components/_calendars.scss */
-  .calendar td .event:hover .download, .calendar td .event:hover .share, .calendar td .event:focus .download, .calendar td .event:focus .share {
+  /* line 204, ../sass/_components/_calendars.scss */
+  .content .calendar td .event:hover .download, .content .calendar td .event:hover .share, .content .calendar td .event:focus .download, .content .calendar td .event:focus .share {
     display: inline-block;
     color: rgba(255, 255, 255, 0.9);
     height: 1.24rem;
@@ -346,31 +351,31 @@ nav .engage {
     width: 10%;
     z-index: 20;
   }
-  /* line 210, ../sass/_components/_calendars.scss */
-  .calendar td .event:hover .download:hover, .calendar td .event:hover .share:hover, .calendar td .event:focus .download:hover, .calendar td .event:focus .share:hover {
+  /* line 214, ../sass/_components/_calendars.scss */
+  .content .calendar td .event:hover .download:hover, .content .calendar td .event:hover .share:hover, .content .calendar td .event:focus .download:hover, .content .calendar td .event:focus .share:hover {
     /*               width: auto; */
   }
-  /* line 214, ../sass/_components/_calendars.scss */
-  .calendar td .event:hover .download, .calendar td .event:focus .download {
+  /* line 218, ../sass/_components/_calendars.scss */
+  .content .calendar td .event:hover .download, .content .calendar td .event:focus .download {
     left: 80%;
     right: 90%;
   }
-  /* line 218, ../sass/_components/_calendars.scss */
-  .calendar td .event:hover .download:hover, .calendar td .event:focus .download:hover {
+  /* line 222, ../sass/_components/_calendars.scss */
+  .content .calendar td .event:hover .download:hover, .content .calendar td .event:focus .download:hover {
     left: 50%;
   }
-  /* line 222, ../sass/_components/_calendars.scss */
-  .calendar td .event:hover .share, .calendar td .event:focus .share {
+  /* line 226, ../sass/_components/_calendars.scss */
+  .content .calendar td .event:hover .share, .content .calendar td .event:focus .share {
     left: 90%;
     right: 0;
   }
-  /* line 226, ../sass/_components/_calendars.scss */
-  .calendar td .event:hover .share:hover, .calendar td .event:focus .share:hover {
+  /* line 230, ../sass/_components/_calendars.scss */
+  .content .calendar td .event:hover .share:hover, .content .calendar td .event:focus .share:hover {
     left: 60%;
   }
 }
 
 /* line 9, ../sass/kickoff.app.scss */
 body {
-  padding: 40px 0;
+  padding: 1.5rem 0;
 }
