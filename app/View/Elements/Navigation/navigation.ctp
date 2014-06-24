@@ -9,17 +9,17 @@
   </ul>
   
   <ul class="engage">
-  <?php 
-  if ($this->Session->read('Auth.User')) {
-		if ($this->Session->read('Auth.User')['is_admin']) {
-			echo $this->element('admin_menu');
-		} else {
-			echo $this->element('user_menu');
-		}
-	} else {
-		echo $this->element('guest_menu');
-	} 
-	?>
+    <?php 
+    if ($this->Session->read('Auth.User')) {
+    	if ($this->Session->read('Auth.User')['is_admin']) {
+    		echo $this->element('Navigation/admin_menu');
+    	} else {
+    		echo $this->element('Navigation/user_menu');
+    	}
+    } else {
+    	echo $this->element('Navigation/guest_menu');
+    } 
+    ?>
   
     <li><?php echo $this->Html->link('Themes', array('controller'=>'themes','action'=>'index')); ?></li>
   </ul>

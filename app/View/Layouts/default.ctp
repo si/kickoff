@@ -30,7 +30,7 @@
 
 <body class="<?php echo $this->params['controller'] . ' ' . $this->params['action']; ?>">
 
-  <?php echo $this->element('navigation'); ?>
+  <?php echo $this->element('Navigation/navigation'); ?>
   
   <div class="container">
 
