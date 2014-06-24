@@ -8,7 +8,7 @@ nav {
 }
 /* line 8, ../sass/_components/_navigation.scss */
 nav a {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.8);
 }
 /* line 11, ../sass/_components/_navigation.scss */
 nav a:hover {
@@ -76,6 +76,22 @@ nav li ul {
   z-index: 20;
 }
 /* line 76, ../sass/_components/_navigation.scss */
+nav li ul li a {
+  width: 70px;
+}
+/* line 80, ../sass/_components/_navigation.scss */
+nav li ul li .facebook {
+  background: #0074cb;
+}
+/* line 84, ../sass/_components/_navigation.scss */
+nav li ul li .twitter {
+  background: #3ecce5;
+}
+/* line 88, ../sass/_components/_navigation.scss */
+nav li ul li .google {
+  background: #e55036;
+}
+/* line 96, ../sass/_components/_navigation.scss */
 nav li:hover ul, nav li:focus ul {
   height: auto;
   opacity: 1;
