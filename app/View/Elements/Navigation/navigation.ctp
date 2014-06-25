@@ -20,7 +20,6 @@
     	echo $this->element('Navigation/guest_menu');
     } 
     ?>
-  
     <li><?php echo $this->Html->link('Themes', array('controller'=>'themes','action'=>'index')); ?></li>
   </ul>
 
