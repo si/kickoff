@@ -11,23 +11,36 @@
 ?>
 <div class="users index">
 	<h2><?php echo __d('users', 'Login'); ?></h2>
-	<fieldset>
+	
+	<ul>
+		<li><?php echo $this->Html->link('Twitter', array('controller'=>'auth_login','action'=>'twitter'), array('class'=>'btn btn-large twitter')); ?></li>
+		<li><?php echo $this->Html->link('Facebook', array('controller'=>'auth_login','action'=>'facebook'), array('class'=>'btn btn-large facebook')); ?></li>
+		<li><?php echo $this->Html->link('Google', array('controller'=>'auth_login','action'=>'google'), array('class'=>'btn btn-large google')); ?></li>
+	</ul>
+
 		<?php
 			echo $this->Form->create($model, array(
 				'action' => 'login',
 				'id' => 'LoginForm'));
+		?>
+	<fieldset>
+	  <?php
 			echo $this->Form->input('email', array(
 				'label' => __d('users', 'Email')));
 			echo $this->Form->input('password',  array(
 				'label' => __d('users', 'Password')));
 
 			echo '<p>' . $this->Form->input('remember_me', array('type' => 'checkbox', 'label' =>  __d('users', 'Remember Me'))) . '</p>';
-			echo '<p>' . $this->Html->link(__d('users', 'I forgot my password'), array('action' => 'reset_password')) . '</p>';
-
 			echo $this->Form->hidden('User.return_to', array(
 				'value' => $return_to));
-			echo $this->Form->end(__d('users', 'Submit'));
+			echo $this->Form->button(__d('users','Sign in'));
+
+      echo '<p>' . $this->Html->link(__d('users', 'I forgot my password'), array('action' => 'reset_password')) . '</p>';
+
+			echo $this->Form->end();
 		?>
 	</fieldset>
+
+
 </div>
-<?php echo $this->element('Users.Users/sidebar'); ?>
+<?php echo $this->element('/Users.Users/sidebar'); ?>
