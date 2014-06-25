@@ -110,6 +110,17 @@ nav li:hover ul, nav li:focus ul {
   color: white;
 }
 
+/* line 1, ../sass/_components/_forms.scss */
+h2, form, input {
+  text-align: center;
+}
+
+/* line 6, ../sass/_components/_forms.scss */
+.checkbox input[type=checkbox],
+.radio input[type=radio] {
+  float: none;
+}
+
 /* line 1, ../sass/_components/_themes.scss */
 .calendars.view .container {
   margin: 0;
@@ -415,7 +426,7 @@ nav li:hover ul, nav li:focus ul {
   }
 }
 
-/* line 9, ../sass/kickoff.app.scss */
+/* line 10, ../sass/kickoff.app.scss */
 body {
   padding: 3rem 0;
 }
