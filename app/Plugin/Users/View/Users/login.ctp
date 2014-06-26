@@ -12,10 +12,10 @@
 <div class="users index">
 	<h2><?php echo __d('users', 'Login'); ?></h2>
 	
-	<ul>
-		<li><?php echo $this->Html->link('Twitter', array('controller'=>'auth_login','action'=>'twitter'), array('class'=>'btn btn-large twitter')); ?></li>
-		<li><?php echo $this->Html->link('Facebook', array('controller'=>'auth_login','action'=>'facebook'), array('class'=>'btn btn-large facebook')); ?></li>
-		<li><?php echo $this->Html->link('Google', array('controller'=>'auth_login','action'=>'google'), array('class'=>'btn btn-large google')); ?></li>
+	<ul class="providers">
+		<li><?php echo $this->Html->link('Twitter', array('controller'=>'auth_login','action'=>'twitter'), array('class'=>'twitter')); ?></li>
+		<li><?php echo $this->Html->link('Facebook', array('controller'=>'auth_login','action'=>'facebook'), array('class'=>'facebook')); ?></li>
+		<li><?php echo $this->Html->link('Google', array('controller'=>'auth_login','action'=>'google'), array('class'=>'google')); ?></li>
 	</ul>
 
 		<?php

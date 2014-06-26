@@ -1,3 +1,42 @@
+/* line 7, ../sass/_components/_social.scss */
+.login .providers {
+  margin: 2rem 0 2rem;
+  padding: 0;
+  text-align: center;
+}
+/* line 12, ../sass/_components/_social.scss */
+.login .providers li {
+  display: inline-block;
+}
+/* line 15, ../sass/_components/_social.scss */
+.login .providers li a {
+  color: #FFF;
+  display: block;
+  padding: 2rem 3rem;
+  text-indent: -999rem;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+/* line 23, ../sass/_components/_social.scss */
+.login .providers li a:hover {
+  opacity: 0.7;
+  z-index: 10;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+}
+/* line 30, ../sass/_components/_social.scss */
+.login .providers li a.facebook {
+  background: #0074cb url(/img/svg/facebook.svg) no-repeat top center;
+}
+/* line 33, ../sass/_components/_social.scss */
+.login .providers li a.twitter {
+  background: #64ccef url(/img/svg/twitter.svg) no-repeat top center;
+}
+/* line 36, ../sass/_components/_social.scss */
+.login .providers li a.google {
+  background: #e55036 url(/img/svg/google.svg) no-repeat top center;
+}
+
 /* line 1, ../sass/_components/_navigation.scss */
 nav {
   background: rgba(0, 0, 0, 0.8);
@@ -426,7 +465,7 @@ h2, form, input {
   }
 }
 
-/* line 10, ../sass/kickoff.app.scss */
+/* line 11, ../sass/kickoff.app.scss */
 body {
   padding: 3rem 0;
 }
