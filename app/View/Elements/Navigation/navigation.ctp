@@ -10,8 +10,9 @@
   
   <ul class="engage">
     <?php 
-    if ($this->Session->read('Auth.User')) {
-    	if ($this->Session->read('Auth.User')['is_admin']) {
+//    var_dump($_SESSION);
+    if (isset($_SESSION['Auth']['User'])) {
+    	if ($_SESSION['Auth']['User']['is_admin']) {
     		echo $this->element('Navigation/admin_menu');
     	} else {
     		echo $this->element('Navigation/user_menu');

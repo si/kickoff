@@ -1,7 +1,7 @@
 <li>
 	<?
 	echo $this->Html->image($authuser['UserDetail']['User']['picture']);
-  echo $this->Session->read('Auth.User.username');
+  echo $_SESSION['Auth']['User']['username'];
   ?>
   <ul>
     <li><?php echo $this->Html->link('Site Admin', array('controller'=>'admin','action'=>'index')); ?></li>
