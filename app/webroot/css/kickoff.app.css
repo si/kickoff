@@ -40,21 +40,22 @@
 /* line 1, ../sass/_components/_navigation.scss */
 nav {
   background: rgba(0, 0, 0, 0.8);
+  color: #FFF;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
 }
-/* line 8, ../sass/_components/_navigation.scss */
+/* line 9, ../sass/_components/_navigation.scss */
 nav a {
   color: rgba(255, 255, 255, 0.8);
 }
-/* line 11, ../sass/_components/_navigation.scss */
+/* line 12, ../sass/_components/_navigation.scss */
 nav a:hover {
   color: white;
   text-decoration: none;
 }
-/* line 17, ../sass/_components/_navigation.scss */
+/* line 18, ../sass/_components/_navigation.scss */
 nav .logo {
   font-family: 'Avenir',Helvetica,Arial,sans-serif;
   font-size: 1.5rem;
@@ -65,7 +66,7 @@ nav .logo {
   right: 47%;
   text-align: center;
 }
-/* line 29, ../sass/_components/_navigation.scss */
+/* line 30, ../sass/_components/_navigation.scss */
 nav .discover,
 nav .engage {
   display: inline-block;
@@ -74,33 +75,33 @@ nav .engage {
   padding: 0;
   width: 45%;
 }
-/* line 36, ../sass/_components/_navigation.scss */
+/* line 37, ../sass/_components/_navigation.scss */
 nav .discover li,
 nav .engage li {
   display: inline;
   position: relative;
 }
-/* line 40, ../sass/_components/_navigation.scss */
+/* line 41, ../sass/_components/_navigation.scss */
 nav .discover li a,
 nav .engage li a {
   display: inline-block;
   padding: 1rem 0.5rem;
 }
-/* line 48, ../sass/_components/_navigation.scss */
+/* line 49, ../sass/_components/_navigation.scss */
 nav .discover {
   float: left;
   text-align: right;
 }
-/* line 53, ../sass/_components/_navigation.scss */
+/* line 54, ../sass/_components/_navigation.scss */
 nav .engage {
   float: right;
   text-align: left;
 }
-/* line 58, ../sass/_components/_navigation.scss */
+/* line 59, ../sass/_components/_navigation.scss */
 nav li {
   z-index: 10;
 }
-/* line 61, ../sass/_components/_navigation.scss */
+/* line 62, ../sass/_components/_navigation.scss */
 nav li ul {
   background: rgba(0, 0, 0, 0.8);
   height: 0;
@@ -114,23 +115,23 @@ nav li ul {
   width: 400px;
   z-index: 20;
 }
-/* line 76, ../sass/_components/_navigation.scss */
+/* line 77, ../sass/_components/_navigation.scss */
 nav li ul li a {
   width: 70px;
 }
-/* line 80, ../sass/_components/_navigation.scss */
+/* line 81, ../sass/_components/_navigation.scss */
 nav li ul li .facebook {
   background: #0074cb;
 }
-/* line 84, ../sass/_components/_navigation.scss */
+/* line 85, ../sass/_components/_navigation.scss */
 nav li ul li .twitter {
   background: #3ecce5;
 }
-/* line 88, ../sass/_components/_navigation.scss */
+/* line 89, ../sass/_components/_navigation.scss */
 nav li ul li .google {
   background: #e55036;
 }
-/* line 96, ../sass/_components/_navigation.scss */
+/* line 97, ../sass/_components/_navigation.scss */
 nav li:hover ul, nav li:focus ul {
   height: auto;
   opacity: 1;
@@ -465,7 +466,13 @@ h2, form, input {
   }
 }
 
-/* line 11, ../sass/kickoff.app.scss */
+/* line 1, ../sass/_components/_users.scss */
+.avatar {
+  height: 2rem;
+  padding: 0.5rem;
+}
+
+/* line 12, ../sass/kickoff.app.scss */
 body {
   padding: 3rem 0;
 }
