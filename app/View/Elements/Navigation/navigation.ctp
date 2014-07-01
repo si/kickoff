@@ -10,18 +10,12 @@
   
   <ul class="engage">
     <?php 
-//    var_dump($_SESSION);
     if (isset($_SESSION['Auth']['User'])) {
-    	if ($_SESSION['Auth']['User']['is_admin']) {
-    		echo $this->element('Navigation/admin_menu');
-    	} else {
-    		echo $this->element('Navigation/user_menu');
-    	}
+  		echo $this->element('Navigation/user_menu');
     } else {
     	echo $this->element('Navigation/guest_menu');
     } 
     ?>
-    <li><?php echo $this->Html->link('Themes', array('controller'=>'themes','action'=>'index')); ?></li>
   </ul>
 
 </nav>
