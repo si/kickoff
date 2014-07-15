@@ -44,19 +44,19 @@ class EmailConfig {
 
 	public $default = array(
 		'transport' => 'Mail',
-		'from' => 'you@localhost',
+		'from' => 'updates@kickoffcalendars.com',
 		//'charset' => 'utf-8',
 		//'headerCharset' => 'utf-8',
 	);
 
 	public $smtp = array(
 		'transport' => 'Smtp',
-		'from' => array('site@localhost' => 'My Site'),
+		'from' => array('updates@kickoffcalendars.com' => 'Kickoff'),
 		'host' => 'localhost',
 		'port' => 25,
 		'timeout' => 30,
-		'username' => 'user',
-		'password' => 'secret',
+		'username' => 'root',
+		'password' => 'B34tr1c3',
 		'client' => null,
 		'log' => false
 		//'charset' => 'utf-8',
@@ -64,7 +64,7 @@ class EmailConfig {
 	);
 
 	public $fast = array(
-		'from' => 'you@localhost',
+		'from' => 'updates@kickoffcalendars.com',
 		'sender' => null,
 		'to' => null,
 		'cc' => null,
