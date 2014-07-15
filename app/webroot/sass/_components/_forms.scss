@@ -2,7 +2,34 @@ h2, form, input {
   text-align: center;
 }
 
+.input input, 
+.input textarea, 
+.input select {
+  border: none;
+  background: rgba(#FFF,0.9);
+  
+  &:focus {
+    background: rgba(#FFF,0.95);
+  }
+}
+
 .checkbox input[type=checkbox],
 .radio input[type=radio] {
   float: none;
+}
+
+.checkbox {
+  margin: 0 auto;
+  width: 206px;
+  
+  input {
+    display: inline-block;
+    line-height: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  label {
+    display: inline-block;
+    line-height: 1.3rem;
+  }
 }
