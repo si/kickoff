@@ -12,12 +12,18 @@
 <div class="users index">
 	<h2><?php echo __d('users', 'Login'); ?></h2>
 	
-	<ul class="providers">
-		<li><?php echo $this->Html->link('Twitter', array('controller'=>'auth_login','action'=>'twitter'), array('class'=>'twitter')); ?></li>
-		<li><?php echo $this->Html->link('Facebook', array('controller'=>'auth_login','action'=>'facebook'), array('class'=>'facebook')); ?></li>
-		<li><?php echo $this->Html->link('Google', array('controller'=>'auth_login','action'=>'google'), array('class'=>'google')); ?></li>
-	</ul>
-
+	<div class="social">
+  	<h3>Sign in with your social accounts</h3>
+  	<ul class="providers">
+  		<li><?php echo $this->Html->link('Twitter', array('controller'=>'auth_login','action'=>'twitter'), array('class'=>'twitter')); ?></li>
+  		<li><?php echo $this->Html->link('Facebook', array('controller'=>'auth_login','action'=>'facebook'), array('class'=>'facebook')); ?></li>
+  		<li><?php echo $this->Html->link('Google', array('controller'=>'auth_login','action'=>'google'), array('class'=>'google')); ?></li>
+  	</ul>
+	
+	</div>
+	
+	<div class="email">
+  	<h3>&hellip; or your email</h3>
 		<?php
 			echo $this->Form->create($model, array(
 				'action' => 'login',
@@ -40,7 +46,7 @@
 			echo $this->Form->end();
 		?>
 	</fieldset>
-
+	</div>
 
 </div>
-<?php echo $this->element('/Users.Users/sidebar'); ?>
+<?php // echo $this->element('/Users.Users/sidebar'); ?>
