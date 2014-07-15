@@ -2,15 +2,17 @@
 //@import "compass/reset";
 
 // Base
-@import "_components/typography";
-@import "_components/layout";
-@import "_components/navigation";
-@import "_components/buttons";
-@import "_components/forms";
+@import "_base/footer";
+@import "_base/forms";
+@import "_base/layout";
+@import "_base/links";
+@import "_base/navigation";
+@import "_base/typography";
 
 // Globals
-@import "_components/social";
-@import "_components/themes";
+@import "_globals/buttons";
+@import "_globals/social";
+@import "_globals/themes";
 
 // Modules
 @import "_components/calendars";

@@ -1,24 +1,69 @@
-/* line 1, ../sass/_components/_typography.scss */
-body, h1, h2, h3 {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+/* line 1, ../sass/_base/_footer.scss */
+footer {
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  color: #FFF;
+  overflow: hidden;
 }
 
-/* line 5, ../sass/_components/_typography.scss */
-h2 {
-  background: rgba(0, 0, 0, 0.1);
-  color: rgba(255, 255, 255, 0.8);
-  margin: 1rem auto;
-  text-transform: uppercase;
+/* line 1, ../sass/_base/_forms.scss */
+h2, form, input {
+  text-align: center;
 }
 
-/* line 2, ../sass/_components/_layout.scss */
+/* line 7, ../sass/_base/_forms.scss */
+.input input,
+.input textarea,
+.input select {
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+}
+/* line 11, ../sass/_base/_forms.scss */
+.input input:focus,
+.input textarea:focus,
+.input select:focus {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* line 17, ../sass/_base/_forms.scss */
+.checkbox input[type=checkbox],
+.radio input[type=radio] {
+  float: none;
+}
+
+/* line 21, ../sass/_base/_forms.scss */
+.checkbox {
+  margin: 0 auto;
+  width: 206px;
+}
+/* line 25, ../sass/_base/_forms.scss */
+.checkbox input {
+  display: inline-block;
+  line-height: 1.5rem;
+  margin-right: 0.5rem;
+}
+/* line 31, ../sass/_base/_forms.scss */
+.checkbox label {
+  display: inline-block;
+  line-height: 1.3rem;
+}
+
+/* line 2, ../sass/_base/_layout.scss */
 body {
   background: url(/img/photos/girl-on-mac-in-park.jpg) no-repeat 50% 50%;
   background-size: cover;
-  padding: 4rem 0;
+  padding: 4rem 0 0;
 }
 
-/* line 1, ../sass/_components/_navigation.scss */
+/* line 1, ../sass/_base/_links.scss */
+a {
+  color: rgba(255, 255, 255, 0.9);
+}
+/* line 4, ../sass/_base/_links.scss */
+a:hover, a:focus {
+  color: white;
+}
+
+/* line 1, ../sass/_base/_navigation.scss */
 nav {
   background: rgba(0, 0, 0, 0.8);
   color: #FFF;
@@ -27,16 +72,16 @@ nav {
   left: 0;
   right: 0;
 }
-/* line 9, ../sass/_components/_navigation.scss */
+/* line 9, ../sass/_base/_navigation.scss */
 nav a {
   color: rgba(255, 255, 255, 0.8);
 }
-/* line 12, ../sass/_components/_navigation.scss */
+/* line 12, ../sass/_base/_navigation.scss */
 nav a:hover {
   color: white;
   text-decoration: none;
 }
-/* line 18, ../sass/_components/_navigation.scss */
+/* line 18, ../sass/_base/_navigation.scss */
 nav .logo {
   font-family: 'Avenir',Helvetica,Arial,sans-serif;
   font-size: 1.5rem;
@@ -47,7 +92,7 @@ nav .logo {
   right: 47%;
   text-align: center;
 }
-/* line 30, ../sass/_components/_navigation.scss */
+/* line 30, ../sass/_base/_navigation.scss */
 nav .discover,
 nav .engage {
   display: inline-block;
@@ -56,33 +101,33 @@ nav .engage {
   padding: 0;
   width: 45%;
 }
-/* line 37, ../sass/_components/_navigation.scss */
+/* line 37, ../sass/_base/_navigation.scss */
 nav .discover li,
 nav .engage li {
   display: inline;
   position: relative;
 }
-/* line 41, ../sass/_components/_navigation.scss */
+/* line 41, ../sass/_base/_navigation.scss */
 nav .discover li a,
 nav .engage li a {
   display: inline-block;
   padding: 1rem 0.5rem;
 }
-/* line 49, ../sass/_components/_navigation.scss */
+/* line 49, ../sass/_base/_navigation.scss */
 nav .discover {
   float: left;
   text-align: right;
 }
-/* line 54, ../sass/_components/_navigation.scss */
+/* line 54, ../sass/_base/_navigation.scss */
 nav .engage {
   float: right;
   text-align: left;
 }
-/* line 59, ../sass/_components/_navigation.scss */
+/* line 59, ../sass/_base/_navigation.scss */
 nav li {
   z-index: 10;
 }
-/* line 62, ../sass/_components/_navigation.scss */
+/* line 62, ../sass/_base/_navigation.scss */
 nav li ul {
   background: rgba(0, 0, 0, 0.8);
   height: 0;
@@ -96,94 +141,65 @@ nav li ul {
   width: 400px;
   z-index: 20;
 }
-/* line 77, ../sass/_components/_navigation.scss */
+/* line 77, ../sass/_base/_navigation.scss */
 nav li ul li a {
   width: 70px;
 }
-/* line 81, ../sass/_components/_navigation.scss */
+/* line 81, ../sass/_base/_navigation.scss */
 nav li ul li .facebook {
   background: #0074cb;
 }
-/* line 85, ../sass/_components/_navigation.scss */
+/* line 85, ../sass/_base/_navigation.scss */
 nav li ul li .twitter {
   background: #3ecce5;
 }
-/* line 89, ../sass/_components/_navigation.scss */
+/* line 89, ../sass/_base/_navigation.scss */
 nav li ul li .google {
   background: #e55036;
 }
-/* line 97, ../sass/_components/_navigation.scss */
+/* line 97, ../sass/_base/_navigation.scss */
 nav li:hover ul, nav li:focus ul {
   height: auto;
   opacity: 1;
 }
 
-/* line 4, ../sass/_components/_buttons.scss */
+/* line 1, ../sass/_base/_typography.scss */
+body, h1, h2, h3 {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+/* line 5, ../sass/_base/_typography.scss */
+h2 {
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  margin: 1rem auto;
+  text-transform: uppercase;
+}
+
+/* line 4, ../sass/_globals/_buttons.scss */
 .btn {
   background: rgba(0, 0, 0, 0.7);
   border: none;
   color: rgba(255, 255, 255, 0.85);
   text-shadow: none;
 }
-/* line 10, ../sass/_components/_buttons.scss */
+/* line 10, ../sass/_globals/_buttons.scss */
 .btn:hover {
   background: black;
   color: white;
 }
 
-/* line 1, ../sass/_components/_forms.scss */
-h2, form, input {
-  text-align: center;
-}
-
-/* line 7, ../sass/_components/_forms.scss */
-.input input,
-.input textarea,
-.input select {
-  border: none;
-  background: rgba(255, 255, 255, 0.9);
-}
-/* line 11, ../sass/_components/_forms.scss */
-.input input:focus,
-.input textarea:focus,
-.input select:focus {
-  background: rgba(255, 255, 255, 0.95);
-}
-
-/* line 17, ../sass/_components/_forms.scss */
-.checkbox input[type=checkbox],
-.radio input[type=radio] {
-  float: none;
-}
-
-/* line 21, ../sass/_components/_forms.scss */
-.checkbox {
-  margin: 0 auto;
-  width: 206px;
-}
-/* line 25, ../sass/_components/_forms.scss */
-.checkbox input {
-  display: inline-block;
-  line-height: 1.5rem;
-  margin-right: 0.5rem;
-}
-/* line 31, ../sass/_components/_forms.scss */
-.checkbox label {
-  display: inline-block;
-  line-height: 1.3rem;
-}
-
-/* line 7, ../sass/_components/_social.scss */
+/* line 7, ../sass/_globals/_social.scss */
 .login .providers {
   margin: 2rem 0 2rem;
   padding: 0;
   text-align: center;
 }
-/* line 12, ../sass/_components/_social.scss */
+/* line 12, ../sass/_globals/_social.scss */
 .login .providers li {
   display: inline-block;
 }
-/* line 15, ../sass/_components/_social.scss */
+/* line 15, ../sass/_globals/_social.scss */
 .login .providers li a {
   color: #FFF;
   display: block;
@@ -192,33 +208,33 @@ h2, form, input {
   transition: all 0.3s ease;
   z-index: 5;
 }
-/* line 23, ../sass/_components/_social.scss */
+/* line 23, ../sass/_globals/_social.scss */
 .login .providers li a:hover {
   opacity: 0.7;
   z-index: 10;
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
 }
-/* line 30, ../sass/_components/_social.scss */
+/* line 30, ../sass/_globals/_social.scss */
 .login .providers li a.facebook {
   background: #0074cb url(/img/svg/facebook.svg) no-repeat top center;
 }
-/* line 33, ../sass/_components/_social.scss */
+/* line 33, ../sass/_globals/_social.scss */
 .login .providers li a.twitter {
   background: #64ccef url(/img/svg/twitter.svg) no-repeat top center;
 }
-/* line 36, ../sass/_components/_social.scss */
+/* line 36, ../sass/_globals/_social.scss */
 .login .providers li a.google {
   background: #e55036 url(/img/svg/google.svg) no-repeat top center;
 }
 
-/* line 1, ../sass/_components/_themes.scss */
+/* line 1, ../sass/_globals/_themes.scss */
 .calendars.view .container {
   margin: 0;
   width: auto;
 }
 
-/* line 7, ../sass/_components/_themes.scss */
+/* line 7, ../sass/_globals/_themes.scss */
 .theme {
   background-size: contain;
   color: #FFF;
@@ -227,32 +243,32 @@ h2, form, input {
   width: 100%;
   margin: 0;
 }
-/* line 15, ../sass/_components/_themes.scss */
+/* line 15, ../sass/_globals/_themes.scss */
 .theme h1 {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 3em;
   margin: 15rem 0 0;
   text-transform: uppercase;
 }
-/* line 21, ../sass/_components/_themes.scss */
+/* line 21, ../sass/_globals/_themes.scss */
 .theme .lead {
   font-family: Georgia;
   font-style: italic;
   font-size: 1em;
   margin: 0 0 1rem;
 }
-/* line 27, ../sass/_components/_themes.scss */
+/* line 27, ../sass/_globals/_themes.scss */
 .theme p small {
   color: rgba(255, 255, 255, 0.5);
   display: block;
   margin: 0 0 12rem;
 }
 
-/* line 34, ../sass/_components/_themes.scss */
+/* line 34, ../sass/_globals/_themes.scss */
 .tiled {
   overflow: hidden;
 }
-/* line 37, ../sass/_components/_themes.scss */
+/* line 37, ../sass/_globals/_themes.scss */
 .tiled li {
   display: inline-block;
   position: relative;
@@ -260,7 +276,7 @@ h2, form, input {
   width: 11rem;
   height: 12rem;
 }
-/* line 44, ../sass/_components/_themes.scss */
+/* line 44, ../sass/_globals/_themes.scss */
 .tiled li h2 {
   font-size: 1rem;
   font-weight: normal;
@@ -269,7 +285,7 @@ h2, form, input {
   left: 0;
   z-index: 20;
 }
-/* line 52, ../sass/_components/_themes.scss */
+/* line 52, ../sass/_globals/_themes.scss */
 .tiled li img {
   width: 200px;
   height: 200px;
@@ -278,7 +294,7 @@ h2, form, input {
   left: 0;
   z-index: 10;
 }
-/* line 60, ../sass/_components/_themes.scss */
+/* line 60, ../sass/_globals/_themes.scss */
 .tiled li var {
   display: block;
   font-family: monospace;
