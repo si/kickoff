@@ -3,8 +3,10 @@ body, h1, h2, h3 {
 }
 
 h2 {
-  background: rgba(#000,0.1);
+  background: rgba(#000,0.8);
   color: rgba(#FFF,0.8);
-  margin: 1rem auto;
+  letter-spacing: 0.5rem;
+  margin: 1rem auto 2rem;
+  padding: 1rem;
   text-transform: uppercase;
 }
