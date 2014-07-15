@@ -1,40 +1,21 @@
-/* line 7, ../sass/_components/_social.scss */
-.login .providers {
-  margin: 2rem 0 2rem;
-  padding: 0;
-  text-align: center;
+/* line 1, ../sass/_components/_typography.scss */
+body, h1, h2, h3 {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
-/* line 12, ../sass/_components/_social.scss */
-.login .providers li {
-  display: inline-block;
+
+/* line 5, ../sass/_components/_typography.scss */
+h2 {
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  margin: 1rem auto;
+  text-transform: uppercase;
 }
-/* line 15, ../sass/_components/_social.scss */
-.login .providers li a {
-  color: #FFF;
-  display: block;
-  padding: 2rem 3rem;
-  text-indent: -999rem;
-  transition: all 0.3s ease;
-  z-index: 5;
-}
-/* line 23, ../sass/_components/_social.scss */
-.login .providers li a:hover {
-  opacity: 0.7;
-  z-index: 10;
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-}
-/* line 30, ../sass/_components/_social.scss */
-.login .providers li a.facebook {
-  background: #0074cb url(/img/svg/facebook.svg) no-repeat top center;
-}
-/* line 33, ../sass/_components/_social.scss */
-.login .providers li a.twitter {
-  background: #64ccef url(/img/svg/twitter.svg) no-repeat top center;
-}
-/* line 36, ../sass/_components/_social.scss */
-.login .providers li a.google {
-  background: #e55036 url(/img/svg/google.svg) no-repeat top center;
+
+/* line 2, ../sass/_components/_layout.scss */
+body {
+  background: url(/img/photos/girl-on-mac-in-park.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  padding: 4rem 0;
 }
 
 /* line 1, ../sass/_components/_navigation.scss */
@@ -155,10 +136,80 @@ h2, form, input {
   text-align: center;
 }
 
-/* line 6, ../sass/_components/_forms.scss */
+/* line 7, ../sass/_components/_forms.scss */
+.input input,
+.input textarea,
+.input select {
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+}
+/* line 11, ../sass/_components/_forms.scss */
+.input input:focus,
+.input textarea:focus,
+.input select:focus {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* line 17, ../sass/_components/_forms.scss */
 .checkbox input[type=checkbox],
 .radio input[type=radio] {
   float: none;
+}
+
+/* line 21, ../sass/_components/_forms.scss */
+.checkbox {
+  margin: 0 auto;
+  width: 206px;
+}
+/* line 25, ../sass/_components/_forms.scss */
+.checkbox input {
+  display: inline-block;
+  line-height: 1.5rem;
+  margin-right: 0.5rem;
+}
+/* line 31, ../sass/_components/_forms.scss */
+.checkbox label {
+  display: inline-block;
+  line-height: 1.3rem;
+}
+
+/* line 7, ../sass/_components/_social.scss */
+.login .providers {
+  margin: 2rem 0 2rem;
+  padding: 0;
+  text-align: center;
+}
+/* line 12, ../sass/_components/_social.scss */
+.login .providers li {
+  display: inline-block;
+}
+/* line 15, ../sass/_components/_social.scss */
+.login .providers li a {
+  color: #FFF;
+  display: block;
+  padding: 2rem 3rem;
+  text-indent: -999rem;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+/* line 23, ../sass/_components/_social.scss */
+.login .providers li a:hover {
+  opacity: 0.7;
+  z-index: 10;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+}
+/* line 30, ../sass/_components/_social.scss */
+.login .providers li a.facebook {
+  background: #0074cb url(/img/svg/facebook.svg) no-repeat top center;
+}
+/* line 33, ../sass/_components/_social.scss */
+.login .providers li a.twitter {
+  background: #64ccef url(/img/svg/twitter.svg) no-repeat top center;
+}
+/* line 36, ../sass/_components/_social.scss */
+.login .providers li a.google {
+  background: #e55036 url(/img/svg/google.svg) no-repeat top center;
 }
 
 /* line 1, ../sass/_components/_themes.scss */
@@ -470,9 +521,4 @@ h2, form, input {
 .avatar {
   height: 2rem;
   padding: 0.5rem;
-}
-
-/* line 12, ../sass/kickoff.app.scss */
-body {
-  padding: 3rem 0;
 }
