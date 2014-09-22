@@ -41,6 +41,8 @@
 				'value' => $return_to));
 			echo $this->Form->button(__d('users','Sign in'));
 
+      echo $this->Html->link(__d('users', 'Register'), array('action' => 'add'));
+
       echo '<p>' . $this->Html->link(__d('users', 'I forgot my password'), array('action' => 'reset_password')) . '</p>';
 
 			echo $this->Form->end();
