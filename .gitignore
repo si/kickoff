@@ -14,6 +14,5 @@ app/webroot/files/8332_127034295841_1794403_n.jpg
 app/Config/app_secrets.php
 
 app/tmp/*
-app/Plugin/Search/
 
 app/Plugin/Opauth/
