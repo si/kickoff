@@ -1,6 +1,6 @@
 <nav>
 
-  <?php echo $this->Html->link('( KO )', array('controller'=>'pages','action'=>'display', 'home'), array('class'=>'logo')); ?>
+  <?php echo $this->Html->link($this->Html->image('/img/svg/kickoff.svg'), array('controller'=>'pages','action'=>'display', 'home'), array('class'=>'logo','escape'=>false)); ?>
 
   <ul class="discover">
     <li><?php echo $this->Html->link('Sports', array('controller'=>'sports','action'=>'index')); ?></li>
