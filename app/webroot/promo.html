@@ -1,0 +1,48 @@
+<style>
+
+.cover {
+  background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/31787/stars.jpg')  no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.cover div {
+  animation: 8s slide infinite linear;
+  background: rgba(white,0.9);
+  border-radius: 1em;
+  margin-top: -75px;
+  padding: 0 2em;
+  position: absolute;
+  left: -100%;
+  text-align: center;
+  top: 50%;
+  width: 50em; 
+  
+.cover h1 {
+    background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/31787/stars.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-size: 100px;
+    margin: 0;
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+  }
+}
+
+@keyframes slide {
+  to { 
+    left: 100%;
+  }
+}
+
+</style>
+
+<div class="cover">
+  <div>
+  <h1>
+    Cut out text
+  </h1>
+  </div>
+</div>

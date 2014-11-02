@@ -1,6 +1,6 @@
 /* line 1, ../sass/_base/_footer.scss */
 footer {
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  background: -webkit-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.4) 100%);
   bottom: 0;
   color: #FFF;
   left: 0;
@@ -15,7 +15,7 @@ h2, form, input {
   text-align: center;
 }
 
-/* line 7, ../sass/_base/_forms.scss */
+/* line 5, ../sass/_base/_forms.scss */
 .input input,
 .input textarea,
 .input select {
@@ -29,7 +29,7 @@ h2, form, input {
   background: rgba(255, 255, 255, 0.95);
 }
 
-/* line 17, ../sass/_base/_forms.scss */
+/* line 16, ../sass/_base/_forms.scss */
 .checkbox input[type=checkbox],
 .radio input[type=radio] {
   float: none;
@@ -54,9 +54,9 @@ h2, form, input {
 
 /* line 3, ../sass/_base/_layout.scss */
 body {
-  background: linear-gradient(rgba(101, 71, 71, 0.4), rgba(101, 71, 71, 0.3)), fixed url(/img/photos/girl-on-mac-in-park.jpg) no-repeat 50% 50%;
+  background: linear-gradient(rgba(101, 71, 71, 0.7), rgba(101, 71, 71, 0.5)), fixed url(/img/photos/girl-on-mac-in-park.jpg) no-repeat 50% 50%;
   background-size: cover;
-  padding: 4rem 0 0;
+  padding: 4rem 0 5rem;
 }
 
 /* line 1, ../sass/_base/_links.scss */
@@ -97,7 +97,7 @@ nav .logo {
   right: 47%;
   text-align: center;
 }
-/* line 30, ../sass/_base/_navigation.scss */
+/* line 29, ../sass/_base/_navigation.scss */
 nav .discover,
 nav .engage {
   display: inline-block;
@@ -162,7 +162,7 @@ nav li ul li .twitter {
 nav li ul li .google {
   background: #e55036;
 }
-/* line 97, ../sass/_base/_navigation.scss */
+/* line 96, ../sass/_base/_navigation.scss */
 nav li:hover ul, nav li:focus ul {
   height: auto;
   opacity: 1;
@@ -170,16 +170,21 @@ nav li:hover ul, nav li:focus ul {
 
 /* line 1, ../sass/_base/_typography.scss */
 body, h1, h2, h3 {
+  color: #000;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-/* line 5, ../sass/_base/_typography.scss */
+/* line 8, ../sass/_base/_typography.scss */
 h2 {
   background: rgba(0, 0, 0, 0.8);
   color: rgba(255, 255, 255, 0.8);
+  font-size: 2rem;
   letter-spacing: 0.5rem;
-  margin: 1rem auto 2rem;
-  padding: 1rem;
+  line-height: 1.1;
+  margin: 5rem auto;
+  padding: 2rem;
   text-transform: uppercase;
 }
 
@@ -420,7 +425,7 @@ h2 {
   .content .calendar {
     /* Hide table headers (but not display: none;, for accessibility) */
   }
-  /* line 126, ../sass/_components/_calendars.scss */
+  /* line 121, ../sass/_components/_calendars.scss */
   .content .calendar table,
   .content .calendar thead,
   .content .calendar tbody,
