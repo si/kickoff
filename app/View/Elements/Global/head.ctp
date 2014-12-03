@@ -8,6 +8,7 @@
   <link href="/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="/css/bootstrap-datetimepicker.min.css" />
   <link href="http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
 
   <link href="/css/kickoff.app.css" rel="stylesheet">
 
