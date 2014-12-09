@@ -1,0 +1,17 @@
+.promo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  div {
+    flex-grow: 1;
+    margin: 1rem 2%;
+  }
+}
+
+.breakout {
+  background: rgba(#FFF,0.1);
+  font-size: 1.5rem;
+  padding: 1em;
+  margin: 1.5rem -0.5rem 1.5rem;
+}

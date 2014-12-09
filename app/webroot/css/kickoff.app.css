@@ -1,6 +1,6 @@
 /* line 1, ../sass/_base/_footer.scss */
 footer {
-  background: -webkit-linear-gradient(transparent 0%, black 50%);
+  background: -webkit-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.7) 50%);
   bottom: 0;
   color: rgba(255, 255, 255, 0.4);
   left: 0;
@@ -54,7 +54,7 @@ h2, form, input {
 
 /* line 3, ../sass/_base/_layout.scss */
 body {
-  background: linear-gradient(rgba(101, 71, 71, 0.7), rgba(101, 71, 71, 0.5)), fixed url(/img/photos/girl-on-mac-in-park.jpg) no-repeat 50% 50%;
+  background: linear-gradient(rgba(101, 71, 71, 0.85), rgba(101, 71, 71, 0.7)), fixed url(/img/photos/girl-on-mac-in-park.jpg) no-repeat 50% 50%;
   background-size: cover;
   padding: 4rem 0 5rem;
 }
@@ -189,6 +189,11 @@ h2 {
   -webkit-text-stroke: 2px white;
 }
 
+/* line 20, ../sass/_base/_typography.scss */
+pre {
+  background: rgba(255, 255, 255, 0.9);
+}
+
 /* line 4, ../sass/_globals/_buttons.scss */
 .btn {
   background: rgba(0, 0, 0, 0.7);
@@ -313,6 +318,26 @@ h2 {
   font-family: monospace;
   font-style: normal;
   z-index: 20;
+}
+
+/* line 1, ../sass/_globals/_grid.scss */
+.promo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/* line 6, ../sass/_globals/_grid.scss */
+.promo div {
+  flex-grow: 1;
+  margin: 1rem 2%;
+}
+
+/* line 12, ../sass/_globals/_grid.scss */
+.breakout {
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 1.5rem;
+  padding: 1em;
+  margin: 1.5rem -0.5rem 1.5rem;
 }
 
 /* line 7, ../sass/_components/_calendars.scss */
