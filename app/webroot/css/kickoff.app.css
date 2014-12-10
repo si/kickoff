@@ -15,38 +15,46 @@ h2, form, input {
   text-align: center;
 }
 
-/* line 5, ../sass/_base/_forms.scss */
+/* line 7, ../sass/_base/_forms.scss */
+.input label {
+  color: rgba(0, 0, 0, 0.3);
+}
+/* line 11, ../sass/_base/_forms.scss */
 .input input,
 .input textarea,
 .input select {
   border: none;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.3);
+  color: #000;
+  padding: 0.67rem 1rem;
+  transition: all 0.25s ease;
 }
-/* line 11, ../sass/_base/_forms.scss */
+/* line 20, ../sass/_base/_forms.scss */
 .input input:focus,
 .input textarea:focus,
 .input select:focus {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.6);
+  transform: scaleX(1.1);
 }
 
-/* line 16, ../sass/_base/_forms.scss */
+/* line 27, ../sass/_base/_forms.scss */
 .checkbox input[type=checkbox],
 .radio input[type=radio] {
   float: none;
 }
 
-/* line 21, ../sass/_base/_forms.scss */
+/* line 32, ../sass/_base/_forms.scss */
 .checkbox {
   margin: 0 auto;
   width: 206px;
 }
-/* line 25, ../sass/_base/_forms.scss */
+/* line 36, ../sass/_base/_forms.scss */
 .checkbox input {
   display: inline-block;
   line-height: 1.5rem;
   margin-right: 0.5rem;
 }
-/* line 31, ../sass/_base/_forms.scss */
+/* line 42, ../sass/_base/_forms.scss */
 .checkbox label {
   display: inline-block;
   line-height: 1.3rem;
@@ -195,16 +203,22 @@ pre {
 }
 
 /* line 4, ../sass/_globals/_buttons.scss */
+button,
 .btn {
   background: rgba(0, 0, 0, 0.7);
   border: none;
+  border-radius: 0.25rem;
   color: rgba(255, 255, 255, 0.85);
+  padding: 0.67rem 1rem;
   text-shadow: none;
+  transition: all 0.25s ease;
 }
-/* line 10, ../sass/_globals/_buttons.scss */
+/* line 14, ../sass/_globals/_buttons.scss */
+button:hover,
 .btn:hover {
   background: black;
   color: white;
+  transform: scaleX(1.1);
 }
 
 /* line 7, ../sass/_globals/_social.scss */

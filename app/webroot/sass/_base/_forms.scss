@@ -2,14 +2,25 @@ h2, form, input {
   text-align: center;
 }
 
-.input input, 
-.input textarea, 
-.input select {
-  border: none;
-  background: rgba(#FFF,0.9);
-  
-  &:focus {
-    background: rgba(#FFF,0.95);
+.input {
+
+  label {
+    color: rgba(#000,0.3);
+  }
+
+  input,
+  textarea,
+  select {
+    border: none;
+    background: rgba(#FFF,0.3);
+    color: #000;
+    padding: 0.67rem 1rem;
+    transition: all 0.25s ease;
+
+    &:focus {
+      background: rgba(#FFF,0.6);
+      transform: scaleX(1.1);
+    }
   }
 }
 
@@ -21,13 +32,13 @@ h2, form, input {
 .checkbox {
   margin: 0 auto;
   width: 206px;
-  
+
   input {
     display: inline-block;
     line-height: 1.5rem;
     margin-right: 0.5rem;
   }
-  
+
   label {
     display: inline-block;
     line-height: 1.3rem;

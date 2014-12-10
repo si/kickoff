@@ -1,14 +1,19 @@
-$btn-background: rgb(0,0,0);
-$btn-text: rgb(255,255,255);
+$btn-background: #000;
+$btn-text: #FFF;
 
+button,
 .btn {
   background: rgba($btn-background, 0.7);
   border: none;
+  border-radius: 0.25rem;
   color: rgba($btn-text, 0.85);
+  padding: 0.67rem 1rem;
   text-shadow: none;
-  
+  transition: all 0.25s ease;
+
   &:hover {
     background: rgba($btn-background, 1);
     color: rgba($btn-text, 1);
+    transform: scaleX(1.1);
   }
 }
