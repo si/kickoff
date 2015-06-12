@@ -2,10 +2,7 @@
 class Calendar extends AppModel {    
 
 	var $name = 'Calendar';
-  var $displayField = 'name';
-  var $virtualFields = array(
-    'slug' => "LCASE(REPLACE(' ', '-', Calendar.name))"
-  );
+	var $displayField = 'name';
 
 	var $belongsTo = array(
 	  'Sport',
