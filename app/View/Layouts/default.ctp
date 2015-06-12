@@ -10,6 +10,6 @@
   </div> <!-- /container -->
   <?php echo $this->element('Global/footer'); ?>
   <?php echo $this->element('Global/scripts'); ?>
-  <?php echo $this->element('Global/intercom'); ?>
+  <?php //echo $this->element('Global/intercom'); ?>
 </body>
 </html>
