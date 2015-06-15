@@ -181,6 +181,11 @@ body, h1, h2, h3 {
 }
 
 /* line 8, ../sass/_base/_typography.scss */
+h1, h2, h3 {
+  color: #FFF;
+}
+
+/* line 12, ../sass/_base/_typography.scss */
 h2 {
   color: transparent;
   font-family: 'Roboto Condensed', sans-serif;
@@ -193,7 +198,7 @@ h2 {
   -webkit-text-stroke: 2px white;
 }
 
-/* line 20, ../sass/_base/_typography.scss */
+/* line 24, ../sass/_base/_typography.scss */
 pre {
   background: rgba(255, 255, 255, 0.9);
 }
