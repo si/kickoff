@@ -20,6 +20,29 @@ if(count($events)>0) {
   }
   
 }
+// Previous and Next Month links
+echo $this->Html->link(
+  date('M Y', strtotime($first_month . ' -1 month'))
+  , array(
+    'controller' => $this->params['controller'], 
+    'action' => $this->params['action'], 
+    $this->params['pass'][0],
+    'month' => date('Y-m', strtotime($first_month . ' -1 month'))
+  )
+  , array('class'=>'btn pull-left')
+);
+?>
+<?php
+echo $this->Html->link(
+  date('M Y', strtotime($first_month . ' +1 month'))
+  , array(
+    'controller' => $this->params['controller'], 
+    'action' => $this->params['action'], 
+    $this->params['pass'][0],
+    'month' => date('Y-m', strtotime($first_month . ' +1 month'))
+  )
+  , array('class'=>'btn pull-right')
+);
 ?>
 <table class="table calendar">
   <caption><?php echo $first_month; ?></caption>
@@ -40,16 +63,7 @@ if(count($events)>0) {
       $i = $d = 1;
       if($first_day>1) { 
         echo '<td colspan="' . ($first_day-1) . '" class="">'
-          . $this->Html->link(
-              date('M Y', strtotime($first_month . ' -1 month'))
-              , array(
-                'controller' => $this->params['controller'], 
-                'action' => $this->params['action'], 
-                $this->params['pass'][0],
-                'month' => date('Y-m', strtotime($first_month . ' -1 month'))
-              )
-              , array('style'=>'color:#CCC')
-            )
+          . 'XX' 
           . '</td>';
         $i = $first_day;
       }
@@ -102,16 +116,6 @@ if(count($events)>0) {
       } 
       
       if($i % 7 > 0) echo '<td colspan="' . ($i % 7) . '">'
-          . $this->Html->link(
-              date('M Y', strtotime($first_month . ' +1 month'))
-              , array(
-                'controller' => $this->params['controller'], 
-                'action' => $this->params['action'], 
-                $this->params['pass'][0],
-                'month' => date('Y-m', strtotime($first_month . ' +1 month'))
-              )
-              , array('style'=>'color:#CCC')
-            )
           . '</td>'
       
       ?>
