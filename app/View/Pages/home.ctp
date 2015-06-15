@@ -1,4 +1,4 @@
-<h2>The Big Game in your calendar</h2>
+<h2>Putting sports data in your own hands</h2>
 
 <div class="promo">
   <div class="football">
