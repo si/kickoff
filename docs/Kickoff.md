@@ -10,6 +10,14 @@ Provide usable, engaging data for sports events
  * **Rugby World Cup 2015** in England & Wales
  * **FA 2015-16** football season (FA Cup, Premiership, Championship, League 1 and 2)
 
+## Legacy Products
+
+ * [World Cup Kickoff](http://worldcupkickoff.com)
+ * [6 Nations Kickoff](http://6nationskickoff.com)
+ * [Rugby World Cup Kickoff](http://rugbyworldcupkickoff.com)
+ * [F1 Calendar](http://worldcupkickoff.com)
+ * [UEFA Calendars](http://calendars.uefa.com)
+
 ## Features
 ### Consumption
 
