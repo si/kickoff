@@ -16,3 +16,4 @@ app/Config/app_secrets.php
 app/tmp/*
 
 app/Plugin/Opauth/
+database.php
