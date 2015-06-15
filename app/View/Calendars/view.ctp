@@ -1,18 +1,4 @@
-<div class="theme"
-  <?php if($calendar['Theme']['primary_colour']!='' || $calendar['Theme']['image'] != '') echo 'style="'; ?>
-  <?php echo ($calendar['Theme']['primary_colour']!='') ? 
-    'background: linear-gradient(
-      rgba(' . $calendar['Theme']['primary_colour'] . ',0.3), 
-      rgba(' . $calendar['Theme']['primary_colour'] . ',0.3)
-    )' 
-    : 
-    'background: linear-gradient(
-      rgba(0,0,0,0.3), 
-      rgba(0,0,0,0.3)
-    )'; ?>
-  <?php echo ($calendar['Theme']['image']!='') ? ', fixed url(/' . $calendar['Theme']['image'] . ') ' : ''; ?>
-  <?php if($calendar['Theme']['primary_colour']!='' || $calendar['Theme']['image'] != '') echo ';" '; ?>
->
+<div class="theme">
   <div class="cover">
     <h1><?php echo $calendar['Calendar']['name']; ?></h1>
     <?php if( $calendar['Calendar']['description']!='') : ?>
