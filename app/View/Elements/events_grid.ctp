@@ -1,4 +1,3 @@
-<pre class="hidden"><?php var_dump($events); ?></pre>
 <?php
 if(count($events)==0 && isset($start)) {
   $first_date = $start;
@@ -20,29 +19,6 @@ if(count($events)>0) {
   }
   
 }
-// Previous and Next Month links
-echo $this->Html->link(
-  date('M Y', strtotime($first_month . ' -1 month'))
-  , array(
-    'controller' => $this->params['controller'], 
-    'action' => $this->params['action'], 
-    $this->params['pass'][0],
-    'month' => date('Y-m', strtotime($first_month . ' -1 month'))
-  )
-  , array('class'=>'btn pull-left')
-);
-?>
-<?php
-echo $this->Html->link(
-  date('M Y', strtotime($first_month . ' +1 month'))
-  , array(
-    'controller' => $this->params['controller'], 
-    'action' => $this->params['action'], 
-    $this->params['pass'][0],
-    'month' => date('Y-m', strtotime($first_month . ' +1 month'))
-  )
-  , array('class'=>'btn pull-right')
-);
 ?>
 <table class="table calendar">
   <caption><?php echo $first_month; ?></caption>
@@ -122,3 +98,27 @@ echo $this->Html->link(
     </tr>
   </tbody>
 </table>
+<?php
+// Previous and Next Month links
+echo $this->Html->link(
+  date('M Y', strtotime($first_month . ' -1 month'))
+  , array(
+    'controller' => $this->params['controller'], 
+    'action' => $this->params['action'], 
+    $this->params['pass'][0],
+    'month' => date('Y-m', strtotime($first_month . ' -1 month'))
+  )
+  , array('class'=>'btn pull-left')
+);
+
+echo $this->Html->link(
+  date('M Y', strtotime($first_month . ' +1 month'))
+  , array(
+    'controller' => $this->params['controller'], 
+    'action' => $this->params['action'], 
+    $this->params['pass'][0],
+    'month' => date('Y-m', strtotime($first_month . ' +1 month'))
+  )
+  , array('class'=>'btn pull-right')
+);
+?>
