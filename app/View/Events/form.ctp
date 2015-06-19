@@ -1,5 +1,7 @@
 <?php
-$this->viewVars['title_for_layout'] = 'Event Details';
+$title = 'Event Details';
+if(isset($calendar)) $title .= ' | ' . $calendar['Calendar']['name'];
+$this->viewVars['title_for_layout'] = $title;
 ?>
 <h1>Event Details</h1>
 <?php
