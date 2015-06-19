@@ -4,26 +4,25 @@
 }
 
 
-.theme {
-  background-size: contain;
-  color: #FFF;
-  padding: 1em 0;
+.container {
+
   text-align: center;
-  width: 100%;
-  margin: 0;
   
   h1 {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 3em;
-    margin: 15rem 0 0;
+    font-size: 3rem;
+    line-height: 1;
+    margin: 8rem 0 2rem;
     text-transform: uppercase;
   }
+
   .lead {
     font-family: Georgia;
     font-style: italic;
     font-size: 1em;
     margin: 0 0 1rem;
   }
+
   p small {
     color: rgba(255,255,255,0.5);
     display: block;
