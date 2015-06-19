@@ -64,8 +64,9 @@ class EventsController extends AppController {
   	$this->set('calendars', $this->Event->Calendar->find('list'));
   	$this->set('teams', $this->Event->HomeTeam->find('list')); 
 
-    if(isset($this->params['named']['calendar'])) {
-      $this->set('calendar', $this->Event->Calendar->findById($this->params['named']['calendar']));
+    if(isset($this->params['named']['calendar']) || $this->data['Event']['calendar_id']!='') {
+      $calendar = ($this->data['Event']['calendar_id']) ? $this->data['Event']['calendar_id'] : $this->params['named']['calendar'];
+      $this->set('calendar', $this->Event->Calendar->findById($calendar));
     }
   	
 	}
