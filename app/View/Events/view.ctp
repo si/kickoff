@@ -1,6 +1,4 @@
-
 <h1><?php echo $event['Event']['summary']; ?></h1>
-
 <p class="lead">
   <?php 
   echo $this->Time->format('D j M Y g:ia', $event['Event']['start']) 
@@ -8,16 +6,15 @@
     . $this->Time->format('g:ia', $event['Event']['end']); 
   ?>
 </p>
+
 <p><?php echo $event['Event']['location']; ?></p>
-
 <p>Group: <?php echo $event['Event']['group']; ?></p>
-
 <p><?php echo $event['Event']['description']; ?></p>
 
-
-
-<small class="text-muted">Added to the <?php echo $this->Html->link($event['Calendar']['name'],array('controller'=>'calendars','action'=>'view',$event['Calendar']['id'])); ?> calendar 
-on <?php echo $this->Time->nice($event['Event']['created']); ?></small>
+<small class="text-muted">Added to  
+  <?php echo $this->Html->link($event['Calendar']['name'],array('controller'=>'calendars','action'=>'view',$event['Calendar']['id'])); ?> 
+  on <?php echo $this->Time->nice($event['Event']['created']); ?>
+</small>
 
 <div class="btn-group btn-block">
 
