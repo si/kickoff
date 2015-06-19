@@ -17,17 +17,17 @@ class CalendarsController extends AppController {
 	
 	function form($id='') {
 	
-	  if(isset($this->data) && count($this->data)>0) {
-  	  $this->Calendar->save($this->data);
-  	  $this->redirect(array('action'=>'view',$this->Calendar->id));
-	  }
+		if(isset($this->data) && count($this->data)>0) {
+			$this->Calendar->save($this->data);
+			$this->redirect(array('action'=>'view',$this->Calendar->id));
+		}
 	
-  	if($id!='') {
-    	$this->data = $this->Calendar->findById($id);
-  	}
-  	
-  	$this->set('sports', $this->Calendar->Sport->find('list'));
-  	$this->set('themes', $this->Calendar->Theme->find('list'));
+		if($id!='') {
+			$this->data = $this->Calendar->findById($id);
+		}
+
+		$this->set('sports', $this->Calendar->Sport->find('list'));
+		$this->set('themes', $this->Calendar->Theme->find('list'));
   	
 	}
 
