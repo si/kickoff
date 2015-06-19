@@ -1,3 +1,4 @@
+
 <h1><?php echo $event['Event']['summary']; ?></h1>
 
 <p class="lead">

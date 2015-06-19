@@ -15,6 +15,17 @@ class EventsController extends AppController {
 	  parent::beforeRender();
 	}
 	
+  function view($id='') {
+    if($id!='') {
+      $event = $this->Event->findById($id);
+      $this->set('event', $event);
+
+      if(count($event['Calendar'])>0) {
+        $this->set('calendar', $this->Event->Calendar->findById($event['Calendar']['id']));
+      }
+    }
+  }
+
 	function form($id='') {
 	  if(isset($this->data) && count($this->data)>0) {
 	    $form_data = $this->data;
