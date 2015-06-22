@@ -12,6 +12,17 @@ echo $this->Form->create('Event');
   <legend>Basics</legend>
 
   <div class="row">
+		<datalist id="teams">
+		<?php foreach($teams as $id=>$name) : ?>
+		  <option value="<?php echo $name; ?>">
+    <?php endforeach; ?>
+		</datalist>
+		<?php echo $this->Form->input('home', array('label'=>'First Side','class'=>'span3','div'=>'span3', 'list'=>'teams')); ?>
+		<?php echo $this->Form->input('away', array('label'=>'Second Side','class'=>'span3','div'=>'span3', 'list'=>'teams')); ?>
+    <?php echo $this->Form->input('summary', array('class'=>'span6','div'=>'span6')); ?>
+  </div>
+
+  <div class="row">
     <div class="span3">
       <label for="EventStart">Starts</label>
       <input type="text" name="data[Event][start]" id="EventStart" data-format="dd/MM/yyyy HH:mm PP" value="<?php if(isset($this->data['Event']['start'])) echo $this->Time->format('d/m/Y h:i A',$this->data['Event']['start']); ?>" class="span3" />
@@ -20,34 +31,22 @@ echo $this->Form->create('Event');
       <label for="EventEnd">Ends</label>
       <input type="text" name="data[Event][end]" id="EventEnd" data-format="dd/MM/yyyy HH:mm PP" class="span3" value="<?php if(isset($this->data['Event']['end'])) echo $this->Time->format('d/m/Y h:i A',$this->data['Event']['end']); ?>">
     </div>
-    <?php 
-      $default_calendar = (isset($this->request['named']['calendar'])) ?
-      	$this->request['named']['calendar'] :
-      	'';
-      echo $this->Form->input('calendar_id', array('default'=>$default_calendar,'class'=>'span6','div'=>'span6')); 
-    ?>
-  </div>
-
-  <div class="row">
-		<datalist id="teams">
-		<?php foreach($teams as $id=>$name) : ?>
-		  <option value="<?php echo $name; ?>">
-    <?php endforeach; ?>
-		</datalist>
-		<?php echo $this->Form->input('home', array('label'=>'Home Team','class'=>'span3','div'=>'span3', 'list'=>'teams')); ?>
-		<?php echo $this->Form->input('away', array('label'=>'Away Team','class'=>'span3','div'=>'span3', 'list'=>'teams')); ?>
-  </div>
-
-  <div class="row">
-	  <?php echo $this->Form->input('summary', array('class'=>'span6','div'=>'span6')); ?>
 	  <?php echo $this->Form->input('location',array('class'=>'span6','div'=>'span6')); ?>
   </div>
 </fieldset>
+
+
 <fieldset>
   <legend>Extra</legend>
   <div class="row">
     <?php echo $this->Form->input('description', array('div'=>'span6','class'=>'span6')); ?>
     <?php echo $this->Form->input('group', array('div'=>'span6','class'=>'span6')); ?>
+    <?php 
+      $default_calendar = (isset($this->request['named']['calendar'])) ?
+        $this->request['named']['calendar'] :
+        '';
+      echo $this->Form->input('calendar_id', array('default'=>$default_calendar,'class'=>'span6','div'=>'span6')); 
+    ?>
   </div>
 </fieldset>
 <?php
