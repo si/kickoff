@@ -1,16 +1,13 @@
 $(document).ready(function(){
 
-  $('.navbar-form').on('submit',function(e){
-    e.preventDefault();
-    alert("Authentication hasn't been built yet.");
-    return false;
-  });
-
 
   /* Auto-populate Event Summary from home and away teams */
-  $('#EventHome, #EventAway').on('keydown', function(e){
+  var createEventSummary = function() {
     $('#EventSummary').val($('#EventHome').val() + ' v ' + $('#EventAway').val());
-  });
+  }
+
+  $('#EventHome, #EventAway').on('change', createEventSummary);
+  $('#EventHome, #EventAway').on('keyup', createEventSummary);
 
   $('#EventStart, #EventEnd').datetimepicker({
     language: 'en',
