@@ -28,11 +28,11 @@
  * See http://mark-story.com/posts/view/installing-cakephp-with-composer
  */
 // Load composer autoload.
-require APP . '/Vendor/autoload.php';
+//require APP . '/Vendor/autoload.php';
 // Remove and re-prepend CakePHP's autoloader as composer thinks it is the most important.
 // See https://github.com/composer/composer/commit/c80cb76b9b5082ecc3e5b53b1050f76bb27b127b
-spl_autoload_unregister(array('App', 'load'));
-spl_autoload_register(array('App', 'load'), true, true);
+//spl_autoload_unregister(array('App', 'load'));
+//spl_autoload_register(array('App', 'load'), true, true);
 
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File'));
@@ -75,7 +75,7 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 
-CakePlugin::loadAll(); // Loads all plugins at once
+//CakePlugin::loadAll(); // Loads all plugins at once
  
  function uk_date_to_mysql($str) {
    $arr = explode('/',str_replace(array(' ',':'), '/', $str));
