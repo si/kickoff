@@ -4,7 +4,6 @@
 
   <ul class="discover">
     <li><?php echo $this->Html->link('Sports', array('controller'=>'sports','action'=>'index')); ?></li>
-    <li><?php echo $this->Html->link('Teams', array('controller'=>'teams','action'=>'index')); ?></li>
     <li><?php echo $this->Html->link('Calendars', array('controller'=>'calendars','action'=>'index')); ?></li>
   </ul>
   
