@@ -3,10 +3,11 @@
     <?php echo $this->Session->read('Auth.User.username'); ?>
   </a>
 </li>
-<li><?php echo $this->Html->link('Sign Out', array('controller'=>'users','action'=>'logout')); ?></li>
 
 <?php if ($this->Session->read('Auth.User.is_admin')) : ?>
-<li><?php echo $this->Html->link('Site Admin', array('controller'=>'admin','action'=>'index')); ?></li>
-<li><?php echo $this->Html->link('Themes', array('controller'=>'themes','action'=>'index')); ?></li>
+<li><?php echo $this->Html->link('Admin', array('controller'=>'admin','action'=>'index')); ?></li>
 <?php endif; ?>
+
+<li><?php echo $this->Html->link('Sign Out', array('controller'=>'users','action'=>'logout')); ?></li>
+
 

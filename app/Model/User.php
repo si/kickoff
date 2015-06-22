@@ -8,6 +8,10 @@ class User extends AppModel {
     public $name = 'User';
     public $displayField = 'username';
 
+    public $virtualFields = array(
+      'is_admin' => "`role` = 'Admin'"
+    );
+
     public $validate = array(
         'username' => array(
             'required' => array(
