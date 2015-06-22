@@ -9,6 +9,7 @@ class EventsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
+    $this->Auth->allow('view', 'export', 'share');
 	}
 	
 	function beforeRender() {
