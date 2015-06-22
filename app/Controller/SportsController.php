@@ -8,6 +8,7 @@ class SportsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
+        $this->Auth->allow('index', 'view');
 	}
 	
 	function beforeRender() {
@@ -15,4 +16,3 @@ class SportsController extends AppController {
 	}
     
 }
-?>
