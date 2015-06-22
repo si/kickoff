@@ -131,6 +131,12 @@ class EventsController extends AppController {
     $this->set('reminder_value',1);
     $this->set('reminder_unit','H');
   }
-    
+  
+  function share($id='') {
+    if($id!='') {
+      $this->set('event', $this->Event->findById($id));
+    }
+  }
+
 }
 ?>
