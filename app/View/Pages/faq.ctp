@@ -1,6 +1,5 @@
 <h1>Frequently Asked Questions</h1>
 
-<!-- (ul>li*5>a[href="#question_$"]{Question $})+(div>h2[id="question_$"]{Question $}+p)*5 -->
 <ul>
   <li><a href="#question_1">Which applications support calendar subscriptions?</a></li>
   <li><a href="#question_2">Question 2</a></li>
