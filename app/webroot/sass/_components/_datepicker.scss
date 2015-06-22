@@ -1,0 +1,33 @@
+.bootstrap-datetimepicker-widget {
+	ul {
+		margin-left: 0;
+	}
+}
+
+
+.datepicker {
+	color: #333;
+
+	th, td {
+		text-align: center;
+	}
+
+	.dow {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+	}
+
+	.day {
+		cursor: pointer;
+	}
+
+	.active {
+		background: #EEE;
+		border-radius: 50%;
+	}
+
+	td.old,
+	td.new {
+		color: #CCC;
+	}
+}

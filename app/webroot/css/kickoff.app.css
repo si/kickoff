@@ -181,7 +181,7 @@ body, h1, h2, h3 {
 }
 
 /* line 8, ../sass/_base/_typography.scss */
-h2 {
+h1 {
   color: transparent;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 5rem;
@@ -269,30 +269,29 @@ button:hover,
 /* line 11, ../sass/_globals/_themes.scss */
 .container h1 {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 3rem;
   line-height: 1;
   margin: 8rem 0 2rem;
   text-transform: uppercase;
 }
-/* line 19, ../sass/_globals/_themes.scss */
+/* line 18, ../sass/_globals/_themes.scss */
 .container .lead {
   font-family: Georgia;
   font-style: italic;
   font-size: 1em;
   margin: 0 0 1rem;
 }
-/* line 26, ../sass/_globals/_themes.scss */
+/* line 25, ../sass/_globals/_themes.scss */
 .container p small {
   color: rgba(255, 255, 255, 0.5);
   display: block;
   margin: 0 0 12rem;
 }
 
-/* line 33, ../sass/_globals/_themes.scss */
+/* line 32, ../sass/_globals/_themes.scss */
 .tiled {
   overflow: hidden;
 }
-/* line 36, ../sass/_globals/_themes.scss */
+/* line 35, ../sass/_globals/_themes.scss */
 .tiled li {
   display: inline-block;
   position: relative;
@@ -300,7 +299,7 @@ button:hover,
   width: 11rem;
   height: 12rem;
 }
-/* line 43, ../sass/_globals/_themes.scss */
+/* line 42, ../sass/_globals/_themes.scss */
 .tiled li h2 {
   font-size: 1rem;
   font-weight: normal;
@@ -309,7 +308,7 @@ button:hover,
   left: 0;
   z-index: 20;
 }
-/* line 51, ../sass/_globals/_themes.scss */
+/* line 50, ../sass/_globals/_themes.scss */
 .tiled li img {
   width: 200px;
   height: 200px;
@@ -318,7 +317,7 @@ button:hover,
   left: 0;
   z-index: 10;
 }
-/* line 59, ../sass/_globals/_themes.scss */
+/* line 58, ../sass/_globals/_themes.scss */
 .tiled li var {
   display: block;
   font-family: monospace;
@@ -588,4 +587,37 @@ button:hover,
   display: inline-block;
   vertical-align: top;
   width: 49%;
+}
+
+/* line 2, ../sass/_components/_datepicker.scss */
+.bootstrap-datetimepicker-widget ul {
+  margin-left: 0;
+}
+
+/* line 8, ../sass/_components/_datepicker.scss */
+.datepicker {
+  color: #333;
+}
+/* line 11, ../sass/_components/_datepicker.scss */
+.datepicker th, .datepicker td {
+  text-align: center;
+}
+/* line 15, ../sass/_components/_datepicker.scss */
+.datepicker .dow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+/* line 20, ../sass/_components/_datepicker.scss */
+.datepicker .day {
+  cursor: pointer;
+}
+/* line 24, ../sass/_components/_datepicker.scss */
+.datepicker .active {
+  background: #EEE;
+  border-radius: 50%;
+}
+/* line 30, ../sass/_components/_datepicker.scss */
+.datepicker td.old,
+.datepicker td.new {
+  color: #CCC;
 }
