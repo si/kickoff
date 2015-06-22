@@ -1,4 +1,9 @@
-<h2>Putting sports data in your own hands</h2>
+<?php
+$this->viewVars['title_for_layout'] = 'Sports events in your calendar - Kick Off';
+
+?>
+
+<h1>Putting sports data in your own hands</h1>
 
 <div class="promo">
   <div class="football">
