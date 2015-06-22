@@ -9,6 +9,7 @@ class CalendarsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
+        $this->Auth->allow('index', 'view', 'export');
 	}
 	
 	function beforeRender() {
