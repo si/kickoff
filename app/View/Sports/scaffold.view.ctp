@@ -1,6 +1,6 @@
 <?php 
 $title = $sport['Sport']['name'] . ' Calendars';
-$this->viewVars['title_for_layout'] = $title;
+$this->viewVars['title_for_layout'] = $title . ' - Kick Off Calendars';
 if(isset($sport['Calendar'])) :
 ?>
 <h1><?php echo $title; ?></h1>
