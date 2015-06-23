@@ -5,7 +5,7 @@
 </li>
 
 <?php if ($this->Session->read('Auth.User.is_admin')) : ?>
-<li><?php echo $this->Html->link('Admin', array('controller'=>'admin','action'=>'index')); ?></li>
+<li><?php echo $this->Html->link('Tools', array('controller'=>'tools','action'=>'index')); ?></li>
 <?php endif; ?>
 
 <li><?php echo $this->Html->link('Sign Out', array('controller'=>'users','action'=>'logout')); ?></li>
