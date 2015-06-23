@@ -173,6 +173,42 @@ nav li:hover ul, nav li:focus ul {
   opacity: 1;
 }
 
+/* line 1, ../sass/_base/_tables.scss */
+table {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 1rem 0;
+  text-align: center;
+  width: 100%;
+}
+/* line 7, ../sass/_base/_tables.scss */
+table th, table td {
+  padding: 0.5rem;
+}
+/* line 11, ../sass/_base/_tables.scss */
+table th {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+/* line 16, ../sass/_base/_tables.scss */
+table th a {
+  color: rgba(255, 255, 255, 0.3);
+}
+/* line 23, ../sass/_base/_tables.scss */
+table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+/* line 29, ../sass/_base/_tables.scss */
+table .actions a {
+  background: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-right: 1px;
+  padding: 0.5rem;
+  text-transform: uppercase;
+}
+
 /* line 1, ../sass/_base/_typography.scss */
 body, h1, h2, h3 {
   color: #FFF;
