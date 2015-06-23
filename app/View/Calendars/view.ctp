@@ -1,3 +1,6 @@
+<?php
+$this->viewVars['title_for_layout'] = $calendar['Calendar']['name'] . ' - Kick Off Calendar';
+?>
 <div class="theme">
   <div class="cover">
     <h1><?php echo $calendar['Calendar']['name']; ?></h1>
