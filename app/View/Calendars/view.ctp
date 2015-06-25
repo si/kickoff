@@ -22,11 +22,11 @@ $this->viewVars['title_for_layout'] = $calendar['Calendar']['name'] . ' - Kick O
       
         <div class="pull-left">
           <?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
-          <?php echo $this->Html->link('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
+          <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
         </div>
         
         <div class="pull-right">
-          <?php echo $this->Html->link('Edit',array('action'=>'form',$calendar['Calendar']['id']),array('class'=>'btn')); ?>
+          <?php echo $this->Html->adminLink('Edit',array('action'=>'form',$calendar['Calendar']['id']),array('class'=>'btn')); ?>
           <?php echo $this->Html->link('Export',array('action'=>'export',$calendar['Calendar']['id'],'json'),array('download'=>true, 'class'=>'btn ')); ?>
             <?php echo $this->Form->postLink( 'Delete',
                 array('action' => 'delete', $calendar['Calendar']['id']),
@@ -41,7 +41,7 @@ $this->viewVars['title_for_layout'] = $calendar['Calendar']['name'] . ' - Kick O
         echo $this->element('events_grid',array('events'=>$events,'context'=>'upcoming')); 
       ?>
     
-      <?php echo $this->Html->link('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
+      <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
     
 
     </div>
