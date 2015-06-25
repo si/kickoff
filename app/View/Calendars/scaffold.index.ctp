@@ -2,7 +2,7 @@
 $this->viewVars['title_for_layout'] = 'Calendars - Kick Off Calendars';
 ?>
 <h1>Calendars</h1>
-<?php echo $this->Html->link('New Calendar',array('action'=>'form'),array('class'=>'btn btn-large')); ?>
+<?php echo $this->Html->adminLink('New Calendar',array('action'=>'form'),array('class'=>'btn btn-large')); ?>
 <table class="table">
   <thead>
     <tr>
