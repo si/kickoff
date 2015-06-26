@@ -1,9 +1,10 @@
 /* line 1, ../sass/_base/_footer.scss */
 footer {
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 50%);
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 50%);
   color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
   overflow: hidden;
-  padding: 2rem;
+  padding: 2rem 2rem 1rem;
 }
 
 /* line 1, ../sass/_base/_forms.scss */
@@ -172,6 +173,42 @@ nav li:hover ul, nav li:focus ul {
   opacity: 1;
 }
 
+/* line 1, ../sass/_base/_tables.scss */
+table {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 1rem 0;
+  text-align: center;
+  width: 100%;
+}
+/* line 7, ../sass/_base/_tables.scss */
+table th, table td {
+  padding: 0.5rem;
+}
+/* line 11, ../sass/_base/_tables.scss */
+table th {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+/* line 16, ../sass/_base/_tables.scss */
+table th a {
+  color: rgba(255, 255, 255, 0.3);
+}
+/* line 23, ../sass/_base/_tables.scss */
+table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+/* line 29, ../sass/_base/_tables.scss */
+table .actions a {
+  background: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-right: 1px;
+  padding: 0.5rem;
+  text-transform: uppercase;
+}
+
 /* line 1, ../sass/_base/_typography.scss */
 body, h1, h2, h3 {
   color: #FFF;
@@ -201,8 +238,8 @@ pre {
 /* line 5, ../sass/_globals/_buttons.scss */
 button,
 .btn {
-  background: rgba(0, 0, 0, 0.7);
-  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  border: none !important;
   border-radius: 0.25rem;
   color: rgba(255, 255, 255, 0.85);
   padding: 0.67rem 1rem;
@@ -214,7 +251,7 @@ button:hover,
 .btn:hover {
   background: black;
   color: white;
-  transform: scaleX(1.1);
+  transform: scale(1.1);
 }
 
 /* line 7, ../sass/_globals/_social.scss */
@@ -285,44 +322,6 @@ button:hover,
   color: rgba(255, 255, 255, 0.5);
   display: block;
   margin: 0 0 12rem;
-}
-
-/* line 32, ../sass/_globals/_themes.scss */
-.tiled {
-  overflow: hidden;
-}
-/* line 35, ../sass/_globals/_themes.scss */
-.tiled li {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  width: 11rem;
-  height: 12rem;
-}
-/* line 42, ../sass/_globals/_themes.scss */
-.tiled li h2 {
-  font-size: 1rem;
-  font-weight: normal;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 20;
-}
-/* line 50, ../sass/_globals/_themes.scss */
-.tiled li img {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-/* line 58, ../sass/_globals/_themes.scss */
-.tiled li var {
-  display: block;
-  font-family: monospace;
-  font-style: normal;
-  z-index: 20;
 }
 
 /* line 1, ../sass/_globals/_grid.scss */
@@ -620,4 +619,73 @@ button:hover,
 .datepicker td.old,
 .datepicker td.new {
   color: #CCC;
+}
+
+/* line 3, ../sass/_components/_tiles.scss */
+.tiles {
+  overflow: hidden;
+}
+/* line 6, ../sass/_components/_tiles.scss */
+.tiles li {
+  background: rgba(0, 0, 0, 0.8);
+  background-size: cover;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+}
+/* line 15, ../sass/_components/_tiles.scss */
+.tiles li:after {
+  background: rgba(0, 0, 0, 0.4);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+}
+/* line 29, ../sass/_components/_tiles.scss */
+.tiles li img {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+/* line 34, ../sass/_components/_tiles.scss */
+.tiles li img::after {
+  content: attr(alt);
+  display: block;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFF;
+}
+/* line 49, ../sass/_components/_tiles.scss */
+.tiles li .title {
+  font-size: 1rem;
+  font-weight: normal;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 20;
+}
+/* line 61, ../sass/_components/_tiles.scss */
+.tiles li .description,
+.tiles li .secondary {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+/* line 66, ../sass/_components/_tiles.scss */
+.tiles li .color {
+  display: block;
+  font-family: monospace;
+  font-style: normal;
+  z-index: 20;
 }

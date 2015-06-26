@@ -1,5 +1,5 @@
 <?php
-$this->viewVars['title_for_layout'] = 'Sport Details';
+$this->viewVars['title_for_layout'] = 'Sport Details - Kick Off Calendars';
 ?>
 <h1>Sport Details</h1>
 <?php

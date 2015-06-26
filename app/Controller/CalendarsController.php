@@ -9,6 +9,7 @@ class CalendarsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
+        $this->Auth->allow('index', 'view', 'export');
 	}
 	
 	function beforeRender() {
@@ -32,11 +33,11 @@ class CalendarsController extends AppController {
 	}
 
 	function view($id='') {
-	
+		
 	    if(is_numeric($id)) {
 	      $calendar = $this->Calendar->findById($id);
 	    } else {
-	      $calendar = $this->Calendar->findByName($id);
+	      $calendar = $this->Calendar->findBySlug($id);
 	    }
 	    $this->set('calendar', $calendar);
 		

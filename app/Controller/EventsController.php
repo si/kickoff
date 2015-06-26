@@ -2,13 +2,13 @@
 class EventsController extends AppController {
 
   var $name = 'Events';
-  var $helpers = array('Time','Form');
   var $components = array('RequestHandler');
 
   var $scaffold;
   
 	function beforeFilter() {
 		parent::beforeFilter();
+    $this->Auth->allow('view', 'export', 'share');
 	}
 	
 	function beforeRender() {
