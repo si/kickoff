@@ -1,7 +1,7 @@
 <?php $this->pageTitle = $user['User']['username']; ?>
 
 <h1>
-    <img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $this->Session->read('Auth.User.email') ) ) ); ?>?s=48" width="48" >
+    <img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $this->Session->read('Auth.User.email') ) ) ); ?>?s=256" width="128" height="128" />
     <?php echo $user['User']['username']; ?>
 </h1>
 
