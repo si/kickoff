@@ -1,0 +1,73 @@
+$tile-size: 200px;
+
+.tiles {
+  overflow: hidden;
+  
+  li {
+    background: rgba(#000, 0.8);
+    background-size: cover;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: $tile-size;
+    height: $tile-size;
+
+    &:after {
+      background: rgba(#000, 0.4);
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $tile-size;
+      height: $tile-size;
+    }
+    
+    a {
+
+    }
+
+    img {
+      width: $tile-size;
+      height: $tile-size;
+      position: relative;
+
+      &::after {
+        content: attr(alt);
+        display: block;
+        width: $tile-size;
+        height: $tile-size;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(#000,0.5);
+        color: #FFF;
+      }
+    }
+
+    .title {
+      font-size: 1rem;
+      font-weight: normal;
+      position: absolute;
+      top:40%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 20;
+    }
+
+    .description,
+    .secondary {
+      font-size: 0.85rem;
+      color: rgba(#FFF, 0.75);
+    }
+
+    .color {
+      display: block;
+      font-family: monospace;
+      font-style: normal;
+      z-index: 20;
+    }
+  }
+}
