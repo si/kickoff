@@ -28,10 +28,6 @@ $this->viewVars['title_for_layout'] = 'Calendars - Kick Off Calendars';
       </td>
       <td>
         <?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true, 'class'=>'btn')); ?>
-        <?php echo $this->Form->postLink( 'Delete',
-            array('action' => 'delete', $calendar['Calendar']['id']),
-            array('confirm' => 'Are you sure?', 'class'=>'btn') );
-        ?>
       </td>
     </tr>
   <?php endforeach; ?>
