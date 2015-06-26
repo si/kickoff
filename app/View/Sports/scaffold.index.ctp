@@ -5,8 +5,6 @@ $this->viewVars['title_for_layout'] = $title;
 
 <h1>Sports</h1>
 
-<?php echo $this->Html->adminLink('New sport', array('action'=>'add'), array('class'=>'btn')); ?>
-
 <ul class="tiled">
   <?php foreach($sports as $sport) : ?>
   <li class="<?php echo $sport['Sport']['slug']; ?>">
@@ -29,3 +27,6 @@ $this->viewVars['title_for_layout'] = $title;
   </li>
   <?php endforeach; ?>
 </ul>
+
+<?php echo $this->Html->adminLink('New sport', array('action'=>'add'), array('class'=>'btn')); ?>
+
