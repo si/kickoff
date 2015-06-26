@@ -28,7 +28,7 @@ $this->viewVars['title_for_layout'] = $calendar['Calendar']['name'] . ' - Kick O
         <div class="pull-right">
           <?php echo $this->Html->adminLink('Edit',array('action'=>'form',$calendar['Calendar']['id']),array('class'=>'btn')); ?>
           <?php echo $this->Html->link('Export',array('action'=>'export',$calendar['Calendar']['id'],'json'),array('download'=>true, 'class'=>'btn ')); ?>
-            <?php echo $this->Form->postLink( 'Delete',
+            <?php echo $this->Html->adminPostLink( 'Delete',
                 array('action' => 'delete', $calendar['Calendar']['id']),
                 array('confirm' => 'Are you sure?', 'class'=>'btn') );
             ?>
