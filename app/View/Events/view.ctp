@@ -27,11 +27,11 @@ $this->viewVars['title_for_layout'] = $title;
     , array('action'=>'export', $event['Event']['id'])
     , array('class'=>'btn btn-info btn-sm', 'escape' => false));?>
 
-  <?php echo $this->Html->link('<i class="icon-edit"></i> Edit'
+  <?php echo $this->Html->adminLink('<i class="icon-edit"></i> Edit'
     , array('action'=>'form', $event['Event']['id'])
     , array('class'=>'btn btn-default btn-sm', 'escape' => false));?>
 
-  <?php echo $this->Form->postLink( '<i class="icon-trash"></i> Delete',
+  <?php echo $this->Html->adminPostLink( '<i class="icon-trash"></i> Delete',
       array('action' => 'delete', $event['Event']['id']),
       array('confirm' => 'Are you sure?', 'class'=>'btn btn-sm', 'escape' => false) );
   ?>
