@@ -2,7 +2,6 @@
 class EventsController extends AppController {
 
   var $name = 'Events';
-  var $helpers = array('Time','Form');
   var $components = array('RequestHandler');
 
   var $scaffold;
