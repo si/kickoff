@@ -14,7 +14,11 @@ if(isset($sport['Calendar'])) :
 <?php endif; ?>
 
 <div class="btn-group">
-  <?php echo $this->Html->adminLink('Edit sport', array('action'=>'edit', $sport['Sport']['id']), array('class'=>'btn')); ?>
   <?php echo $this->Html->adminLink('Create calendar', array('controller'=>'calendars','action'=>'form', 'sport_id'=>$sport['Sport']['id']), array('class'=>'btn')); ?>
+  <?php echo $this->Html->adminLink('Edit sport', array('action'=>'edit', $sport['Sport']['id']), array('class'=>'btn')); ?>
+  <?php echo $this->Html->adminPostLink( 'Delete sport',
+      array('action' => 'delete', $sport['Sport']['id']),
+      array('confirm' => 'Are you sure?', 'class'=>'btn btn-sm', 'escape' => false) );
+  ?>
   <?php echo $this->Html->link('Back to sports', array('action'=>'index'), array('class'=>'btn')); ?>
 </div>
