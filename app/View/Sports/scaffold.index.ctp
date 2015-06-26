@@ -5,9 +5,9 @@ $this->viewVars['title_for_layout'] = $title;
 
 <h1>Sports</h1>
 
-<ul class="tiled">
+<ul class="tiles">
   <?php foreach($sports as $sport) : ?>
-  <li class="<?php echo $sport['Sport']['slug']; ?>">
+  <li>
     <?php 
       echo $this->Html->link(
         $this->Html->image('/'.$sport['Theme']['image'], 
@@ -15,12 +15,13 @@ $this->viewVars['title_for_layout'] = $title;
             'alt'=>$sport['Sport']['name'],
             'width'=>200
           )
-        ) . $sport['Sport']['name']
+        )
         , array(
           'action'=>'view',
           $sport['Sport']['id']
         )
         , array(
+          'title'=>$sport['Sport']['name'],
           'escape'=>false
         )
       ); ?>
