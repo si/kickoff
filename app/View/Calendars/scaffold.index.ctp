@@ -2,34 +2,17 @@
 $this->viewVars['title_for_layout'] = 'Calendars - Kick Off Calendars';
 ?>
 <h1>Calendars</h1>
-<?php echo $this->Html->adminLink('New Calendar',array('action'=>'form'),array('class'=>'btn btn-large')); ?>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Sport</th>
-      <th>Created</th>
-      <th>By</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+
+<ul class="tiles">
   <?php foreach($calendars as $calendar) : ?>
-    <tr>
-      <td><?php echo $this->Html->link($calendar['Calendar']['name'],array('action'=>'view',$calendar['Calendar']['id'])); ?></td>
-      <td><?php echo $calendar['Calendar']['description']; ?></td>
-      <td><?php echo $this->Html->link($calendar['Sport']['name'],array('controller'=>'sports','action'=>'view',$calendar['Sport']['id'])); ?></td>
-      <td><?php echo $this->Time->niceShort($calendar['Calendar']['created']); ?></td>
-      <td>
-        <?php if(isset($calendar['User'])) : ?> 
-          <?php echo $this->Html->link($calendar['User']['username'],array('controller'=>'users','action'=>'view',$calendar['User']['id'])); ?>
-        <?php endif; ?>
-      </td>
-      <td>
-        <?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true, 'class'=>'btn')); ?>
-      </td>
-    </tr>
+    <li style="background-image: url(<?php echo $calendar['Theme']['image']; ?>);">
+      <h3><?php echo $this->Html->link($calendar['Calendar']['name'],array('action'=>'view',$calendar['Calendar']['id'])); ?></h3>
+      <p class="description"><?php echo $calendar['Calendar']['description']; ?></p>
+      <?php echo $this->Html->link('Subscribe',array('action'=>'export',$calendar['Calendar']['id']),array('download'=>true, 'class'=>'btn')); ?>
+      <?php echo $this->Html->link($calendar['Sport']['name'],array('controller'=>'sports','action'=>'view',$calendar['Sport']['id']), array('class'=>'secondary')); ?>
+    </li>
   <?php endforeach; ?>
-  </tbody>
-</table>
+</ul>
+
+<?php echo $this->Html->adminLink('New Calendar',array('action'=>'form'),array('class'=>'btn btn-large')); ?>
+
