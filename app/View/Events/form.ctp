@@ -1,6 +1,6 @@
 <?php
 $title = 'Event Details';
-if(isset($calendar)) $title .= ' - ' . $calendar['Calendar']['name'] . ' - Kick Off Calendars';
+if(isset($competition)) $title .= ' - ' . $competition['Competition']['name'] . ' - Kick Off Calendars';
 $this->viewVars['title_for_layout'] = $title;
 ?>
 <h1>Event Details</h1>
@@ -42,20 +42,20 @@ echo $this->Form->create('Event');
     <?php echo $this->Form->input('description', array('div'=>'span6','class'=>'span6')); ?>
     <?php echo $this->Form->input('group', array('div'=>'span6','class'=>'span6')); ?>
     <?php 
-      $default_calendar = (isset($this->request['named']['calendar'])) ?
-        $this->request['named']['calendar'] :
+      $default_competition = (isset($this->request['named']['competition'])) ?
+        $this->request['named']['competition'] :
         '';
-      echo $this->Form->input('calendar_id', array('default'=>$default_calendar,'class'=>'span6','div'=>'span6')); 
+      echo $this->Form->input('competition_id', array('default'=>$default_competition,'class'=>'span6','div'=>'span6')); 
     ?>
   </div>
 </fieldset>
 <?php
 	if(isset($this->data['Event']['id'])) {
 		$cancel_link = array('controller'=>'events','action'=>'view',$this->data['Event']['id']);
-	} elseif (isset($this->request['named']['calendar'])) {
-		$cancel_link = array('controller'=>'calendars','action'=>'view',$this->request['named']['calendar']);
+	} elseif (isset($this->request['named']['competition'])) {
+		$cancel_link = array('controller'=>'competitions','action'=>'view',$this->request['named']['competition']);
 	} else {
-		$cancel_link = array('controller'=>'calendars','action'=>'index');
+		$cancel_link = array('controller'=>'competitions','action'=>'index');
 	}
 	?>
 	<div class="btn-group btn-block">

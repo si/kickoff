@@ -1,20 +1,20 @@
 <?php 
-$title = $sport['Sport']['name'] . ' Calendars';
+$title = $sport['Sport']['name'] . ' Competitions';
 $this->viewVars['title_for_layout'] = $title . ' - Kick Off Calendars';
-if(isset($sport['Calendar'])) :
+if(isset($sport['Competition'])) :
 ?>
 <h1><?php echo $title; ?></h1>
-<?php if(count($sport['Calendar'])>0) : ?>
+<?php if(count($sport['Competition'])>0) : ?>
 <ul>
-  <?php foreach($sport['Calendar'] as $calendar) : ?>
-  <li><?php echo $this->Html->link($calendar['name'], array('controller'=>'calendars','action'=>'view',$calendar['id'])); ?></li>
+  <?php foreach($sport['Competition'] as $competition) : ?>
+  <li><?php echo $this->Html->link($competition['name'], array('controller'=>'competitions','action'=>'view',$competition['id'])); ?></li>
   <?php endforeach; ?>
 </ul>
 <?php endif; ?>
 <?php endif; ?>
 
 <div class="btn-group">
-  <?php echo $this->Html->adminLink('Create calendar', array('controller'=>'calendars','action'=>'form', 'sport_id'=>$sport['Sport']['id']), array('class'=>'btn')); ?>
+  <?php echo $this->Html->adminLink('Create competition', array('controller'=>'competitions','action'=>'form', 'sport_id'=>$sport['Sport']['id']), array('class'=>'btn')); ?>
   <?php echo $this->Html->adminLink('Edit sport', array('action'=>'edit', $sport['Sport']['id']), array('class'=>'btn')); ?>
   <?php echo $this->Html->adminPostLink( 'Delete sport',
       array('action' => 'delete', $sport['Sport']['id']),

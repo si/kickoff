@@ -6,8 +6,8 @@ class Subscription extends AppModel {
     'User' => array(
       'className' => 'User',
     ),
-    'Calendar' => array(
-      'className' => 'Calendar',
+    'Competition' => array(
+      'className' => 'Competition',
     ),
   );    
 

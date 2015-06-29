@@ -1,10 +1,10 @@
 <?php
-$this->viewVars['title_for_layout'] = 'Calendar Details - Kick Off Calendars';
+$this->viewVars['title_for_layout'] = 'Competition Settings - Kick Off Calendars';
 ?>
-<h1>Calendar Details</h1>
+<h1>Competition Settings</h1>
 <?php
-echo $this->Form->create('Calendar'); 
-  if(isset($this->data['Calendar']['id'])) echo $this->Form->input('id',array('type'=>'hidden'));
+echo $this->Form->create('Competition'); 
+  if(isset($this->data['Competition']['id'])) echo $this->Form->input('id',array('type'=>'hidden'));
 ?>
 <fieldset>
   <legend>Details</legend>
@@ -19,10 +19,10 @@ echo $this->Form->create('Calendar');
   </div>
 </fieldset>
 <?php
-	if(isset($this->data['Calendar']['id'])) {
-		$cancel_link = array('controller'=>'calendars','action'=>'view',$this->data['Calendar']['id']);
+	if(isset($this->data['Competition']['id'])) {
+		$cancel_link = array('controller'=>'competitions','action'=>'view',$this->data['Competition']['id']);
 	} else {
-		$cancel_link = array('controller'=>'calendars','action'=>'index');
+		$cancel_link = array('controller'=>'competitions','action'=>'index');
 	}
   echo $this->Form->submit('Save',array('class'=>'btn btn-primary btn-large')); 
   echo $this->Html->link('Cancel',$cancel_link,array('class'=>'btn btn-default btn-sm')); 

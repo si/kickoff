@@ -2,7 +2,7 @@
 class Sport extends AppModel {
 
   var $name = 'Sport';
-  var $hasMany = 'Calendar';
+  var $hasMany = 'Competition';
   
   var $belongsTo = 'Theme';
 

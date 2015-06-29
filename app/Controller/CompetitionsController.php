@@ -1,7 +1,7 @@
 <?php
-class CalendarsController extends AppController {
+class CompetitionsController extends AppController {
 
-  public $name = 'Calendars';
+  public $name = 'Competitions';
   public $helpers = array('Time','Form');
   public $components = array('RequestHandler');
   
@@ -19,31 +19,31 @@ class CalendarsController extends AppController {
 	function form($id='') {
 	
 		if(isset($this->data) && count($this->data)>0) {
-			$this->Calendar->save($this->data);
-			$this->redirect(array('action'=>'view',$this->Calendar->id));
+			$this->Competition->save($this->data);
+			$this->redirect(array('action'=>'view',$this->Competition->id));
 		}
 	
 		if($id!='') {
-			$this->data = $this->Calendar->findById($id);
+			$this->data = $this->Competition->findById($id);
 		}
 
-		$this->set('sports', $this->Calendar->Sport->find('list'));
-		$this->set('themes', $this->Calendar->Theme->find('list'));
+		$this->set('sports', $this->Competition->Sport->find('list'));
+		$this->set('themes', $this->Competition->Theme->find('list'));
   	
 	}
 
 	function view($id='') {
 		
 	    if(is_numeric($id)) {
-	      $calendar = $this->Calendar->findById($id);
+	      $competition = $this->Competition->findById($id);
 	    } else {
-	      $calendar = $this->Calendar->findBySlug($id);
+	      $competition = $this->Competition->findBySlug($id);
 	    }
-	    $this->set('calendar', $calendar);
+	    $this->set('competition', $competition);
 		
 	    $future_params = array(
 	      'conditions' => array(
-	        'calendar_id' => $id,
+	        'competition_id' => $id,
 	      ),
 	      //'recursive' => 1
 	    );
@@ -68,20 +68,20 @@ class CalendarsController extends AppController {
 	    $this->set(compact('start','end'));
 	    $this->set('future_params', $future_params);
 	
-	    $events = $this->Calendar->Event->find('all',$future_params);
+	    $events = $this->Competition->Event->find('all',$future_params);
 	    $this->set('events', $events);
 	
 	    $export_data = array();
 	
 	    if(count($events)>0) {
 	      $export_data['calendar'] = array(
-	        'id' => $events[0]['Calendar']['id'],
-	        'name' => $events[0]['Calendar']['name'],
-	        'description' => $events[0]['Calendar']['description'],
-	        'theme_id' => $events[0]['Calendar']['theme_id'],
-	        'created' => $events[0]['Calendar']['created'],
-	        'url' => 'http://' . $_SERVER['SERVER_NAME'] . '/calendars/view/' . $id,
-	        'ics_url' => 'http://' . $_SERVER['SERVER_NAME'] . '/calendars/export/' . $id,
+	        'id' => $events[0]['Competition']['id'],
+	        'name' => $events[0]['Competition']['name'],
+	        'description' => $events[0]['Competition']['description'],
+	        'theme_id' => $events[0]['Competition']['theme_id'],
+	        'created' => $events[0]['Competition']['created'],
+	        'url' => 'http://' . $_SERVER['SERVER_NAME'] . '/competitions/view/' . $id,
+	        'ics_url' => 'http://' . $_SERVER['SERVER_NAME'] . '/competitions/export/' . $id,
 	      );
 	      foreach($events as $event) {
 	        $export_data['events'][] = array(
@@ -122,11 +122,11 @@ class CalendarsController extends AppController {
     // Stop Cake from displaying action's execution time 
 //    Configure::write('debug',0); 
     // Find fields needed without recursing through associated models 
-    $data = $this->Calendar->find( 
+    $data = $this->Competition->find( 
       'all', 
       array( 
-//        'fields' => array('Calendar.name','Calendar.description','Event.id','Event.start','Event.end','Event.summary','Event.location','Event.created'), 
-        'conditions' => array('Calendar.id'=>$id),
+//        'fields' => array('Competition.name','Competition.description','Event.id','Event.start','Event.end','Event.summary','Event.location','Event.created'), 
+        'conditions' => array('Competition.id'=>$id),
 //        'order' => array("Event.created ASC"), 
       )
     ); 

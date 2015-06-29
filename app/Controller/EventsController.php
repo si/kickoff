@@ -20,8 +20,8 @@ class EventsController extends AppController {
       $event = $this->Event->findById($id);
       $this->set('event', $event);
 
-      if(count($event['Calendar'])>0) {
-        $this->set('calendar', $this->Event->Calendar->findById($event['Calendar']['id']));
+      if(count($event['Competition'])>0) {
+        $this->set('competition', $this->Event->Competition->findById($event['Competition']['id']));
       }
     }
   }
@@ -72,12 +72,12 @@ class EventsController extends AppController {
     	$this->data = $this->Event->findById($id);
   	}
 
-  	$this->set('calendars', $this->Event->Calendar->find('list'));
+  	$this->set('competitions', $this->Event->Competition->find('list'));
   	$this->set('teams', $this->Event->HomeTeam->find('list')); 
 
-    if(isset($this->params['named']['calendar']) || (isset($this->data['Event']) && $this->data['Event']['calendar_id']!='')) {
-      $calendar = isset($this->data['Event']['calendar_id']) ? $this->data['Event']['calendar_id'] : $this->params['named']['calendar'];
-      $this->set('calendar', $this->Event->Calendar->findById($calendar));
+    if(isset($this->params['named']['competition']) || (isset($this->data['Event']) && $this->data['Event']['competition_id']!='')) {
+      $competition = isset($this->data['Event']['competition_id']) ? $this->data['Event']['competition_id'] : $this->params['named']['competition'];
+      $this->set('competition', $this->Event->Competition->findById($competition));
     }
   	
 	}
