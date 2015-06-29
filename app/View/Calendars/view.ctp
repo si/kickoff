@@ -38,7 +38,7 @@ $this->viewVars['title_for_layout'] = $calendar['Calendar']['name'] . ' - Kick O
     
       <pre class="hidden"><?php var_dump($future_params); ?></pre>
       <?php
-        echo $this->element('events_grid',array('events'=>$events,'context'=>'upcoming')); 
+        echo $this->element('events_grid',array('events'=>$calendar['Event'],'context'=>'upcoming')); 
       ?>
     
       <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$calendar['Calendar']['id']),array('class'=>'btn btn-large')); ?>
