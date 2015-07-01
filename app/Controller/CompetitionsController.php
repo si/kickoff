@@ -34,19 +34,21 @@ class CompetitionsController extends AppController {
 
 	function view($id='') {
 		
-	    if(is_numeric($id)) {
-	      $competition = $this->Competition->findById($id);
-	    } else {
-	      $competition = $this->Competition->findBySlug($id);
-	    }
-	    $this->set('competition', $competition);
-		
+		// Set query parameters
 	    $future_params = array(
-	      'conditions' => array(
-	        'competition_id' => $id,
-	      ),
-	      //'recursive' => 1
+	      'conditions' => array(),
 	    );
+
+	    // Find calendar details based on ID or slug
+	    if(is_numeric($id)) {
+		    $competition = $this->Competition->findById($id);
+	    	$future_params['conditions'][] = 'Competition.id = ' . $id;
+	    } else {
+		    $competition = $this->Competition->findBySlug($id);
+	    	$future_params['conditions'][] = 'Competition.slug = ' . $id;
+	    }
+	    // Pass through Competition settings
+	    $this->set('competition', $competition);
 	
 	    // Set month to passed parameter if defined, current month if not
 	    if(isset($this->params['named']['month'])) {
@@ -62,8 +64,8 @@ class CompetitionsController extends AppController {
 	      $end = strtotime('+1 month',$start);
 	    } 
 	    
-	    $future_params['conditions'][] = "start >= '" . date('Y-m-d H:i:s',$start) . "'";
-	    $future_params['conditions'][] = "end < '" . date('Y-m-d H:i:s',$end) . "'";
+	    $future_params['conditions'][] = "Event.start >= '" . date('Y-m-d H:i:s',$start) . "'";
+	    $future_params['conditions'][] = "Event.end < '" . date('Y-m-d H:i:s',$end) . "'";
 
 	    $this->set(compact('start','end'));
 	    $this->set('future_params', $future_params);

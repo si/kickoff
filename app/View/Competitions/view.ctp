@@ -36,10 +36,7 @@ $this->viewVars['title_for_layout'] = $competition['Competition']['name'] . ' - 
       
       </div>
     
-      <pre class="hidden"><?php var_dump($future_params); ?></pre>
-      <?php
-        echo $this->element('events_grid',array('events'=>$competition['Event'],'context'=>'upcoming')); 
-      ?>
+      <?php echo $this->element('events_grid',array('events'=>$events,'context'=>'upcoming')); ?>
     
       <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$competition['Competition']['id']),array('class'=>'btn btn-large')); ?>
     
