@@ -94,3 +94,8 @@ Configure::write('Opauth.Strategy.Facebook', array(
 
 //error_reporting(E_ALL ^ E_STRICT);
 
+function _debug($code) {
+	echo '<textarea class="code">';
+	var_dump($code);
+	echo '</textarea>';
+}
