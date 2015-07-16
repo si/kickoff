@@ -15,5 +15,5 @@
     ?>
 </div>
 <?php
-echo $this->element('events_grid',array('events'=>$team['Event'],'context'=>'upcoming')); 
+echo $this->element('events_grid',array('events'=>$team,'context'=>'upcoming')); 
 ?>
