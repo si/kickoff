@@ -1,5 +1,5 @@
 table {
-	background: rgba(#FFF, 0.1);
+	background: rgba(#000, 0.2);
 	margin: 1rem 0;
 	text-align: center;
 	width: 100%;
@@ -11,6 +11,7 @@ table {
 	th {
 		color: rgba(#FFF, 0.3);
 		font-size: 0.85rem;
+	    text-align: center;
 		text-transform: uppercase;
 
 		a {
@@ -20,8 +21,12 @@ table {
 
 	tbody {
 
+		tr {
+			border-bottom: 1px solid #FFF;
+		}
+
 		tr:hover {
-			background: rgba(#000,0.1);
+			background: rgba(#000,0.05);
 		}
 	}
 
