@@ -1,10 +1,12 @@
 <?php
-echo '<textarea class="code">'; var_dump($events); echo '</textarea>';
+//echo '<textarea class="code">'; var_dump($events); echo '</textarea>';
+
+if(isset($events['Events'])) $events = $events['Events'];
 
 if(count($events)==0 && isset($start)) {
   $first_date = $start;
 } else {
-  $first_date = (isset($events[0])) ? strtotime($events[0]['Event']['start']) : strtotime('now');
+  $first_date = (isset($events[0])) ? strtotime($events[0]['start']) : strtotime('now');
 }
 
 $first_month = date('M Y', $first_date);
@@ -15,8 +17,8 @@ $first_day = date('N', strtotime('01 ' . $first_month));
 if(count($events)>0) {
   $month_events = array();
   foreach($events as $event) {
-    if($first_month == date('M Y',strtotime($event['Event']['start']))) {
-      $month_events[date('j',strtotime($event['Event']['start']))][] = $event;
+    if($first_month == date('M Y',strtotime($event['start']))) {
+      $month_events[date('j',strtotime($event['start']))][] = $event;
     }
   }
   
@@ -61,25 +63,25 @@ if(count($events)>0) {
           if(isset($month_events[$d]) && count($month_events[$d])>0) {
             echo '<ol class="unstyled">';
             foreach($month_events[$d] as $event) {
-              echo '<li class="event" data-time="' . $this->Time->format('H:i',$event['Event']['start']) .'">' 
+              echo '<li class="event" data-time="' . $this->Time->format('H:i',$event['start']) .'">' 
               . $this->Html->link(
-                $this->Html->tag('span', $this->Time->format('H:i',$event['Event']['start']) . ' UTC', array('class'=>'time'))
-                . utf8_encode($event['Event']['summary'])
-                . $this->Html->tag('span', utf8_encode($event['Event']['location']), array('class'=>'location'))
-                , array('controller'=>'events','action'=>'view',$event['Event']['id'])
+                $this->Html->tag('span', $this->Time->format('H:i',$event['start']) . ' UTC', array('class'=>'time'))
+                . utf8_encode($event['summary'])
+                . $this->Html->tag('span', utf8_encode($event['location']), array('class'=>'location'))
+                , array('controller'=>'events','action'=>'view',$event['id'])
                 , array(
-                  'title'=>$this->Time->format('d-m-Y H:i',$event['Event']['start']),
+                  'title'=>$this->Time->format('d-m-Y H:i',$event['start']),
                   'escape' => false,
                   )
                 )
               . $this->Html->link(
                 'Download' // '<i class="icon-download icon-white"></i>'
-                , array('controller'=>'events','action'=>'export',$event['Event']['id'])
+                , array('controller'=>'events','action'=>'export',$event['id'])
                 , array('title'=>'Add to your calendar', 'class'=>'download', 'escape'=>false)
                 )
               . $this->Html->link(
                 'Share'   //  '<i class="icon-share icon-white"></i>'
-                , array('controller'=>'events','action'=>'share',$event['Event']['id'])
+                , array('controller'=>'events','action'=>'share',$event['id'])
                 , array('title'=>'Share with friends', 'class'=>'share', 'escape'=>false)
                 )
               . '</li>';
