@@ -23,12 +23,12 @@ class TeamsController extends AppController {
 		    // Find calendar details based on ID or slug
 		    if(is_numeric($id)) {
 			    $team = $this->Team->findById($id);
-		    	$future_params['conditions'][] = 'Event.home_team_id = ' . $id;
-		    	$future_params['conditions'][] = 'Event.away_team_id = ' . $id;
+		    	$future_params['conditions']['or'][] = 'Event.home_team_id = ' . $id;
+		    	$future_params['conditions']['or'][] = 'Event.away_team_id = ' . $id;
 		    } else {
 			    $team = $this->Team->findBySlug($id);
-		    	$future_params['conditions'][] = 'Event.home_team_id = ' . $team['Team']['id'];
-		    	$future_params['conditions'][] = 'Event.away_team_id = ' . $team['Team']['id'];
+		    	$future_params['conditions']['or'][] = 'Event.home_team_id = ' . $team['Team']['id'];
+		    	$future_params['conditions']['or'][] = 'Event.away_team_id = ' . $team['Team']['id'];
 		    }
 		    // Pass through Competition settings
 		    $this->set('team', $team);
@@ -47,8 +47,8 @@ class TeamsController extends AppController {
 		      $end = strtotime('+1 month',$start);
 		    } 
 		    
-		    $future_params['conditions'][] = "Event.start >= '" . date('Y-m-d H:i:s',$start) . "'";
-		    $future_params['conditions'][] = "Event.end < '" . date('Y-m-d H:i:s',$end) . "'";
+		    $future_params['conditions']['and'][] = "Event.start >= '" . date('Y-m-d H:i:s',$start) . "'";
+		    $future_params['conditions']['and'][] = "Event.end < '" . date('Y-m-d H:i:s',$end) . "'";
 
 		    $this->set(compact('start','end'));
 		    $this->set('future_params', $future_params);
@@ -75,16 +75,19 @@ class TeamsController extends AppController {
  
 	function import_events($id='') {
 
+		$content = '';
+
 		if($id!='') {
 
 			// Get team details from ID
 			$team = $this->Team->findById($id);
 			$this->set('team', $team);
+
 			//_debug($team);
 
 			if(count($team)>0) {
 				$source = $team['Team']['events_import_url'];
-				echo 'Source: ' . $source . '<br/>';
+				$content .= 'Source: ' . $source . '<br/>';
 				// CURL the source
 
 				if(!function_exists('curl_init')) {
@@ -118,7 +121,7 @@ class TeamsController extends AppController {
 
 				// Loop through tables (months)
 				foreach($xml->table as $table) {
-					echo '<li>' . $table->caption . ', ' . $tables . '<ul>';
+					$content .= '<li>' . $table->caption . ', ' . $tables . '<ul>';
 
 					$month = $xml->h2[$tables];
 
@@ -193,7 +196,7 @@ class TeamsController extends AppController {
 							$ends = $this->_dateToArray($ends);
 
 							// Output scraped data
-							echo '<li>' . $remote_id . ': ' . $competition . ' - ' . $home_team_name . ' (' . $home_team_id . ') v ' . $away_team_name . ' (' . $away_team_id . ') - ' . $kickoff_str;
+							$content .= '<li>' . $remote_id . ': ' . $competition . ' - ' . $home_team_name . ' (' . $home_team_id . ') v ' . $away_team_name . ' (' . $away_team_id . ') - ' . $kickoff_str;
 
 							// Define data structure for saving
 							$data = array(
@@ -209,12 +212,6 @@ class TeamsController extends AppController {
 									'remote_id' => $remote_id,
 									'competition_id' => 1
 								),
-								// 'HomeTeam' => array(
-								// 	'name' => $home_team,
-								// ),
-								// 'AwayTeam' => array(
-								// 	'name' => $home_team,
-								// ),
 							);
 
 							// Check for existing event based on remote ID
@@ -222,7 +219,7 @@ class TeamsController extends AppController {
 
 							// Set id to record if found
 							if(count($event)>0) $data['Event']['id'] = $event['Event']['id'];
-							echo ', ID: ' . $data['Event']['id'];
+							$content .= ', ID: ' . $data['Event']['id'];
 
 							// Save (INSERT or UPDATE) all the data
 							$savedResponse = $this->Team->Event->save($data);
@@ -231,7 +228,7 @@ class TeamsController extends AppController {
 
 						}	// loop through rows (games)
 
-						echo '</ul></li>';
+						$content .= '</ul></li>';
 
 					}	// if any rows
 
@@ -242,7 +239,9 @@ class TeamsController extends AppController {
 
 			}	/// end team data
 
-		}
+		} // end ID
+
+		$this->set('content', $content);
 
 	}
 
