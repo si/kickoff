@@ -130,10 +130,54 @@ class TeamsController extends AppController {
 							// Get values from table row
 							$remote_id = (string) $row['id'];
 							$competition = trim((string) $row->td[1]);
-							$home_team = trim($row->td[2]->p->span[0]->a);
-							$away_team = trim($row->td[2]->p->span[2]->a);
+							$home_team_name = trim($row->td[2]->p->span[0]->a);
+							$away_team_name = trim($row->td[2]->p->span[2]->a);
 							$kickoff_date = trim($row->td[3]);
 							$kickoff_time = trim($row->td[4]);
+
+							// Find home team as main name or alias
+							$conditions = array(
+								'or' => array(
+									'Team.name' => $home_team_name,
+									"Team.aliases LIKE '%" . $home_team_name . "%'",
+								)
+							);
+							$home_team = $this->Team->find('all', array('conditions'=>$conditions));
+
+							// If not found, create
+							if(count($home_team) == 0) {
+								$home_team_data = array(
+									'Team' => array(
+										'name' => $home_team_name,
+										'sport_id' => 1			// TODO: set this dynamically some how!
+									)
+								);
+								$home_team = $this->Team->save($home_team_data);
+							}
+							// Set home team id
+							$home_team_id = $home_team['Team']['id'];
+
+							// Find away team as main name or alias
+							$conditions = array(
+								'or' => array(
+									'Team.name' => $away_team_name,
+									"Team.aliases LIKE '%" . $away_team_name . "%'",
+								)
+							);
+							$away_team = $this->Team->find('all', array('conditions'=>$conditions));
+
+							// If not found, create
+							if(count($away_team) == 0) {
+								$away_team_data = array(
+									'Team' => array(
+										'name' => $away_team_name,
+										'sport_id' => 1			// TODO: set this dynamically some how!
+									)
+								);
+								$away_team = $this->Team->save($away_team_data);
+							}
+							// Set AWAY team id
+							$away_team_id = $away_team['Team']['id'];
 
 							// Build start field from date and time
 							$kickoff_str = substr($kickoff_date, 0, -3) . ' ' . $month . ' ' . $kickoff_time;
@@ -146,16 +190,18 @@ class TeamsController extends AppController {
 							$ends = $this->_dateToArray($ends);
 
 							// Output scraped data
-							echo '<li>' . $remote_id . ': ' . $competition . ' - ' . $home_team . ' v ' . $away_team . ' - ' . $kickoff_str;
+							echo '<li>' . $remote_id . ': ' . $competition . ' - ' . $home_team_name . ' (' . $home_team_id . ') v ' . $away_team_name . ' (' . $away_team_id . ') - ' . $kickoff_str;
 
 							// Define data structure for saving
 							$data = array(
 								'Event' => array(
 									'start' => $kickoff,
 									'end' => $ends,
-									'summary' => $home_team . ' v ' . $away_team,
-									'home' => $home_team,
-									'away' => $away_team,
+									'summary' => $home_team_name . ' v ' . $away_team_name,
+									'home' => $home_team_name,
+									'away' => $away_team_name,
+									'home_team_id' => $home_team_id,
+									'away_team_id' => $away_team_id,
 									'group' => $competition,
 									'remote_id' => $remote_id,
 									'competition_id' => 1
