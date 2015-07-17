@@ -69,7 +69,7 @@ class TeamsController extends AppController {
 		    'min' => date('i', $date),
         	//"meriden" => date('a', $date),
 		);
-		_debug($array);
+		//_debug($array);
 		return $array;
 	}
  
@@ -112,7 +112,7 @@ class TeamsController extends AppController {
 				// Parse response as (valid) XML
 				$xml = simplexml_load_string($response);
 
-				_debug($xml);
+				//_debug($xml);
 
 				$tables = 0;
 
@@ -142,10 +142,10 @@ class TeamsController extends AppController {
 									"Team.aliases LIKE '%" . $home_team_name . "%'",
 								)
 							);
-							$home_team = $this->Team->find('all', array('conditions'=>$conditions));
+							$home_team = $this->Team->find('first', array('conditions'=>$conditions));
 
 							// If not found, create
-							if(count($home_team) == 0) {
+							if(!$home_team) {
 								$home_team_data = array(
 									'Team' => array(
 										'name' => $home_team_name,
@@ -155,7 +155,7 @@ class TeamsController extends AppController {
 								$home_team = $this->Team->save($home_team_data);
 							}
 							// Set home team id
-							$home_team_id = $home_team['Team']['id'];
+							$home_team_id = (isset($home_team['Team'])) ? $home_team['Team']['id'] : $home_team['id'];
 
 							// Find away team as main name or alias
 							$conditions = array(
@@ -164,10 +164,10 @@ class TeamsController extends AppController {
 									"Team.aliases LIKE '%" . $away_team_name . "%'",
 								)
 							);
-							$away_team = $this->Team->find('all', array('conditions'=>$conditions));
+							$away_team = $this->Team->find('first', array('conditions'=>$conditions));
 
 							// If not found, create
-							if(count($away_team) == 0) {
+							if(!$away_team) {
 								$away_team_data = array(
 									'Team' => array(
 										'name' => $away_team_name,
@@ -175,9 +175,12 @@ class TeamsController extends AppController {
 									)
 								);
 								$away_team = $this->Team->save($away_team_data);
+								$away_team_id = $away_team['id'];
+
+							} else {
+								// Set AWAY team id
+								$away_team_id = $away_team['Team']['id'];
 							}
-							// Set AWAY team id
-							$away_team_id = $away_team['Team']['id'];
 
 							// Build start field from date and time
 							$kickoff_str = substr($kickoff_date, 0, -3) . ' ' . $month . ' ' . $kickoff_time;
@@ -218,7 +221,7 @@ class TeamsController extends AppController {
 							$event = $this->Team->Event->findByRemoteId($remote_id);
 
 							// Set id to record if found
-							if(count($event)>0) $data['Event']['id'] = $event['id'];
+							if(count($event)>0) $data['Event']['id'] = $event['Event']['id'];
 							echo ', ID: ' . $data['Event']['id'];
 
 							// Save (INSERT or UPDATE) all the data
@@ -233,7 +236,7 @@ class TeamsController extends AppController {
 					}	// if any rows
 
 					$tables++;
-					// if($tables==1) break;	// Limit to first month
+					//if($tables==1) break;	// Limit to first month
 
 				}	// loop tables
 
