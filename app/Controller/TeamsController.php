@@ -70,8 +70,6 @@ class TeamsController extends AppController {
 
 				$tables = 0;
 
-				$data = array();
-
 				// Loop through tables (months)
 				foreach($xml->table as $table) {
 					echo '<li>' . $table->caption . ', ' . $tables . '<ul>';
@@ -82,6 +80,8 @@ class TeamsController extends AppController {
 					if(isset($table->tbody->tr) && count($table->tbody->tr)>0) {
 
 						foreach($table->tbody->tr as $row) {
+
+							// Get values from table row
 							$remote_id = (string) $row['id'];
 							$competition = trim((string) $row->td[1]);
 							$home_team = trim($row->td[2]->p->span[0]->a);
@@ -89,17 +89,21 @@ class TeamsController extends AppController {
 							$kickoff_date = trim($row->td[3]);
 							$kickoff_time = trim($row->td[4]);
 
+							// Build start field from date and time
 							$kickoff_str = substr($kickoff_date, 0, -3) . ' ' . $month . ' ' . $kickoff_time;
 							$kickoff = $this->_dateToArray($kickoff_str);
 
+							// Create end field from start field + 110 minutes
 							$ends = date_create($kickoff_str);
 							$ends = date_add($ends, date_interval_create_from_date_string('110 minutes'));
 							$ends = date_format($ends, 'c');
 							$ends = $this->_dateToArray($ends);
 
+							// Output scraped data
 							echo '<li>' . $remote_id . ': ' . $competition . ' - ' . $home_team . ' v ' . $away_team . ' - ' . $kickoff_str;
 
-							$data[] = array(
+							// Define data structure for saving
+							$data = array(
 								'Event' => array(
 									'start' => $kickoff,
 									'end' => $ends,
@@ -110,32 +114,40 @@ class TeamsController extends AppController {
 									'remote_id' => $remote_id,
 									'competition_id' => 1
 								),
-								'HomeTeam' => array(
-									'name' => $home_team,
-								),
-								'AwayTeam' => array(
-									'name' => $home_team,
-								),
+								// 'HomeTeam' => array(
+								// 	'name' => $home_team,
+								// ),
+								// 'AwayTeam' => array(
+								// 	'name' => $home_team,
+								// ),
 							);
-						}
+
+							// Check for existing event based on remote ID
+							$event = $this->Team->Event->findByRemoteId($remote_id);
+
+							// Set id to record if found
+							if(count($event)>0) $data['Event']['id'] = $event['Event']['id'];
+							echo ', ID: ' . $data['Event']['id'];
+
+							// Save (INSERT or UPDATE) all the data
+							$savedResponse = $this->Team->Event->save($data);
+
+							//echo ' (<em>' . var_dump($savedResponse) . '</em>)';
+
+						}	// loop through rows (games)
+
 						echo '</ul></li>';
-					}
+
+					}	// if any rows
 
 					$tables++;
-					if($tables==1) break;
+					// if($tables==1) break;	// Limit to first month
 
-				}
-
-				_debug($data);
-
-				$dataResponse = $this->Team->Event->saveMany($data, array('atomic'=>false));
-
-//				_debug($dataResponse);
+				}	// loop tables
 
 			}	/// end team data
 
 		}
-		
 
 	}
 
