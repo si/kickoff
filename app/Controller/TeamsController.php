@@ -13,6 +13,52 @@ class TeamsController extends AppController {
 	  parent::beforeRender();
 	}
 
+	function view($id='') {
+		if($id!='') {
+			// Set query parameters
+		    $future_params = array(
+		      'conditions' => array(),
+		    );
+
+		    // Find calendar details based on ID or slug
+		    if(is_numeric($id)) {
+			    $team = $this->Team->findById($id);
+		    	$future_params['conditions'][] = 'Event.home_team_id = ' . $id;
+		    	$future_params['conditions'][] = 'Event.away_team_id = ' . $id;
+		    } else {
+			    $team = $this->Team->findBySlug($id);
+		    	$future_params['conditions'][] = 'Event.home_team_id = ' . $team['Team']['id'];
+		    	$future_params['conditions'][] = 'Event.away_team_id = ' . $team['Team']['id'];
+		    }
+		    // Pass through Competition settings
+		    $this->set('team', $team);
+		
+		    // Set month to passed parameter if defined, current month if not
+		    if(isset($this->params['named']['month'])) {
+		      $start = strtotime($this->params['named']['month']."-01 00:00:00");
+		    } else {
+		      $start = strtotime(date('Y-m')."-01 00:00:00");
+		    } 
+
+		    // Set end date to passed parameter if defined, next month if not
+		    if(isset($this->params['named']['end'])) {
+		      $end = strtotime($this->params['named']['end']."-01 00:00:00");
+		    } else {
+		      $end = strtotime('+1 month',$start);
+		    } 
+		    
+		    $future_params['conditions'][] = "Event.start >= '" . date('Y-m-d H:i:s',$start) . "'";
+		    $future_params['conditions'][] = "Event.end < '" . date('Y-m-d H:i:s',$end) . "'";
+
+		    $this->set(compact('start','end'));
+		    $this->set('future_params', $future_params);
+		
+		    $events = $this->Team->Event->find('all',$future_params);
+		    $this->set('events', $events);
+		
+		}
+	}
+
 	function _dateToArray($value) {
 		$date = strtotime($value);
 		$array = array(
@@ -126,7 +172,7 @@ class TeamsController extends AppController {
 							$event = $this->Team->Event->findByRemoteId($remote_id);
 
 							// Set id to record if found
-							if(count($event)>0) $data['Event']['id'] = $event['Event']['id'];
+							if(count($event)>0) $data['Event']['id'] = $event['id'];
 							echo ', ID: ' . $data['Event']['id'];
 
 							// Save (INSERT or UPDATE) all the data
