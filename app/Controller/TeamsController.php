@@ -224,7 +224,7 @@ class TeamsController extends AppController {
 								'Event' => array(
 									'start' => $kickoff,
 									'end' => $ends,
-									'summary' => $home_team_name . ' v ' . $away_team_name,
+									'summary' => $home_team['Team']['name'] . ' v ' . $away_team['Team']['name'],
 									'home' => $home_team_name,
 									'away' => $away_team_name,
 									'home_team_id' => $home_team_id,
