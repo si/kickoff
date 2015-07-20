@@ -13,8 +13,7 @@ switch($format) {
     header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[1]['Event']['summary']).'.ics"');
 
     if($data[1]['Event']) : 
-      echo "
-BEGIN:VEVENT
+      echo "BEGIN:VEVENT
 UID:". md5($data[1]['Event']['id']) . "
 SUMMARY:".  $data[1]['Event']['summary'] . "
 LOCATION:" . $data[1]['Event']['location'] . "
@@ -24,7 +23,7 @@ DTEND:" . $this->Time->format('Ymd\THis\Z',$data[1]['Event']['end']) . "
 DESCRIPTION:(" . $data[1]['Event']['group'] . ") " . $data[1]['Event']['description'] . "
 CLASS:PUBLIC
 STATUS:FREE
-X-MICROSOFT-CDO-BUSYSTATUS:FREE";
+X-MICROSOFT-CDO-BUSYSTATUS:FREE\n";
 
     if(isset($reminder_value) && isset($reminder_unit)){
       $reminder_date = '-P';
@@ -48,8 +47,7 @@ X-MICROSOFT-CDO-BUSYSTATUS:FREE";
     }
 
 
-"END:VEVENT
-";    
+echo "END:VEVENT\n";    
 
     endif; 
 
