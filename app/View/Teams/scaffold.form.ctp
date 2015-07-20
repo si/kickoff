@@ -9,13 +9,16 @@ echo $this->Form->create('Team');
 <fieldset>
   <legend>Details</legend>
   <div class="row">
-		<?php echo $this->Form->input('name', array('label'=>'Name','div'=>'span4','class'=>'span4')); ?>
-		<?php echo $this->Form->input('sport_id', array('label'=>'Sport','div'=>'span4','class'=>'span4')); ?>
-		<?php echo $this->Form->input('theme_id', array('label'=>'Theme','div'=>'span4','class'=>'span4','empty'=>'-')); ?>
+	<?php echo $this->Form->input('name', array('label'=>'Name','div'=>'span6','class'=>'span6')); ?>
+	<?php echo $this->Form->input('aliases', array('label'=>'Aliases','placeholder'=>'comma separated', 'div'=>'span6','class'=>'span6')); ?>
+  </div>
+  <div class="row">
+	<?php echo $this->Form->input('sport_id', array('label'=>'Sport','div'=>'span6','class'=>'span6')); ?>
+	<?php echo $this->Form->input('theme_id', array('label'=>'Theme','div'=>'span6','class'=>'span6','empty'=>'-')); ?>
   </div>	
   <div class="row">
-		<?php echo $this->Form->input('events_import_url', array('label'=>'Event Import URL','type'=>'url','div'=>'span8','class'=>'span8')); ?>
-		<span class="span4">Last import: <?php echo $this->data['Team']['events_import_updated']; ?></span>
+	<?php echo $this->Form->input('events_import_url', array('label'=>'Event Import URL','type'=>'url','div'=>'span8','class'=>'span8')); ?>
+	<span class="span4">Last import: <?php echo $this->data['Team']['events_import_updated']; ?></span>
   </div>	
 </fieldset>
 <?php
