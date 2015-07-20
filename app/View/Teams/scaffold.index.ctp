@@ -13,5 +13,11 @@ $this->viewVars['title_for_layout'] = 'Teams - Kick Off Calendars';
   <?php endforeach; ?>
 </ul>
 
-<?php echo $this->Html->adminLink('New Team',array('action'=>'form'),array('class'=>'btn btn-large')); ?>
+<div class="pull-left">
+	<?php echo $this->Paginator->prev('Previous'); ?>
+	<?php echo $this->Paginator->next('Next'); ?>
+</div>
 
+<div class="pull-right">
+<?php echo $this->Html->adminLink('New Team',array('action'=>'form'),array('class'=>'btn btn-large')); ?>
+</div>
