@@ -9,8 +9,9 @@ echo $this->Form->create('Team');
 <fieldset>
   <legend>Details</legend>
   <div class="row">
-	<?php echo $this->Form->input('name', array('label'=>'Name','div'=>'span6','class'=>'span6')); ?>
-	<?php echo $this->Form->input('aliases', array('label'=>'Aliases','placeholder'=>'comma separated', 'div'=>'span6','class'=>'span6')); ?>
+	<?php echo $this->Form->input('name', array('label'=>'Name','div'=>'span4','class'=>'span4')); ?>
+	<?php echo $this->Form->input('aliases', array('label'=>'Aliases','placeholder'=>'comma separated', 'div'=>'span4','class'=>'span4')); ?>
+	<?php echo $this->Form->input('slug', array('label'=>'Slug','placeholder'=>'URL friendly', 'div'=>'span4','class'=>'span4')); ?>
   </div>
   <div class="row">
 	<?php echo $this->Form->input('sport_id', array('label'=>'Sport','div'=>'span6','class'=>'span6')); ?>
