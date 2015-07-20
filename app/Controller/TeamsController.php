@@ -262,6 +262,12 @@ class TeamsController extends AppController {
 
 		} // end ID
 
+		// Update import updated 
+		$this->Team->save( array(
+			'id' => $id, 
+			'events_import_updated' => $this->_dateToArray('now')
+		));
+
 		$this->set('content', $content);
 
 	}
