@@ -109,6 +109,8 @@ class TeamsController extends AppController {
 			if(count($team)>0) {
 				$source = $team['Team']['events_import_url'];
 				$content .= 'Source: ' . $source . '<br/>';
+				$sport_id = $team['Team']['sport_id'];
+
 				// CURL the source
 
 				if(!function_exists('curl_init')) {
@@ -173,7 +175,7 @@ class TeamsController extends AppController {
 								$home_team_data = array(
 									'Team' => array(
 										'name' => $home_team_name,
-										'sport_id' => 1			// TODO: set this dynamically some how!
+										'sport_id' => $sport_id
 									)
 								);
 								$home_team = $this->Team->save($home_team_data);
@@ -195,7 +197,7 @@ class TeamsController extends AppController {
 								$away_team_data = array(
 									'Team' => array(
 										'name' => $away_team_name,
-										'sport_id' => 1			// TODO: set this dynamically some how!
+										'sport_id' => $sport_id
 									)
 								);
 								$away_team = $this->Team->save($away_team_data);
