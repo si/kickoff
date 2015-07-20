@@ -6,7 +6,7 @@ class TeamsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
-        $this->Auth->allow('index', 'view', 'import_events');
+        $this->Auth->allow('index', 'view', 'export', 'import_events');
 	}
 	
 	function beforeRender() {
@@ -58,6 +58,27 @@ class TeamsController extends AppController {
 		
 		}
 	}
+
+	function export($id='',$format='ics') { 
+
+		$this->layout = $format.'/default';
+		// Find fields needed without recursing through associated models 
+		$data = $this->Team->find('all', 
+			array( 
+				'conditions' => array(
+					'Team.id'=>$id
+				),
+			)
+		);
+		// Make the data available to the view (and the resulting CSV file) 
+		$this->set(compact('data','format')); 
+
+		// Set calendar reminder to 1 hour
+		$this->set('reminder_value',1);
+		$this->set('reminder_unit','H');
+
+	}
+
 
 	function _dateToArray($value) {
 		$date = strtotime($value);
