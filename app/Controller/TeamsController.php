@@ -233,7 +233,7 @@ class TeamsController extends AppController {
 									'away_team_id' => $away_team_id,
 									'group' => $competition,
 									'remote_id' => $remote_id,
-									'competition_id' => 1
+									'competition_id' => 1			// TODO: set this dynamically somehow (Team.competition_id?)
 								),
 							);
 
