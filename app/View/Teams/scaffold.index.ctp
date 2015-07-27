@@ -6,23 +6,12 @@ $this->viewVars['title_for_layout'] = 'Teams - Kick Off Calendars';
 <?php if(count($teams)>0) : ?>
 
 	<ul class="tiles">
-	  <?php 
-	  	foreach($teams as $team) :	  
-	  		if($team['Sport']['name']!=$last_sport) : 
-	  ?>
-	</ul>
-		<h2><?php echo $this->Html->link($teams['Sport']['name'],array('controller'=>'sports','action'=>'view',$team['Sport']['id'])); ?></h2>
-	<ul class="tiles">
-	  <?php endif; ?>
-
+	  <?php foreach($teams as $team) : ?>
 	    <li <?php if($team['Theme']['image']!='') echo 'style="background-image: url('.$team['Theme']['image'].');"'; ?>">
 	      <h3><?php echo $this->Html->link($team['Team']['name'],array('action'=>'view',$team['Team']['id'])); ?></h3>
 	      <?php echo $this->Html->link('Subscribe',array('action'=>'export',$team['Team']['id']),array('download'=>true, 'class'=>'btn')); ?>
 	    </li>
-	  <?php 
-			$last_sport = $team['Sport']['name'];
-	  	endforeach; 
-	  ?>
+	  <?php endforeach; ?>
 	</ul>
 
 	<div class="pull-left">
