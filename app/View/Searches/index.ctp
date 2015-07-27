@@ -1,3 +1,9 @@
+<?php
+$title = 'Kick Off Calendars';
+if(isset($query)) $title = 'Search for ' . $query . ' - ' . $title;
+$this->viewVars['title_for_layout'] = $title;
+?>
+
 <h1>Search for <?php echo $query; ?></h1>
 
 <?php if(count($teams)==0) : ?>
