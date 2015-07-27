@@ -26,6 +26,8 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/search/*', array('controller' => 'searches', 'action' => 'index'));
+
 	Router::connect('/calendars', array('controller' => 'calendars', 'action' => 'index'));
 	Router::connect('/calendars/:action/*', array('controller' => 'calendars'));
 
