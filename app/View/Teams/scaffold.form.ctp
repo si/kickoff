@@ -14,8 +14,9 @@ echo $this->Form->create('Team');
 	<?php echo $this->Form->input('slug', array('label'=>'Slug','placeholder'=>'URL friendly', 'div'=>'span4','class'=>'span4')); ?>
   </div>
   <div class="row">
-	<?php echo $this->Form->input('sport_id', array('label'=>'Sport','div'=>'span6','class'=>'span6')); ?>
-	<?php echo $this->Form->input('theme_id', array('label'=>'Theme','div'=>'span6','class'=>'span6','empty'=>'-')); ?>
+	<?php echo $this->Form->input('competition_id', array('label'=>'Competition','empty'=>'-','div'=>'span4','class'=>'span4')); ?>
+	<?php echo $this->Form->input('sport_id', array('label'=>'Sport','empty'=>'-','div'=>'span4','class'=>'span4')); ?>
+	<?php echo $this->Form->input('theme_id', array('label'=>'Theme','empty'=>'-','div'=>'span4','class'=>'span4','empty'=>'-')); ?>
   </div>	
   <div class="row">
 	<?php echo $this->Form->input('events_import_url', array('label'=>'Event Import URL','type'=>'url','div'=>'span8','class'=>'span8')); ?>
