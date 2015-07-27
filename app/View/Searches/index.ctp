@@ -33,4 +33,17 @@ $this->viewVars['title_for_layout'] = $title;
 	<?php endif; ?>
 	</div>
 
+	<div class="span4">
+	<?php if(count($sports)==0) : ?>
+		<p>No sports found</p>
+	<?php else: ?>
+		<h2>Sports</h2>
+		<ul>
+		<?php foreach($sports as $sport): ?>
+			<li><?php echo $this->Html->link($sport['Sport']['name'], array('controller'=>'sports', 'action'=>'view', $sport['Sport']['id'])); ?></li>
+		<?php endforeach; ?>
+		</ul>
+	<?php endif; ?>
+	</div>
+	
 </div>

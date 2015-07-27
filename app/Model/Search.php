@@ -5,6 +5,7 @@ class Search extends AppModel {
   var $hasMany = array(
   	'Team',
   	'Competition',
+  	'Sport'
   );
 
   public $useTable = false;
