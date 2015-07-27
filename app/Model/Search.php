@@ -2,7 +2,10 @@
 class Search extends AppModel {
 
   var $name = 'Search';
-  var $hasMany = 'Team';
+  var $hasMany = array(
+  	'Team',
+  	'Competition',
+  );
 
   public $useTable = false;
   

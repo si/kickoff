@@ -6,13 +6,31 @@ $this->viewVars['title_for_layout'] = $title;
 
 <h1>Search for <?php echo $query; ?></h1>
 
-<?php if(count($teams)==0) : ?>
-	<p>No teams found</p>
-<?php else: ?>
-	<h2>Teams</h2>
-	<ul>
-	<?php foreach($teams as $team): ?>
-		<li><?php echo $this->Html->link($team['Team']['name'], array('controller'=>'teams', 'action'=>'view', $team['Team']['id'])); ?></li>
-	<?php endforeach; ?>
-	</ul>
-<?php endif; ?>
+<div class="row">
+	<div class="span4">
+	<?php if(count($teams)==0) : ?>
+		<p>No teams found</p>
+	<?php else: ?>
+		<h2>Teams</h2>
+		<ul>
+		<?php foreach($teams as $team): ?>
+			<li><?php echo $this->Html->link($team['Team']['name'], array('controller'=>'teams', 'action'=>'view', $team['Team']['id'])); ?></li>
+		<?php endforeach; ?>
+		</ul>
+	<?php endif; ?>
+	</div>
+
+	<div class="span4">
+	<?php if(count($competitions)==0) : ?>
+		<p>No competitions found</p>
+	<?php else: ?>
+		<h2>Competitions</h2>
+		<ul>
+		<?php foreach($competitions as $competition): ?>
+			<li><?php echo $this->Html->link($competition['Competition']['name'], array('controller'=>'competitions', 'action'=>'view', $competition['Competition']['id'])); ?></li>
+		<?php endforeach; ?>
+		</ul>
+	<?php endif; ?>
+	</div>
+
+</div>

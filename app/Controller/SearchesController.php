@@ -24,6 +24,9 @@ class SearchesController extends AppController {
 		if($query!='') {
 			$teams = $this->Search->Team->find('all', array('conditions'=>array("Team.name LIKE '%" . $query . "%'")));
 			$this->set('teams', $teams);
+
+			$competitions = $this->Search->Competition->find('all', array('conditions'=>array("Competition.name LIKE '%" . $query . "%'")));
+			$this->set('competitions', $competitions);
 		}
 	}
 
