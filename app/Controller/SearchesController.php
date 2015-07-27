@@ -13,6 +13,12 @@ class SearchesController extends AppController {
 	}
 
 	function index($query='') {
+
+		if(isset($this->data) && count($this->data)>0) {
+		    $query = $this->data['Search']['query'];
+		    $this->redirect(array('action'=>'index', $query));
+		}
+
 		$this->set('query', $query);
 
 		if($query!='') {
