@@ -61,6 +61,15 @@ nav {
     
     form {
       display: inline-block;
+
+      input {
+        background: url(/img/svg/search.svg) no-repeat 5px 50%;
+        background-size: 16px;
+        padding-left: 24px !important;
+        margin-top: 5px;
+        text-align: left;
+        width: 150px;
+      }
     }
 
   }

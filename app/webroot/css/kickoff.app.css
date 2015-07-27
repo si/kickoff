@@ -141,6 +141,15 @@ nav li {
 nav li form {
   display: inline-block;
 }
+/* line 65, ../sass/_base/_navigation.scss */
+nav li form input {
+  background: url(/img/svg/search.svg) no-repeat 5px 50%;
+  background-size: 16px;
+  padding-left: 24px !important;
+  margin-top: 5px;
+  text-align: left;
+  width: 150px;
+}
 
 /* line 1, ../sass/_base/_tables.scss */
 table {
