@@ -59,45 +59,10 @@ nav {
   li {
     z-index: 10;
     
-    ul {
-      background: rgba(#000,0.8);
-      height: 0;
-      margin: 0;
-      opacity: 0;
-      padding: 0;
-      position: absolute;
-      left: 0;
-      top: 2.1rem;
-      transition: all 0.5 ease;
-      width: 400px;
-      z-index: 20;
-      
-      li {
-      
-        a {
-          width: 70px;
-        }
-
-        .facebook {
-          background: #0074cb;
-        }
-      
-        .twitter {
-          background: #3ecce5;
-        }
-        
-        .google {
-          background: #e55036;
-        }
-
-      }
+    form {
+      display: inline-block;
     }
-    
-    &:hover ul,
-    &:focus ul {
-      height: auto;
-      opacity: 1;
-    }
+
   }
   
   

@@ -16,6 +16,8 @@
     	echo $this->element('Navigation/guest_menu');
     } 
     ?>
+
+    <li><?php echo $this->element('Navigation/search'); ?></li>
   </ul>
 
 </nav>

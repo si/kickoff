@@ -138,39 +138,8 @@ nav li {
   z-index: 10;
 }
 /* line 62, ../sass/_base/_navigation.scss */
-nav li ul {
-  background: rgba(0, 0, 0, 0.8);
-  height: 0;
-  margin: 0;
-  opacity: 0;
-  padding: 0;
-  position: absolute;
-  left: 0;
-  top: 2.1rem;
-  transition: all 0.5 ease;
-  width: 400px;
-  z-index: 20;
-}
-/* line 77, ../sass/_base/_navigation.scss */
-nav li ul li a {
-  width: 70px;
-}
-/* line 81, ../sass/_base/_navigation.scss */
-nav li ul li .facebook {
-  background: #0074cb;
-}
-/* line 85, ../sass/_base/_navigation.scss */
-nav li ul li .twitter {
-  background: #3ecce5;
-}
-/* line 89, ../sass/_base/_navigation.scss */
-nav li ul li .google {
-  background: #e55036;
-}
-/* line 97, ../sass/_base/_navigation.scss */
-nav li:hover ul, nav li:focus ul {
-  height: auto;
-  opacity: 1;
+nav li form {
+  display: inline-block;
 }
 
 /* line 1, ../sass/_base/_tables.scss */
@@ -245,7 +214,7 @@ pre, textarea.code {
   width: 50px;
   height: 50px;
   transition: all 0.5s ease;
-  z-index: 2;
+  z-index: 10;
 }
 /* line 32, ../sass/_base/_typography.scss */
 pre:focus, pre:hover, textarea.code:focus, textarea.code:hover {
