@@ -110,6 +110,7 @@ class TeamsController extends AppController {
 				$source = $team['Team']['events_import_url'];
 				$content .= 'Source: ' . $source . '<br/>';
 				$sport_id = $team['Team']['sport_id'];
+				$competition_id = $team['Team']['competition_id'];
 
 				// CURL the source
 
@@ -155,11 +156,30 @@ class TeamsController extends AppController {
 
 							// Get values from table row
 							$remote_id = (string) $row['id'];
-							$competition = trim((string) $row->td[1]);
+							$competition_name = trim((string) $row->td[1]);
 							$home_team_name = trim($row->td[2]->p->span[0]->a);
 							$away_team_name = trim($row->td[2]->p->span[2]->a);
 							$kickoff_date = trim($row->td[3]);
 							$kickoff_time = trim($row->td[4]);
+
+							// Find competition as main name
+							$conditions = array(
+								"Competition.name LIKE '%" . $competition_name . "%'",
+							);
+							$competition = $this->Team->Competition->find('first', array('conditions'=>$conditions));
+
+							// If not found, create competition
+							if(!$competition) {
+								$competition_data = array(
+									'Competition' => array(
+										'name' => $competition_name,
+										'sport_id' => $sport_id
+									)
+								);
+								$competition = $this->Team->Competition->save($competition_data);
+							}
+							// Get competition id
+							$competition_id = (isset($competition['Competition'])) ? $competition['Competition']['id'] : $competition['id'];
 
 							// Find home team as main name or alias
 							$conditions = array(
@@ -180,7 +200,7 @@ class TeamsController extends AppController {
 								);
 								$home_team = $this->Team->save($home_team_data);
 							}
-							// Set home team id
+							// Get home team id
 							$home_team_id = (isset($home_team['Team'])) ? $home_team['Team']['id'] : $home_team['id'];
 
 							// Find away team as main name or alias
@@ -204,7 +224,7 @@ class TeamsController extends AppController {
 								$away_team_id = $away_team['id'];
 
 							} else {
-								// Set AWAY team id
+								// Get AWAY team id
 								$away_team_id = $away_team['Team']['id'];
 							}
 
@@ -219,7 +239,7 @@ class TeamsController extends AppController {
 							$ends = $this->_dateToArray($ends);
 
 							// Output scraped data
-							$content .= '<li>' . $remote_id . ': ' . $competition . ' - ' . $home_team_name . ' (' . $home_team_id . ') v ' . $away_team_name . ' (' . $away_team_id . ') - ' . $kickoff_str;
+							$content .= '<li>' . $remote_id . ': ' . $competition_name . ' (' . $competition_id . ') - ' . $home_team_name . ' (' . $home_team_id . ') v ' . $away_team_name . ' (' . $away_team_id . ') - ' . $kickoff_str;
 
 							// Define data structure for saving
 							$data = array(
@@ -231,9 +251,9 @@ class TeamsController extends AppController {
 									'away' => $away_team_name,
 									'home_team_id' => $home_team_id,
 									'away_team_id' => $away_team_id,
-									'group' => $competition,
+									'group' => $competition_name,
 									'remote_id' => $remote_id,
-									'competition_id' => 1			// TODO: set this dynamically somehow (Team.competition_id?)
+									'competition_id' => $competition_id
 								),
 							);
 
