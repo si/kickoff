@@ -13,7 +13,7 @@ $this->viewVars['title_for_layout'] = $title;
   echo $this->Time->format('D j M Y g:ia', $event['Event']['start']) 
     . '–' 
     . $this->Time->format('g:ia', $event['Event']['end']); 
-  ?>
+  ?><sup><a href="#end_times">1</a></sup>
 </p>
 
 <p><?php echo $event['Event']['location']; ?></p>
@@ -46,6 +46,10 @@ $this->viewVars['title_for_layout'] = $title;
 
 </div>
 
+<dl>
+  <dt id="end_times">1</dt>
+  <dd>End times are approximations based on average event durations</dd>
+</dl>
 <?php
 //var_dump($event);
 ?>
