@@ -98,7 +98,22 @@ class TeamsController extends AppController {
 
 		$content = '';
 
-		if($id!='') {
+		if($id=='') {
+			// Get next empty/oldest import
+			$options = array(
+				'fields' => array('Team.id'),
+				'conditions' => array(
+					'events_import_url IS NOT NULL'
+				),
+				'order' => array(
+					'events_import_updated ASC'
+				)
+			);
+			$last_updated = $this->Team->find('first', $options);
+			if(count($last_updated)>0) {
+				$id = $last_updated['Team']['id'];
+			}
+		}
 
 			// Get team details from ID
 			$team = $this->Team->findById($id);
@@ -278,8 +293,6 @@ class TeamsController extends AppController {
 				}	// loop tables
 
 			}	/// end team data
-
-		} // end ID
 
 		// Update import updated 
 		$this->Team->save( array(
