@@ -1,3 +1,9 @@
+<?php
+$title = 'Kick Off Calendars';
+if(isset($team)) $title = $team['Team']['name'] . ' - ' . $title;
+$this->viewVars['title_for_layout'] = $title;
+?>
+
 <h1><?php echo $team['Team']['name']; ?></h1>
 <small>
 	<?php echo $this->Html->link($team['Competition']['name'],array('controller'=>'competitions','action'=>'view',$team['Competition']['id'])); ?>
