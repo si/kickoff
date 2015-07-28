@@ -3,7 +3,7 @@ $title = 'Kick Off Calendars';
 if(isset($event)) $title = $event['Event']['summary'] . ' - ' . $title;
 $this->viewVars['title_for_layout'] = $title;
 ?>
-<h1>
+<h1 class="vs">
   <?php echo $this->Html->link($event['HomeTeam']['name'], array('controller'=>'teams','action'=>'view', $event['HomeTeam']['id'])); ?>
   <abbr title="versus">v</abbr>
   <?php echo $this->Html->link($event['AwayTeam']['name'], array('controller'=>'teams','action'=>'view', $event['AwayTeam']['id'])); ?>

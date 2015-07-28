@@ -1,0 +1,21 @@
+.vs {
+	a {
+		display: block;
+	}
+
+	abbr {
+		border: none;
+		display: block;
+		font-size: 1rem;
+		font-style: italic;
+		line-height: 1;
+		margin-top: -2rem;
+
+		&:before {
+			border-top: 2px solid #FFF;
+			display: block;
+			content: "";
+			margin-top: 2rem;
+		}
+	}
+}
