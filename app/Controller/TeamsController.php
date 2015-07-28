@@ -221,12 +221,9 @@ class TeamsController extends AppController {
 									)
 								);
 								$away_team = $this->Team->save($away_team_data);
-								$away_team_id = $away_team['id'];
-
-							} else {
-								// Get AWAY team id
-								$away_team_id = $away_team['Team']['id'];
 							}
+							//var_dump($away_team); echo '<hr>';
+							$away_team_id = (isset($away_team['Team'])) ? $away_team['Team']['id'] : $away_team['id'];
 
 							// Build start field from date and time
 							$kickoff_str = substr($kickoff_date, 0, -3) . ' ' . $month . ' ' . $kickoff_time;
