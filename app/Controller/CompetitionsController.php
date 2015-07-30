@@ -45,7 +45,7 @@ class CompetitionsController extends AppController {
 	    	$future_params['conditions'][] = 'Competition.id = ' . $id;
 	    } else {
 		    $competition = $this->Competition->findBySlug($id);
-	    	$future_params['conditions'][] = 'Competition.slug = ' . $id;
+	    	$future_params['conditions'][] = 'Competition.slug = \'' . $id . '\'';
 	    }
 	    // Pass through Competition settings
 	    $this->set('competition', $competition);
