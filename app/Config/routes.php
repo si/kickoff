@@ -28,9 +28,13 @@
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	Router::connect('/search/*', array('controller' => 'searches', 'action' => 'index'));
 
-	Router::connect('/calendars', array('controller' => 'calendars', 'action' => 'index'));
-	Router::connect('/calendars/:action/*', array('controller' => 'calendars'));
+//	This works but breaks many other links
+//	Router::connect('/competitions/:slug/*', array('controller' => 'competitions', 'action'=>'view'), array('pass'=>array('slug')));
 
+//	Router::connect('/calendars', array('controller' => 'calendars', 'action' => 'index'));
+//	Router::connect('/calendars/:action/*', array('controller' => 'calendars'));
+
+/*
 	Router::connect('/events', array('controller' => 'events', 'action' => 'index'));
 	Router::connect('/events/view/*', array('controller' => 'events', 'action' => 'view'));
 	Router::connect('/events/form/*', array('controller' => 'events', 'action' => 'form'));
@@ -44,7 +48,8 @@
 
 	Router::connect('/themes', array('controller' => 'themes', 'action'=>'index'));
 	Router::connect('/themes/:action/*', array('controller' => 'themes'));
-
+*/
+	
 	Router::connect('/register', array('controller' => 'users', 'action' => 'add'));
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array( 'controller' => 'users', 'action' => 'logout'));
