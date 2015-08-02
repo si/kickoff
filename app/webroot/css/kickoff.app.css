@@ -695,11 +695,24 @@ button:hover,
   z-index: 20;
 }
 
-/* line 2, ../sass/_components/_vs.scss */
-.vs a {
-  display: block;
+/* line 1, ../sass/_components/_vs.scss */
+.vs {
+  font-size: 2rem;
+  -ms-transform: skewY(-10deg);
+  -webkit-transform: skewY(-10deg);
+  transform: skewY(-10deg);
 }
-/* line 6, ../sass/_components/_vs.scss */
+/* line 8, ../sass/_components/_vs.scss */
+.vs a {
+  letter-spacing: -0.2rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+/* line 13, ../sass/_components/_vs.scss */
+.vs a:hover {
+  text-decoration: none;
+}
+/* line 18, ../sass/_components/_vs.scss */
 .vs abbr {
   border: none;
   display: block;
@@ -708,7 +721,7 @@ button:hover,
   line-height: 1;
   margin-top: -2rem;
 }
-/* line 14, ../sass/_components/_vs.scss */
+/* line 26, ../sass/_components/_vs.scss */
 .vs abbr:before {
   border-top: 2px solid #FFF;
   display: block;
