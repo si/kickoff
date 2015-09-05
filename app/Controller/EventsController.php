@@ -33,7 +33,11 @@ class EventsController extends AppController {
   	  $form_data['Event']['end'] = uk_date_to_mysql($this->data['Event']['end']);
   	  
   	  // Check home team exists
-  	  $home_team = $this->Event->HomeTeam->findByName($this->data['Event']['home']);
+      $query = array(
+        'conditions' => array('HomeTeam.name'=>$this->data['Event']['home']),
+        'order' => array('HomeTeam.created DESC')
+      );
+  	  $home_team = $this->Event->HomeTeam->find('first', $query);
   	  // If not, create them
   	  if(empty($home_team)) {
   	    $team_data = array(
@@ -49,7 +53,11 @@ class EventsController extends AppController {
   	  }
 
   	  // Check away team exists
-  	  $away_team = $this->Event->AwayTeam->findByName($this->data['Event']['away']);
+      $query = array(
+        'conditions' => array('AwayTeam.name'=>$this->data['Event']['away']),
+        'order' => array('AwayTeam.created DESC')
+      );
+  	  $away_team = $this->Event->AwayTeam->find('first', $query);
   	  // If not, create them
   	  if(empty($away_team)) {
   	    $team_data = array(
@@ -73,7 +81,7 @@ class EventsController extends AppController {
   	}
 
   	$this->set('competitions', $this->Event->Competition->find('list'));
-  	$this->set('teams', $this->Event->HomeTeam->find('list')); 
+  	//$this->set('teams', $this->Event->HomeTeam->find('list')); 
 
     if(isset($this->params['named']['competition']) || (isset($this->data['Event']) && $this->data['Event']['competition_id']!='')) {
       $competition = isset($this->data['Event']['competition_id']) ? $this->data['Event']['competition_id'] : $this->params['named']['competition'];
