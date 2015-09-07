@@ -706,25 +706,47 @@ button:hover,
 .vs a {
   letter-spacing: -0.2rem;
   display: block;
-  transition: all 0.3s ease;
+  animation: team-entry 0.3s 1;
+  -webkit-animation: team-entry 0.3s 1;
 }
-/* line 13, ../sass/_components/_vs.scss */
+/* line 15, ../sass/_components/_vs.scss */
 .vs a:hover {
   text-decoration: none;
 }
-/* line 18, ../sass/_components/_vs.scss */
+/* line 20, ../sass/_components/_vs.scss */
 .vs abbr {
   border: none;
   display: block;
   font-size: 1rem;
   font-style: italic;
   line-height: 1;
-  margin-top: -2rem;
 }
-/* line 26, ../sass/_components/_vs.scss */
+/* line 27, ../sass/_components/_vs.scss */
 .vs abbr:before {
-  border-top: 2px solid #FFF;
   display: block;
   content: "";
-  margin-top: 2rem;
+}
+
+@-webkit-keyframes team-entry {
+  /* line 36, ../sass/_components/_vs.scss */
+  0% {
+    left: -999em;
+  }
+
+  /* line 37, ../sass/_components/_vs.scss */
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes team-entry {
+  /* line 41, ../sass/_components/_vs.scss */
+  0% {
+    left: -999em;
+  }
+
+  /* line 42, ../sass/_components/_vs.scss */
+  100% {
+    left: 0;
+  }
 }
