@@ -65,7 +65,7 @@ class CompetitionsController extends AppController {
 	    } 
 	    
 	    $future_params['conditions'][] = "Event.start >= '" . date('Y-m-d H:i:s',$start) . "'";
-	    $future_params['conditions'][] = "Event.end < '" . date('Y-m-d H:i:s',$end) . "'";
+	    $future_params['conditions'][] = "Event.ends < '" . date('Y-m-d H:i:s',$end) . "'";
 
 	    $this->set(compact('start','end'));
 	    $this->set('future_params', $future_params);
@@ -89,7 +89,7 @@ class CompetitionsController extends AppController {
 	        $export_data['events'][] = array(
 	          'event_id' => $event['Event']['id'],
 	          'start' => $event['Event']['start'],
-	          'end' => $event['Event']['end'],
+	          'end' => $event['Event']['ends'],
 	          'summary' => utf8_encode($event['Event']['summary']),
 	          'home_team' => array(
 	            'id' => $event['HomeTeam']['id'],
@@ -101,7 +101,7 @@ class CompetitionsController extends AppController {
 	            'name' => utf8_encode($event['AwayTeam']['name']),
 	            'theme_id' => $event['AwayTeam']['theme_id']
 	          ),
-	          'group' => $event['Event']['group'],
+	          'group' => $event['Event']['grouping'],
 	          'description' => utf8_encode($event['Event']['description']),
 	          'all_day' => $event['Event']['all_day'],
 	          'location' => utf8_encode($event['Event']['location']),

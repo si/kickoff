@@ -12,12 +12,12 @@ $this->viewVars['title_for_layout'] = $title;
   <?php 
   echo $this->Time->format('D j M Y g:ia', $event['Event']['start']) 
     . '–' 
-    . $this->Time->format('g:ia', $event['Event']['end']); 
+    . $this->Time->format('g:ia', $event['Event']['ends']); 
   ?><sup><a href="#end_times">1</a></sup>
 </p>
 
 <p><?php echo $event['Event']['location']; ?></p>
-<p>Group: <?php echo $event['Event']['group']; ?></p>
+<p>Group: <?php echo $event['Event']['grouping']; ?></p>
 <p><?php echo $event['Event']['description']; ?></p>
 
 <small class="text-muted">Added to  

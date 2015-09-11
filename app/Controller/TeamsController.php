@@ -48,7 +48,7 @@ class TeamsController extends AppController {
 		    } 
 		    
 		    $future_params['conditions']['and'][] = "Event.start >= '" . date('Y-m-d H:i:s',$start) . "'";
-		    $future_params['conditions']['and'][] = "Event.end < '" . date('Y-m-d H:i:s',$end) . "'";
+		    $future_params['conditions']['and'][] = "Event.ends < '" . date('Y-m-d H:i:s',$end) . "'";
 
 		    $this->set(compact('start','end'));
 		    $this->set('future_params', $future_params);
