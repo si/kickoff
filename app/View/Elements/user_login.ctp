@@ -6,6 +6,7 @@
         <div class="input-group">
         <?php
             echo $this->Form->input('username', array(
+              'type' => 'text',
               'placeholder'=>'yourname',
               'div' => 'col-6',
             ));
