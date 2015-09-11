@@ -11,7 +11,7 @@ foreach($alphabet as $letter) :
 				'letter'=>$letter
 			), 
 			array(
-				'class'=> (($this->params['named']['letter']==$letter) ? 'active' : '')
+				'class'=> ((isset($this->params['named']['letter']) && $this->params['named']['letter']==$letter) ? 'active' : '')
 			)
 		);
 	?></li>
