@@ -1,0 +1,22 @@
+.a-z {
+	list-style: none;
+
+	li {
+		display: inline-block;
+
+		a {
+			display: block;
+			border-bottom: 2px solid rgba(#FFF, 0.2);
+			padding: 0.5em;
+			text-decoration: none;
+
+			&:hover {
+				border-bottom-color: rgba(#FFF, 0.5);
+			}
+
+			&.active {
+				border-bottom-color: rgba(#FFF, 1);
+			}
+		}
+	}
+}

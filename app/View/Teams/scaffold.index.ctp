@@ -5,6 +5,8 @@ $this->viewVars['title_for_layout'] = 'Teams - Kick Off Calendars';
 
 <?php if(count($teams)>0) : ?>
 
+	<?php echo $this->element('a_to_z'); ?>
+
 	<ul class="tiles">
 	  <?php foreach($teams as $team) : ?>
 	    <li <?php if($team['Theme']['image']!='') echo 'style="background-image: url('.$team['Theme']['image'].');"'; ?>">
