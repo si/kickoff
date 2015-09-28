@@ -13,6 +13,10 @@ class TeamsController extends AppController {
 	  parent::beforeRender();
 	}
 
+	function index() {
+		$this->set('teams', $this->paginate('Team'));
+	}
+
 	function view($id='') {
 		if($id!='') {
 			// Set query parameters
