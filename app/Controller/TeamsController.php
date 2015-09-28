@@ -14,7 +14,13 @@ class TeamsController extends AppController {
 	}
 
 	function index() {
-		$this->set('teams', $this->paginate('Team'));
+
+		$conditions = array();
+		if(isset($this->params['named']['letter'])) {
+			$conditions[] = array("Team.name LIKE '" . $this->params['named']['letter'] . "%'");
+		}
+
+		$this->set('teams', $this->paginate('Team', $conditions));
 	}
 
 	function view($id='') {
