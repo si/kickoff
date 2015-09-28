@@ -17,8 +17,8 @@ $this->viewVars['title_for_layout'] = 'Teams - Kick Off Calendars';
 	</ul>
 
 	<div class="pull-left">
-		<?php echo $this->Paginator->prev('Previous'); ?>
-		<?php echo $this->Paginator->next('Next'); ?>
+		<?php if($this->Paginator->hasPrev()) echo $this->Paginator->prev('Previous'); ?>
+		<?php if($this->Paginator->hasNext()) echo $this->Paginator->next('Next'); ?>
 	</div>
 
 <?php endif; ?>
