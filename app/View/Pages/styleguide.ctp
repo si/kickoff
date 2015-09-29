@@ -28,6 +28,14 @@
 <h3>Tables</h3>
 <p>When working with data, tables are often a suitable option as they group information in organised and semantic ways. Consider the following…</p>
 <style>
+
+th[colspan] {
+	opacity: 0.3;
+}
+th[rowspan] {
+	vertical-align: bottom;
+}
+
 @media (max-width: 50em) {
 	.table__column-4 {
 		display: none;
