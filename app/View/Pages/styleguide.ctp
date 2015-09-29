@@ -27,79 +27,111 @@
 
 <h3>Tables</h3>
 <p>When working with data, tables are often a suitable option as they group information in organised and semantic ways. Consider the following…</p>
+<style>
+@media (max-width: 50em) {
+	.table__column-4 {
+		display: none;
+	}
+}
+@media (max-width: 40em) {
+	.table__column-4,
+	.table__column-3 {
+		display: none;
+	}
+}
+@media (max-width: 30em) {
+	.table__column-4,
+	.table__column-3,
+	.table__column-2 {
+		display: none;
+	}
+}
+</style>
 <table>
 	<thead>
 		<tr>
-			<th rowspan="2">Position</th>
-			<th rowspan="2">Team</th>
-			<th rowspan="2">Played</th>
-			<th colspan="3">Results</th>
-			<th colspan="2">Goals</th>
-			<th rowspan="2">Points</th>
+			<th rowspan="2" class="table__column-1">Position</th>
+			<th rowspan="2" class="table__column-1">Team</th>
+			<th rowspan="2" class="table__column-2">Played</th>
+			<th colspan="3" class="table__column-3">Results</th>
+			<th colspan="2" class="table__column-4">Goals</th>
+			<th rowspan="2" class="table__column-1">Points</th>
 		</tr>
 		<tr>
-			<th>Win</th>
-			<th>Draw</th>
-			<th>Loss</th>
-			<th>For</th>
-			<th>Against</th>
+			<th class="table__column-3">Won</th>
+			<th class="table__column-3">Drew</th>
+			<th class="table__column-3">Lost</th>
+			<th class="table__column-4">For</th>
+			<th class="table__column-4">Against</th>
 		</tr>
 	</thead>
+<?php 
+$table = array(
+	array(
+		'team' => 'Chelsea',
+		'played' => 38,
+		'won' => 25,
+		'draw' => 7,
+		'lost' => 6,
+		'for' => 87,
+		'against' => 23,
+		'points' => 82
+	),
+	array(
+		'team' => 'Manchester City',
+		'played' => 38,
+		'won' => 23,
+		'draw' => 7,
+		'lost' => 8,
+		'for' => 77,
+		'against' => 21,
+		'points' => 76
+	),
+	array(
+		'team' => 'Manchester United',
+		'played' => 38,
+		'won' => 22,
+		'draw' => 8,
+		'lost' => 8,
+		'for' => 73,
+		'against' => 29,
+		'points' => 74
+	),
+	array(
+		'team' => 'Liverpool',
+		'played' => 38,
+		'won' => 20,
+		'draw' => 9,
+		'lost' => 9,
+		'for' => 71,
+		'against' => 23,
+		'points' => 69
+	),
+	array(
+		'team' => 'Tottenham Hotspurs',
+		'played' => 38,
+		'won' => 20,
+		'draw' => 8,
+		'lost' => 10,
+		'for' => 71,
+		'against' => 28,
+		'points' => 68
+	),
+);
+?>
 	<tbody>
+	<?php foreach($table as $position => $data) : ?>
 		<tr>
-			<td>1</td>
-			<td>Chelsea</td>
-			<td>38</td>
-			<td>25</td>
-			<td>7</td>
-			<td>6</td>
-			<td>87</td>
-			<td>23</td>
-			<td>82</td>
+			<td class="table__column-1"><?php echo $position+1; ?></td>
+			<td class="table__column-1"><?php echo $data['team']; ?></td>
+			<td class="table__column-2"><?php echo $data['played']; ?></td>
+			<td class="table__column-3"><?php echo $data['won']; ?></td>
+			<td class="table__column-3"><?php echo $data['draw']; ?></td>
+			<td class="table__column-3"><?php echo $data['lost']; ?></td>
+			<td class="table__column-4"><?php echo $data['for']; ?></td>
+			<td class="table__column-4"><?php echo $data['against']; ?></td>
+			<td class="table__column-1"><?php echo $data['points']; ?></td>
 		</tr>
-		<tr>
-			<td>2</td>
-			<td>Manchester City</td>
-			<td>38</td>
-			<td>23</td>
-			<td>7</td>
-			<td>8</td>
-			<td>77</td>
-			<td>21</td>
-			<td>76</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>Manchester United</td>
-			<td>38</td>
-			<td>22</td>
-			<td>8</td>
-			<td>8</td>
-			<td>87</td>
-			<td>23</td>
-			<td>74</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>Liverpool</td>
-			<td>38</td>
-			<td>20</td>
-			<td>9</td>
-			<td>9</td>
-			<td>87</td>
-			<td>23</td>
-			<td>69</td>
-		</tr>
-		<tr>
-			<td>5</td>
-			<td>Tottenham Hotspurs</td>
-			<td>38</td>
-			<td>20</td>
-			<td>8</td>
-			<td>10</td>
-			<td>87</td>
-			<td>23</td>
-			<td>68</td>
-		</tr>
+	<?php endforeach; ?>
 	</tbody>
 </table>
