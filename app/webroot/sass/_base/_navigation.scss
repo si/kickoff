@@ -60,15 +60,27 @@ nav {
     z-index: 10;
     
     form {
+      background: red;
       display: inline-block;
+      width: 32px;
 
       input {
         background: url(/img/svg/search.svg) no-repeat 5px 50%;
+        background-color: #555 !important;
         background-size: 16px;
-        padding-left: 24px !important;
+        border-color: transparent !important;
+        position: absolute;
+        top: -0.5rem;
+        right: 0;
         margin-top: 5px;
         text-align: left;
-        width: 150px;
+        width: 16px;
+
+        &:focus {
+          background-color: #FFF !important;
+          padding-left: 24px !important;
+          width: 160px;
+        }
       }
     }
 

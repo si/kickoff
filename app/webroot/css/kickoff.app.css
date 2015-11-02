@@ -139,16 +139,28 @@ nav li {
 }
 /* line 62, ../sass/_base/_navigation.scss */
 nav li form {
+  background: red;
   display: inline-block;
+  width: 32px;
 }
-/* line 65, ../sass/_base/_navigation.scss */
+/* line 67, ../sass/_base/_navigation.scss */
 nav li form input {
   background: url(/img/svg/search.svg) no-repeat 5px 50%;
+  background-color: #555 !important;
   background-size: 16px;
-  padding-left: 24px !important;
+  border-color: transparent !important;
+  position: absolute;
+  top: -0.5rem;
+  right: 0;
   margin-top: 5px;
   text-align: left;
-  width: 150px;
+  width: 16px;
+}
+/* line 79, ../sass/_base/_navigation.scss */
+nav li form input:focus {
+  background-color: #FFF !important;
+  padding-left: 24px !important;
+  width: 160px;
 }
 
 /* line 1, ../sass/_base/_tables.scss */
