@@ -5,6 +5,10 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
   
   a {
     color: rgba(#FFF,0.8);
@@ -16,11 +20,8 @@ nav {
   }
   
   .logo {
-    font-family: 'Avenir',Helvetica,Arial,sans-serif;
-    font-size: 1.5rem;
-    font-weight: 100;
     left: 47%;
-    line-height: 3.5rem;
+    line-height: 3rem;
     position: absolute;
     right: 47%;
     text-align: center;
@@ -60,15 +61,27 @@ nav {
     z-index: 10;
     
     form {
+      background: red;
       display: inline-block;
+      width: 32px;
 
       input {
         background: url(/img/svg/search.svg) no-repeat 5px 50%;
+        background-color: #555 !important;
         background-size: 16px;
-        padding-left: 24px !important;
+        border-color: transparent !important;
+        position: absolute;
+        top: -0.5rem;
+        right: 0;
         margin-top: 5px;
         text-align: left;
-        width: 150px;
+        width: 16px;
+
+        &:focus {
+          background-color: #FFF !important;
+          padding-left: 24px !important;
+          width: 160px;
+        }
       }
     }
 
