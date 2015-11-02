@@ -59,7 +59,7 @@ h2, form, input {
 
 /* line 3, ../sass/_base/_layout.scss */
 body {
-  background: linear-gradient(rgba(101, 71, 71, 0.85), rgba(101, 71, 71, 0.7)), fixed url(/img/photos/girl-on-mac-in-park.jpg) no-repeat 50% 50%;
+  background: linear-gradient(rgba(51, 204, 51, 0.85), rgba(51, 204, 51, 0.7)), fixed url(/files/close_up_football_goal_1341825905.jpg) no-repeat 50% 50%;
   background-size: cover;
   padding: 4rem 0 0;
 }

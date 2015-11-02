@@ -1,10 +1,10 @@
-$hue: rgb(101,71,71);
+$hue: #3C3;
 
 body {
   background: linear-gradient(
       rgba($hue, 0.85),
       rgba($hue, 0.7)
-    ), fixed url(/img/photos/girl-on-mac-in-park.jpg) no-repeat 50% 50%;
+    ), fixed url(/files/close_up_football_goal_1341825905.jpg) no-repeat 50% 50%;
   background-size: cover;
   padding: 4rem 0 0;
 }
