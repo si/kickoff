@@ -7,13 +7,13 @@
 
   <?php 
   // Intercom.io integration
-  if(isset($this->Session)) : ?>
+  if(isset($this->Session) && $this->Session->read('Auth.User.email') != '') : ?>
   <script id="IntercomSettingsScriptTag">
     window.intercomSettings = {
       // TODO: The current logged in user's email address.
       email: "<?php echo $this->Session->read('Auth.User.email') ?>",
       // TODO: The current logged in user's sign-up date as a Unix timestamp.
-      created_at: <?php echo strotime($this->Session->read('Auth.User.created_at')) ?>,
+      created_at: <?php echo strtotime($this->Session->read('Auth.User.created')) ?>,
       app_id: "krofbee5"
     };
   </script>
