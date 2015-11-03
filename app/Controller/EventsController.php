@@ -30,7 +30,7 @@ class EventsController extends AppController {
 	  if(isset($this->data) && count($this->data)>0) {
 	    $form_data = $this->data;
   	  $form_data['Event']['start'] = uk_date_to_mysql($this->data['Event']['start']);
-  	  $form_data['Event']['end'] = uk_date_to_mysql($this->data['Event']['end']);
+  	  $form_data['Event']['ends'] = uk_date_to_mysql($this->data['Event']['ends']);
   	  
   	  // Check home team exists
       $query = array(

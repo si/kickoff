@@ -28,8 +28,8 @@ echo $this->Form->create('Event');
       <input type="text" name="data[Event][start]" id="EventStart" data-format="dd/MM/yyyy HH:mm PP" value="<?php if(isset($this->data['Event']['start'])) echo $this->Time->format('d/m/Y h:i A',$this->data['Event']['start']); ?>" class="span3" />
     </div>
     <div class="span3">
-      <label for="EventEnd">Ends</label>
-      <input type="text" name="data[Event][end]" id="EventEnd" data-format="dd/MM/yyyy HH:mm PP" class="span3" value="<?php if(isset($this->data['Event']['end'])) echo $this->Time->format('d/m/Y h:i A',$this->data['Event']['end']); ?>">
+      <label for="EventEnds">Ends</label>
+      <input type="text" name="data[Event][ends]" id="EventEnds" data-format="dd/MM/yyyy HH:mm PP" class="span3" value="<?php if(isset($this->data['Event']['ends'])) echo $this->Time->format('d/m/Y h:i A',$this->data['Event']['ends']); ?>">
     </div>
 	  <?php echo $this->Form->input('location',array('class'=>'span6','div'=>'span6')); ?>
   </div>
