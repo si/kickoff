@@ -1,0 +1,53 @@
+$title-skew : -15deg;
+
+h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 4rem;
+    color: transparent;
+    font-size: 2rem;
+    letter-spacing: -0.1rem;
+    line-height: 1.1;
+    margin: 4rem auto;
+    padding: 2rem;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px white;
+
+    -ms-transform: skewY($title-skew); // IE 9
+    -webkit-transform: skewY($title-skew); // Safari
+    transform: skewY($title-skew); // Standard syntax
+
+    a {
+        display: block;
+        //transition: all 0.3s ease;
+        animation: team-entry 0.3s 1;
+        -webkit-animation: team-entry 0.3s 1;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    abbr {
+        border: none;
+        display: block;
+        font-size: 1rem;
+        font-style: italic;
+        line-height: 1;
+
+        &:before {
+            //border-top: 2px solid #FFF;
+            display: block;
+            content: "";
+        }
+    }
+}
+
+@-webkit-keyframes team-entry {
+  0%   { left: -999em; }
+  100% { left: 0; }
+}
+
+@keyframes team-entry {
+  0%   { left: -999em; }
+  100% { left: 0; }
+}
