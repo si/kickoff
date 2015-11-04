@@ -81,20 +81,21 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 500;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
 }
-/* line 13, ../sass/_base/_navigation.scss */
+/* line 14, ../sass/_base/_navigation.scss */
 nav a {
   color: rgba(255, 255, 255, 0.8);
 }
-/* line 16, ../sass/_base/_navigation.scss */
+/* line 17, ../sass/_base/_navigation.scss */
 nav a:hover {
   color: white;
   text-decoration: none;
 }
-/* line 22, ../sass/_base/_navigation.scss */
+/* line 23, ../sass/_base/_navigation.scss */
 nav .logo {
   left: 47%;
   line-height: 3rem;
@@ -102,7 +103,7 @@ nav .logo {
   right: 47%;
   text-align: center;
 }
-/* line 31, ../sass/_base/_navigation.scss */
+/* line 32, ../sass/_base/_navigation.scss */
 nav .discover,
 nav .engage {
   display: inline-block;
@@ -111,39 +112,39 @@ nav .engage {
   padding: 0;
   width: 45%;
 }
-/* line 38, ../sass/_base/_navigation.scss */
+/* line 39, ../sass/_base/_navigation.scss */
 nav .discover li,
 nav .engage li {
   display: inline;
   position: relative;
 }
-/* line 42, ../sass/_base/_navigation.scss */
+/* line 43, ../sass/_base/_navigation.scss */
 nav .discover li a,
 nav .engage li a {
   display: inline-block;
   padding: 1rem 0.5rem;
 }
-/* line 50, ../sass/_base/_navigation.scss */
+/* line 51, ../sass/_base/_navigation.scss */
 nav .discover {
   float: left;
   text-align: right;
 }
-/* line 55, ../sass/_base/_navigation.scss */
+/* line 56, ../sass/_base/_navigation.scss */
 nav .engage {
   float: right;
   text-align: left;
 }
-/* line 60, ../sass/_base/_navigation.scss */
+/* line 61, ../sass/_base/_navigation.scss */
 nav li {
   z-index: 10;
 }
-/* line 63, ../sass/_base/_navigation.scss */
+/* line 64, ../sass/_base/_navigation.scss */
 nav li form {
   background: red;
   display: inline-block;
   width: 32px;
 }
-/* line 68, ../sass/_base/_navigation.scss */
+/* line 69, ../sass/_base/_navigation.scss */
 nav li form input {
   background: url(/img/svg/search.svg) no-repeat 5px 50%;
   background-color: #555 !important;
@@ -156,7 +157,7 @@ nav li form input {
   text-align: left;
   width: 16px;
 }
-/* line 80, ../sass/_base/_navigation.scss */
+/* line 81, ../sass/_base/_navigation.scss */
 nav li form input:focus {
   background-color: #FFF !important;
   padding-left: 24px !important;
@@ -403,6 +404,30 @@ button:hover,
   margin: 1.5rem -0.5rem 1.5rem;
 }
 
+/* line 1, ../sass/_components/_a-z.scss */
+.a-z {
+  list-style: none;
+}
+/* line 4, ../sass/_components/_a-z.scss */
+.a-z li {
+  display: inline-block;
+}
+/* line 7, ../sass/_components/_a-z.scss */
+.a-z li a {
+  display: block;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5em;
+  text-decoration: none;
+}
+/* line 13, ../sass/_components/_a-z.scss */
+.a-z li a:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+/* line 17, ../sass/_components/_a-z.scss */
+.a-z li a.active {
+  border-bottom-color: white;
+}
+
 /* line 8, ../sass/_components/_calendars.scss */
 .calendar {
   position: relative;
@@ -577,48 +602,47 @@ button:hover,
     white-space: normal;
     width: 100%;
   }
-  /* line 183, ../sass/_components/_calendars.scss */
-  .calendar td.empty {
+  /* line 184, ../sass/_components/_calendars.scss */
+  .calendar td.empty, .calendar td[colspan] {
     display: none;
   }
-  /* line 187, ../sass/_components/_calendars.scss */
+  /* line 188, ../sass/_components/_calendars.scss */
   .calendar td .date {
+    color: rgba(255, 255, 255, 0.5);
     font-size: 2.5em;
     text-align: left;
+    line-height: 1.2;
     top: 1.75rem;
     left: 0;
     width: 1em;
   }
-  /* line 195, ../sass/_components/_calendars.scss */
+  /* line 198, ../sass/_components/_calendars.scss */
   .calendar td:before {
     content: attr(data-day);
-    color: rgba(0, 0, 0, 0.05);
+    color: rgba(255, 255, 255, 0.5);
     display: inline-block;
     letter-spacing: 0.2rem;
     text-indent: 0.25em;
     text-transform: uppercase;
   }
-  /* line 205, ../sass/_components/_calendars.scss */
+  /* line 207, ../sass/_components/_calendars.scss */
   .calendar td ol {
-    position: absolute;
-    top: 0.5em;
-    right: 0.5em;
-    left: 3.7em;
+    margin: -1.5em 0 0 3.7em;
   }
-  /* line 212, ../sass/_components/_calendars.scss */
+  /* line 211, ../sass/_components/_calendars.scss */
   .calendar td .event {
     display: block;
     text-align: center;
   }
-  /* line 216, ../sass/_components/_calendars.scss */
+  /* line 215, ../sass/_components/_calendars.scss */
   .calendar td .event:hover, .calendar td .event:focus {
     background: rgba(255, 40, 40, 0.7);
   }
-  /* line 219, ../sass/_components/_calendars.scss */
+  /* line 218, ../sass/_components/_calendars.scss */
   .calendar td .event:hover a, .calendar td .event:focus a {
     color: rgba(255, 255, 255, 0.25);
   }
-  /* line 222, ../sass/_components/_calendars.scss */
+  /* line 221, ../sass/_components/_calendars.scss */
   .calendar td .event:hover a .time, .calendar td .event:focus a .time {
     display: inline-block;
     color: white;
@@ -626,7 +650,7 @@ button:hover,
     top: 0.1rem;
     left: 1rem;
   }
-  /* line 229, ../sass/_components/_calendars.scss */
+  /* line 228, ../sass/_components/_calendars.scss */
   .calendar td .event:hover a .location, .calendar td .event:focus a .location {
     display: inline-block;
     color: white;
@@ -634,7 +658,7 @@ button:hover,
     top: 0.7rem;
     left: 1rem;
   }
-  /* line 238, ../sass/_components/_calendars.scss */
+  /* line 237, ../sass/_components/_calendars.scss */
   .calendar td .event:hover .download, .calendar td .event:hover .share, .calendar td .event:focus .download, .calendar td .event:focus .share {
     display: inline-block;
     color: rgba(255, 255, 255, 0.9);
@@ -645,41 +669,28 @@ button:hover,
     width: 10%;
     z-index: 20;
   }
-  /* line 248, ../sass/_components/_calendars.scss */
+  /* line 247, ../sass/_components/_calendars.scss */
   .calendar td .event:hover .download:hover, .calendar td .event:hover .share:hover, .calendar td .event:focus .download:hover, .calendar td .event:focus .share:hover {
     /*               width: auto; */
   }
-  /* line 252, ../sass/_components/_calendars.scss */
+  /* line 251, ../sass/_components/_calendars.scss */
   .calendar td .event:hover .download, .calendar td .event:focus .download {
     left: 80%;
     right: 90%;
   }
-  /* line 256, ../sass/_components/_calendars.scss */
+  /* line 255, ../sass/_components/_calendars.scss */
   .calendar td .event:hover .download:hover, .calendar td .event:focus .download:hover {
     left: 50%;
   }
-  /* line 260, ../sass/_components/_calendars.scss */
+  /* line 259, ../sass/_components/_calendars.scss */
   .calendar td .event:hover .share, .calendar td .event:focus .share {
     left: 90%;
     right: 0;
   }
-  /* line 264, ../sass/_components/_calendars.scss */
+  /* line 263, ../sass/_components/_calendars.scss */
   .calendar td .event:hover .share:hover, .calendar td .event:focus .share:hover {
     left: 60%;
   }
-}
-
-/* line 1, ../sass/_components/_users.scss */
-.avatar {
-  height: 2rem;
-  padding: 0.5rem;
-}
-
-/* line 6, ../sass/_components/_users.scss */
-.social, .email {
-  display: inline-block;
-  vertical-align: top;
-  width: 49%;
 }
 
 /* line 2, ../sass/_components/_datepicker.scss */
@@ -713,6 +724,21 @@ button:hover,
 .datepicker td.old,
 .datepicker td.new {
   color: #CCC;
+}
+
+/* line 1, ../sass/_components/_footnotes.scss */
+.footnotes {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+/* line 5, ../sass/_components/_footnotes.scss */
+.footnotes dt, .footnotes dd {
+  display: flex;
+  flex: auto;
+}
+/* line 10, ../sass/_components/_footnotes.scss */
+.footnotes dt {
+  font-weight: bold;
 }
 
 /* line 3, ../sass/_components/_tiles.scss */
@@ -784,26 +810,15 @@ button:hover,
   z-index: 20;
 }
 
-/* line 1, ../sass/_components/_a-z.scss */
-.a-z {
-  list-style: none;
+/* line 1, ../sass/_components/_users.scss */
+.avatar {
+  height: 2rem;
+  padding: 0.5rem;
 }
-/* line 4, ../sass/_components/_a-z.scss */
-.a-z li {
+
+/* line 6, ../sass/_components/_users.scss */
+.social, .email {
   display: inline-block;
-}
-/* line 7, ../sass/_components/_a-z.scss */
-.a-z li a {
-  display: block;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  padding: 0.5em;
-  text-decoration: none;
-}
-/* line 13, ../sass/_components/_a-z.scss */
-.a-z li a:hover {
-  border-bottom-color: rgba(255, 255, 255, 0.5);
-}
-/* line 17, ../sass/_components/_a-z.scss */
-.a-z li a.active {
-  border-bottom-color: white;
+  vertical-align: top;
+  width: 49%;
 }
