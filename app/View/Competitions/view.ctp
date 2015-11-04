@@ -26,21 +26,23 @@ $this->viewVars['title_for_layout'] = $competition['Competition']['name'] . ' - 
         </div>
         
         <div class="pull-right">
-          <?php echo $this->Html->adminLink('Edit',array('action'=>'form',$competition['Competition']['id']),array('class'=>'btn')); ?>
           <?php echo $this->Html->link('Export',array('action'=>'export',$competition['Competition']['id'],'json'),array('download'=>true, 'class'=>'btn ')); ?>
-            <?php echo $this->Html->adminPostLink( 'Delete',
-                array('action' => 'delete', $competition['Competition']['id']),
-                array('confirm' => 'Are you sure?', 'class'=>'btn') );
-            ?>
         </div>
       
       </div>
     
       <?php echo $this->element('events_grid',array('events'=>$events,'context'=>'upcoming')); ?>
     
-      <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$competition['Competition']['id']),array('class'=>'btn btn-large')); ?>
-    
 
+      <div>
+        <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$competition['Competition']['id']),array('class'=>'btn btn-large')); ?>
+        <?php echo $this->Html->adminLink('Edit',array('action'=>'form',$competition['Competition']['id']),array('class'=>'btn')); ?>
+        <?php echo $this->Html->adminPostLink( 'Delete',
+            array('action' => 'delete', $competition['Competition']['id']),
+            array('confirm' => 'Are you sure?', 'class'=>'btn') );
+        ?>
+      </div>
+    
     </div>
     
   </div>
