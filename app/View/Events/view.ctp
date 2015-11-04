@@ -20,11 +20,6 @@ $this->viewVars['title_for_layout'] = $title;
 <p>Group: <?php echo $event['Event']['grouping']; ?></p>
 <p><?php echo $event['Event']['description']; ?></p>
 
-<small class="text-muted">Added to  
-  <?php echo $this->Html->link($event['Competition']['name'],array('controller'=>'competitions','action'=>'view',$event['Competition']['id'])); ?> 
-  on <?php echo $this->Time->nice($event['Event']['created']); ?>
-</small>
-
 <div class="btn-group btn-block">
 
   <?php echo $this->Html->link('Download'
@@ -46,7 +41,13 @@ $this->viewVars['title_for_layout'] = $title;
 
 </div>
 
-<dl>
+<p><small>Added to  
+  <?php echo $this->Html->link($event['Competition']['name'],array('controller'=>'competitions','action'=>'view',$event['Competition']['id'])); ?> 
+  on <?php echo $this->Time->nice($event['Event']['created']); ?>
+</small></p>
+
+
+<dl class="footnotes">
   <dt id="end_times">1</dt>
   <dd>End times are approximations based on average event durations</dd>
 </dl>
