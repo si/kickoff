@@ -1,0 +1,13 @@
+.footnotes {
+    font-size: 0.8rem;
+    color: rgba(#FFF, 0.6);
+
+    dt, dd {
+        display: flex;
+        flex: auto;
+    }
+
+    dt {
+        font-weight: bold;        
+    }
+}
