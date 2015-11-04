@@ -186,7 +186,7 @@ table th a {
 }
 /* line 23, ../sass/_base/_tables.scss */
 table tbody tr {
-  border-bottom: 1px solid #FFF;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 /* line 27, ../sass/_base/_tables.scss */
 table tbody tr:hover {
@@ -451,7 +451,7 @@ button:hover,
 }
 /* line 52, ../sass/_components/_calendars.scss */
 .calendar td .date {
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 0, 0, 0.2);
   display: inline-block;
   font-size: 3.5rem;
   font-weight: bold;
