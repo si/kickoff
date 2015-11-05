@@ -1,0 +1,14 @@
+$sports: football, rugby, tennis, formula-1;
+$icon-size: 48px;
+
+/* Sports */
+@each $sport in $sports {
+    .#{$sport}:before {
+        background: url(/img/svg/#{$sport}-white.svg) no-repeat 0 0;
+        background-size: $icon-size;
+        content: ' ';
+        display: inline-block;
+        width: $icon-size;
+        height: $icon-size;
+    }    
+}

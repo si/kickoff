@@ -235,6 +235,45 @@ pre:focus, pre:hover, textarea.code:focus, textarea.code:hover {
   z-index: 100;
 }
 
+/* line 5, ../sass/_globals/_buttons.scss */
+button,
+.btn {
+  background: rgba(0, 0, 0, 0.5);
+  border: none !important;
+  border-radius: 0.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.67rem 1rem;
+  text-shadow: none;
+  transition: all 0.25s ease;
+}
+/* line 14, ../sass/_globals/_buttons.scss */
+button:hover,
+.btn:hover {
+  background: black;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* line 1, ../sass/_globals/_grid.scss */
+.promo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/* line 6, ../sass/_globals/_grid.scss */
+.promo div {
+  flex-grow: 1;
+  margin: 1rem 2%;
+}
+
+/* line 12, ../sass/_globals/_grid.scss */
+.breakout {
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 1.5rem;
+  padding: 1em;
+  margin: 1.5rem -0.5rem 1.5rem;
+}
+
 /* line 3, ../sass/_globals/_headings.scss */
 h1 {
   font-family: 'Roboto Condensed', sans-serif;
@@ -299,25 +338,6 @@ h1 abbr:before {
   }
 }
 
-/* line 5, ../sass/_globals/_buttons.scss */
-button,
-.btn {
-  background: rgba(0, 0, 0, 0.5);
-  border: none !important;
-  border-radius: 0.25rem;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 0.67rem 1rem;
-  text-shadow: none;
-  transition: all 0.25s ease;
-}
-/* line 14, ../sass/_globals/_buttons.scss */
-button:hover,
-.btn:hover {
-  background: black;
-  color: white;
-  transform: scale(1.1);
-}
-
 /* line 7, ../sass/_globals/_social.scss */
 .login .providers {
   margin: 2rem 0 2rem;
@@ -357,6 +377,47 @@ button:hover,
   background: #e55036 url(/img/svg/google.svg) no-repeat top center;
 }
 
+/* Sports */
+/* line 6, ../sass/_globals/_sports.scss */
+.football:before {
+  background: url(/img/svg/football-white.svg) no-repeat 0 0;
+  background-size: 48px;
+  content: ' ';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+/* line 6, ../sass/_globals/_sports.scss */
+.rugby:before {
+  background: url(/img/svg/rugby-white.svg) no-repeat 0 0;
+  background-size: 48px;
+  content: ' ';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+/* line 6, ../sass/_globals/_sports.scss */
+.tennis:before {
+  background: url(/img/svg/tennis-white.svg) no-repeat 0 0;
+  background-size: 48px;
+  content: ' ';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+/* line 6, ../sass/_globals/_sports.scss */
+.formula-1:before {
+  background: url(/img/svg/formula-1-white.svg) no-repeat 0 0;
+  background-size: 48px;
+  content: ' ';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
 /* line 1, ../sass/_globals/_themes.scss */
 .calendars.view .container {
   margin: 0;
@@ -386,26 +447,6 @@ button:hover,
 .container p small {
   color: rgba(255, 255, 255, 0.5);
   display: block;
-}
-
-/* line 1, ../sass/_globals/_grid.scss */
-.promo {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-/* line 6, ../sass/_globals/_grid.scss */
-.promo div {
-  flex-grow: 1;
-  margin: 1rem 2%;
-}
-
-/* line 12, ../sass/_globals/_grid.scss */
-.breakout {
-  background: rgba(255, 255, 255, 0.1);
-  font-size: 1.5rem;
-  padding: 1em;
-  margin: 1.5rem -0.5rem 1.5rem;
 }
 
 /* line 1, ../sass/_components/_a-z.scss */
