@@ -62,7 +62,6 @@ nav {
     z-index: 10;
     
     form {
-      background: red;
       display: inline-block;
       width: 32px;
 
@@ -79,10 +78,15 @@ nav {
         width: 16px;
 
         &:focus {
-          background-color: #FFF !important;
+          background-color: rgba(#FFF,0.95) !important;
           padding-left: 24px !important;
-          width: 160px;
+          width: 230px;
         }
+      }
+
+      button {
+        opacity: 0;
+        visibility: hidden;
       }
     }
 

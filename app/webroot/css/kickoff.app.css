@@ -140,11 +140,10 @@ nav li {
 }
 /* line 64, ../sass/_base/_navigation.scss */
 nav li form {
-  background: red;
   display: inline-block;
   width: 32px;
 }
-/* line 69, ../sass/_base/_navigation.scss */
+/* line 68, ../sass/_base/_navigation.scss */
 nav li form input {
   background: url(/img/svg/search.svg) no-repeat 5px 50%;
   background-color: #555 !important;
@@ -157,11 +156,16 @@ nav li form input {
   text-align: left;
   width: 16px;
 }
-/* line 81, ../sass/_base/_navigation.scss */
+/* line 80, ../sass/_base/_navigation.scss */
 nav li form input:focus {
-  background-color: #FFF !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
   padding-left: 24px !important;
-  width: 160px;
+  width: 230px;
+}
+/* line 87, ../sass/_base/_navigation.scss */
+nav li form button {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* line 1, ../sass/_base/_tables.scss */
