@@ -104,10 +104,10 @@ class EventsController extends AppController {
         'fields' => array(
           'Event.id',
           'Event.start',
-          'Event.end',
+          'Event.ends',
           'Event.summary',
           'Event.location',
-          'Event.group',
+          'Event.grouping',
           'Event.description',
           'Event.created'
         ), 
@@ -120,10 +120,10 @@ class EventsController extends AppController {
       'Event' => array( 
 	      'id' => 'ID', 
 	      'start' => 'Start', 
-	      'end' => 'End', 
+	      'ends' => 'Ends', 
 	      'summary' => 'Summary', 
 	      'location' => 'Location',
-	      'group' => 'Group',
+	      'grouping' => 'Group',
 	      'description' => 'Description',
 	      'created' => 'Created',
       ) 
