@@ -235,6 +235,12 @@ pre:focus, pre:hover, textarea.code:focus, textarea.code:hover {
   z-index: 100;
 }
 
+/* line 27, ../sass/_base/_typography.scss */
+.empty {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 /* line 5, ../sass/_globals/_buttons.scss */
 button,
 .btn {
