@@ -8,7 +8,7 @@ $this->viewVars['title_for_layout'] = $title;
 
 <div class="row">
 	<div class="span4">
-	<?php if(count($teams)==0) : ?>
+	<?php if(!isset($teams) || count($teams)==0) : ?>
 		<p>No teams found</p>
 	<?php else: ?>
 		<h2>Teams</h2>
@@ -21,7 +21,7 @@ $this->viewVars['title_for_layout'] = $title;
 	</div>
 
 	<div class="span4">
-	<?php if(count($competitions)==0) : ?>
+	<?php if(!isset($competitions) || count($competitions)==0) : ?>
 		<p>No competitions found</p>
 	<?php else: ?>
 		<h2>Competitions</h2>
@@ -34,7 +34,7 @@ $this->viewVars['title_for_layout'] = $title;
 	</div>
 
 	<div class="span4">
-	<?php if(count($sports)==0) : ?>
+	<?php if(!isset($sports) || count($sports)==0) : ?>
 		<p>No sports found</p>
 	<?php else: ?>
 		<h2>Sports</h2>
