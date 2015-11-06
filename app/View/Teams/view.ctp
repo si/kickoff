@@ -16,8 +16,8 @@ echo $this->element('events_grid',array('events'=>$events,'context'=>'upcoming')
 ?>
 
 <small>
-  <?php echo $this->Html->link($team['Competition']['name'],array('controller'=>'competitions','action'=>'view',$team['Competition']['id'])); ?>
-  <?php echo $this->Html->link($team['Sport']['name'],array('controller'=>'sports','action'=>'view',$team['Sport']['id'])); ?>
+  <?php echo $this->Html->link($team['Competition']['name'],array('controller'=>'competitions','action'=>'view',$team['Competition']['id']), array('class'=>'competition')); ?>
+  <?php echo $this->Html->link($team['Sport']['name'],array('controller'=>'sports','action'=>'view',$team['Sport']['id']), array('class'=>'sport')); ?>
 </small>
 
 <div class="">
