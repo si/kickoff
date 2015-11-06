@@ -3,7 +3,7 @@ $icon-size: 48px;
 
 @mixin icon($name, $size: $icon-size, $color: white) {
     background: url('/img/svg/' + $name + '-' + $color + '.svg') no-repeat 0 0;
-    background-size: $size;
+    background-size: $size $size;
     content: ' ';
     display: inline-block;
     width: $size;
@@ -22,6 +22,10 @@ $icon-size: 48px;
 
 time:before {
     @include icon('clock', 12px);
+}
+
+.location:before {
+    @include icon('pin', 12px);
 }
 
 /* Sports */
