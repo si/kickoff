@@ -3,7 +3,7 @@ $title = 'Kick Off Calendars';
 if(isset($event)) $title = $event['Event']['summary'] . ' - ' . $title;
 $this->viewVars['title_for_layout'] = $title;
 ?>
-<h1 class="vs">
+<h1 class="summary vs">
   <?php echo $this->Html->link($event['HomeTeam']['name'], array('controller'=>'teams','action'=>'view', $event['HomeTeam']['id'])); ?>
   <abbr title="versus">v</abbr>
   <?php echo $this->Html->link($event['AwayTeam']['name'], array('controller'=>'teams','action'=>'view', $event['AwayTeam']['id'])); ?>
@@ -18,19 +18,25 @@ $this->viewVars['title_for_layout'] = $title;
   </span>
 </time>
 
-<p class="location"><?php echo $event['Event']['location']; ?></p>
-
-<?php if($event['Event']['grouping']!='') : ?>
-  <p>Group: <?php echo $event['Event']['grouping']; ?></p>
+<?php if($event['Event']['location']) : ?>
+  <p class="location"><?php echo $event['Event']['location']; ?></p>
 <?php endif; ?>
+
+<?php
+/* if($event['Event']['grouping']!='') : ?>
+  <p class="group"><?php echo $event['Event']['grouping']; ?></p>
+<?php endif; 
+*/ ?>
 
 <?php if($event['Event']['description']!='') : ?>
   <p><?php echo $event['Event']['description']; ?></p>
 <?php endif; ?>
 
-<?php echo $this->Html->link('Download'
+<div class="cta">
+  <?php echo $this->Html->link('Download'
   , array('action'=>'export', $event['Event']['id'])
   , array('class'=>'btn btn-large'));?>
+</div>
 
 <p><small>
   <?php 
