@@ -307,38 +307,39 @@ h1 a:hover {
   text-decoration: none;
 }
 /* line 30, ../sass/_globals/_headings.scss */
-h1 abbr {
-  border: none;
+h1 abbr[title] {
+  border-bottom: 1px solid #FFF;
   display: block;
   font-size: 1rem;
   font-style: italic;
-  line-height: 1;
+  line-height: 0;
+  margin: 1em 0;
 }
-/* line 37, ../sass/_globals/_headings.scss */
-h1 abbr:before {
+/* line 38, ../sass/_globals/_headings.scss */
+h1 abbr[title]:before {
   display: block;
   content: "";
 }
 
 @-webkit-keyframes team-entry {
-  /* line 46, ../sass/_globals/_headings.scss */
+  /* line 47, ../sass/_globals/_headings.scss */
   0% {
     left: -999em;
   }
 
-  /* line 47, ../sass/_globals/_headings.scss */
+  /* line 48, ../sass/_globals/_headings.scss */
   100% {
     left: 0;
   }
 }
 
 @keyframes team-entry {
-  /* line 51, ../sass/_globals/_headings.scss */
+  /* line 52, ../sass/_globals/_headings.scss */
   0% {
     left: -999em;
   }
 
-  /* line 52, ../sass/_globals/_headings.scss */
+  /* line 53, ../sass/_globals/_headings.scss */
   100% {
     left: 0;
   }
