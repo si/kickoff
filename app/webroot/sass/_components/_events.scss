@@ -1,0 +1,19 @@
+/*
+Events
+*/
+.events.view {
+
+    .dtstart {
+        background: rgba(#000, 0.9);
+        display: block;
+        font-size: 1.5rem;
+        line-height: 1;
+        margin: 3rem 0 2rem;
+        padding: 1rem;
+        //text-transform: uppercase;
+
+        .date {
+            display: block;
+        }
+    }
+}
