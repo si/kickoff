@@ -1,6 +1,10 @@
 $btn-background: #000;
 $btn-text: #FFF;
 
+.cta {
+  margin: 1rem 0;
+}
+
 button,
 .btn {
   background: rgba($btn-background, 0.5);
