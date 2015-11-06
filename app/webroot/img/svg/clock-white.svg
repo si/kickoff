@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15588) - http://www.bohemiancoding.com/sketch -->
+    <title>clock-white</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icon-Board" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="clock-white" sketch:type="MSLayerGroup" fill="#FFFFFF">
+            <path d="M12,24 C5.4,24 0,18.6 0,12 C0,5.4 5.4,0 12,0 C18.6,0 24,5.4 24,12 C24,18.6 18.6,24 12,24 L12,24 Z M12,2 C6.5,2 2,6.5 2,12 C2,17.5 6.5,22 12,22 C17.5,22 22,17.5 22,12 C22,6.5 17.5,2 12,2 L12,2 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M12,13 C11.4,13 11,12.6 11,12 L11,5 C11,4.4 11.4,4 12,4 C12.6,4 13,4.4 13,5 L13,12 C13,12.6 12.6,13 12,13 L12,13 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M16,17 C15.7,17 15.5,16.9 15.3,16.7 L11.3,12.7 C10.9,12.3 10.9,11.7 11.3,11.3 C11.7,10.9 12.3,10.9 12.7,11.3 L16.7,15.3 C17.1,15.7 17.1,16.3 16.7,16.7 C16.5,16.9 16.3,17 16,17 L16,17 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

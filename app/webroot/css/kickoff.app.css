@@ -367,8 +367,19 @@ h1 abbr:before {
   margin: 0 6px;
 }
 
+/* line 23, ../sass/_globals/_icons.scss */
+time:before {
+  background: url("/img/svg/clock-white.svg") no-repeat 0 0;
+  background-size: 12px;
+  content: ' ';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+}
+
 /* Sports */
-/* line 25, ../sass/_globals/_icons.scss */
+/* line 29, ../sass/_globals/_icons.scss */
 .football:before {
   background: url("/img/svg/football-white.svg") no-repeat 0 0;
   background-size: 48px;
@@ -379,7 +390,7 @@ h1 abbr:before {
   margin: 0 6px;
 }
 
-/* line 25, ../sass/_globals/_icons.scss */
+/* line 29, ../sass/_globals/_icons.scss */
 .rugby:before {
   background: url("/img/svg/rugby-white.svg") no-repeat 0 0;
   background-size: 48px;
@@ -390,7 +401,7 @@ h1 abbr:before {
   margin: 0 6px;
 }
 
-/* line 25, ../sass/_globals/_icons.scss */
+/* line 29, ../sass/_globals/_icons.scss */
 .tennis:before {
   background: url("/img/svg/tennis-white.svg") no-repeat 0 0;
   background-size: 48px;
@@ -401,7 +412,7 @@ h1 abbr:before {
   margin: 0 6px;
 }
 
-/* line 25, ../sass/_globals/_icons.scss */
+/* line 29, ../sass/_globals/_icons.scss */
 .formula-1:before {
   background: url("/img/svg/formula-1-white.svg") no-repeat 0 0;
   background-size: 48px;

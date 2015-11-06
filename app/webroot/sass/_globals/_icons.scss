@@ -20,6 +20,10 @@ $icon-size: 48px;
     @include icon('football', 12px);
 }
 
+time:before {
+    @include icon('clock', 12px);
+}
+
 /* Sports */
 @each $sport in $sports {
     .#{$sport}:before {
