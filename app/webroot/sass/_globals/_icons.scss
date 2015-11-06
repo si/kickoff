@@ -1,0 +1,28 @@
+$sports: football, rugby, tennis, formula-1;
+$icon-size: 48px;
+
+@mixin icon($name, $size: $icon-size, $color: white) {
+    background: url('/img/svg/' + $name + '-' + $color + '.svg') no-repeat 0 0;
+    background-size: $size;
+    content: ' ';
+    display: inline-block;
+    width: $size;
+    height: $size;
+    margin: 0 6px;
+}
+
+/* Sections */  
+.competition:before {
+    @include icon('trophy', 12px);
+}
+
+.sport:before {
+    @include icon('football', 12px);
+}
+
+/* Sports */
+@each $sport in $sports {
+    .#{$sport}:before {
+        @include icon('#{$sport}');
+    }    
+}
