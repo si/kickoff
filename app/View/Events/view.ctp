@@ -41,9 +41,14 @@ $this->viewVars['title_for_layout'] = $title;
 
 </div>
 
-<p><small>Added to  
-  <?php echo $this->Html->link($event['Competition']['name'],array('controller'=>'competitions','action'=>'view',$event['Competition']['id'])); ?> 
-  on <?php echo $this->Time->nice($event['Event']['created']); ?>
+<p><small>
+  <?php 
+    echo $this->Html->link(
+      $event['Competition']['name'],
+      array('controller'=>'competitions','action'=>'view',$event['Competition']['id']),
+      array('class'=>'competition')
+    ); ?> 
+  <time><?php echo $this->Time->nice($event['Event']['created']); ?></time>
 </small></p>
 
 
