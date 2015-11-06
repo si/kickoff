@@ -344,6 +344,74 @@ h1 abbr:before {
   }
 }
 
+/* Sections */
+/* line 15, ../sass/_globals/_icons.scss */
+.competition:before {
+  background: url("/img/svg/trophy-white.svg") no-repeat 0 0;
+  background-size: 12px;
+  content: ' ';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+}
+
+/* line 19, ../sass/_globals/_icons.scss */
+.sport:before {
+  background: url("/img/svg/football-white.svg") no-repeat 0 0;
+  background-size: 12px;
+  content: ' ';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+}
+
+/* Sports */
+/* line 25, ../sass/_globals/_icons.scss */
+.football:before {
+  background: url("/img/svg/football-white.svg") no-repeat 0 0;
+  background-size: 48px;
+  content: ' ';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin: 0 6px;
+}
+
+/* line 25, ../sass/_globals/_icons.scss */
+.rugby:before {
+  background: url("/img/svg/rugby-white.svg") no-repeat 0 0;
+  background-size: 48px;
+  content: ' ';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin: 0 6px;
+}
+
+/* line 25, ../sass/_globals/_icons.scss */
+.tennis:before {
+  background: url("/img/svg/tennis-white.svg") no-repeat 0 0;
+  background-size: 48px;
+  content: ' ';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin: 0 6px;
+}
+
+/* line 25, ../sass/_globals/_icons.scss */
+.formula-1:before {
+  background: url("/img/svg/formula-1-white.svg") no-repeat 0 0;
+  background-size: 48px;
+  content: ' ';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin: 0 6px;
+}
+
 /* line 7, ../sass/_globals/_social.scss */
 .login .providers {
   margin: 2rem 0 2rem;
@@ -381,47 +449,6 @@ h1 abbr:before {
 /* line 36, ../sass/_globals/_social.scss */
 .login .providers li a.google {
   background: #e55036 url(/img/svg/google.svg) no-repeat top center;
-}
-
-/* Sports */
-/* line 6, ../sass/_globals/_sports.scss */
-.football:before {
-  background: url(/img/svg/football-white.svg) no-repeat 0 0;
-  background-size: 48px;
-  content: ' ';
-  display: inline-block;
-  width: 48px;
-  height: 48px;
-}
-
-/* line 6, ../sass/_globals/_sports.scss */
-.rugby:before {
-  background: url(/img/svg/rugby-white.svg) no-repeat 0 0;
-  background-size: 48px;
-  content: ' ';
-  display: inline-block;
-  width: 48px;
-  height: 48px;
-}
-
-/* line 6, ../sass/_globals/_sports.scss */
-.tennis:before {
-  background: url(/img/svg/tennis-white.svg) no-repeat 0 0;
-  background-size: 48px;
-  content: ' ';
-  display: inline-block;
-  width: 48px;
-  height: 48px;
-}
-
-/* line 6, ../sass/_globals/_sports.scss */
-.formula-1:before {
-  background: url(/img/svg/formula-1-white.svg) no-repeat 0 0;
-  background-size: 48px;
-  content: ' ';
-  display: inline-block;
-  width: 48px;
-  height: 48px;
 }
 
 /* line 1, ../sass/_globals/_themes.scss */
