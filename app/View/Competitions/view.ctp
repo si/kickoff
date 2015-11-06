@@ -17,11 +17,8 @@ $this->viewVars['title_for_layout'] = $competition['Competition']['name'] . ' - 
 <?php echo $this->element('events_grid',array('events'=>$events,'context'=>'upcoming')); ?>
     
 <p><small>
-  Created <?php echo $this->Time->niceShort($competition['Competition']['created']); ?> 
-  <?php if(isset($competition['User'])) : ?> 
-    by <?php echo $this->Html->link($competition['User']['username'],array('controller'=>'users','action'=>'view',$competition['User']['id'])); ?> 
-  <?php endif; ?>
-  in <?php echo $this->Html->link($competition['Sport']['name'],array('controller'=>'sports','action'=>'view',$competition['Sport']['id'])); ?>
+  <?php echo $this->Html->link($competition['Sport']['name'],array('controller'=>'sports','action'=>'view',$competition['Sport']['id']), array('class'=>'sport')); ?>
+  <time><?php echo $this->Time->niceShort($competition['Competition']['created']); ?> </time>
 </small></p>
 
 <menu>
