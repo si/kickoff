@@ -1,9 +1,4 @@
-  <script src="/js/libs/jquery-1.10.2.min.js"></script>
-  <script src="/js/libs/bootstrap.min.js"></script>
-  <script src="/js/libs/bootstrap-datetimepicker.min.js"></script>
-  <script src="/js/libs/oauth.js"></script>
-  <script src="/js/app/events.js"></script>
-  <script src="/js/app/users.js"></script>
+  <script src="/js/min/kickoff-v0.1.0.js"></script>
 
   <?php 
   // Intercom.io integration
