@@ -35,7 +35,10 @@ $this->viewVars['title_for_layout'] = $title;
 <div class="cta">
   <?php echo $this->Html->link('Download'
   , array('action'=>'export', $event['Event']['id'])
-  , array('class'=>'btn btn-large'));?>
+  , array(
+    'class'=>'btn btn-large',
+    'type'=>'text/calendar'
+  ));?>
 </div>
 
 <p><small>
