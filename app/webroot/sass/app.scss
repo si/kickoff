@@ -1,5 +1,5 @@
-
-//@import "compass/reset";
+$image-base : '/img/src';
+$icon-base : $image-base + '/icons/';
 
 // Base
 @import "_base/footer";

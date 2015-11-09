@@ -1,8 +1,8 @@
 $sports: football, rugby, tennis, formula-1;
 $icon-size: 48px;
 
-@mixin icon($name, $size: $icon-size, $color: white) {
-    background: url('/img/svg/' + $name + '-' + $color + '.svg') no-repeat 0 0;
+@mixin icon($name, $size: $icon-size, $color: 'white') {
+    background: url($icon-base + $name + '-' + $color + '.svg') no-repeat 0 0;
     background-size: $size $size;
     content: ' ';
     display: inline-block;
@@ -20,7 +20,7 @@ $icon-size: 48px;
     @include icon('football', 12px);
 }
 
-time:before {
+smalll time:before {
     @include icon('clock', 12px);
 }
 
