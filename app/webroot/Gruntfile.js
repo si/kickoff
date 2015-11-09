@@ -2,7 +2,7 @@ module.exports = function (grunt) {
 
 	var config = {
 		name: 'kickoff',
-		fullVersion: ‘0.1.0’
+		fullVersion: '0.1.0'
 	};
 
 	var filesJSConfig = { };
@@ -17,7 +17,10 @@ module.exports = function (grunt) {
 			// 2. Configuration for concatenating files goes here.
 			first_version: {
 				src: [
-					'js/libs/**.js', 'js/app/**.js'
+					'js/libs/jquery-1.10.2.min.js'
+					, 'js/libs/bootstrap.js'
+					, 'js/libs/bootstrap-datetimepicker.min.js'
+					, 'js/app/**.js'
 				],
 				dest: 'js/min/' + config.name + '-v' + config.fullVersion + '.js',
 			}
@@ -39,9 +42,9 @@ module.exports = function (grunt) {
 			dynamic: {
 				files: [{
 					expand: true,
-					cwd: 'img/',
+					cwd: 'img/src/',
 					src: ['**/*.{png,jpg,gif,svg}'],
-					dest: './images/'
+					dest: './img/min/'
 				}]
 			}
 		},
@@ -60,14 +63,14 @@ module.exports = function (grunt) {
 					spawn: false,
 				}
 			}
-			/*,
+			,
 			image: {
 				files: ['img/*.{png,jpg,gif,svg}'],
 				tasks: ['imagemin'],
 				options: {
 					spawn: false,
 				}
-			}*/
+			}
 		}
 	});
 
@@ -81,6 +84,6 @@ module.exports = function (grunt) {
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('default', ['concat', 'uglify']);
-	grunt.registerTask('dev', ['concat', 'uglify', 'watch']);
+	grunt.registerTask('dev', ['concat', 'uglify', 'sass', 'watch']);
 
 };
