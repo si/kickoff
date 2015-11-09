@@ -19,8 +19,8 @@ SUMMARY:".  $data[1]['Event']['summary'] . "
 LOCATION:" . $data[1]['Event']['location'] . "
 DTSTART;VALUE=DATETIME:".$this->Time->format('Ymd\THis\Z',$data[1]['Event']['start']) . "
 DTSTAMP:" . $this->Time->format('Ymd\THis\Z',$data[1]['Event']['start']) . "
-DTEND:" . $this->Time->format('Ymd\THis\Z',$data[1]['Event']['end']) . "
-DESCRIPTION:(" . $data[1]['Event']['group'] . ") " . $data[1]['Event']['description'] . "
+DTEND:" . $this->Time->format('Ymd\THis\Z',$data[1]['Event']['ends']) . "
+DESCRIPTION:(" . $data[1]['Event']['grouping'] . ") " . $data[1]['Event']['description'] . "
 CLASS:PUBLIC
 STATUS:FREE
 X-MICROSOFT-CDO-BUSYSTATUS:FREE\n";
