@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 			// 2. Configuration for concatenating files goes here.
 			first_version: {
 				src: [
-					'js/app.js', 'js/libs/**.js', 'js/plugins/**.js', 'js/modules/**.js'
+					'js/libs/**.js', 'js/app/**.js'
 				],
 				dest: 'js/min/' + config.name + '-v' + config.fullVersion + '.js',
 			}
