@@ -33,7 +33,7 @@ $this->viewVars['title_for_layout'] = $title;
 <?php endif; ?>
 
 <div class="cta">
-  <?php echo $this->Html->link('Download'
+  <?php echo $this->Html->link('Add to Calendar'
   , array('action'=>'export', $event['Event']['id'])
   , array(
     'class'=>'btn btn-large',

@@ -10,7 +10,7 @@ $this->viewVars['title_for_layout'] = $competition['Competition']['name'] . ' - 
     
 
 <div class="cta">
-  <?php echo $this->Html->link('Subscribe',array('action'=>'export',$competition['Competition']['id']),array('class'=>'btn btn-large', 'type'=>'text/calendar'
+  <?php echo $this->Html->link('Add to Calendar',array('action'=>'export',$competition['Competition']['id']),array('class'=>'btn btn-large', 'type'=>'text/calendar'
 )); ?>
 </div>
 
