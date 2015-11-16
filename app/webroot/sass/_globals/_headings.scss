@@ -28,17 +28,25 @@ h1 {
     }
 
     abbr[title] {
-        border-bottom: 1px solid #FFF;
         display: block;
+        border-bottom: none;
         font-size: 1rem;
         font-style: italic;
         line-height: 0;
         margin: 1em 0;
 
-        &:before {
-            //border-top: 2px solid #FFF;
-            display: block;
-            content: "";
+        &:before,
+        &:after {
+            background: #CCC;
+            content: " ";
+            display: inline-block;
+            margin: 0.33rem 0.5rem;
+            width: 6em;
+            height: 1px;
+        }
+
+        &:after {
+            margin-left: 0.66rem;
         }
     }
 }
