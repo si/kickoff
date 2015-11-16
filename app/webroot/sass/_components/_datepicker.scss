@@ -1,4 +1,7 @@
 .bootstrap-datetimepicker-widget {
+	background: rgba(#000, 0.9);
+    right: 0 !important;
+
 	ul {
 		margin-left: 0;
 	}
@@ -6,7 +9,7 @@
 
 
 .datepicker {
-	color: #333;
+	color: #FFF;
 
 	th, td {
 		text-align: center;
@@ -19,11 +22,16 @@
 
 	.day {
 		cursor: pointer;
+
+		&.old,
+		&.new {
+			color: rgba(#FFF, 0.25);
+		}
 	}
 
+
 	.active {
-		background: #EEE;
-		border-radius: 50%;
+		background: rgba(#E00, 0.8);
 	}
 
 	td.old,
