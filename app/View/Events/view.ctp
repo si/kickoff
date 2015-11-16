@@ -11,22 +11,12 @@ $this->viewVars['title_for_layout'] = $title;
 
 <time class="dtstart dtstamp">
   <span class="date">
-    <?php echo $this->Time->format('D j M Y', $event['Event']['start']); ?>
+    <?php echo $this->Time->format('D j\<\s\u\p\>S\<\/\s\u\p\> M Y', $event['Event']['start']); ?>
   </span>
   <span class="time">
-    <?php echo $this->Time->format('g:ia', $event['Event']['start']); ?>
+    <?php echo $this->Time->format('g<\s\p\a\n\>:<\/\s\p\a\n\>ia', $event['Event']['start']); ?>
   </span>
 </time>
-
-<?php if($event['Event']['location']) : ?>
-  <p class="location"><?php echo $event['Event']['location']; ?></p>
-<?php endif; ?>
-
-<?php
-/* if($event['Event']['grouping']!='') : ?>
-  <p class="group"><?php echo $event['Event']['grouping']; ?></p>
-<?php endif; 
-*/ ?>
 
 <?php if($event['Event']['description']!='') : ?>
   <p><?php echo $event['Event']['description']; ?></p>
@@ -48,14 +38,11 @@ $this->viewVars['title_for_layout'] = $title;
       array('controller'=>'competitions','action'=>'view',$event['Competition']['id']),
       array('class'=>'competition')
     ); ?> 
-  <time><?php echo $this->Time->nice($event['Event']['created']); ?></time>
+  <?php if($event['Event']['location']) : ?>
+    <p class="location"><?php echo $event['Event']['location']; ?></p>
+  <?php endif; ?>
 </small></p>
 
-
-<dl class="footnotes">
-  <dt id="end_times">1</dt>
-  <dd>End times are approximations based on average event durations</dd>
-</dl>
 
 <div class="btn-group btn-block">
 
