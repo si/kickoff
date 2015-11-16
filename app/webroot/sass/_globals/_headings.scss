@@ -1,4 +1,5 @@
 $title-skew : -15deg;
+$title-distance : -99em;
 
 h1 {
     font-family: 'Roboto Condensed', sans-serif;
@@ -18,12 +19,17 @@ h1 {
 
     a {
         display: block;
-        //transition: all 0.3s ease;
-        animation: team-entry 0.3s 1;
-        -webkit-animation: team-entry 0.3s 1;
+        position: relative;
 
         &:hover {
             text-decoration: none;
+        }
+
+        &:first-child {
+            animation: teamEntryHome 1s 1;
+        }
+        &:last-child {
+            animation: teamEntryAway 1s 1;
         }
     }
 
@@ -51,12 +57,12 @@ h1 {
     }
 }
 
-@-webkit-keyframes team-entry {
-  0%   { left: -999em; }
-  100% { left: 0; }
+@keyframes teamEntryHome {
+  from   { left: $title-distance; }
+  to { left: 0; }
 }
 
-@keyframes team-entry {
-  0%   { left: -999em; }
-  100% { left: 0; }
+@keyframes teamEntryAway {
+  from   { right: $title-distance; }
+  to { right: 0; }
 }
