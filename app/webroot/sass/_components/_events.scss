@@ -5,15 +5,43 @@ Events
 
     .dtstart {
         background: rgba(#000, 0.9);
-        display: block;
-        font-size: 1.5rem;
-        line-height: 1;
+        display: flex;
         margin: 3rem 0 2rem;
-        padding: 1rem;
-        //text-transform: uppercase;
+        text-transform: uppercase;
+
+        .date,
+        .time {
+            flex: auto;
+            font-size: 1.2rem;
+            line-height: 1;
+            padding: 1rem;
+        }
 
         .date {
-            display: block;
+            width: 5rem;
+
+            sup {
+                font-size: 0.7rem;
+            }
         }
+        .time {
+            font-size: 2.5rem;
+
+            span {
+                animation-name: flash;
+                animation-duration: 0.5s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+        }
+    }
+}
+
+@keyframes flash {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
     }
 }
