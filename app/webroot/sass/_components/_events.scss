@@ -27,11 +27,20 @@ Events
         .time {
             font-size: 2.5rem;
 
-            span {
+            .separator {
                 animation-name: flash;
                 animation-duration: 0.5s;
                 animation-iteration-count: infinite;
                 animation-direction: alternate;
+            }
+
+            .ordinal,
+            .timezone {
+                font-size: 1.2rem;
+            }
+
+            .timezone {
+                opacity: 0.3;
             }
         }
     }
