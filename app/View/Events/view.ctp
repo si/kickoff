@@ -14,7 +14,9 @@ $this->viewVars['title_for_layout'] = $title;
     <?php echo $this->Time->format('D j\<\s\u\p\>S\<\/\s\u\p\> M Y', $event['Event']['start']); ?>
   </span>
   <span class="time">
-    <?php echo $this->Time->format('g<\s\p\a\n\>:<\/\s\p\a\n\>ia', $event['Event']['start']); ?>
+    <span class="hour"><?php echo $this->Time->format('g', $event['Event']['start']); ?></span><span class="separator">:</span><span class="minute"><?php echo $this->Time->format('i', $event['Event']['start']); ?></span>
+    <span class="ordinal"><?php echo $this->Time->format('a', $event['Event']['start']); ?></span>
+    <span class="timezone"><?php echo $this->Time->format('T', $event['Event']['start']); ?></span>
   </span>
 </time>
 
