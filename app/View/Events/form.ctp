@@ -19,7 +19,7 @@ echo $this->Form->create('Event');
 		</datalist>
 		<?php echo $this->Form->input('home', array('label'=>'First Side','class'=>'span3','div'=>'span3', 'list'=>'teams')); ?>
 		<?php echo $this->Form->input('away', array('label'=>'Second Side','class'=>'span3','div'=>'span3', 'list'=>'teams')); ?>
-    <?php echo $this->Form->input('summary', array('class'=>'span6','div'=>'span6')); ?>
+    <?php echo $this->Form->input('summary', array('readonly'=>'readonly', 'class'=>'span6','div'=>'span6')); ?>
   </div>
 
   <div class="row">
@@ -39,14 +39,14 @@ echo $this->Form->create('Event');
 <fieldset>
   <legend>Extra</legend>
   <div class="row">
-    <?php echo $this->Form->input('description', array('div'=>'span6','class'=>'span6')); ?>
-    <?php echo $this->Form->input('group', array('div'=>'span6','class'=>'span6')); ?>
     <?php 
       $default_competition = (isset($this->request['named']['competition'])) ?
         $this->request['named']['competition'] :
         '';
       echo $this->Form->input('competition_id', array('default'=>$default_competition,'class'=>'span6','div'=>'span6')); 
     ?>
+    <?php echo $this->Form->input('description', array('div'=>'span6','class'=>'span6')); ?>
+    <?php echo $this->Form->input('group', array('div'=>'span6','class'=>'span6')); ?>
   </div>
 </fieldset>
 <?php
