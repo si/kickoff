@@ -62,7 +62,7 @@ class DATABASE_CONFIG {
 	function __construct() {
  
  		// Get ClearDB URL from local environments
-        $url = parse_url(getenv('CLEARDB_DATABASE_URL'));        
+        $url = parse_url(getenv('CLEARDB_DATABASE_URL'));
         if($url['path']!='') {
 
      		// Build default connection settings from parsed array
@@ -83,7 +83,7 @@ class DATABASE_CONFIG {
             $this->default = array(
                 'datasource' => 'Database/Mysql',
                 'persistent' => false,
-                'host' => 'localhost',
+                'host' => '127.0.0.1',
                 'login' => 'root',
                 'password' => 'time 4 MVT',
                 'database' => 'kickoff_dev',
@@ -91,5 +91,6 @@ class DATABASE_CONFIG {
                 //'encoding' => 'utf8',
             );
         }
+
     }
 }
