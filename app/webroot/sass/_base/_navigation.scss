@@ -65,17 +65,19 @@ nav {
       display: inline-block;
       width: 32px;
 
-      input {
+      input[type=search] {
         background: url($icon-base + 'search.svg') no-repeat 5px 50%;
         background-color: #555 !important;
         background-size: 16px;
         border-color: transparent !important;
+        padding: 0.33rem !important;
         position: absolute;
         top: -0.5rem;
         right: 0;
         margin-top: 5px;
         text-align: left;
         width: 16px;
+        transition: all 0.3s ease;
 
         &:focus {
           background-color: rgba(#FFF,0.95) !important;
