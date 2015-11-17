@@ -2,7 +2,7 @@
 
 <?php echo $this->Form->create('User', array('action'=>'login'));?>
     <fieldset>
-        <legend>Sign in</legend>
+        <legend>Login Details</legend>
         <div class="input-group">
         <?php
             echo $this->Form->input('username', array(
@@ -24,5 +24,6 @@
     
   echo $this->Form->end();
 
+echo $this->Html->link("New user?", array('action'=>'add'));
 ?>
 </div>
