@@ -39,3 +39,23 @@
 		color: #CCC;
 	}
 }
+
+.datepicker-months {
+
+	th {
+		color: #FFF;
+	}
+
+	td {
+		display: flex;
+		align-items: flex-start;
+		flex-wrap: wrap;
+
+		span {
+			box-sizing: border-box;
+			width: 25%;
+			padding: 0.5rem 1rem;
+			text-transform: uppercase;
+		}
+	}
+}
