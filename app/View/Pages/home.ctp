@@ -3,7 +3,7 @@ $this->viewVars['title_for_layout'] = 'Sports events in your calendar - Kick Off
 
 ?>
 
-<h1>Putting sports data in your own hands</h1>
+<h1>Putting sports events in your hands</h1>
 
 <h2>Search for teams, competitions or sports</h2>
 <?php echo $this->element('Navigation/search'); ?>
