@@ -3,7 +3,16 @@ h2, form, input {
 }
 
 legend {
-  color: #FFF;
+  display: inline-block;
+  color: rgba(#FFF, 0.5);
+  border: 1px solid rgba(#FFF, 0.3);
+  border-width: 1px 0;
+  font-size: 0.8rem;
+  line-height: 2;
+  margin: 0 auto 0.5rem;
+  padding: 0 3rem;
+  width: auto;
+  text-transform: uppercase;
 }
 
 label {
