@@ -16,7 +16,7 @@ switch($format) {
       echo "BEGIN:VEVENT
 UID:". md5($data[1]['Event']['id']) . "
 SUMMARY:".  $data[1]['Event']['summary'] . "
-LOCATION:" . $data[1]['Event']['location'] . "
+LOCATION:" . ($data[1]['Event']['location']!='') ? $data[1]['Event']['location'] : 'TBC' . "
 DTSTART;VALUE=DATETIME:".$this->Time->format('Ymd\THis\Z',$data[1]['Event']['start']) . "
 DTSTAMP:" . $this->Time->format('Ymd\THis\Z',$data[1]['Event']['start']) . "
 DTEND:" . $this->Time->format('Ymd\THis\Z',$data[1]['Event']['ends']) . "
