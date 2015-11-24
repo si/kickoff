@@ -3374,6 +3374,10 @@ $(document).ready(function(){
     pickSeconds: false
   });
 
+  var addToGoogle = function() {
+    var $calLinks = $('a[type="text/calendar"]');
+    $calLinks.after('<a href="#">Google</a>');
+  };
 
   var isWebCal = function() {
 
@@ -3394,6 +3398,7 @@ $(document).ready(function(){
 
   // Set webcal: protocol on supported systems
   var setWebCalProtocol = function() {
+
     if( isWebCal() ) {
       var $calLinks = $('a[type="text/calendar"]');
       $calLinks.each(function(i, el){
@@ -3410,6 +3415,7 @@ $(document).ready(function(){
     }
   };
 
+  addToGoogle();
   setWebCalProtocol();
-  
+
 });
