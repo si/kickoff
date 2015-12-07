@@ -5,7 +5,7 @@ if(isset($sport['Competition'])) :
 ?>
 <h1><?php echo $title; ?></h1>
 <?php if(count($sport['Competition'])>0) : ?>
-<ul>
+<ul class="tiles">
   <?php foreach($sport['Competition'] as $competition) : ?>
   <li><?php echo $this->Html->link($competition['name'], array('controller'=>'competitions','action'=>'view',$competition['id'])); ?></li>
   <?php endforeach; ?>
