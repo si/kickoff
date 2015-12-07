@@ -8,22 +8,27 @@ $(document).ready(function(){
   $('#EventHome, #EventAway').on('change', createEventSummary);
   $('#EventHome, #EventAway').on('keyup', createEventSummary);
 
+  // Apply date/time picker to event start and end fields
   $('#EventStart, #EventEnd').datetimepicker({
     language: 'en',
     pick12HourFormat: true,
     pickSeconds: false
   });
 
+  // Setup calendar shortcuts
   var addShortcuts = function() {
     addShortcutLink('Google');
     addShortcutLink('Outlook');
+    addShortcutLink('Mac');
   };
 
+  // Bind calendar shortcut links to existing calendar link
   var addShortcutLink = function(provider) {
     var $calLinks = $('a[type="text/calendar"]');
-    $calLinks.after('<a href="#">' + provider + '</a>');
+    $calLinks.after('<a href="#' + provider + '" class="btn">' + provider + '</a>');
   };
 
+  // Test for ICS supported platforms
   var isWebCal = function() {
 
     var iDevices = [
@@ -61,6 +66,6 @@ $(document).ready(function(){
   };
 
   addShortcuts();
-  setWebCalProtocol();
+  //setWebCalProtocol();
 
 });
