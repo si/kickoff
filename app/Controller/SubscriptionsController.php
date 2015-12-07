@@ -18,6 +18,6 @@ class SubscriptionsController extends AppController {
         $conditions = array(
             'Subscription.user_id' => $this->Session->read('Auth.User.id')
         );
-        $this->Subscription->find('all', $conditions);
+        $this->set('subscriptions', $this->Subscription->find('all', $conditions));
     }
 }
