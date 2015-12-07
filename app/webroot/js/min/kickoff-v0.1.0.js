@@ -3374,9 +3374,14 @@ $(document).ready(function(){
     pickSeconds: false
   });
 
-  var addToGoogle = function() {
+  var addShortcuts = function() {
+    addShortcutLink('Google');
+    addShortcutLink('Outlook');
+  };
+
+  var addShortcutLink = function(provider) {
     var $calLinks = $('a[type="text/calendar"]');
-    $calLinks.after('<a href="#">Google</a>');
+    $calLinks.after('<a href="#">' + provider + '</a>');
   };
 
   var isWebCal = function() {
@@ -3415,7 +3420,7 @@ $(document).ready(function(){
     }
   };
 
-  addToGoogle();
+  addShortcuts();
   setWebCalProtocol();
 
 });
