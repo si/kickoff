@@ -9,6 +9,7 @@
 
 <section id="profile">
     <ul>
+      <li><?php echo $this->Html->link('Subscriptions', array('controller'=>'subscriptions', 'action'=>'index')); ?></li>
       <li><?php echo $this->Html->link('Edit Profile', array('action'=>'edit',$user['User']['id'])); ?></li>
       <li><?php echo $this->Html->link('Log out', array('action'=>'logout')); ?></li>
     </ul>
