@@ -138,6 +138,9 @@ class CompetitionsController extends AppController {
     $this->set('reminder_value',1);
     $this->set('reminder_unit','H');
 
+    // Save subscription to competition and store response
+    $subscription = $this->requestAction('/subscriptions/add/competition/' . $id, ['return']);
+
   }
 
   function import_events($id='') {
