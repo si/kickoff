@@ -14,7 +14,9 @@ $this->viewVars['title_for_layout'] = $title;
 		<h2>Teams</h2>
 		<ol class="tiles">
 		<?php foreach($teams as $team): ?>
-			<li><?php echo $this->Html->link($team['Team']['name'], array('controller'=>'teams', 'action'=>'view', $team['Team']['id'])); ?></li>
+			<li <?php if($team['Theme']['image']!='') echo 'style="background-image: url('.$team['Theme']['image'].');"'; ?>">
+				<?php echo $this->Html->link($team['Team']['name'], array('controller'=>'teams', 'action'=>'view', $team['Team']['id'])); ?>
+			</li>
 		<?php endforeach; ?>
 		</ol>
 	<?php endif; ?>
