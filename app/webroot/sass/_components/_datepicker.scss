@@ -60,6 +60,11 @@
 	}
 }
 
+.timepicker-picker span,
+.timepicker-hours td,
+.timepicker-minutes td {
+	cursor: pointer;
+}
 
 .icon-calendar,
 .icon-time,
