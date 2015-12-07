@@ -7,7 +7,7 @@ $this->viewVars['title_for_layout'] = $title;
 <h1><?php echo $team['Team']['name']; ?></h1>
 
 <div class="cta">
-  <?php echo $this->Html->link('Subscribe',array('action'=>'export',$team['Team']['id']),array('class'=>'btn btn-large')); ?>
+  <?php echo $this->Html->link('Add to Calendar',array('action'=>'export',$team['Team']['id']),array('class'=>'btn btn-large', 'type'=>'text/calendar')); ?>
 </div>
 
 <?php
