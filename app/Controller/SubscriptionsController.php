@@ -20,4 +20,22 @@ class SubscriptionsController extends AppController {
         );
         $this->set('subscriptions', $this->Subscription->find('all', $conditions));
     }
+
+    function add($model, $id) {
+        if($model != '' && $id != '') {
+
+            $data = array();
+
+            if($model=='team') {
+                $data['team_id'] = $id;
+            } elseif($model=='competition') {
+                $data['competition_id'] = $id;
+            }
+
+            if(count($data) > 0) {
+                $saved = $this->Subscription->save(array('Subscription'=>$data));
+                $this->set('response', $saved);
+            }
+        }
+    }
 }
