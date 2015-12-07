@@ -9,6 +9,9 @@ class Subscription extends AppModel {
     'Competition' => array(
       'className' => 'Competition',
     ),
+    'Team' => array(
+      'className' => 'Team',
+    ),
   );    
 
 }
