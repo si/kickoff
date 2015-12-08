@@ -1,7 +1,7 @@
 body.home {
 
     .span4 {
-        transition: transform 1s ease;
+        transition: all 1s ease;
 
         a:hover {
             text-decoration: none;
@@ -9,6 +9,11 @@ body.home {
 
         &:hover {
             transform: scale(1.2);
+
+            & ~ .span4,
+            .span4 ~ & {
+                opacity: 0.5;
+            }
         }
     }
 }
