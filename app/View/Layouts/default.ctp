@@ -20,6 +20,9 @@
   $body_class = $this->params['controller'] . ' ' . $this->params['action'];
   
   foreach($this->params['pass'] as $i => $name) {
+    if( is_numeric($name) ) {
+      $name = 'int-' . $name;
+    }
     $body_class .= ' ' . $name;
   }
   ?>
