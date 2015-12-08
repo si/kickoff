@@ -9,25 +9,31 @@ $this->viewVars['title_for_layout'] = 'Sports events in your calendar - Kick Off
 <?php echo $this->element('Navigation/search'); ?>
 
 <div class="row">
-  <div class="span4 football">
-    <h3><?php echo $this->Html->link('Football', array('controller'=>'sports','action'=>'view',1)); ?></h3>
-    <p>
-      From the World Cup to the Premiership and local leagues, you will not miss that vital game
-    </p>
+  <div class="span4">
+    <a href="/sports/view/football" class="football">
+      <h3>Football</h3>
+      <p>
+        From the World Cup to the Premiership and local leagues, you will not miss that vital game
+      </p>
+    </a>
   </div>
 
-  <div class="span4 rugby">
-    <h3><?php echo $this->Html->link('Rugby', array('controller'=>'sports','action'=>'view',2)); ?></h3>
-    <p>
-      Local derbies and international leagues - that first scrum is in your calendar
-    </p>
+  <div class="span4">
+    <a href="/sports/view/rugby" class="rugby">
+      <h3>Rugby</h3>
+      <p>
+        Local derbies and international leagues - that first scrum is in your calendar
+      </p>
+    </a>
   </div>
 
-  <div class="span4 formula-1">
-    <h3><?php echo $this->Html->link('Formula 1', array('controller'=>'sports','action'=>'view',3)); ?></h3>
+  <div class="span4">
+    <a href="/sports/view/formula-1" class="formula-1">
+    <h3>Formula 1</h3>
     <p>
       Never miss the practice laps, qualifiers or main race – all the times right at your finger tips
     </p>
+    </a>
   </div>
 </div>
 
