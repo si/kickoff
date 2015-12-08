@@ -16,11 +16,18 @@
             </style>';
     }
   }
+
+  $body_class = $this->params['controller'] . ' ' . $this->params['action'];
   
+  foreach($this->params['pass'] as $i => $name) {
+    $body_class .= ' ' . $name;
+  }
   ?>
 </head>
-<body class="<?php echo $this->params['controller'] . ' ' . $this->params['action']; ?>">
-  <?php echo $this->element('Navigation/navigation'); ?>
+<body class="<?php echo $body_class; ?>">
+  <?php
+  echo $this->element('Navigation/navigation'); 
+  ?>
   <div class="container">
     <?php echo $content_for_layout; ?>
   </div> <!-- /container -->
