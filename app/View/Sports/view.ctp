@@ -4,10 +4,13 @@ $this->viewVars['title_for_layout'] = $title . ' - Kick Off Calendars';
 if(isset($sport['Competition'])) :
 ?>
 <h1><?php echo $title; ?></h1>
-<?php if(count($sport['Competition'])>0) : ?>
+
+<?php if(count($competitions)>0) : ?>
 <ul class="tiles">
-  <?php foreach($sport['Competition'] as $competition) : ?>
-  <li><?php echo $this->Html->link($competition['name'], array('controller'=>'competitions','action'=>'view',$competition['id'])); ?></li>
+  <?php foreach($competitions as $competition) : ?>
+  <li <?php if(isset($competition['Theme']) && $competition['Theme']['image']!='') echo 'style="background-image: url(/'.$competition['Theme']['image'].');"'; ?>">
+    <?php echo $this->Html->link($competition['Competition']['name'], array('controller'=>'competitions','action'=>'view',$competition['Competition']['id'])); ?>
+  </li>
   <?php endforeach; ?>
 </ul>
 <?php endif; ?>

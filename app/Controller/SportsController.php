@@ -22,6 +22,14 @@ class SportsController extends AppController {
 		    $sport = $this->Sport->findBySlug($id);
 		}
 		$this->set('sport', $sport);
+		$this->set('competitions', $this->Sport->Competition->find(
+			'all', 
+			array(
+				'conditions' => array(
+					'sport_id' => $sport['Sport']['id']
+				)
+			)
+		));
 	}
 
 }
