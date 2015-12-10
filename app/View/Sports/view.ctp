@@ -6,13 +6,7 @@ if(isset($sport['Competition'])) :
 <h1><?php echo $title; ?></h1>
 
 <?php if(count($competitions)>0) : ?>
-<ul class="tiles">
-  <?php foreach($competitions as $competition) : ?>
-  <li <?php if(isset($competition['Theme']) && $competition['Theme']['image']!='') echo 'style="background-image: url(/'.$competition['Theme']['image'].');"'; ?>">
-    <?php echo $this->Html->link($competition['Competition']['name'], array('controller'=>'competitions','action'=>'view',$competition['Competition']['id'])); ?>
-  </li>
-  <?php endforeach; ?>
-</ul>
+  <?php echo $this->element('Modules/tiles', array('tiles'=>$competitions)) ?>
 <?php endif; ?>
 <?php endif; ?>
 
