@@ -10,7 +10,7 @@ $this->viewVars['title_for_layout'] = 'Sports events in your calendar - Kick Off
 
 <div class="row">
   <div class="span4">
-    <a href="/sports/view/football" class="football">
+    <a href="/sports/view/football" class="i-football">
       <h3>Football</h3>
       <p>
         From the World Cup to the Premiership and local leagues, you will not miss that vital game
@@ -19,7 +19,7 @@ $this->viewVars['title_for_layout'] = 'Sports events in your calendar - Kick Off
   </div>
 
   <div class="span4">
-    <a href="/sports/view/rugby" class="rugby">
+    <a href="/sports/view/rugby" class="i-rugby">
       <h3>Rugby</h3>
       <p>
         Local derbies and international leagues - that first scrum is in your calendar
@@ -28,7 +28,7 @@ $this->viewVars['title_for_layout'] = 'Sports events in your calendar - Kick Off
   </div>
 
   <div class="span4">
-    <a href="/sports/view/formula-1" class="formula-1">
+    <a href="/sports/view/formula-1" class="i-formula-1">
     <h3>Formula 1</h3>
     <p>
       Never miss the practice laps, qualifiers or main race – all the times right at your finger tips

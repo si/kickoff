@@ -30,7 +30,7 @@ smalll time:before {
 
 /* Sports */
 @each $sport in $sports {
-    .#{$sport}:before {
+    .i-#{$sport}:before {
         @include icon('#{$sport}');
     }    
 }
