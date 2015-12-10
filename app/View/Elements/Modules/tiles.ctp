@@ -15,7 +15,7 @@
             $tile['Competition']['id']
         ),
         array(
-            'data-image' => $image
+            'style' => 'background-image: url('. $image . ')'
         )
     ); 
     ?>

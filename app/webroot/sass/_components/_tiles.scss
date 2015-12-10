@@ -4,7 +4,7 @@ $tile-size: 200px;
   overflow: hidden;
   
   li {
-    background: rgba(#000, 0.8);
+    background-color: rgba(#000, 0.8);
     background-size: cover;
     display: inline-block;
     position: relative;
@@ -12,18 +12,17 @@ $tile-size: 200px;
     width: $tile-size;
     height: $tile-size;
 
-    &:after {
-      background: rgba(#000, 0.4);
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: $tile-size;
-      height: $tile-size;
-    }
-    
     a {
+      background-size: cover;
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 2rem 1rem;
+      min-height: 100%;
 
+      &:hover {
+        text-decoration: none;
+      }
     }
 
     img {
