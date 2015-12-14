@@ -2,7 +2,7 @@
 class Team extends AppModel {
 
   var $name = 'Team';
-  var $order = array('Sport.name ASC', 'Team.name ASC');
+  var $order = array('Team.name ASC');
 
   var $belongsTo = array('Competition','Sport','Theme');
   var $hasMany  = array(
