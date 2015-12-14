@@ -35,4 +35,13 @@ class CustomHtmlHelper extends HtmlHelper {
 
 	}
 
+    public function cssThemeBackground($img, $color) {
+        return 'background: linear-gradient(
+                        rgba(' . $color . ', 0.75), 
+                        rgba(' . $color . ', 0.6)
+                    ), 
+                    fixed url(/' . $img . ') no-repeat 50% 50%;
+                background-size: cover;';
+    }
+
 }
