@@ -35,7 +35,7 @@ class CustomHtmlHelper extends HtmlHelper {
 
 	}
 
-    public function cssThemeBackground($img, $color) {
+    public function cssThemeBackground($img, $color='0,0,0') {
         return 'background: linear-gradient(
                         rgba(' . $color . ', 0.75), 
                         rgba(' . $color . ', 0.6)
