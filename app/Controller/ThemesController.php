@@ -15,25 +15,24 @@ class ThemesController extends AppController {
 	function form($id='') {
 
 		if (count($this->data)>0) {
-
 			// create
 			if(isset($this->data['Theme']['id']) && $this->data['Theme']['id']=='') {
-  			$this->Theme->create();
-  		}
+      			$this->Theme->create();
+      		}
 
-			// attempt to save
-			if ($this->Theme->save($this->request->data)) {
-				$this->Session->setFlash('Your theme has been saved');
-        $this->redirect(array('action'=>'view',$this->Theme->id));
-			}
+    		// attempt to save
+    		if ($this->Theme->save($this->request->data)) {
+    			$this->Session->setFlash('Your theme has been saved');
+                $this->redirect(array('action'=>'view',$this->Theme->id));
+    		}
 
-		}
+    	}
 
-  	if($id!='') {
-    	$this->data = $this->Theme->findById($id);
-  	}
+      	if($id!='') {
+        	$this->data = $this->Theme->findById($id);
+      	}
   	
-  	$this->set('teams', $this->Theme->Team->find('list'));
+      	$this->set('teams', $this->Theme->Team->find('list'));
   	
 	}
 
