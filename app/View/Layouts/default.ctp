@@ -9,18 +9,7 @@
     if($theme['primary_colour']=='') {
       $color['rgb'] = '0,0,0';
     } else {
-      $color = array(
-        'hex' => $theme['primary_colour']
-      );
-      $color['r16'] = substr($color['hex'], 1, 2);
-      $color['g16'] = substr($color['hex'], 3, 2);
-      $color['b16'] = substr($color['hex'], 5, 2);
-
-      $color['r10'] = hexdec($color['r16']);
-      $color['g10'] = hexdec($color['g16']);
-      $color['b10'] = hexdec($color['b16']);
-
-      $color['rgb'] = $color['r10'] . ', ' . $color['g10'] . ', ' . $color['b10'];
+      $color = $this->Html->colorHexToDec($theme['primary_colour']);
     }
     if($theme['image']!='') {
       echo '<style>
