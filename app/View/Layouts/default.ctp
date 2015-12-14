@@ -12,12 +12,7 @@
       $color = $this->Html->colorHexToDec($theme['primary_colour']);
     }
     if($theme['image']!='') {
-      echo '<style>
-              body {
-                background: linear-gradient(rgba(' . $color['rgb'] . ', 0.75), rgba(' . $color['rgb'] . ', 0.6)), fixed url(/' . $theme['image'] . ') no-repeat 50% 50%;
-                background-size: cover;
-              }
-            </style>';
+      echo '<style> body { ' . $this->Html->cssThemeBackground($theme['image'], $color['rgb']) . ' } </style>';
     }
   }
 
