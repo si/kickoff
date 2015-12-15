@@ -18,20 +18,21 @@ class CustomHtmlHelper extends HtmlHelper {
 	}
 
 	public function colorHexToDec($hex) {
-        if(strpos($hex,',') == -1) {
+        //echo 'color: ' . $hex . ';';
+        if(strpos($hex,'#') > -1) {
         
-        $color = array(
-            'hex' => $hex
-        );
-        $color['r16'] = substr($color['hex'], 1, 2);
-        $color['g16'] = substr($color['hex'], 3, 2);
-        $color['b16'] = substr($color['hex'], 5, 2);
+            $color = array(
+                'hex' => $hex
+            );
+            $color['r16'] = substr($color['hex'], 1, 2);
+            $color['g16'] = substr($color['hex'], 3, 2);
+            $color['b16'] = substr($color['hex'], 5, 2);
 
-        $color['r10'] = hexdec($color['r16']);
-        $color['g10'] = hexdec($color['g16']);
-        $color['b10'] = hexdec($color['b16']);
+            $color['r10'] = hexdec($color['r16']);
+            $color['g10'] = hexdec($color['g16']);
+            $color['b10'] = hexdec($color['b16']);
 
-        $color['rgb'] = $color['r10'] . ', ' . $color['g10'] . ', ' . $color['b10'];
+            $color['rgb'] = $color['r10'] . ', ' . $color['g10'] . ', ' . $color['b10'];
         
         } else {
             $color['rgb'] = $hex;
@@ -42,9 +43,10 @@ class CustomHtmlHelper extends HtmlHelper {
 	}
 
     public function cssThemeBackground($img, $color='0,0,0') {
+        $color = $this->Html->colorHexToDec($color);
         return 'background: linear-gradient(
-                        rgba(' . $color . ', 0.75), 
-                        rgba(' . $color . ', 0.6)
+                        rgba(' . $color['rgb'] . ', 0.75), 
+                        rgba(' . $color['rgb'] . ', 0.6)
                     ), 
                     fixed url(/' . $img . ') no-repeat 50% 50%;
                 background-size: cover;';
