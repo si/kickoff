@@ -33,7 +33,14 @@ $(document).ready(function(){
       addShortcutLink($calLink, 'Google');
       addShortcutLink($calLink, 'Outlook');
       addShortcutLink($calLink, 'Mac');
+
+      $calLink.on('click', showShortCuts);
     }
+  };
+
+  var showShortCuts = function (ev) {
+    ev.preventDefault();
+    window.console && console.log('clicked');
   };
 
   var formatCalLink = function(link) {
