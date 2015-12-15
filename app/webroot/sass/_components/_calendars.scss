@@ -12,7 +12,7 @@ $color-share: #FFF;
     padding: 1rem;
   }
 
-  caption,
+  h2,
   .pagination-previous,
   .pagination-next {
     display: block;
@@ -28,7 +28,7 @@ $color-share: #FFF;
   .pagination-previous,
   .pagination-next {
     position: absolute;
-    top: 1rem;
+    top: 0;
     opacity: 0.5;
   }
 

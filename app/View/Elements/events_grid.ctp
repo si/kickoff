@@ -23,8 +23,8 @@ if(count($events)>0) {
 }
 ?>
 <div class="calendar">
+  <h2><?php echo $first_month; ?></h2>
   <table>
-    <caption><?php echo $first_month; ?></caption>
     <thead>
       <tr>
         <th>Monday</th>
