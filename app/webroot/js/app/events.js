@@ -27,15 +27,23 @@ $(document).ready(function(){
 
   // Setup calendar shortcuts
   var addShortcuts = function() {
-    addShortcutLink('Google');
-    addShortcutLink('Outlook');
-    addShortcutLink('Mac');
+    var $calLink = $('a[type="text/calendar"]');
+    if($calLink.length > 0) {
+      formatCalLink($calLink);
+      addShortcutLink($calLink, 'Google');
+      addShortcutLink($calLink, 'Outlook');
+      addShortcutLink($calLink, 'Mac');
+    }
+  };
+
+  var formatCalLink = function(link) {
+    $(link)
+      .wrap('<div class="add-to-cal" />');
   };
 
   // Bind calendar shortcut links to existing calendar link
-  var addShortcutLink = function(provider) {
-    var $calLinks = $('a[type="text/calendar"]');
-    $calLinks.after('<a href="#' + provider + '" class="btn">' + provider + '</a>');
+  var addShortcutLink = function(link, provider) {
+    link.after('<a href="#' + provider.toLowerCase() + '" class="btn provider">' + provider + '</a>');
   };
 
   // Test for ICS supported platforms
