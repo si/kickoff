@@ -3,5 +3,10 @@ footer {
 	color: rgba(#FFF,0.4);
 	font-size: 0.85rem;
 	overflow: hidden;
-	padding: 2rem 2rem 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	padding: 0.5rem 2rem 0.5rem;
+    text-align: center;
 }
