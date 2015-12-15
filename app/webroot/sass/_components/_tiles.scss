@@ -2,6 +2,7 @@ $tile-size: 200px;
 
 .tiles {
   overflow: hidden;
+  margin: 0 0 1rem;
   
   li {
     background-color: rgba(#000, 0.8);
@@ -11,6 +12,10 @@ $tile-size: 200px;
     overflow: hidden;
     width: $tile-size;
     height: $tile-size;
+
+    @media (max-width: 480px) {
+      width: 100%;
+    }
 
     a {
       background-size: cover;
