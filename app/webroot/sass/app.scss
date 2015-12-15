@@ -11,6 +11,7 @@ $icon-base : $image-base + '/icons/';
 @import "_base/typography";
 
 // Globals
+@import "_globals/animations";
 @import "_globals/buttons";
 @import "_globals/grid";
 @import "_globals/headings";
