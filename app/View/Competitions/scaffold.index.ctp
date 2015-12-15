@@ -5,7 +5,7 @@ $this->viewVars['title_for_layout'] = 'Competitions - Kick Off Calendars';
 
 <ul class="tiles">
   <?php foreach($competitions as $competition) : ?>
-    <li style="background-image: url(<?php echo $competition['Theme']['image']; ?>);">
+    <li style="<?php echo $this->Html->cssThemeBackground($competition['Theme']['image'], $competition['Theme']['primary_colour']); ?>">
       <h3><?php echo $this->Html->link(
       	$competition['Competition']['name'],
       	array('action'=>'view',$competition['Competition']['id'])
