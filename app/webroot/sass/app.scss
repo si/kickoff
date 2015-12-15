@@ -20,6 +20,7 @@ $icon-base : $image-base + '/icons/';
 @import "_globals/themes";
 
 // Modules
+@import "_components/add-to-cal";
 @import "_components/a-z";
 @import "_components/calendars";
 @import "_components/datepicker";

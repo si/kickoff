@@ -1,0 +1,23 @@
+.add-to-cal {
+    a[type='text/calendar'] {
+        background-color: rgba(red, 0.6);
+        position: relative;
+        padding-right: 3rem;
+
+        &:after {
+            content: '+';
+            display: inline-block;
+            background: rgba(#000, 0.1);
+            line-height: 2.4;
+            padding: 0 0.67rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    .provider {
+        display: none;
+    }
+}
