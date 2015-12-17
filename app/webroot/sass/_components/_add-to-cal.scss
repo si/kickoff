@@ -1,8 +1,12 @@
 .atc {
+    display: inline-block;
+    position: relative;
+
     a[type='text/calendar'] {
         background-color: rgba(red, 0.6);
         position: relative;
         padding-right: 3rem;
+        z-index: 100;
 
         &:active,
         &:focus {
@@ -13,6 +17,7 @@
             content: '+';
             display: inline-block;
             background: rgba(#000, 0.1);
+            font-weight: bold;
             line-height: 2.4;
             padding: 0 0.67rem;
             position: absolute;
@@ -24,10 +29,18 @@
     }
 
     .atc__options {
-        display: none;
+        display: inline-block;
+        transition: all 0.5s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: auto;
+        z-index: 50;
     }
 
     .expand ~ .atc__options {
-        display: inline-block; 
+        opacity: 1;
+        top: 2.5rem;
     }
 }
