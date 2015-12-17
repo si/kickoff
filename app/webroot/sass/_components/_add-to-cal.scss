@@ -15,9 +15,14 @@
             right: 0;
             bottom: 0;
         }
+
     }
 
     .provider {
         display: none;
+
+    }
+    .expand ~ .provider {
+        display: inline-block; 
     }
 }
