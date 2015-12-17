@@ -1,4 +1,4 @@
-.add-to-cal {
+.atc {
     a[type='text/calendar'] {
         background-color: rgba(red, 0.6);
         position: relative;
@@ -23,11 +23,11 @@
 
     }
 
-    .provider {
+    .atc__options {
         display: none;
-
     }
-    .expand ~ .provider {
+
+    .expand ~ .atc__options {
         display: inline-block; 
     }
 }
