@@ -1,5 +1,8 @@
+$icon-size: 16px;
+$icon-gutter: 5px;
+
 .atc {
-    display: inline-block;
+    display: block;
     position: relative;
 
     a[type='text/calendar'] {
@@ -35,8 +38,27 @@
         top: 0;
         left: 0;
         opacity: 0;
+        text-align: center;
         width: auto;
         z-index: 50;
+    }
+
+    .atc__options a {
+        display: inline-block;
+        background-size: $icon-size $icon-size;
+        background-repeat: no-repeat;
+        background-position: $icon-gutter 50%;
+        padding-left: $icon-size + ($icon-gutter * 2);
+     }
+
+    .atc__google {
+        background-image: url($icon-base + 'google-white.svg');        
+    }
+    .atc__apple {
+        background-image: url($icon-base + 'apple-white.svg');        
+    }
+    .atc__windows {
+        background-image: url($icon-base + 'windows-white.svg');        
     }
 
     .expand ~ .atc__options {
