@@ -3366,8 +3366,8 @@ $(document).ready(function(){
     if($calLink.length > 0) {
       formatCalLink($calLink);
       addShortcutLink($calLink, 'Google');
-      addShortcutLink($calLink, 'Outlook');
-      addShortcutLink($calLink, 'Mac');
+      addShortcutLink($calLink, 'Windows');
+      addShortcutLink($calLink, 'Apple');
 
       $calLink.on('click', showShortCuts);
     }
@@ -3389,7 +3389,7 @@ $(document).ready(function(){
   var addShortcutLink = function(link, provider) {
     link
       .siblings('.atc__options:first')
-      .append('<a href="#' + provider.toLowerCase() + '" class="btn provider">' + provider + '</a>');
+      .append('<a href="#' + provider.toLowerCase() + '" class="btn provider atc__' + provider.toLowerCase() + '">' + provider + '</a>');
   };
 
   // Test for ICS supported platforms
