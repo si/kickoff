@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="13px" viewBox="0 0 20 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.2 (15857) - http://www.bohemiancoding.com/sketch -->
+    <title>cloud-white</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Contextual-CTA" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="iPhone-6---Green" sketch:type="MSArtboardGroup" transform="translate(-269.000000, -289.000000)" fill="#FFFFFF">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(63.000000, 256.000000)">
+                <g id="iCloud" transform="translate(198.000000, 22.000000)" sketch:type="MSShapeGroup">
+                    <path d="M28,20.2063443 C28,22.3014754 26.2417778,24 24.0737778,24 L11.9255556,24 C9.75755556,24 8,22.3014754 8,20.2063443 C8,18.3140984 9.43333333,16.7466393 11.3086667,16.4597869 C11.2848889,16.3270164 11.2717778,16.1904098 11.2717778,16.0497541 C11.2717778,14.7222623 12.3855556,13.6462459 13.7597778,13.6462459 C14.3726667,13.6462459 14.9342222,13.8604262 15.3675556,14.2167541 C16.14,12.5348525 17.1302222,11 19.9082222,11 C23.2773333,11 24.8742222,13.5107049 24.8742222,16.1601475 C24.8742222,16.2709672 24.8693333,16.3807213 24.8615556,16.4894098 C26.6524444,16.8419016 28,18.3720656 28,20.2063443 L28,20.2063443 Z" id="cloud-white"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
