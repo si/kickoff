@@ -40,7 +40,8 @@ $(document).ready(function(){
 
   var showShortCuts = function (ev) {
     ev.preventDefault();
-    window.console && console.log('clicked');
+    window.console && console.log(this, 'clicked');
+    $(this).toggleClass('expand');
   };
 
   var formatCalLink = function(link) {
