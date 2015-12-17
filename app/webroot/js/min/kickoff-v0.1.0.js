@@ -3360,33 +3360,8 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
 })(window.jQuery);
 $(document).ready(function(){
 
-  /* Auto-populate Event Summary from home and away teams */
-  var createEventSummary = function() {
-    $('#EventSummary').val($('#EventHome').val() + ' v ' + $('#EventAway').val());
-  };
-
-  $('#EventHome, #EventAway').on('change', createEventSummary);
-  $('#EventHome, #EventAway').on('keyup', createEventSummary);
-
-  // Apply date/time picker to event start and end fields
-  $('#EventStart, #EventEnds').datetimepicker({
-    language: 'en',
-    pick12HourFormat: true,
-    pickSeconds: false
-  });
-
-  var updateEventEnd = function() {
-    var end = $('#EventEnds');
-    window.console && console.log(end);
-    if(end.val() === '') {
-      end.val( $('#EventStart').val() );
-    }
-  };
-
-  $('#EventStart').on('blur', updateEventEnd);
-
   // Setup calendar shortcuts
-  var addShortcuts = function() {
+  var addToCal = function() {
     var $calLink = $('a[type="text/calendar"]');
     if($calLink.length > 0) {
       formatCalLink($calLink);
@@ -3406,12 +3381,15 @@ $(document).ready(function(){
 
   var formatCalLink = function(link) {
     $(link)
-      .wrap('<div class="add-to-cal" />');
+      .wrap('<div class="atc" />')
+      .after('<div class="atc__options" />');
   };
 
   // Bind calendar shortcut links to existing calendar link
   var addShortcutLink = function(link, provider) {
-    link.after('<a href="#' + provider.toLowerCase() + '" class="btn provider">' + provider + '</a>');
+    link
+      .siblings('.atc__options:first')
+      .append('<a href="#' + provider.toLowerCase() + '" class="btn provider">' + provider + '</a>');
   };
 
   // Test for ICS supported platforms
@@ -3451,7 +3429,34 @@ $(document).ready(function(){
     }
   };
 
-  addShortcuts();
-  //setWebCalProtocol();
+  addToCal();
+
+});
+$(document).ready(function(){
+
+  /* Auto-populate Event Summary from home and away teams */
+  var createEventSummary = function() {
+    $('#EventSummary').val($('#EventHome').val() + ' v ' + $('#EventAway').val());
+  };
+
+  $('#EventHome, #EventAway').on('change', createEventSummary);
+  $('#EventHome, #EventAway').on('keyup', createEventSummary);
+
+  // Apply date/time picker to event start and end fields
+  $('#EventStart, #EventEnds').datetimepicker({
+    language: 'en',
+    pick12HourFormat: true,
+    pickSeconds: false
+  });
+
+  var updateEventEnd = function() {
+    var end = $('#EventEnds');
+    window.console && console.log(end);
+    if(end.val() === '') {
+      end.val( $('#EventStart').val() );
+    }
+  };
+
+  $('#EventStart').on('blur', updateEventEnd);
 
 });
