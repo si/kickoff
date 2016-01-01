@@ -9,4 +9,16 @@ footer {
     right: 0;
 	padding: 0.5rem 2rem 0.5rem;
     text-align: center;
+
+    &:after {
+        background: url(/img/src/icons/ko-black.svg) no-repeat 0 0;
+        content: ' ';
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-size: 30px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
 }
