@@ -23,8 +23,8 @@ SUMMARY:".  $event['summary'] . "
 LOCATION:" . ( ( trim($event['location']) != '' ) ? $event['location'] : "TBC") . "
 DTSTART;VALUE=DATETIME:".$this->Time->format('Ymd\THis\Z',$event['start']) . "
 DTSTAMP:" . $this->Time->format('Ymd\THis\Z',$event['start']) . "
-DTEND:" . $this->Time->format('Ymd\THis\Z',$event['end']) . "
-DESCRIPTION:".  (($event['group']!='') ? 'Group: ' . $event['group'] . "\n" : '') . "
+DTEND:" . $this->Time->format('Ymd\THis\Z',$event['ends']) . "
+DESCRIPTION:".  (($event['grouping']!='') ? 'Group: ' . $event['grouping'] . "\n" : '') . "
 CLASS:PUBLIC
 STATUS:FREE
 X-MICROSOFT-CDO-BUSYSTATUS:FREE\n";
