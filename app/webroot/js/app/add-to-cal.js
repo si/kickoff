@@ -27,9 +27,15 @@ $(document).ready(function(){
 
   // Bind calendar shortcut links to existing calendar link
   var addShortcutLink = function(link, provider) {
+    var url = $(link).attr('href');
+    if(provider.toLowerCase() === 'apple') {
+      url = setWebCalProtocol(url);
+    }
+
     link
       .siblings('.atc__options:first')
-      .append('<a href="#' + provider.toLowerCase() + '" class="btn provider atc__' + provider.toLowerCase() + '">' + provider + '</a>');
+      .append('<a href="' + url + '" class="btn atc__provider atc__' + provider.toLowerCase() + '">' + provider + '</a>');
+
   };
 
   // Test for ICS supported platforms
@@ -51,22 +57,15 @@ $(document).ready(function(){
   };
 
   // Set webcal: protocol on supported systems
-  var setWebCalProtocol = function() {
-
-    if( isWebCal() ) {
-      var $calLinks = $('a[type="text/calendar"]');
-      $calLinks.each(function(i, el){
-        var href = $(el).attr('href'),
-            domain = window.location.hostname,
-            protocol = 'webcal://';
-        if(href.indexOf(domain) === -1) {
-          href = protocol + domain + href;
-        } else {
-          href = href.replace('http://', protocol);
-        }
-        $(el).attr('href', href);
-      });
+  var setWebCalProtocol = function(url) {
+    var domain = window.location.hostname,
+        protocol = 'webcal://';
+    if(url.indexOf(domain) === -1) {
+      url = protocol + domain + url;
+    } else {
+      url = url.replace('http://', protocol);
     }
+    return url;
   };
 
   addToCal();
