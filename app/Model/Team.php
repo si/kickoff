@@ -9,6 +9,7 @@ class Team extends AppModel {
     'Event' => array(
       'foreignKey' => 'home_team_id',
       'order' => array('start ASC')
-    )
+    ),
+    'Subscription'
   );
 }

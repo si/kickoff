@@ -87,6 +87,33 @@ class TeamsController extends AppController {
 		$this->set('reminder_value',1);
 		$this->set('reminder_unit','H');
 
+		// Save team subscription if logged in
+		if($this->Session->read('Auth.User.id') != '') {
+
+			$conditions = array(
+				'Subscription.team_id' => $id,
+				'Subscription.user_id' => $this->Session->read('Auth.User.id')
+			);
+
+			$data = array(
+				'team_id' => $id,
+				'user_id' => $this->Session->read('Auth.User.id')
+			);
+
+			// Check if any subs exist
+			$subs = $this->Team->Subscription->find('first', array(
+				'conditions' => $conditions
+			));
+
+			// Set sub ID if pre-exists
+			if(count($subs) > 0) {
+				$data['id'] = $subs['Subscription']['id'];
+			}
+
+			// Save
+			$this->Team->Subscription->save(array('Subscription' => array($data)));
+		}
+
 	}
 
 
