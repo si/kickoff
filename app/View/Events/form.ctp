@@ -41,7 +41,7 @@ echo $this->Form->create('Event');
   <div class="row">
     <?php 
       $default_competition = (isset($this->request['named']['calendar'])) ?
-        $this->request['named']['competition'] :
+        $this->request['named']['calendar'] :
         '';
       echo $this->Form->input('competition_id', array('default'=>$default_competition,'class'=>'span6','div'=>'span6')); 
     ?>
