@@ -10,6 +10,6 @@ class Team extends AppModel {
       'foreignKey' => 'home_team_id',
       'order' => array('start ASC')
     ),
-    'Subscription'
+    //'Subscription'
   );
 }
