@@ -2,7 +2,7 @@ $icon-size: 16px;
 $icon-gutter: 5px;
 
 .atc {
-    display: block;
+    display: inline-block;
     position: relative;
 
     a[type='text/calendar'] {
@@ -27,6 +27,10 @@ $icon-gutter: 5px;
             top: 0;
             right: 0;
             bottom: 0;
+        }
+
+        &.expand:after {
+            content: '\00D7';
         }
 
     }
