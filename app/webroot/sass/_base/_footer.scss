@@ -1,24 +1,23 @@
 footer {
-	background: -webkit-linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 50%);
-	color: rgba(#FFF,0.4);
-	font-size: 0.85rem;
+	background: -webkit-linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
 	overflow: hidden;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
 	padding: 0.5rem 2rem 0.5rem;
-    text-align: center;
+    text-indent: -999rem;
 
     &:after {
         background: url(/img/src/icons/ko-black.svg) no-repeat 0 0;
-        content: ' ';
-        display: inline-block;
+        background-size: 30px;
         width: 30px;
         height: 30px;
-        background-size: 30px;
+        content: ' ';
+        display: inline-block;
         position: absolute;
-        right: 0;
-        bottom: 0;
+        right: 10px;
+        bottom: 10px;
+        opacity: 0.2;
     }
 }
