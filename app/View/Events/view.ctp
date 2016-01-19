@@ -20,6 +20,13 @@ $this->viewVars['title_for_layout'] = $title;
   </span>
 </time>
 
+<?php if($event['Event']['location']) : ?>
+<div class="location">
+  <p class="name"><?php echo $event['Event']['location']; ?></p>
+  <?php echo $this->element('Modules/map', array('location'=>$event['Event']['location'])); ?>
+</div>
+<?php endif; ?>
+
 <?php if($event['Event']['description']!='') : ?>
   <p><?php echo $event['Event']['description']; ?></p>
 <?php endif; ?>
@@ -40,11 +47,7 @@ $this->viewVars['title_for_layout'] = $title;
       array('controller'=>'competitions','action'=>'view',$event['Competition']['id']),
       array('class'=>'competition')
     ); ?> 
-  <?php if($event['Event']['location']) : ?>
-    <p class="location"><?php echo $event['Event']['location']; ?></p>
-  <?php endif; ?>
 </small></p>
-
 
 <div class="btn-group btn-block">
 
@@ -58,11 +61,3 @@ $this->viewVars['title_for_layout'] = $title;
   ?>
 
 </div>
-
-<?php echo $this->Html->link('Back to Calendar'
-  , array('controller'=>'competitions', 'action'=>'view', $event['Competition']['id'])
-  ); ?>
-
-<?php
-//var_dump($event);
-?>
