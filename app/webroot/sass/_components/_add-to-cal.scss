@@ -49,6 +49,7 @@ $icon-gutter: 5px;
 
     .atc__options a {
         display: inline-block;
+        background-color: rgba(#000,0.8);
         background-size: $icon-size $icon-size;
         background-repeat: no-repeat;
         background-position: $icon-gutter 50%;
