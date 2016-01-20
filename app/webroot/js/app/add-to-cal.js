@@ -2,12 +2,21 @@ $(document).ready(function(){
 
   // Setup calendar shortcuts
   var addToCal = function() {
-    var $calLink = $('a[type="text/calendar"]');
+    var $calLink = $('a[type="text/calendar"]'),
+        services = [
+          { name : 'Apple' },
+          { name : 'Windows' },
+          { name : 'Google' }
+        ];
+
     if($calLink.length > 0) {
       formatCalLink($calLink);
-      addShortcutLink($calLink, 'Google');
-      addShortcutLink($calLink, 'Windows');
-      addShortcutLink($calLink, 'Apple');
+
+      for(var k in services) {
+        var service = services[k];
+        console.log(k, service);
+        addShortcutLink($calLink, services[k].name);  
+      }
 
       $calLink.on('click', showShortCuts);
     }
@@ -15,7 +24,7 @@ $(document).ready(function(){
 
   var showShortCuts = function (ev) {
     ev.preventDefault();
-    window.console && console.log(this, 'clicked');
+    //window.console && console.log(this, 'clicked');
     $(this).toggleClass('expand');
   };
 
