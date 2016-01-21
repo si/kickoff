@@ -40,14 +40,29 @@ $this->viewVars['title_for_layout'] = $title;
   ));?>
 </div>
 
-<p><small>
-  <?php 
-    echo $this->Html->link(
-      $event['Competition']['name'],
-      array('controller'=>'competitions','action'=>'view',$event['Competition']['id']),
-      array('class'=>'competition')
-    ); ?> 
-</small></p>
+<table class="meta">
+  <thead>
+    <tr>
+      <th>Competition</th>
+      <th>Last updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <?php 
+          echo $this->Html->link(
+            $event['Competition']['name'],
+            array('controller'=>'competitions','action'=>'view',$event['Competition']['id']),
+            array('class'=>'competition')
+          ); ?> 
+      </td>
+      <td>
+        <?php echo $this->Time->format('d M y H:i', $event['Event']['updated']); ?>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="btn-group btn-block">
 
