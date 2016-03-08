@@ -21,6 +21,7 @@ $icon-base : $image-base + '/icons/';
 
 // Modules
 @import "_components/add-to-cal";
+@import "_components/ads";
 @import "_components/a-z";
 @import "_components/calendars";
 @import "_components/datepicker";

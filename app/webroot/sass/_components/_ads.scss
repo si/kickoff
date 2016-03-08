@@ -1,0 +1,18 @@
+.ad {
+    background: rgba(#000, 0.1);
+    color: rgba(#FFF, 0.5);
+    font-size: 10px;
+    text-align: center;
+    padding: 10px;
+    margin: 20px 0;
+    
+    a {
+        color: rgba(#000, 0.7);
+        text-decoration: none;
+        font-weight: bold;
+        
+        &:hover, &:focus, &:active {
+            border-bottom: 1px solid #000;
+        }
+    }
+}
