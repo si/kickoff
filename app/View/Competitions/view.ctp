@@ -14,7 +14,8 @@ $this->viewVars['title_for_layout'] = $competition['Competition']['name'] . ' - 
 )); ?>
 </div>
 
-    
+<?php echo $this->element('Ads/google'); ?>
+
 <?php echo $this->element('events_grid',array('events'=>$events,'context'=>'upcoming')); ?>
     
 <p><small>
