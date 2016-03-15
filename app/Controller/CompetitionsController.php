@@ -1,11 +1,11 @@
 <?php
 class CompetitionsController extends AppController {
 
-  public $name = 'Competitions';
-  public $helpers = array('Time','Form');
-  public $components = array('RequestHandler');
-  
-  public $scaffold;
+    public $name = 'Competitions';
+    public $helpers = array('Time','Form');
+    public $components = array('RequestHandler');
+
+    public $scaffold;
   
 	function beforeFilter() {
 		parent::beforeFilter();
@@ -13,9 +13,16 @@ class CompetitionsController extends AppController {
 	}
 	
 	function beforeRender() {
-	  parent::beforeRender();
+        parent::beforeRender();
 	}
 	
+    function index() {
+        $conditions = array(
+            //'Event.start > NOW()'
+        );
+        $this->set('competitions', $this->paginate('Competition', $conditions));
+    }
+    
 	function form($id='') {
 	
 		if(isset($this->data) && count($this->data)>0) {
