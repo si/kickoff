@@ -3364,20 +3364,36 @@ $(document).ready(function(){
   var addToCal = function() {
     var $calLink = $('a[type="text/calendar"]'),
         services = [
-          { name : 'Apple' },
+          { 
+            name : 'Apple',
+            support : ['iPad Simulator',
+              'iPhone Simulator',
+              'iPod Simulator',
+              'iPad',
+              'iPhone',
+              'iPod',
+              'MacIntel'
+            ]
+          },
           { name : 'Windows' },
           { name : 'Google' }
         ];
 
     if($calLink.length > 0) {
+
+      // Reformat calendar link
       formatCalLink($calLink);
 
+      // Set default option based on useragent
+      setDefaultService();
+
+      // Output ATC shortcut options based on available services
       for(var k in services) {
         var service = services[k];
-        console.log(k, service);
-        addShortcutLink($calLink, services[k].name);  
+        addShortcutLink($calLink, service.name);  
       }
 
+      // Bind click event to show shortcuts
       $calLink.on('click', showShortCuts);
     }
   };
@@ -3405,6 +3421,11 @@ $(document).ready(function(){
       .siblings('.atc__options:first')
       .append('<a href="' + url + '" class="btn atc__provider atc__' + provider.toLowerCase() + '">' + provider + '</a>');
 
+  };
+
+  var setDefaultService = function() {
+    var userAgent = navigator.platform;
+    console.log(userAgent);
   };
 
   // Test for ICS supported platforms
