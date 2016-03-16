@@ -4,6 +4,7 @@ $color-event: #000;
 $color-download: #FFF;
 $color-share: #FFF;
 
+$event-size: 16px;
 
 .calendar {
   position: relative;
@@ -78,10 +79,19 @@ $color-share: #FFF;
     
     .event {
 
-      background: rgba($color-event,0.8);
-      position: relative;
-      transition: 0.3s all ease;
-    
+        position: relative;
+        transition: 0.3s all ease;
+        background: rgba($color-event,0.8);
+        width: $event-size;
+        height: $event-size;
+        margin: 0 0 4px 4px;
+        display: inline-block;
+        border-radius: 100%;
+        text-indent: -9999em;
+
+      a {
+      }
+      /*
       a {
         color: #FFF;
         display: block;
@@ -97,7 +107,7 @@ $color-share: #FFF;
         }
         
       }
-
+      */
       .download {
         color: #000;
         display: none;
