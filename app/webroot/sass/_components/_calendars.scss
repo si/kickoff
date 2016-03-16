@@ -32,6 +32,7 @@ $event-size: 16px;
     top: 0;
     opacity: 0.5;
     text-decoration: none;
+    color: #000;
     transition: all 0.3s ease;
 
     &:hover, 
@@ -90,6 +91,7 @@ $event-size: 16px;
         text-indent: -9999em;
 
       a {
+          
       }
       /*
       a {
