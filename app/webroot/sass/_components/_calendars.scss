@@ -88,11 +88,33 @@ $event-size: 16px;
         margin: 0 0 4px 4px;
         display: inline-block;
         border-radius: 100%;
-        text-indent: -9999em;
-
-      a {
-          
+        
+        a {
+            position: absolute;
+            z-index: 100;
+            transform: scale(0.1);
+            transition: transform 0.3s ease;
+            
+            &:hover, &:focus, &:active {
+                transform: scale(1);
+                text-indent: 0;
+                width: 300px;
+                height: 300px;
+                top: -150px;
+                left: -150px;
+                background: rgba(#FFF,0.9);
+                border-radius: 8px;
+            }
+            
+            .team {
+                display: block;
+                color: #000;
+                font-weight: bold;
+                font-size: 1.2rem;
+                text-transform: uppercase;
+            }
       }
+
       /*
       a {
         color: #FFF;
@@ -139,34 +161,7 @@ $event-size: 16px;
           background: rgba($color-share,1);
         }
       }
-      
-      &:hover, &:focus {
-      
-        background: rgba($color-event,0.9);
-        
-        a {
-          text-decoration: none;
-          .time {
-            display: block;
-            font-size: 0.8em;
-            font-weight: bold;
-          }
-          .location {
-            display: block;
-            font-size: 0.8em;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-          }
-        }
-
-        .download, .share {
-          display: inline-block;
-        }      
-
-      }
-
     }
-    
   }
 
   @media screen and (max-width: $break-small) {
