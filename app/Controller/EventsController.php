@@ -146,5 +146,7 @@ class EventsController extends AppController {
     }
   }
 
+  function bulk() {
+      
+  }
 }
-?>
