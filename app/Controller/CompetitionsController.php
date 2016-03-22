@@ -20,6 +20,9 @@ class CompetitionsController extends AppController {
         $conditions = array(
             //'Event.start > NOW()'
         );
+
+        if( !$this->Session->read('Auth.User.is_admin') ) $conditions[] = "Competition.status = 'L'";
+        
         $this->set('competitions', $this->paginate('Competition', $conditions));
     }
     
@@ -36,6 +39,11 @@ class CompetitionsController extends AppController {
 
 		$this->set('sports', $this->Competition->Sport->find('list'));
 		$this->set('themes', $this->Competition->Theme->find('list'));
+		$this->set('status', array(
+            'D' => 'Draft',
+            'L' => 'Live',
+            'A' => 'Archive',
+        ));
   	
 	}
 
@@ -345,5 +353,8 @@ class CompetitionsController extends AppController {
 	$this->set('content', $content);
 
   }
-        
+
+    function get_teams($id='') {
+        $this->set('teams', $this->Competition->Team->find('all', array('conditions'=>array('competition_id'=>$id))));
+    }       
 }
