@@ -1,0 +1,25 @@
+.competition--status-d,
+.competition--status-a {
+    position: relative;
+    
+    &:after {
+        content: 'S';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        background: #000;
+        color: #FFF;
+        font-size: 12px;
+        line-height: 32px;
+    }
+}
+
+.competition--status-d:after {
+    content: 'D';
+}
+.competition--status-a:after {
+    content: 'A';    
+}
