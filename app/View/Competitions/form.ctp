@@ -10,12 +10,13 @@ echo $this->Form->create('Competition');
   <legend>Details</legend>
   <div class="row">
 		<?php echo $this->Form->input('name', array('label'=>'Name','div'=>'span4','class'=>'span4')); ?>
-		<?php echo $this->Form->input('description', array('label'=>'Description','div'=>'span8','class'=>'span8')); ?>
+		<?php echo $this->Form->input('description', array('label'=>'Description','div'=>'span4','class'=>'span4')); ?>
+		<?php echo $this->Form->input('slug', array('label'=>'Slug','div'=>'span4','class'=>'span4')); ?>
   </div>
   <div class="row">
 	  <?php echo $this->Form->input('sport_id',array('options'=>$sports,'div'=>'span4','class'=>'span4')); ?>
 	  <?php echo $this->Form->input('theme_id',array('options'=>$themes,'empty'=>'-','div'=>'span4','class'=>'span4')); ?>
-		<?php echo $this->Form->input('slug', array('label'=>'Slug','div'=>'span4','class'=>'span4')); ?>
+	  <?php echo $this->Form->input('status',array('options'=>$status,'empty'=>'-','div'=>'span4','class'=>'span4')); ?>
   </div>
 </fieldset>
 <?php

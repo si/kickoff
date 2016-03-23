@@ -45,8 +45,8 @@ class CustomHtmlHelper extends HtmlHelper {
     public function cssThemeBackground($img, $color='0,0,0', $position='') {
         $color = $this->Html->colorHexToDec($color);
         return 'background: linear-gradient(
-                        rgba(' . $color['rgb'] . ', 0.75), 
-                        rgba(' . $color['rgb'] . ', 0.6)
+                        rgba(' . $color['rgb'] . ', 0.9), 
+                        rgba(' . $color['rgb'] . ', 0.8)
                     ), 
                     ' . $position . ' url(/' . $img . ') no-repeat 50% 50%;
                 background-size: cover;';

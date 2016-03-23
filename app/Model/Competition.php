@@ -14,5 +14,6 @@ class Competition extends AppModel {
 			'className'   => 'Event',
 			'order' => 'Event.start ASC',
 		),
+        'Team'
 	);
 }
