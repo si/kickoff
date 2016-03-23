@@ -17,13 +17,13 @@ class CompetitionsController extends AppController {
 	}
 	
     function index() {
-        $conditions = array(
-            //'Event.start > NOW()'
+        $settings = array(
+            'order' => array('Competition.status DESC')
         );
 
-        if( !$this->Session->read('Auth.User.is_admin') ) $conditions[] = "Competition.status = 'L'";
+        if( !$this->Session->read('Auth.User.is_admin') ) $settings['conditions'][] = "Competition.status = 'L'";
         
-        $this->set('competitions', $this->paginate('Competition', $conditions));
+        $this->set('competitions', $this->Competition->find('all', $settings));
     }
     
 	function form($id='') {
