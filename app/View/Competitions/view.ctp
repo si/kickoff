@@ -16,7 +16,7 @@ $this->viewVars['title_for_layout'] = $competition['Competition']['name'] . ' - 
 
 <?php echo $this->element('Ads/google'); ?>
 
-<?php echo $this->element('events_grid',array('events'=>$events,'context'=>'upcoming')); ?>
+<?php echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming')); ?>
     
 <p><small>
   <?php echo $this->Html->link($competition['Sport']['name'],array('controller'=>'sports','action'=>'view',$competition['Sport']['id']), array('class'=>'sport')); ?>
