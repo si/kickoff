@@ -7,14 +7,6 @@
   </ul>
   
   <ul class="engage">
-    <?php 
-    if($this->Session->read('Auth.User.id')!='') {
-  		echo $this->element('Navigation/user_menu');
-    } else {
-    	echo $this->element('Navigation/guest_menu');
-    } 
-    ?>
-
     <li><?php echo $this->element('Navigation/search'); ?></li>
   </ul>
 
