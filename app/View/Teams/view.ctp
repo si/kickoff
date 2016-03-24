@@ -12,7 +12,7 @@ $this->viewVars['title_for_layout'] = $title;
 
 <?php
 //_debug($events);
-echo $this->element('events_grid',array('events'=>$events,'context'=>'upcoming')); 
+echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming')); 
 ?>
 
 <p><small>
