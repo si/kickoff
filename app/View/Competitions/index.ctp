@@ -18,8 +18,6 @@ $this->viewVars['title_for_layout'] = 'Competitions - Kick Off Calendars';
             
         ?>
       </h3>
-      <?php echo $this->Html->link('Subscribe',array('action'=>'export',$competition['Competition']['id']),array('download'=>true, 'class'=>'btn')); ?>
-      <?php echo $this->Html->link($competition['Sport']['name'],array('controller'=>'sports','action'=>'view',$competition['Sport']['id']), array('class'=>'secondary')); ?>
     </li>
   <?php endforeach; ?>
 </ul>
