@@ -278,6 +278,10 @@ class TeamsController extends AppController {
 							$away_team_id = (isset($away_team['Team'])) ? $away_team['Team']['id'] : $away_team['id'];
 
 							// Build start field from date and time
+                            // TODO: set kickoff time to support BST 
+                            // (store as UTC, -1h between last Sun of Mar to last Sun of Oct)
+                            // strtotime('Last Sunday of March')
+                            // strtotime('Last Sunday of October')
 							$kickoff_str = substr($kickoff_date, 0, -3) . ' ' . $month . ' ' . $kickoff_time;
 							$kickoff = $this->_dateToArray($kickoff_str);
 
