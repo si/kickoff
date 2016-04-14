@@ -4,28 +4,27 @@ Events
 .events.view {
 
     .dtstart {
-        background: rgba(#000, 0.9);
-        display: flex;
-        margin: 3rem 1rem 2rem;
+        display: block;
+        margin: 3rem 0 2rem;
+        padding: 1rem 0;
+        background: rgba(#000, 0.2);
         text-transform: uppercase;
 
         .date,
         .time {
-            flex: auto;
             font-size: 1.2rem;
             line-height: 1;
-            padding: 1rem;
+            width: 45%;
+            display: inline-block;
+            text-align: center;
         }
 
         .date {
-            width: 4rem;
-
             sup {
                 font-size: 0.7rem;
             }
         }
         .time {
-            font-size: 2.5rem;
 
             .separator {
                 animation-name: flash;
@@ -41,6 +40,10 @@ Events
 
             .timezone {
                 opacity: 0.3;
+                
+                @media screen and (max-width : 320px) {
+                    display: block;
+                }
             }
         }
     }
