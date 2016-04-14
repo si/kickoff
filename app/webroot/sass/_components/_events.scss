@@ -7,7 +7,7 @@ Events
         display: block;
         margin: 3rem 0 2rem;
         padding: 1rem 0;
-        background: rgba(#000, 0.2);
+        background: rgba(#000, 0.2) url(/img/src/icons/clock-white.svg) no-repeat 50% 50%;
         text-transform: uppercase;
 
         .date,
@@ -17,14 +17,19 @@ Events
             width: 45%;
             display: inline-block;
             text-align: center;
+            @media screen and (max-width : 380px) {
+                max-width: 140px;
+            }
         }
 
         .date {
+            margin-right: 16px;
             sup {
                 font-size: 0.7rem;
             }
         }
         .time {
+            margin-left: 16px;
 
             .separator {
                 animation-name: flash;
