@@ -20,17 +20,6 @@ $this->viewVars['title_for_layout'] = $title;
   </span>
 </time>
 
-<?php if($event['Event']['location']) : ?>
-<div class="location">
-  <p class="name"><?php echo $event['Event']['location']; ?></p>
-  <?php echo $this->element('Modules/map', array('location'=>$event['Event']['location'])); ?>
-</div>
-<?php endif; ?>
-
-<?php if($event['Event']['description']!='') : ?>
-  <p><?php echo $event['Event']['description']; ?></p>
-<?php endif; ?>
-
 <div class="cta">
   <?php echo $this->Html->link('Add to Calendar'
   , array('action'=>'export', $event['Event']['id'])
@@ -39,6 +28,20 @@ $this->viewVars['title_for_layout'] = $title;
     'type'=>'text/calendar'
   ));?>
 </div>
+
+<?php
+$event['Event']['location'] = 'Pride Park';
+if($event['Event']['location']) : ?>
+<div>
+  <h2>Travelling?</h2>
+  <?php echo $this->element('Modules/map', array('location'=>$event['Event']['location'])); ?>
+</div>
+<?php endif; ?>
+
+<?php if($event['Event']['description']!='') : ?>
+  <p><?php echo $event['Event']['description']; ?></p>
+<?php endif; ?>
+
 
 <table class="meta">
   <thead>
