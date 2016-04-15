@@ -4,9 +4,9 @@ $icon-base : $image-base + '/icons/';
 // Base
 @import "_base/footer";
 @import "_base/forms";
+@import "_base/header";
 @import "_base/layout";
 @import "_base/links";
-@import "_base/navigation";
 @import "_base/tables";
 @import "_base/typography";
 
