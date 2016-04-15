@@ -29,9 +29,7 @@ $this->viewVars['title_for_layout'] = $title;
   ));?>
 </div>
 
-<?php
-$event['Event']['location'] = 'Pride Park';
-if($event['Event']['location']) : ?>
+<?php if($event['Event']['location']) : ?>
 <div>
   <h2>Travelling?</h2>
   <?php echo $this->element('Modules/map', array('location'=>$event['Event']['location'])); ?>
