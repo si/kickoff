@@ -5,7 +5,8 @@
     <nav>
         <button>Toggle menu</button>
         <ul>
-            <li><?php echo $this->Html->link('Competitions', array('controller'=>'competitions','action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('Premier League', array('controller'=>'competitions','action'=>'index', '20')); ?></li>
+            <li><?php echo $this->Html->link('Championship', array('controller'=>'competitions','action'=>'index', '1')); ?></li>
         </ul>
     </nav>
 
