@@ -28,7 +28,7 @@
 </head>
 <body class="<?php echo $body_class; ?>">
   <?php
-  echo $this->element('Navigation/navigation'); 
+  echo $this->element('Global/header'); 
   ?>
   <div class="container">
     <?php echo $content_for_layout; ?>
