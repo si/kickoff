@@ -2,6 +2,7 @@ header {
     background: rgba(0,0,0,0.8);
     color: #FFF;
     position: fixed;
+    display: flex;
     top: 0;
     left: 0;
     right: 0;
@@ -21,26 +22,13 @@ header {
     }
   
     .logo {
-        position: absolute;
-        top: 10px;
-        left: 10px;
+        display: inline-flex;
+        margin: 10px;
     }
   
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
-        li {
-            a {
-                padding: 1rem 0.5rem;
-            }
-        }
-    }
-
     nav {
-        float: right;
-        text-align: left;
+        display: inline-flex;
+        width: 40px;
         
         &:hover dl {
             transform: translateX(0);
@@ -48,7 +36,7 @@ header {
         
         &:before {
             text-indent: -9999rem;
-            display: block;
+            display: inline-block;
             content: ' ';
             background: url($icon-base + 'burger-white.svg') no-repeat 50% 50%;
             width: 40px;
@@ -85,9 +73,8 @@ header {
     }
       
     form {
-        display: inline-block;
-        float: right;
-        width: 230px;
+        display: inline-flex;
+        width: 100%;
         height: 40px;
         margin-right: 0;
         text-align: right;
