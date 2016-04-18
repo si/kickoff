@@ -30,18 +30,28 @@ $this->viewVars['title_for_layout'] = $title;
 </div>
 
 <?php if($event['Event']['location']) : ?>
-<div id="EventLocationTravel">
-  <h2>Travelling?</h2>
-  <?php echo $this->element('Modules/map', array('location'=>$event['Event']['location'])); ?>
-</div>
-<div id="EventLocationPub">
-  <h2>Pub?</h2>
-  <?php echo $this->element('Modules/matchpint', array('location'=>$event['Event']['location'])); ?>
-</div>
+    
+    <div id="EventLocationTravel">
+        <h2>Travelling?</h2>
+        <?php echo $this->element('Modules/map', array('location'=>$event['Event']['location'])); ?>
+    </div>
+
+    <div id="EventLocationPub">
+        <h2>Pub?</h2>
+        <?php echo $this->element('Modules/matchpint', array('location'=>$event['Event']['location'])); ?>
+    </div>
+
 <?php endif; ?>
 
+<div id="EventLocationBroadcast">
+    <h2>Stay at home?</h2>
+    <p>Broadcasting on <a href="#">BT Sport</a></p>
+</div>
+
+
 <?php if($event['Event']['description']!='') : ?>
-  <p><?php echo $event['Event']['description']; ?></p>
+    <h2>Event Details</h2>
+    <p><?php echo $event['Event']['description']; ?></p>
 <?php endif; ?>
 
 
