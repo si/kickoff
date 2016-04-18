@@ -30,9 +30,18 @@ header {
         display: inline-flex;
         width: 40px;
         
-        &:hover dl {
-            transform: translateX(0);
-        }
+        &:hover {
+
+            // Menu
+            dl {
+                transform: translateX(0);
+            }
+
+            // Icon
+            &:before {
+                background-image: url($icon-base + 'close-white.svg');
+            }
+        } 
         
         &:before {
             text-indent: -9999rem;
