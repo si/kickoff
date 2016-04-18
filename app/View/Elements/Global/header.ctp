@@ -4,10 +4,11 @@
 
     <nav>
         <button>Toggle menu</button>
-        <ul>
-            <li><?php echo $this->Html->link('Premier League', array('controller'=>'competitions','action'=>'index', '20')); ?></li>
-            <li><?php echo $this->Html->link('Championship', array('controller'=>'competitions','action'=>'index', '1')); ?></li>
-        </ul>
+        <dl>
+            <dt><?php echo $this->Html->link('Competitions', array('controller'=>'competitions','action'=>'index')); ?></dt>
+            <dd><?php echo $this->Html->link('Premier League', array('controller'=>'competitions','action'=>'view', '20')); ?></dd>
+            <dd><?php echo $this->Html->link('Championship', array('controller'=>'competitions','action'=>'view', '1')); ?></dd>
+        </dl>
     </nav>
 
     <?php echo $this->element('Navigation/search'); ?></li>
