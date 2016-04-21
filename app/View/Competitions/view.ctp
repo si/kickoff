@@ -20,7 +20,6 @@ $this->viewVars['title_for_layout'] = $competition['Competition']['name'] . ' - 
     
 <p><small>
   <?php echo $this->Html->link($competition['Sport']['name'],array('controller'=>'sports','action'=>'view',$competition['Sport']['id']), array('class'=>'sport')); ?>
-  <time><?php echo $this->Time->niceShort($competition['Competition']['created']); ?> </time>
 </small></p>
 
 <menu>
