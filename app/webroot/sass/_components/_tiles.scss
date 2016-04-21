@@ -7,34 +7,37 @@ $tile-size: 300px;
   li {
     background-color: rgba(#000, 0.8);
     background-size: cover;
-    display: inline-block;
+    display: inline-flex;
     position: relative;
     overflow: hidden;
     width: $tile-size;
     height: $tile-size;
 
     @media (max-width: 480px) {
-      width: 100%;
+      width: auto;
+      display: block;
+      margin: 10px;
+      vertical-align: middle;
     }
 
     h3 {
         margin: 0;
         height: $tile-size;
-        
-        a {
-            display: block;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 0 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            transition: background-color 0.5s ease;
+    }
 
-            &:hover {
-                background-color: rgba(#000, 0.4);
-                text-decoration: none;
-            }
+    a {
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: background-color 0.5s ease;
+
+        &:hover {
+            background-color: rgba(#000, 0.4);
+            text-decoration: none;
         }
     }
     
