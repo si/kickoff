@@ -76,6 +76,7 @@ if(count($events)>0) {
                     'escape' => false,
                     )
                   )
+                /*
                 . $this->Html->link(
                   'Download' // '<i class="icon-download icon-white"></i>'
                   , array('controller'=>'events','action'=>'export',$event['Event']['id'])
@@ -86,6 +87,7 @@ if(count($events)>0) {
                   , array('controller'=>'events','action'=>'share',$event['Event']['id'])
                   , array('title'=>'Share with friends', 'class'=>'share', 'escape'=>false)
                   )
+                */
                 . '</li>';
               }
               echo '</ol>';
