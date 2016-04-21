@@ -59,14 +59,14 @@ header {
         dl {
             display: block;
             position: fixed;
-            background: darkslategrey;
+            background: rgba(#333, 0.9);
             margin: 0;
             top: 0;
             left: 20%;
             right: 0;
             z-index: 550;
             padding: 20px;
-            opacity: 0.9;
+            //opacity: 0.9;
             bottom: 0;
             transform: translateX(100%);
             transition: transform 0.3s ease; 
