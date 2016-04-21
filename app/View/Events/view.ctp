@@ -28,6 +28,8 @@ $this->viewVars['title_for_layout'] = $title;
   ));?>
 </div>
 
+<?php echo $this->element('Ads/google'); ?>
+
 <?php if($event['Event']['location']) : ?>
     
     <div id="EventLocationTravel">
