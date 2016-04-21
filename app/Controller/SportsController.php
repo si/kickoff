@@ -21,14 +21,19 @@ class SportsController extends AppController {
 	    } else {
 		    $sport = $this->Sport->findBySlug($id);
 		}
+
 		$this->set('sport', $sport);
+
+        $settings = array(
+            'order' => array('Competition.status DESC'),
+			'conditions' => array('sport_id' => $sport['Sport']['id'])
+        );
+
+        if( !$this->Session->read('Auth.User.is_admin') ) $settings['conditions'][] = "Competition.status = 'L'";
+
 		$this->set('competitions', $this->Sport->Competition->find(
 			'all', 
-			array(
-				'conditions' => array(
-					'sport_id' => $sport['Sport']['id']
-				)
-			)
+			$settings
 		));
 	}
 
