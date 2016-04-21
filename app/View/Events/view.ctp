@@ -1,6 +1,6 @@
 <?php
 $title = 'Kick Off Calendars';
-if(isset($event)) $title = $event['Event']['summary'] . ' - ' . $title;
+if(isset($event)) $title = $event['Event']['summary'] . ' - ' . $event['Competition']['name'] . ' - ' . $title;
 $this->viewVars['title_for_layout'] = $title;
 ?>
 <h1 class="summary vs">
