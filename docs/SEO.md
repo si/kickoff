@@ -1,5 +1,10 @@
 # SEO
 
+This document serves to provide an outline of the SEO strategy in place for all sections of the KickOff website.
+This currently includes:
+
+* URL patterns
+
 ## Competitions
 
 ### URL Pattern
