@@ -354,7 +354,4 @@ class CompetitionsController extends AppController {
 
   }
 
-    function get_teams($id='') {
-        $this->set('teams', $this->Competition->Team->find('all', array('conditions'=>array('competition_id'=>$id))));
-    }       
 }

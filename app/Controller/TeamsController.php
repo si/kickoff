@@ -6,7 +6,7 @@ class TeamsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
-        $this->Auth->allow('index', 'view', 'export', 'import_events');
+        $this->Auth->allow('index', 'view', 'export', 'import_events', 'by_competition');
 	}
 	
 	function beforeRender() {
@@ -344,5 +344,20 @@ class TeamsController extends AppController {
 		$this->set('content', $content);
 
 	}
+
+    function by_competition($competition='') {
+		$sql = "SELECT DISTINCT 
+					`Team`.`id` AS `team_id`
+					, `Team`.`name` AS `team_name`
+					, `Competition`.`id` AS `competition_id`
+					, `Competition`.`name` AS `competition_name`
+				FROM `events` AS `Event`
+				LEFT JOIN `teams` AS `Team` ON `Event`.`home_team_id` = `Team`.`id`
+				LEFT JOIN `competitions` AS `Competition` ON `Event`.`competition_id` = `Competition`.`id`
+				WHERE `Competition`.`status` = 'L'
+				ORDER BY `Competition`.`name` DESC, `Team`.`name` ASC";
+
+        $this->set('teams', $this->Team->query($sql));
+    }       
 
 }
