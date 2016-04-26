@@ -5,8 +5,9 @@ $this->viewVars['title_for_layout'] = 'Sports events in your calendar - Kick Off
 
 <h1>Putting sports events in your hands</h1>
 
-<h2>Search for a team</h2>
-<?php echo $this->element('Navigation/search'); ?>
+<?php 
+echo $this->requestAction(['controller' => 'teams', 'action' => 'by_competition'], ['return']);
+?>
 
 <div class="breakout">
   <p>Kick Off Calendars is adopting the “<em>release early, release often</em>” mantra.</p>
