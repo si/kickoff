@@ -4,6 +4,7 @@ This document serves to provide an outline of the SEO strategy in place for all 
 This currently includes:
 
 * URL patterns
+* Meta attributes
 
 ## Competitions
 
