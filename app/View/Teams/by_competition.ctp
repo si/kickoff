@@ -5,7 +5,7 @@ foreach($teams as $team) :
         echo ($previous_comp != '') ? '</ul></div>' : '';
     ?>
     <div class="group">
-    <h3><?php echo $team['Competition']['competition_name']; ?></h3>
+    <h3><?php echo $this->Html->link($team['Competition']['competition_name'], array('controller'=>'competitions', 'action'=>'view', $team['Competition']['competition_id'])); ?></h3>
     <ul>
     <?php endif;
     $previous_comp = $team['Competition']['competition_id'];
