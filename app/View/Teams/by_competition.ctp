@@ -5,12 +5,12 @@ foreach($teams as $team) :
         echo ($previous_comp != '') ? '</ul></div>' : '';
     ?>
     <div class="group">
-    <h3><?php echo $this->Html->link($team['Competition']['competition_name'], array('controller'=>'competitions', 'action'=>'view', $team['Competition']['competition_id'])); ?></h3>
+    <h3><?php echo $this->Html->link($team['Competition']['competition_name'], array('controller'=>'competitions', 'action'=>'view', $team['Competition']['competition_id']), array('class'=>'competition')); ?></h3>
     <ul>
     <?php endif;
     $previous_comp = $team['Competition']['competition_id'];
     ?>   
-    <li><?php echo $this->Html->link($team['Team']['team_name'], array('controller'=>'teams','action'=>'view', $team['Team']['team_id'])); ?></li>
+    <li><?php echo $this->Html->link($team['Team']['team_name'], array('controller'=>'teams','action'=>'view', $team['Team']['team_id']), array('class'=>'team')); ?></li>
 <?php endforeach; ?>
 </ul>
 </div>
