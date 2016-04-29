@@ -5,6 +5,14 @@ body, h1, h2, h3 {
   line-height: 1.6;
 }
 
+h2 {
+  font-size: 25px;  
+}
+
+h3 {
+  font-size: 21px;  
+}
+
 pre, textarea.code {
   background: rgba(#000, 0.8);
   color: #F0C;
@@ -27,4 +35,13 @@ pre, textarea.code {
 .empty {
   font-size: 1.4rem;
   color: rgba(#FFF, 0.6);
+}
+
+ul {
+  margin: 0 0 1rem;
+}
+
+li {
+  margin: 0;
+  padding: 0;
 }
