@@ -45,7 +45,7 @@ $this->viewVars['title_for_layout'] = $title;
 <?php endif; ?>
 
 <div id="EventLocationBroadcast">
-    <h2>Stay at home?</h2>
+    <h2>Staying at home?</h2>
     <p>Broadcasting on <a href="#">BT Sport</a></p>
 </div>
 
