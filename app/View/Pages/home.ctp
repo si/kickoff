@@ -2,7 +2,7 @@
 $this->viewVars['title_for_layout'] = 'Sports events in your calendar - Kick Off';
 ?>
 
-<h1>Covering the biggest games from the English&nbsp;FA</h1>
+<h1>Kick off times for all the Premier League and Championship games</h1>
 
 <?php 
 echo $this->requestAction(['controller' => 'teams', 'action' => 'by_competition'], ['return']);
