@@ -69,6 +69,6 @@ $icon-gutter: 5px;
 
     .expand ~ .atc__options {
         opacity: 1;
-        top: 2.5rem;
+        transform: translateY(2.5rem);
     }
 }
