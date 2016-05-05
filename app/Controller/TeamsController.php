@@ -360,6 +360,14 @@ class TeamsController extends AppController {
 				ORDER BY `Competition`.`name` DESC, `Team`.`name` ASC";
 
         $this->set('teams', $this->Team->query($sql));
-    }       
+    }
+	
+	function slugify($team_id='') {
+		$sql = "UPDATE `teams`
+				SET `slug` = REPLACE(REPLACE(REPLACE(LOWER(`name`), '&', ''), ' ', '-'), '--', '-')";
+		if($team_id!='') $sql .= ' WHERE `teams`.`id` = ' . $team_id;
+		$this->set('sql',$sql);
+		$this->set('response', $this->Team->query($sql) );
+	}
 
 }
