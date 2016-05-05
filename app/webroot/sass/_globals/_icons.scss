@@ -9,18 +9,25 @@ $icon-size: 48px;
     width: $size;
     height: $size;
     margin: 0 6px;
+    
+    @media screen and (max-width: $break-small) {
+        display: block;   
+        background-position-x: 50%;
+        width: 100%;
+        margin: 0;
+    }
 }
 
 /* Sections */  
 .competition:before {
-    @include icon('trophy', 12px);
+    @include icon('trophy', 0.7em);
 }
 
 .sport:before {
     @include icon('football', 12px);
 }
 
-smalll time:before {
+small time:before {
     @include icon('clock', 12px);
 }
 
