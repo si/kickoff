@@ -6,7 +6,7 @@ $icon-gutter: 5px;
     position: relative;
 
     a[type='text/calendar'] {
-        background-color: rgba(red, 0.8);
+        background-color: rgba(#000, 0.8);
         position: relative;
         padding-right: 3rem;
         z-index: 100;
@@ -19,7 +19,7 @@ $icon-gutter: 5px;
         &:after {
             content: '+';
             display: inline-block;
-            background: rgba(#000, 0.1);
+            background: rgba(#FFF, 0.1);
             font-weight: bold;
             line-height: 2.4;
             padding: 0 0.67rem;
