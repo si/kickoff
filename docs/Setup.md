@@ -2,6 +2,8 @@
 
 ##Environments
 
+Kickoff is currently hosted on Heroku. It allows us to support the ideal development lifecycle (for free) and opportunity to scale in the future. 
+
 There are three different dynos configured on Heroku for supporting the application development lifecycle:
 
  * **Kickoff-Build** - automatic deployment from the `build` branch
