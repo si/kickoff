@@ -1,5 +1,7 @@
 #Setup
 
+This document serves to provide configuration and setup notes for anyone working on the Kickoff project.
+
 ##Environments
 
 Kickoff is currently hosted on Heroku. It allows us to support the ideal development lifecycle (for free) and opportunity to scale in the future. 
