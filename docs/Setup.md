@@ -56,7 +56,7 @@ Database security is pending review from DevOps consultant.
     Host: us-cdbr-iron-east-03.cleardb.net
     Database: heroku_b60257bee95830f
 
-###Prod
+###Production
 
     Username: b2779db3defb60
     Host: eu-cdbr-west-01.cleardb.com
