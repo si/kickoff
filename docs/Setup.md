@@ -4,6 +4,9 @@
 
 All databases are using Heroku add-on, ClearDB MySQL on the free tier.
 Passwords must be requested from Si.
+
+CakePHP application database connection is configured by `CLEARDB_DATABASE_URL` environment variable setup on the server. Local development requires custom config in *Config/database.php*. 
+
 Database security is pending review from DevOps consultant.
  
 ###Build
