@@ -38,7 +38,7 @@ There is potential to open-source some of the data-parsing services of the app:
 ##Databases
 
 All databases are using Heroku add-on, ClearDB MySQL on the free tier.
-Passwords must be requested from Si.
+Passwords must be requested from [Si](https://github.com/si).
 
 CakePHP application database connection is configured by `CLEARDB_DATABASE_URL` environment variable setup on the server. Local development requires custom config in *Config/database.php*. 
 
