@@ -2,6 +2,10 @@
 
 ##Databases
 
+All databases are using Heroku add-on, ClearDB MySQL on the free tier.
+Passwords must be requested from Si.
+Database security is pending review from DevOps consultant.
+ 
 ###Build
 
     Username: b1b21e7eb9cfb4
