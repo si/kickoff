@@ -34,4 +34,8 @@
     column-count: 3; 
   }
 
+  @media screen and (min-width: $break-large) {
+    column-count: 4; 
+  }
+
 }

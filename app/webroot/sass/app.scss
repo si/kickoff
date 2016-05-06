@@ -2,6 +2,7 @@ $image-base : '/img/src';
 $icon-base : $image-base + '/icons/';
 
 $break-small: 700px;
+$break-large: 1100px;
 
 // Base
 @import "_base/footer";
