@@ -8,9 +8,9 @@ Kickoff is currently hosted on Heroku. It allows us to support the ideal develop
 
 There are three different dynos configured on Heroku for supporting the application development lifecycle:
 
- * **Kickoff-Build** - automatic deployment from the `build` branch (http://build.kickoffcalendars.com)
- * **Kickoff-Stage** - manual deployment from `build` branch (http://beta.kickoffcalendars.com)
- * **Kickoff-Cal** - automatic deployment from the `master` branch (https://kickoffcalendars.com)
+ * [Kickoff-Build](http://build.kickoffcalendars.com) - automatic deployment from the `build` branch 
+ * [Kickoff-Stage](http://beta.kickoffcalendars.com) - manual deployment from `build` branch 
+ * [Kickoff-Cal](https://kickoffcalendars.com) - automatic deployment from the `master` branch 
 
 ##Version Control
 
