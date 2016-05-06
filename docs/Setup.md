@@ -14,7 +14,12 @@ There are three different dynos configured on Heroku for supporting the applicat
 
 All application code is version controlled with Git, hosted on a private Github repository at https://github.com/si/kickoff. 
 
-Collaborator access can be requested but this is not an open-source project. There is potential to open-source some of the website components such as data parsing methods (scraping and JSON delivery).
+Collaborator access can be requested but this is *not* an open-source project. 
+
+There is potential to open-source some of the data-parsing services of the app:
+ 
+ * Data scraping (http://spodat.us/)
+ * Calendar delivery (http://addtoc.al/)
 
 ###Rules of Git Club
 
