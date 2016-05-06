@@ -6,7 +6,7 @@ foreach($teams as $team) :
     ?>
     <div class="group">
     <h3><?php echo $this->Html->link($team['Competition']['competition_name'], array('controller'=>'competitions', 'action'=>'view', (($team['Competition']['competition_slug']!='') ? $team['Competition']['competition_slug'] : $team['Competition']['competition_id'])), array('class'=>'competition')); ?></h3>
-    <ul class="col-2">
+    <ul class="flex-cols">
     <?php endif;
     $previous_comp = $team['Competition']['competition_id'];
     ?>   
