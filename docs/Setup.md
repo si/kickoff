@@ -1,5 +1,13 @@
 #Setup
 
+##Environments
+
+There are three different dynos configured on Heroku for supporting the application development lifecycle:
+
+ * **Kickoff-Build** - automatic deployment from the `build` branch
+ * **Kickoff-Stage** - manual deployment from `build` branch
+ * **Kickoff-Cal** - automatic deployment from the `master` branch
+ 
 ##Databases
 
 All databases are using Heroku add-on, ClearDB MySQL on the free tier.
