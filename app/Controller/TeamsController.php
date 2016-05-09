@@ -357,6 +357,7 @@ class TeamsController extends AppController {
 				LEFT JOIN `teams` AS `Team` ON `Event`.`home_team_id` = `Team`.`id`
 				LEFT JOIN `competitions` AS `Competition` ON `Event`.`competition_id` = `Competition`.`id`
 				WHERE `Competition`.`status` = 'L'
+				AND `Event`.`season` = 2015
 				ORDER BY `Competition`.`name` DESC, `Team`.`name` ASC";
 
         $this->set('teams', $this->Team->query($sql));
