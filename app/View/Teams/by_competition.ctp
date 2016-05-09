@@ -10,7 +10,7 @@ foreach($teams as $team) :
     <?php endif;
     $previous_comp = $team['Competition']['competition_id'];
     ?>   
-    <li><?php echo $this->Html->teamLink($team); ?></li>
+    <li><?php echo $this->Html->teamLink($team['Team']); ?></li>
 <?php endforeach; ?>
 </ul>
 </div>
