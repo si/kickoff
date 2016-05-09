@@ -10,7 +10,7 @@ foreach($teams as $team) :
     <?php endif;
     $previous_comp = $team['Competition']['competition_id'];
     ?>   
-    <li><?php echo $this->Html->link($team['Team']['team_name'], array('controller'=>'teams','action'=>'view', (($team['Team']['team_slug']!='') ? $team['Team']['team_slug'] : $team['Team']['team_id'])), array('class'=>'team')); ?></li>
+    <li><?php echo $this->Html->teamLink($team); ?></li>
 <?php endforeach; ?>
 </ul>
 </div>

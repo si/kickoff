@@ -52,4 +52,15 @@ class CustomHtmlHelper extends HtmlHelper {
                 background-size: cover;';
     }
 
+	public function teamLink($team) {
+        $path = array('controller'=>'teams','action'=>'view');
+        $args = array('class'=>'team');
+        if( $team['Team']['team_slug']!='') {
+            $path[] = $team['Team']['team_slug'];
+        } else {
+            $path[] = $team['Team']['team_id'];
+        }
+        return $this->Html->link($team['Team']['team_name'], $path, $args);
+	}
+
 }
