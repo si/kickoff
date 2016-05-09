@@ -55,12 +55,12 @@ class CustomHtmlHelper extends HtmlHelper {
 	public function teamLink($team) {
         $path = array('controller'=>'teams','action'=>'view');
         $args = array('class'=>'team');
-        if( $team['team_slug']!='') {
-            $path[] = $team['team_slug'];
+        if( $team['slug']!='') {
+            $path[] = $team['slug'];
         } else {
-            $path[] = $team['team_id'];
+            $path[] = $team['id'];
         }
-        return $this->Html->link($team['team_name'], $path, $args);
+        return $this->Html->link($team['name'], $path, $args);
 	}
 
 }

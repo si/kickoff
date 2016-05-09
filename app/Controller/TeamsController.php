@@ -347,9 +347,9 @@ class TeamsController extends AppController {
 
     function by_competition($competition='') {
 		$sql = "SELECT DISTINCT 
-					`Team`.`id` AS `team_id`
-					, `Team`.`name` AS `team_name`
-					, `Team`.`slug` AS `team_slug`
+					`Team`.`id` AS `id`
+					, `Team`.`name` AS `name`
+					, `Team`.`slug` AS `slug`
 					, `Competition`.`id` AS `competition_id`
 					, `Competition`.`name` AS `competition_name`
 					, `Competition`.`slug` AS `competition_slug`
