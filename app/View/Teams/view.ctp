@@ -17,7 +17,7 @@ echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upc
 
 <p><small>
   <?php if(isset($team['Competition']['id'])) {
-    echo $this->Html->link($team['Competition']['name'],array('controller'=>'competitions','action'=>'view',$team['Competition']['id']), array('class'=>'competition'));
+    echo $this->Html->competitionLink($team['Competition']);
     }
   ?>
   <?php echo $this->Html->link($team['Sport']['name'],array('controller'=>'sports','action'=>'view',$team['Sport']['id']), array('class'=>'sport')); ?>
