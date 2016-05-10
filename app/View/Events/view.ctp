@@ -4,9 +4,9 @@ if(isset($event)) $title = $event['Event']['summary'] . ' - ' . $event['Competit
 $this->viewVars['title_for_layout'] = $title;
 ?>
 <h1 class="summary vs">
-  <?php echo $this->Html->link($event['HomeTeam']['name'], array('controller'=>'teams','action'=>'view', $event['HomeTeam']['id'])); ?>
+  <?php echo $this->Html->teamLink($event['HomeTeam'], array('class'=>null)); ?>
   <abbr title="versus">v</abbr>
-  <?php echo $this->Html->link($event['AwayTeam']['name'], array('controller'=>'teams','action'=>'view', $event['AwayTeam']['id'])); ?>
+  <?php echo $this->Html->teamLink($event['AwayTeam'], array('class'=>null)); ?>
 </h1>
 
 <time class="dtstart dtstamp">
