@@ -4,6 +4,7 @@
 
     <?php echo $this->element('Navigation/search'); ?></li>
 
+    <button class="toggle-nav">Toggle navigation</button>
     <nav>
         <dl>
             <dt><?php echo $this->Html->link('Competitions', array('controller'=>'competitions','action'=>'index')); ?></dt>

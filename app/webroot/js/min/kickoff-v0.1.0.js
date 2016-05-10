@@ -3489,3 +3489,9 @@ $(document).ready(function(){
   $('#EventStart').on('blur', updateEventEnd);
 
 });
+
+$(function(){
+    $('button.toggle-nav').on('click', function() {
+        $(this).toggleClass('expand');
+    });
+});
