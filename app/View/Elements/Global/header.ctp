@@ -7,8 +7,8 @@
     <nav>
         <dl>
             <dt><?php echo $this->Html->link('Competitions', array('controller'=>'competitions','action'=>'index')); ?></dt>
-            <dd><?php echo $this->Html->link('Premier League', array('controller'=>'competitions','action'=>'view', '20')); ?></dd>
-            <dd><?php echo $this->Html->link('Championship', array('controller'=>'competitions','action'=>'view', '1')); ?></dd>
+            <dd><?php echo $this->Html->competitionLink(array('name'=>'Premier League', 'id'=>'20', 'slug'=>'premier-league'), array('class'=>null)); ?></dd>
+            <dd><?php echo $this->Html->competitionLink(array('name'=>'Championship', 'id'=>'1', 'slug'=>'championship'), array('class'=>null)); ?></dd>
         </dl>
     </nav>
 
