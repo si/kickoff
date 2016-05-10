@@ -68,4 +68,19 @@ class CustomHtmlHelper extends HtmlHelper {
         return $this->Html->link($team['name'], $path, $args);
 	}
 
+	public function competitionLink($competition, $args=array()) {
+
+        $path = array('controller'=>'competitions','action'=>'view');
+        $args = array_merge(
+            array(
+                'class'=>'competition'
+            ), $args);
+            
+        if( $competition['slug']!='') {
+            $path[] = $competition['slug'];
+        } else {
+            $path[] = $competition['id'];
+        }
+        return $this->Html->link($competition['name'], $path, $args);
+	}
 }
