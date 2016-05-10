@@ -11,10 +11,7 @@ $this->viewVars['title_for_layout'] = 'Competitions - Kick Off Calendars';
     <li style="<?php echo $this->Html->cssThemeBackground($competition['Theme']['image'], $competition['Theme']['primary_colour']); ?>" 
         class="<?php echo 'competition--status-' . strtolower($competition['Competition']['status']); ?>">
       <h3>
-        <?php echo $this->Html->link(
-             $competition['Competition']['name'], 
-            array('action'=>'view',$competition['Competition']['id'])
-            );
+        <?php echo $this->Html->competitionLink($competition['Competition']);
             
         ?>
       </h3>
