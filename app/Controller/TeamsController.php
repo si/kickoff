@@ -350,9 +350,9 @@ class TeamsController extends AppController {
 					`Team`.`id` AS `id`
 					, `Team`.`name` AS `name`
 					, `Team`.`slug` AS `slug`
-					, `Competition`.`id` AS `competition_id`
-					, `Competition`.`name` AS `competition_name`
-					, `Competition`.`slug` AS `competition_slug`
+					, `Competition`.`id` AS `id`
+					, `Competition`.`name` AS `name`
+					, `Competition`.`slug` AS `slug`
 				FROM `events` AS `Event`
 				LEFT JOIN `teams` AS `Team` ON `Event`.`home_team_id` = `Team`.`id`
 				LEFT JOIN `competitions` AS `Competition` ON `Event`.`competition_id` = `Competition`.`id`
