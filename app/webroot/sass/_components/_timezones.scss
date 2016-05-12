@@ -1,5 +1,5 @@
 #timezones {
-    display: none;
+    display: block;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -7,9 +7,13 @@
     right: 0;
     overflow: scroll;
     background: rgba(#000,0.9);
-    z-index: 1000;
-
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    
     &:target {
-        display:block;
+        z-index: 1000;
+        visibility: visible;
+        opacity: 1;
     }
 }
