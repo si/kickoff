@@ -4,6 +4,9 @@ $icon-base : $image-base + '/icons/';
 $break-small: 700px;
 $break-large: 1100px;
 
+$title-skew : -15deg;
+$title-distance : -99em;
+
 // Base
 @import "_base/footer";
 @import "_base/forms";
