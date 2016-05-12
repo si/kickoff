@@ -69,8 +69,8 @@ $this->viewVars['title_for_layout'] = $title;
         <?php 
           echo $this->Html->competitionLink($event['Competition']); ?> 
       </td>
-      <td class="time">
-        <?php echo $this->Time->format('d M y H:i', $event['Event']['updated']); ?>
+      <td>
+        <small><time><?php echo $this->Time->format('d M y H:i', $event['Event']['updated']); ?></time></small>
       </td>
     </tr>
   </tbody>
