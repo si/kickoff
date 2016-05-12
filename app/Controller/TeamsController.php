@@ -152,188 +152,200 @@ class TeamsController extends AppController {
 			}
 		}
 
-			// Get team details from ID
-			$team = $this->Team->findById($id);
-			$this->set('team', $team);
+		// Get team details from ID
+		$team = $this->Team->findById($id);
+		$this->set('team', $team);
 
-			//_debug($team);
+		//_debug($team);
 
-			if(count($team)>0) {
-				$source = $team['Team']['events_import_url'];
-				$content .= 'Source: ' . $source . '<br/>';
-				$sport_id = $team['Team']['sport_id'];
-				$competition_id = $team['Team']['competition_id'];
+		if(count($team)>0) {
+			$source = $team['Team']['events_import_url'];
+			$content .= 'Source: ' . $source . '<br/>';
+			$sport_id = $team['Team']['sport_id'];
+			$competition_id = $team['Team']['competition_id'];
 
-				// CURL the source
+			// CURL the source
 
-				if(!function_exists('curl_init')) {
-					die('cURL is not installed.');
-				}
+			if(!function_exists('curl_init')) {
+				die('cURL is not installed.');
+			}
 
-				$ch = curl_init();
-	         	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	         	curl_setopt($ch, CURLOPT_URL, $source);
-	         	//curl_setopt($c, CURLOPT_CONNECTTIMEOUT, 2);
-	         	//curl_setopt($c, CURLOPT_TIMEOUT, 4);
-	         	//curl_setopt($c, CURLOPT_USERAGENT, "Scraper");
-	         	//curl_setopt($c, CURLOPT_FOLLOWLOCATION,1);
-	         	$response = curl_exec($ch);
-	         	curl_close($ch);
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_URL, $source);
+			//curl_setopt($c, CURLOPT_CONNECTTIMEOUT, 2);
+			//curl_setopt($c, CURLOPT_TIMEOUT, 4);
+			//curl_setopt($c, CURLOPT_USERAGENT, "Scraper");
+			//curl_setopt($c, CURLOPT_FOLLOWLOCATION,1);
+			$response = curl_exec($ch);
+			curl_close($ch);
 
-	         	// Limit response to content required
-				$start = strpos($response, '<div class="fixtures-table team-fixtures full-table-medium" id="fixtures-data">');
-				$end = strpos($response, '<p class="disclaimer">');
-				$length = $end - $start;
-				$response = substr($response, $start, $length);
+			// Limit response to content required
+			$start = strpos($response, '<div class="fixtures-table team-fixtures full-table-medium" id="fixtures-data">');
+			$end = strpos($response, '<p class="disclaimer">');
+			$length = $end - $start;
+			$response = substr($response, $start, $length);
 
-				//_debug($response);
+			//_debug($response);
 
-				// Parse response as (valid) XML
-				$xml = simplexml_load_string($response);
+			// Parse response as (valid) XML
+			$xml = simplexml_load_string($response);
 
-				//_debug($xml);
+			//_debug($xml);
 
-				$tables = 0;
+			$tables = 0;
 
-				// Loop through tables (months)
-				foreach($xml->table as $table) {
-					$content .= '<li>' . $table->caption . ', ' . $tables . '<ul>';
+			// Loop through tables (months)
+			foreach($xml->table as $table) {
+				$content .= '<li>' . $table->caption . ', ' . $tables . '<ul>';
 
-					$month = $xml->h2[$tables];
+				$month = $xml->h2[$tables];
 
-					// Loop through each game
-					if(isset($table->tbody->tr) && count($table->tbody->tr)>0) {
+				// Loop through each game
+				if(isset($table->tbody->tr) && count($table->tbody->tr)>0) {
 
-						foreach($table->tbody->tr as $row) {
+					foreach($table->tbody->tr as $row) {
 
-							// Get values from table row
-							$remote_id = (string) $row['id'];
-							$competition_name = trim((string) $row->td[1]);
-							$home_team_name = trim($row->td[2]->p->span[0]->a);
-							$away_team_name = trim($row->td[2]->p->span[2]->a);
-							$kickoff_date = trim($row->td[3]);
-							$kickoff_time = trim($row->td[4]);
+						// Get values from table row
+						$remote_id = (string) $row['id'];
+						$competition_name = trim((string) $row->td[1]);
+						$home_team_name = trim($row->td[2]->p->span[0]->a);
+						$away_team_name = trim($row->td[2]->p->span[2]->a);
+						$kickoff_date = trim($row->td[3]);
+						$kickoff_time = trim($row->td[4]);
 
-							// Find competition as main name
-							$conditions = array(
-								"Competition.name LIKE '%" . $competition_name . "%'",
-							);
-							$competition = $this->Team->Competition->find('first', array('conditions'=>$conditions));
+						// Find competition as main name
+						$conditions = array(
+							"Competition.name LIKE '%" . $competition_name . "%'",
+						);
+						$competition = $this->Team->Competition->find('first', array('conditions'=>$conditions));
 
-							// If not found, create competition
-							if(!$competition) {
-								$competition_data = array(
-									'Competition' => array(
-										'name' => $competition_name,
-										'sport_id' => $sport_id
-									)
-								);
-								$competition = $this->Team->Competition->save($competition_data);
-							}
-							// Get competition id
-							$competition_id = (isset($competition['Competition'])) ? $competition['Competition']['id'] : $competition['id'];
-
-							// Find home team as main name or alias
-							$conditions = array(
-								'or' => array(
-									'Team.name' => $home_team_name,
-									"Team.aliases LIKE '%" . $home_team_name . "%'",
+						// If not found, create competition
+						if(!$competition) {
+							$competition_data = array(
+								'Competition' => array(
+									'name' => $competition_name,
+									'sport_id' => $sport_id
 								)
 							);
-							$home_team = $this->Team->find('first', array('conditions'=>$conditions));
+							$competition = $this->Team->Competition->save($competition_data);
+						}
+						// Get competition id
+						$competition_id = (isset($competition['Competition'])) ? $competition['Competition']['id'] : $competition['id'];
 
-							// If not found, create
-							if(!$home_team) {
-								$home_team_data = array(
-									'Team' => array(
-										'name' => $home_team_name,
-										'sport_id' => $sport_id
-									)
-								);
-								$home_team = $this->Team->save($home_team_data);
-							}
-							// Get home team id
-							$home_team_id = (isset($home_team['Team'])) ? $home_team['Team']['id'] : $home_team['id'];
+						// Find home team as main name or alias
+						$conditions = array(
+							'or' => array(
+								'Team.name' => $home_team_name,
+								"Team.aliases LIKE '%" . $home_team_name . "%'",
+							)
+						);
+						$home_team = $this->Team->find('first', array('conditions'=>$conditions));
 
-							// Find away team as main name or alias
-							$conditions = array(
-								'or' => array(
-									'Team.name' => $away_team_name,
-									"Team.aliases LIKE '%" . $away_team_name . "%'",
+						// If not found, create
+						if(!$home_team) {
+							$home_team_data = array(
+								'Team' => array(
+									'name' => $home_team_name,
+									'sport_id' => $sport_id
 								)
 							);
-							$away_team = $this->Team->find('first', array('conditions'=>$conditions));
+							$home_team = $this->Team->save($home_team_data);
+						}
+						// Get home team id
+						$home_team_id = (isset($home_team['Team'])) ? $home_team['Team']['id'] : $home_team['id'];
 
-							// If not found, create
-							if(!$away_team) {
-								$away_team_data = array(
-									'Team' => array(
-										'name' => $away_team_name,
-										'sport_id' => $sport_id
-									)
-								);
-								$away_team = $this->Team->save($away_team_data);
-							}
-							//var_dump($away_team); echo '<hr>';
-							$away_team_id = (isset($away_team['Team'])) ? $away_team['Team']['id'] : $away_team['id'];
+						// Find away team as main name or alias
+						$conditions = array(
+							'or' => array(
+								'Team.name' => $away_team_name,
+								"Team.aliases LIKE '%" . $away_team_name . "%'",
+							)
+						);
+						$away_team = $this->Team->find('first', array('conditions'=>$conditions));
 
-							// Build start field from date and time
-                            // TODO: set kickoff time to support BST 
-                            // (store as UTC, -1h between last Sun of Mar to last Sun of Oct)
-                            // strtotime('Last Sunday of March')
-                            // strtotime('Last Sunday of October')
-							$kickoff_str = substr($kickoff_date, 0, -3) . ' ' . $month . ' ' . $kickoff_time;
-							$kickoff = $this->_dateToArray($kickoff_str);
-
-							// Create end field from start field + 110 minutes
-							$ends = date_create($kickoff_str);
-							$ends = date_add($ends, date_interval_create_from_date_string('110 minutes'));
-							$ends = date_format($ends, 'c');
-							$ends = $this->_dateToArray($ends);
-
-							// Output scraped data
-							$content .= '<li>' . $remote_id . ': ' . $competition_name . ' (' . $competition_id . ') - ' . $home_team_name . ' (' . $home_team_id . ') v ' . $away_team_name . ' (' . $away_team_id . ') - ' . $kickoff_str;
-
-							// Define data structure for saving
-							$data = array(
-								'Event' => array(
-									'start' => $kickoff,
-									'end' => $ends,
-									'summary' => $home_team['Team']['name'] . ' v ' . $away_team['Team']['name'],
-									'home' => $home_team_name,
-									'away' => $away_team_name,
-									'home_team_id' => $home_team_id,
-									'away_team_id' => $away_team_id,
-									'group' => $competition_name,
-									'remote_id' => $remote_id,
-									'competition_id' => $competition_id
-								),
+						// If not found, create
+						if(!$away_team) {
+							$away_team_data = array(
+								'Team' => array(
+									'name' => $away_team_name,
+									'sport_id' => $sport_id
+								)
 							);
+							$away_team = $this->Team->save($away_team_data);
+						}
+						//var_dump($away_team); echo '<hr>';
+						$away_team_id = (isset($away_team['Team'])) ? $away_team['Team']['id'] : $away_team['id'];
 
-							// Check for existing event based on remote ID
-							$event = $this->Team->Event->findByRemoteId($remote_id);
+						// Build start field from date and time
+						$kickoff_str = substr($kickoff_date, 0, -3) . ' ' . $month . ' ' . $kickoff_time;
 
-							// Set id to record if found
-							if(count($event)>0) $data['Event']['id'] = $event['Event']['id'];
-							$content .= ', ID: ' . $data['Event']['id'];
+						// Create starts date objects from string
+						$starts = date_create($kickoff_str);
 
-							// Save (INSERT or UPDATE) all the data
-							$savedResponse = $this->Team->Event->save($data);
+						// Set kickoff time to support BST 
+						// store as UTC (-1h) between last Sun of Mar to last Sun of Oct
+						$bst_start = strtotime('Last Sunday of March');
+						$bst_end = strtotime('Last Sunday of October');
+						if($starts >= $bst_start && $starts < $bst_end) {
+							$starts = date_add($starts, date_interval_create_from_date_string('-1 hour'));
+						}
+						
+						// Set base for end time
+						$ends = $starts;
+						
+						// Convert start date obj to array
+						$starts = date_format($starts, 'c');
+						$kickoff = $this->_dateToArray($starts);
 
-							//echo ' (<em>' . var_dump($savedResponse) . '</em>)';
+						// Set end field + 110 minutes (average football game duration)
+						$ends = date_add($ends, date_interval_create_from_date_string('110 minutes'));
+						$ends = date_format($ends, 'c');
+						$ends = $this->_dateToArray($ends);
 
-						}	// loop through rows (games)
+						// Output scraped data
+						$content .= '<li>' . $remote_id . ': ' . $competition_name . ' (' . $competition_id . ') - ' . $home_team_name . ' (' . $home_team_id . ') v ' . $away_team_name . ' (' . $away_team_id . ') - ' . $kickoff_str;
 
-						$content .= '</ul></li>';
+						// Define data structure for saving
+						$data = array(
+							'Event' => array(
+								'start' => $kickoff,
+								'end' => $ends,
+								'summary' => $home_team['Team']['name'] . ' v ' . $away_team['Team']['name'],
+								'home' => $home_team_name,
+								'away' => $away_team_name,
+								'home_team_id' => $home_team_id,
+								'away_team_id' => $away_team_id,
+								'group' => $competition_name,
+								'remote_id' => $remote_id,
+								'competition_id' => $competition_id
+							),
+						);
 
-					}	// if any rows
+						// Check for existing event based on remote ID
+						$event = $this->Team->Event->findByRemoteId($remote_id);
 
-					$tables++;
-					//if($tables==1) break;	// Limit to first month
+						// Set id to record if found
+						if(count($event)>0) $data['Event']['id'] = $event['Event']['id'];
+						$content .= ', ID: ' . $data['Event']['id'];
 
-				}	// loop tables
+						// Save (INSERT or UPDATE) all the data
+						$savedResponse = $this->Team->Event->save($data);
 
-			}	/// end team data
+						//echo ' (<em>' . var_dump($savedResponse) . '</em>)';
+
+					}	// loop through rows (games)
+
+					$content .= '</ul></li>';
+
+				}	// if any rows
+
+				$tables++;
+				//if($tables==1) break;	// Limit to first month
+
+			}	// loop tables
+
+		}	/// end team data
 
 		// Update import updated 
 		$this->Team->save( array(
