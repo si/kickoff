@@ -3,14 +3,15 @@ $title = 'Kick Off Calendars';
 if(isset($event)) $title = $event['Event']['summary'] . ' - ' . $event['Competition']['name'] . ' - ' . $title;
 $this->viewVars['title_for_layout'] = $title;
 ?>
+<article typeof="SportsEvent" vocab="http://schema.org/">
 <h1 class="summary vs">
-  <?php echo $this->Html->teamLink($event['HomeTeam'], array('class'=>null)); ?>
+  <?php echo $this->Html->teamLink($event['HomeTeam'], array('class'=>null, 'property'=>'performers')); ?>
   <abbr title="versus">v</abbr>
-  <?php echo $this->Html->teamLink($event['AwayTeam'], array('class'=>null)); ?>
+  <?php echo $this->Html->teamLink($event['AwayTeam'], array('class'=>null, 'property'=>'performers')); ?>
 </h1>
 
 <time class="dtstart dtstamp">
-  <span class="date">
+  <span class="date" property="startDate">
     <?php echo $this->Time->format('D j\<\s\u\p\>S\<\/\s\u\p\> M Y', $event['Event']['start']); ?>
   </span>
   <span class="time">
@@ -65,7 +66,7 @@ $this->viewVars['title_for_layout'] = $title;
   </thead>
   <tbody>
     <tr>
-      <td>
+      <td property="superEvent">
         <?php 
           echo $this->Html->competitionLink($event['Competition']); ?> 
       </td>
@@ -88,3 +89,4 @@ $this->viewVars['title_for_layout'] = $title;
   ?>
 
 </div>
+</article>
