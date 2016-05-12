@@ -18,14 +18,14 @@ foreach ($timezone_identifiers as $continent=>$list) :
     <h3><?php echo $continent; ?></h3>
     <ul>
         <?php foreach ($list as $index=>$name) : 
-            $name = str_replace($continent . '/', '', $name);
+            $display = str_replace($continent . '/', '', $name);
         ?>
         <li>
-        <?php echo $this->Html->link($name, array(
+        <?php echo $this->Html->link($display, array(
                 'controller' => $this->params['controller'], 
                 'action' => $this->params['action'], 
                 $this->params['pass'][0],
-                'timezone' => $index,
+                'timezone' => str_replace('/', '-', $name),
             )); ?></li>
         <?php endforeach; ?>      
     </ul>
