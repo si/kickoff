@@ -16,7 +16,15 @@ $this->viewVars['title_for_layout'] = $title;
   </span>
   <span class="time">
     <span class="hour"><?php echo $this->Time->format('g', $event['Event']['start']); ?></span><span class="separator">:</span><span class="minute"><?php echo $this->Time->format('i', $event['Event']['start']); ?></span><span class="ordinal"><?php echo $this->Time->format('a', $event['Event']['start']); ?></span>
-    <span class="timezone"><?php echo $this->Time->format('T', $event['Event']['start']); ?></span>
+    <a href="#timezones" class="timezone"><?php echo $this->Time->format('T', $event['Event']['start']); ?></a>
+    <ul id="timezones">
+      <?php
+      $timezone_identifiers = DateTimeZone::listIdentifiers();
+      foreach ($timezone_identifiers as $index=>$name) :
+      ?>
+      <li><?php echo $this->Html->link($name, '/calendars/set_timezone/' . $index); ?></li>
+      <?php endforeach; ?>      
+    </ul>
   </span>
 </time>
 
