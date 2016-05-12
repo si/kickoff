@@ -12,11 +12,18 @@ $this->viewVars['title_for_layout'] = $title;
 
 <time class="dtstart dtstamp">
   <span class="date" property="startDate">
-    <?php echo $this->Time->format('D j\<\s\u\p\>S\<\/\s\u\p\> M Y', $event['Event']['start']); ?>
+    <?php
+    $start = new DateTime($event['Event']['start'], new DateTimeZone('UTC'));
+
+    if(isset($this->params['named']['timezone'])) {
+      $start->setTimezone( new DateTimeZone( str_replace('-', '/', $this->params['named']['timezone'] ) ) );
+    }
+    echo $start->format('D j\<\s\u\p\>S\<\/\s\u\p\> M Y'); 
+    ?>
   </span>
   <span class="time">
-    <span class="hour"><?php echo $this->Time->format('g', $event['Event']['start']); ?></span><span class="separator">:</span><span class="minute"><?php echo $this->Time->format('i', $event['Event']['start']); ?></span><span class="ordinal"><?php echo $this->Time->format('a', $event['Event']['start']); ?></span>
-    <a href="#timezones" class="timezone"><?php echo $this->Time->format('T', $event['Event']['start']); ?></a>
+    <span class="hour"><?php echo $start->format('g'); ?></span><span class="separator">:</span><span class="minute"><?php echo $start->format('i'); ?></span><span class="ordinal"><?php echo $start->format('a'); ?></span>
+    <a href="#timezones" class="timezone"><?php echo $start->format('T'); ?></a>
     <?php echo $this->element('Modules/timezones'); ?>
   </span>
 </time>
