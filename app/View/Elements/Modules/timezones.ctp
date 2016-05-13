@@ -20,7 +20,7 @@ foreach ($timezone_identifiers as $continent=>$list) :
         <?php foreach ($list as $index=>$name) :
             // Remove continents 
             $display = str_replace($continent . '/', '', $name);
-            $display = str_replace('_', ' ', $display);
+            $display = str_replace(['_', '/'], ' ', $display);
         ?>
         <li>
         <?php echo $this->Html->link($display, array(
