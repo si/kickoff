@@ -27,8 +27,14 @@
     margin: 0 2rem 1rem;
   }
 
-  p small {
+  p small,
+  .meta {
     color: rgba(#FFF,0.5);
     display: block;
+    
+    a {
+      display: inline-block;
+      margin: 0 0.5rem 0.5rem;
+    }
   }
 }
