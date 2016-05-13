@@ -15,15 +15,20 @@ $this->viewVars['title_for_layout'] = $title;
 echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming')); 
 ?>
 
-<p><small>
-  <?php if(isset($team['Competition']['id'])) {
-    echo $this->Html->competitionLink($team['Competition']);
-    }
+<p class="meta"><small>
+  <?php 
+  if( isset($team['Competition']['id']) ) {
+    $competition = $team['Competition'];
+  } elseif( count($events) > 0 && isset($events[0]['Competition']) ) {
+    $competition = $events[0]['Competition'];
+  }
+  
+  echo $this->Html->competitionLink($competition);
   ?>
   <?php echo $this->Html->link($team['Sport']['name'],array('controller'=>'sports','action'=>'view',$team['Sport']['id']), array('class'=>'sport')); ?>
 </small></p>
 
-<div class="">
+<div class="admin-cta">
   <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','home_team_id'=>$team['Team']['id']),array('class'=>'btn')); ?>
   <?php echo $this->Html->adminLink('Edit',array('action'=>'edit',$team['Team']['id']),array('class'=>'btn')); ?>
   <?php echo $this->Html->link('Export',array('action'=>'export',$team['Team']['id'],'json'),array('download'=>true, 'class'=>'btn ', 'title'=>'Export to JSON')); ?>
