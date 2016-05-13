@@ -15,6 +15,7 @@
 
     foreach ($timezone_identifiers as $continent=>$list) :
     ?>
+    <section id="Timezone<?php echo $continent; ?>" class="continent">
     <h4><?php echo $continent; ?></h4>
     <ul>
         <?php foreach ($list as $index=>$name) :
@@ -31,6 +32,7 @@
             )); ?></li>
         <?php endforeach; ?>      
     </ul>
+    </section>
 <?php
 endforeach;
 ?>
