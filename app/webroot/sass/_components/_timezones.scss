@@ -11,6 +11,10 @@
     opacity: 0;
     transition: all 0.3s ease;
     
+    h3, h2 {
+        padding: 0 10px;
+    }
+    
     &:target {
         z-index: 1000;
         visibility: visible;

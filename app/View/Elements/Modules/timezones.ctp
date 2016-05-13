@@ -1,21 +1,21 @@
 <div id="timezones">
     <a href="#" class="close">&times;</a>
-    <h2>Select your timezone</h2>
-<?php
-$timezone_identifiers = array(
-    'Africa' => DateTimeZone::listIdentifiers(DateTimeZone::AFRICA),
-    'America' => DateTimeZone::listIdentifiers(DateTimeZone::AMERICA),
-    'Antarctica' => DateTimeZone::listIdentifiers(DateTimeZone::ANTARCTICA),
-    'Arctic' => DateTimeZone::listIdentifiers(DateTimeZone::ARCTIC),
-    'Asia' => DateTimeZone::listIdentifiers(DateTimeZone::ASIA),
-    'Europe' => DateTimeZone::listIdentifiers(DateTimeZone::EUROPE),
-    'Indian' => DateTimeZone::listIdentifiers(DateTimeZone::INDIAN),
-    'Pacific' => DateTimeZone::listIdentifiers(DateTimeZone::PACIFIC),
-);
+    <h3>Select your timezone</h3>
+    <?php
+    $timezone_identifiers = array(
+        'Africa' => DateTimeZone::listIdentifiers(DateTimeZone::AFRICA),
+        'America' => DateTimeZone::listIdentifiers(DateTimeZone::AMERICA),
+        'Antarctica' => DateTimeZone::listIdentifiers(DateTimeZone::ANTARCTICA),
+        'Arctic' => DateTimeZone::listIdentifiers(DateTimeZone::ARCTIC),
+        'Asia' => DateTimeZone::listIdentifiers(DateTimeZone::ASIA),
+        'Europe' => DateTimeZone::listIdentifiers(DateTimeZone::EUROPE),
+        'Indian' => DateTimeZone::listIdentifiers(DateTimeZone::INDIAN),
+        'Pacific' => DateTimeZone::listIdentifiers(DateTimeZone::PACIFIC),
+    );
 
-foreach ($timezone_identifiers as $continent=>$list) :
-?>
-    <h3><?php echo $continent; ?></h3>
+    foreach ($timezone_identifiers as $continent=>$list) :
+    ?>
+    <h4><?php echo $continent; ?></h4>
     <ul>
         <?php foreach ($list as $index=>$name) :
             // Remove continents 
