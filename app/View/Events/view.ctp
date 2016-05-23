@@ -41,23 +41,8 @@ $this->viewVars['title_for_layout'] = $title;
 
 <h2><a href="#broadcast">Watching</a> or <a href="#travel">Going</a>?</h2>
 
-<section id="travel">
-  <h3>Travel Options</h3>
-<?php if( isset($event['Location']) ) : ?>
-    <div id="EventLocationTravel">
-        <h2>Travelling?</h2>
-        <?php echo $this->element('Modules/map', array('location'=>$event['Location'])); ?>
-    </div>
-
-    <div id="EventLocationPub">
-        <h2>Pub?</h2>
-        <?php echo $this->element('Modules/matchpint', array('location'=>$event['Location'])); ?>
-    </div>
-
-<?php endif; ?>
-</section>
-
 <section id="broadcast">
+
   <h3>Broadcast Options</h3>
   <p>This game will be broadcast on the following channels</p>
   <ul>
@@ -70,7 +55,33 @@ $this->viewVars['title_for_layout'] = $title;
     <li><a href="#">BBC Local</a></li>
     <li><a href="#">Online</a></li>
   </ul>  
+
+  <div id="pub">
+    <h3>Pub?</h3>
+    <?php echo $this->element('Modules/matchpint', array('location'=>$event['Location'])); ?>
+  </div>
+
 </section>
+
+<section id="travel">
+
+  <h3>Travel Options</h3>
+  <?php echo $this->element('Modules/map', array('location'=>$event['Location'])); ?>
+
+  <div id="driving">
+    <h4>Driving?</h4>
+  </div>
+
+  <div id="public">
+    <h4>Public transport</h4>
+  </div>
+
+  <div id="accommodation">
+    <h4>Local accommodation</h4>
+  </div>
+
+</section>
+
 
 
 <?php if($event['Event']['description']!='') : ?>
