@@ -23,7 +23,7 @@ echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upc
     $competition = $events[0]['Competition'];
   }
   
-  echo $this->Html->competitionLink($competition);
+  if(isset($competition)) echo $this->Html->competitionLink($competition);
   ?>
   <?php echo $this->Html->link($team['Sport']['name'],array('controller'=>'sports','action'=>'view',$team['Sport']['id']), array('class'=>'sport')); ?>
 </small></p>
