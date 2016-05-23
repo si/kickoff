@@ -14,6 +14,7 @@ echo $this->Form->create('Team');
 	<?php echo $this->Form->input('slug', array('label'=>'Slug','placeholder'=>'URL friendly', 'div'=>'span4','class'=>'span4')); ?>
   </div>
   <div class="row">
+	<?php echo $this->Form->input('location_id', array('label'=>'Location','empty'=>'-','div'=>'span4','class'=>'span4','empty'=>'-')); ?>
 	<?php echo $this->Form->input('competition_id', array('label'=>'Competition','empty'=>'-','div'=>'span4','class'=>'span4')); ?>
 	<?php echo $this->Form->input('sport_id', array('label'=>'Sport','empty'=>'-','div'=>'span4','class'=>'span4')); ?>
 	<?php echo $this->Form->input('theme_id', array('label'=>'Theme','empty'=>'-','div'=>'span4','class'=>'span4','empty'=>'-')); ?>
