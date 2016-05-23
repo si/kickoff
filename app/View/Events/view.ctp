@@ -39,24 +39,38 @@ $this->viewVars['title_for_layout'] = $title;
 
 <?php echo $this->element('Ads/google'); ?>
 
-<?php if($event['Event']['location']) : ?>
-    
+<h2><a href="#broadcast">Watching</a> or <a href="#travel">Going</a>?</h2>
+
+<section id="travel">
+  <h3>Travel Options</h3>
+<?php if( isset($event['Location']) ) : ?>
     <div id="EventLocationTravel">
         <h2>Travelling?</h2>
-        <?php echo $this->element('Modules/map', array('location'=>$event['Event']['location'])); ?>
+        <?php echo $this->element('Modules/map', array('location'=>$event['Location'])); ?>
     </div>
 
     <div id="EventLocationPub">
         <h2>Pub?</h2>
-        <?php echo $this->element('Modules/matchpint', array('location'=>$event['Event']['location'])); ?>
+        <?php echo $this->element('Modules/matchpint', array('location'=>$event['Location'])); ?>
     </div>
 
 <?php endif; ?>
+</section>
 
-<div id="EventLocationBroadcast">
-    <h2>Staying at home?</h2>
-    <p>Broadcasting on <a href="#">BT Sport</a></p>
-</div>
+<section id="broadcast">
+  <h3>Broadcast Options</h3>
+  <p>This game will be broadcast on the following channels</p>
+  <ul>
+    <li><a href="#">Sky Sports</a></li>
+    <li><a href="#">BT Sports</a></li>
+    <li><a href="#">BBC</a></li>
+    <li><a href="#">ITV</a></li>
+    <li><a href="#">Five</a></li>
+    <li><a href="#">BBC 5 Live</a></li>
+    <li><a href="#">BBC Local</a></li>
+    <li><a href="#">Online</a></li>
+  </ul>  
+</section>
 
 
 <?php if($event['Event']['description']!='') : ?>
