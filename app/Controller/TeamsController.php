@@ -69,6 +69,27 @@ class TeamsController extends AppController {
 		}
 	}
 
+	function form($id='') {
+	
+		if(isset($this->data) && count($this->data)>0) {
+			$this->Competition->save($this->data);
+			$this->redirect(array('action'=>'view',$this->Competition->id));
+		}
+	
+		if($id!='') {
+			$this->data = $this->Competition->findById($id);
+		}
+
+		$this->set('sports', $this->Competition->Sport->find('list'));
+		$this->set('themes', $this->Competition->Theme->find('list'));
+		$this->set('status', array(
+            'D' => 'Draft',
+            'L' => 'Live',
+            'A' => 'Archive',
+        ));
+  	
+	}
+
 	function export($id='',$format='ics') { 
 
 		$this->layout = $format.'/default';
