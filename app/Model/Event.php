@@ -6,6 +6,7 @@ class Event extends AppModel {
   var $order = 'Event.start ASC';
   var $belongsTo = array(
     'Competition',
+    'Location',
     'HomeTeam' => array(
         'className'    => 'Team',
         'foreignKey'   => 'home_team_id',
