@@ -72,16 +72,18 @@ class TeamsController extends AppController {
 	function form($id='') {
 	
 		if(isset($this->data) && count($this->data)>0) {
-			$this->Competition->save($this->data);
-			$this->redirect(array('action'=>'view',$this->Competition->id));
+			$this->Team->save($this->data);
+			$this->redirect(array('action'=>'view',$this->Team->id));
 		}
 	
 		if($id!='') {
-			$this->data = $this->Competition->findById($id);
+			$this->data = $this->Team->findById($id);
 		}
 
-		$this->set('sports', $this->Competition->Sport->find('list'));
-		$this->set('themes', $this->Competition->Theme->find('list'));
+		$this->set('locations', $this->Team->Location->find('list'));
+		$this->set('competitions', $this->Team->Competition->find('list'));
+		$this->set('sports', $this->Team->Sport->find('list'));
+		$this->set('themes', $this->Team->Theme->find('list'));
 		$this->set('status', array(
             'D' => 'Draft',
             'L' => 'Live',

@@ -21,7 +21,7 @@ echo $this->Form->create('Team');
   </div>	
   <div class="row">
 	<?php echo $this->Form->input('events_import_url', array('label'=>'Event Import URL','type'=>'url','div'=>'span8','class'=>'span8')); ?>
-	<span class="span4">Last import: <?php echo (isset($this->data['Team'])) ? $this->data['Team']['events_import_updated'] : 'N/A'; ?></span>
+	<small class="span4">Last import: <?php echo (isset($this->data['Team'])) ? $this->data['Team']['events_import_updated'] : 'N/A'; ?></small>
   </div>	
 </fieldset>
 <?php
