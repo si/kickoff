@@ -30,7 +30,7 @@ echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upc
 
 <div class="admin-cta">
   <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','home_team_id'=>$team['Team']['id']),array('class'=>'btn')); ?>
-  <?php echo $this->Html->adminLink('Edit',array('action'=>'edit',$team['Team']['id']),array('class'=>'btn')); ?>
+  <?php echo $this->Html->adminLink('Edit',array('action'=>'form',$team['Team']['id']),array('class'=>'btn')); ?>
   <?php echo $this->Html->link('Export',array('action'=>'export',$team['Team']['id'],'json'),array('download'=>true, 'class'=>'btn ', 'title'=>'Export to JSON')); ?>
   <?php echo $this->Html->adminLink('Sync',array('action'=>'import_events',$team['Team']['id']),array('class'=>'btn ')); ?>
   <?php echo $this->Html->adminPostLink( 'Delete',
