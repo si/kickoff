@@ -39,3 +39,10 @@
   }
 
 }
+
+// Apply gutter to collapsed "columns"
+@media (max-width: 767px) {
+  *[class*="span"] {
+    padding: 0 12px;
+  }
+}
