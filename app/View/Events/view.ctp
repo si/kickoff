@@ -45,7 +45,7 @@ $this->viewVars['title_for_layout'] = $title;
     
   <section class="col" id="broadcast">
 
-    <h3>Broadcast Options</h3>
+    <h3>Stay at Home</h3>
     <p>This game will be broadcast on the following channels</p>
     
     <ul class="inline">
@@ -76,11 +76,11 @@ $this->viewVars['title_for_layout'] = $title;
     </div>
 
     <div id="public">
-      <h4>Public transport</h4>
+      <h4>Public Transport</h4>
     </div>
 
     <div id="accommodation">
-      <h4>Local accommodation</h4>
+      <h4>Local Accommodation</h4>
     </div>
 
   </section>
