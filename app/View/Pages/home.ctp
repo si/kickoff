@@ -22,7 +22,7 @@ echo $this->requestAction(['controller' => 'teams', 'action' => 'by_competition'
 
   <form class="email col">
     <h3 class="i-email">Prefer email?</h3>
-    <label for="email">Sign up to our newsletter for product updates - no spam, we promise!</label>
+    <p>Sign up to our newsletter for product updates - no spam, we promise!</p>
     <input type="email" name="email" id="email" />
     <button type="submit">Register</button>
   </form>
