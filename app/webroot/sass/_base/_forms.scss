@@ -19,31 +19,6 @@ label {
   color: rgba(#FFF,0.5);
 }
 
-select, textarea, 
-input[type="text"], 
-input[type="password"], 
-input[type="datetime"], 
-input[type="datetime-local"], 
-input[type="date"], 
-input[type="month"], 
-input[type="time"], 
-input[type="week"], 
-input[type="number"], 
-input[type="email"], 
-input[type="url"], 
-input[type="search"], 
-input[type="tel"], 
-input[type="color"], 
-.uneditable-input {
-  border: none;
-  color: #000;
-  height: auto;
-  padding: 1rem 0 !important;
-  transition: all 0.25s ease;
-
-  &:focus {
-  }
-}
 
 input[readonly] {
   background: rgba(#FFF, 0.5);
@@ -69,5 +44,31 @@ input[readonly] {
   label {
     display: inline-block;
     line-height: 1.3rem;
+  }
+}
+
+// Override BOOTSTRAP defaults
+form {
+  select, textarea, 
+  input[type="text"], 
+  input[type="password"], 
+  input[type="datetime"], 
+  input[type="datetime-local"], 
+  input[type="date"], 
+  input[type="month"], 
+  input[type="time"], 
+  input[type="week"], 
+  input[type="number"], 
+  input[type="email"], 
+  input[type="url"], 
+  input[type="search"], 
+  input[type="tel"], 
+  input[type="color"], 
+  .uneditable-input {
+    border: none;
+    color: #000;
+    height: auto;
+    padding: 1rem 0;
+    transition: all 0.25s ease;
   }
 }
