@@ -9,19 +9,19 @@ echo $this->Form->create('Team');
 <fieldset>
   <legend>Details</legend>
   <div class="row">
-	<?php echo $this->Form->input('name', array('label'=>'Name','div'=>'span4','class'=>'span4')); ?>
-	<?php echo $this->Form->input('aliases', array('label'=>'Aliases','placeholder'=>'comma separated', 'div'=>'span4','class'=>'span4')); ?>
-	<?php echo $this->Form->input('slug', array('label'=>'Slug','placeholder'=>'URL friendly', 'div'=>'span4','class'=>'span4')); ?>
+		<?php echo $this->Form->input('name', array('label'=>'Name','div'=>'span4','class'=>'span4')); ?>
+		<?php echo $this->Form->input('aliases', array('label'=>'Aliases','placeholder'=>'comma separated', 'div'=>'span4','class'=>'span4')); ?>
+		<?php echo $this->Form->input('slug', array('label'=>'Slug','placeholder'=>'URL friendly', 'div'=>'span4','class'=>'span4')); ?>
   </div>
   <div class="row">
-	<?php echo $this->Form->input('location_id', array('label'=>'Home Stadium','empty'=>'-','div'=>'span4','class'=>'span4','empty'=>'-')); ?>
-	<?php echo $this->Form->input('competition_id', array('label'=>'Competition','empty'=>'-','div'=>'span4','class'=>'span4')); ?>
-	<?php echo $this->Form->input('sport_id', array('label'=>'Sport','empty'=>'-','div'=>'span4','class'=>'span4')); ?>
-	<?php echo $this->Form->input('theme_id', array('label'=>'Theme','empty'=>'-','div'=>'span4','class'=>'span4','empty'=>'-')); ?>
+		<?php echo $this->Form->input('location_id', array('label'=>'Home Stadium','empty'=>'-','div'=>'span3','class'=>'span3','empty'=>'-')); ?>
+		<?php echo $this->Form->input('competition_id', array('label'=>'Competition','empty'=>'-','div'=>'span3','class'=>'span3')); ?>
+		<?php echo $this->Form->input('sport_id', array('label'=>'Sport','empty'=>'-','div'=>'span3','class'=>'span3')); ?>
+		<?php echo $this->Form->input('theme_id', array('label'=>'Theme','empty'=>'-','div'=>'span3','class'=>'span3','empty'=>'-')); ?>
   </div>	
   <div class="row">
-	<?php echo $this->Form->input('events_import_url', array('label'=>'Event Import URL','type'=>'url','div'=>'span8','class'=>'span8')); ?>
-	<small class="span4">Last import: <?php echo (isset($this->data['Team'])) ? $this->data['Team']['events_import_updated'] : 'N/A'; ?></small>
+		<?php echo $this->Form->input('events_import_url', array('label'=>'Event Import URL','type'=>'url','div'=>'span8','class'=>'span8')); ?>
+		<small class="span4">Last import: <?php echo (isset($this->data['Team'])) ? $this->data['Team']['events_import_updated'] : 'N/A'; ?></small>
   </div>	
 </fieldset>
 <?php

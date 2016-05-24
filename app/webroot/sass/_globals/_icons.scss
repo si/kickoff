@@ -2,37 +2,33 @@ $sports: football, rugby, tennis, formula-1;
 $icon-size: 48px;
 
 @mixin icon($name, $size: $icon-size, $color: 'white') {
-    background: url($icon-base + $name + '-' + $color + '.svg') no-repeat 0 0;
-    background-size: $size $size;
+    display: block;   
     content: ' ';
-    display: inline-block;
-    width: $size;
+
+    width: 100%;
     height: $size;
-    margin: 0 6px;
-    
-    @media screen and (max-width: $break-small) {
-        display: block;   
-        background-position-x: 50%;
-        width: 100%;
-        margin: 0;
-    }
+    margin: 0;
+
+    background: url($icon-base + $name + '-' + $color + '.svg') no-repeat 0 0;
+    background-position-x: 50%;
+    background-size: $size $size;
 }
 
 /* Sections */  
 .competition:before {
-    @include icon('trophy', 0.7em);
+    @include icon('trophy', 24px);
 }
 
 .sport:before {
-    @include icon('football', 12px);
+    @include icon('football', 24px);
 }
 
 small time:before {
-    @include icon('clock', 12px);
+    @include icon('clock', 24px);
 }
 
 .location:before {
-    @include icon('pin', 12px);
+    @include icon('pin', 24px);
 }
 
 /* Sports */
