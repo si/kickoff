@@ -49,6 +49,13 @@
 
 }
 
+ul.inline {
+  list-style: none;
+  li {
+    display: inline-block;
+  }
+}
+
 // Apply gutter to collapsed "columns"
 @media (max-width: 767px) {
   *[class*="span"] {

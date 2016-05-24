@@ -47,7 +47,8 @@ $this->viewVars['title_for_layout'] = $title;
 
     <h3>Broadcast Options</h3>
     <p>This game will be broadcast on the following channels</p>
-    <ul>
+    
+    <ul class="inline">
       <li><a href="#">Sky Sports</a></li>
       <li><a href="#">BT Sports</a></li>
       <li><a href="#">BBC</a></li>
