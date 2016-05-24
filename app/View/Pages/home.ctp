@@ -15,11 +15,12 @@ echo $this->requestAction(['controller' => 'teams', 'action' => 'by_competition'
 
 <div class="col-2">
   <div class="social col">
+    <h3 class="i-twitter">Get social</h3>
     <p>Follow <a href="https://twitter.com/kickoffcal">@kickoffcal on Twitter</a> for updates.</p>
   </div>
 
   <form class="email col">
-    <h3>Prefer email?</h3>
+    <h3 class="i-email">Prefer email?</h3>
     <label for="email">Sign up to our newsletter for product updates - no spam, we promise!</label>
     <input type="email" name="email" id="email" />
     <button type="submit">Register</button>

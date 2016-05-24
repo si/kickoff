@@ -31,6 +31,14 @@ small time:before {
     @include icon('pin', 24px);
 }
 
+.i-twitter:before {
+    @include icon('twitter', 24px);
+}
+
+.i-email:before {
+    @include icon('mail', 24px);
+}
+
 /* Sports */
 @each $sport in $sports {
     .i-#{$sport}:before {
