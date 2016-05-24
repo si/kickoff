@@ -69,6 +69,12 @@ form {
     color: #000;
     height: auto;
     padding: 1rem 0;
+    margin-bottom: 0;
     transition: all 0.25s ease;
+  }
+  
+  button {
+    height: auto;
+    padding: 1rem;
   }
 }
