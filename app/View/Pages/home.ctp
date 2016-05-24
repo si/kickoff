@@ -1,5 +1,5 @@
 <?php
-$this->viewVars['title_for_layout'] = 'Sports events in your calendar - Kick Off';
+$this->viewVars['title_for_layout'] = 'Kick off times for your calendar - Kick Off Calendars';
 ?>
 
 <h1>Kick off times for all the Premier League and Championship games</h1>
@@ -10,10 +10,11 @@ echo $this->requestAction(['controller' => 'teams', 'action' => 'by_competition'
 
 <div class="breakout">
   <p>Kick Off Calendars is adopting the “<em>release early, release often</em>” mantra.</p>
-  <p>We are working with an active focus group to tailor the experience.</p> 
+  <p>We are working with an active focus group to tailor the experience exactly for digitally connected sports fans.</p> 
 </div>
 
 <div class="col-2">
+  
   <div class="social col">
     <h3 class="i-twitter">Get social</h3>
     <p>Follow <a href="https://twitter.com/kickoffcal">@kickoffcal on Twitter</a> for updates.</p>
@@ -25,4 +26,5 @@ echo $this->requestAction(['controller' => 'teams', 'action' => 'by_competition'
     <input type="email" name="email" id="email" />
     <button type="submit">Register</button>
   </form>
+  
 </div>
