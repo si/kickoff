@@ -1,5 +1,8 @@
 <?php
 class Location extends AppModel {
   var $name = 'Location';
-  var $hasMany = 'Event';
+  var $hasMany = array(
+    'Event',
+    'Team'
+  );
 }
