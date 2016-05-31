@@ -20,8 +20,13 @@ echo $this->Form->create('Team');
 		<?php echo $this->Form->input('theme_id', array('label'=>'Theme','empty'=>'-','div'=>'span3','class'=>'span3','empty'=>'-')); ?>
   </div>	
   <div class="row">
-		<?php echo $this->Form->input('events_import_url', array('label'=>'Event Import URL','type'=>'url','div'=>'span8','class'=>'span8')); ?>
-		<small class="span4">Last import: <?php echo (isset($this->data['Team'])) ? $this->data['Team']['events_import_updated'] : 'N/A'; ?></small>
+		<?php echo $this->Form->input('events_import_url', array(
+				'label'=>'Event Data Source',
+				'type'=>'url',
+				'div'=>'span12',
+				'class'=>'span12', 
+				'after'=>'Last import: ' . ( ( isset($this->data['Team'] ) ) ? $this->Time->format('d M Y H:i', $this->data['Team']['events_import_updated']) : 'N/A' ) )
+		); ?>
   </div>	
 </fieldset>
 <?php
