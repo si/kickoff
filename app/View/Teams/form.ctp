@@ -15,7 +15,7 @@ echo $this->Form->create('Team');
 		<?php echo $this->Form->input('slug', array('label'=>'Slug','placeholder'=>'URL friendly', 'div'=>'span2','class'=>'span2')); ?>
   </div>
   <div class="row">
-		<?php echo $this->Form->input('location_id', array('label'=>'Home Stadium','empty'=>'-','div'=>'span3','class'=>'span3','empty'=>'-')); ?>
+		<?php echo $this->Form->input('location_id', array('label'=>'Home Stadium','empty'=>'-','div'=>'span3','class'=>'span3','empty'=>'-', 'after'=>$this->Html->link('New location',array('controller'=>'locations','action'=>'add'), array('class'=>'btn btn-sm')))); ?>
 		<?php echo $this->Form->input('competition_id', array('label'=>'Competition','empty'=>'-','div'=>'span3','class'=>'span3')); ?>
 		<?php echo $this->Form->input('sport_id', array('label'=>'Sport','empty'=>'-','div'=>'span3','class'=>'span3')); ?>
 		<?php echo $this->Form->input('theme_id', array('label'=>'Theme','empty'=>'-','div'=>'span3','class'=>'span3','empty'=>'-')); ?>
