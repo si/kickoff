@@ -21,6 +21,10 @@ echo $this->Form->create('Team');
 		<?php echo $this->Form->input('theme_id', array('label'=>'Theme','empty'=>'-','div'=>'span3','class'=>'span3','empty'=>'-')); ?>
   </div>	
   <div class="row">
+		<?php echo $this->Form->input('website', array('label'=>'Website','div'=>'span6','class'=>'span6')); ?>
+		<?php echo $this->Form->input('twitter', array('label'=>'Twitter','div'=>'span6','class'=>'span6', 'prefix'=>'@')); ?>
+  </div>	
+  <div class="row">
 		<?php echo $this->Form->input('events_import_url', array(
 				'label'=>'Event Data Source',
 				'type'=>'url',
