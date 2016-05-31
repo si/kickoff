@@ -13,4 +13,8 @@ class LocationsController extends AppController {
     function beforeRender() {
         parent::beforeRender();
     }
+    
+    function teams() {
+        $this->set('locations', $this->Location->find('all') );
+    }
 }
