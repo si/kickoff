@@ -11,7 +11,8 @@ echo $this->Form->create('Team');
   <div class="row">
 		<?php echo $this->Form->input('name', array('label'=>'Name','div'=>'span4','class'=>'span4')); ?>
 		<?php echo $this->Form->input('aliases', array('label'=>'Aliases','placeholder'=>'comma separated', 'div'=>'span4','class'=>'span4')); ?>
-		<?php echo $this->Form->input('slug', array('label'=>'Slug','placeholder'=>'URL friendly', 'div'=>'span4','class'=>'span4')); ?>
+		<?php echo $this->Form->input('short', array('label'=>'Initials','div'=>'span2','class'=>'span2')); ?>
+		<?php echo $this->Form->input('slug', array('label'=>'Slug','placeholder'=>'URL friendly', 'div'=>'span2','class'=>'span2')); ?>
   </div>
   <div class="row">
 		<?php echo $this->Form->input('location_id', array('label'=>'Home Stadium','empty'=>'-','div'=>'span3','class'=>'span3','empty'=>'-')); ?>
