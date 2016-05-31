@@ -73,14 +73,17 @@ $this->viewVars['title_for_layout'] = $title;
 
     <div id="driving">
       <h4>Driving?</h4>
+      <p>[insert map route element here]</p>
     </div>
 
     <div id="public">
       <h4>Public Transport</h4>
+      <p>[insert transport options (train/bus) here]</p>
     </div>
 
     <div id="accommodation">
       <h4>Local Accommodation</h4>
+      <p>[insert hotel/restaurant finder element here]</p>
     </div>
 
   </section>
