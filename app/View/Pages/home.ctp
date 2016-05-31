@@ -18,6 +18,7 @@ echo $this->requestAction(['controller' => 'teams', 'action' => 'by_competition'
   <div class="social col">
     <h3 class="i-twitter">Get social</h3>
     <p>Follow <a href="https://twitter.com/kickoffcal">@kickoffcal on Twitter</a> for site and calendar updates.</p>
+    <a class="btn btn-large" href="https://twitter.com/kickoffcal">Follow @kickoffcal</a>
   </div>
 
   <form class="email col">
