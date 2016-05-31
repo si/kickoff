@@ -39,6 +39,11 @@ small time:before {
     @include icon('mail', 24px);
 }
 
+.i-url:before {
+    @include icon('cloud', 24px);
+}
+
+
 /* Sports */
 @each $sport in $sports {
     .i-#{$sport}:before {
