@@ -19,7 +19,15 @@ class LocationsController extends AppController {
         $this->set('teams', $teams );        
         
         if(isset($this->data)) {
-            var_dump($this->data);
+            //var_dump($this->data);
+            /*
+            $teams = array();
+            $teams['Team'] = array();
+            foreach($this->data['Location'] as $location_id => $location) {
+                $teams['Team'][ $location['team_id'] ] = array('location_id'=>$location_id);
+            }
+            var_dump($teams);
+            */
         }
         
         $this->set('locations', $this->Location->find('all') );
