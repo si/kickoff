@@ -16,16 +16,31 @@ echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upc
 ?>
 
 <p class="meta"><small>
-  <?php 
+  <?php
   if( isset($team['Competition']['id']) ) {
     $competition = $team['Competition'];
   } elseif( count($events) > 0 && isset($events[0]['Competition']) ) {
     $competition = $events[0]['Competition'];
   }
-  
   if(isset($competition)) echo $this->Html->competitionLink($competition);
   ?>
-  <?php echo $this->Html->link($team['Sport']['name'],array('controller'=>'sports','action'=>'view',$team['Sport']['id']), array('class'=>'sport')); ?>
+  
+  <?php echo $this->Html->link($team['Location']['name'], array(
+      'controller'=>'locations',
+      'action'=>'view',
+      $team['Location']['id']
+    ), array(
+      'class'=>'location'
+    )); ?>
+
+  <?php echo $this->Html->link($team['Sport']['name'], array(
+      'controller'=>'sports',
+      'action'=>'view',
+      $team['Sport']['id']
+    ), array(
+      'class'=>'sport'
+    )); ?>
+    
 </small></p>
 
 <div class="admin-cta">
