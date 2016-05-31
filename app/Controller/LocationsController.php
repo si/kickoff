@@ -16,5 +16,6 @@ class LocationsController extends AppController {
     
     function teams() {
         $this->set('locations', $this->Location->find('all') );
+        $this->set('teams', $this->Location->Team->find('list') );        
     }
 }
