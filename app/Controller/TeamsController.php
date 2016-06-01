@@ -385,6 +385,7 @@ class TeamsController extends AppController {
 					`Team`.`id` AS `id`
 					, `Team`.`name` AS `name`
 					, `Team`.`slug` AS `slug`
+					, `Team`.`short` AS `short`
 					, `Competition`.`id` AS `id`
 					, `Competition`.`name` AS `name`
 					, `Competition`.`slug` AS `slug`

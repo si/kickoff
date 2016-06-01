@@ -57,7 +57,8 @@ class CustomHtmlHelper extends HtmlHelper {
         $path = array('controller'=>'teams','action'=>'view');
         $args = array_merge(
             array(
-                'class'=>'team'
+                'class'=>'team',
+                'data-short'=>$team['short'],
             ), $args);
             
         if( $team['slug']!='') {
