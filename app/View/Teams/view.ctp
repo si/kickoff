@@ -5,6 +5,27 @@ $this->viewVars['title_for_layout'] = $title;
 ?>
 
 <h1><?php echo $team['Team']['name']; ?></h1>
+<?php
+// Show Twitter handle if set
+if( isset($team['Team']['twitter']) ) {
+  echo $this->Html->link(
+    '@' . $team['Team']['twitter'], 
+    'https://twitter.com/'.$team['Team']['twitter'],
+    array('class'=>'i-twitter')
+  );
+}
+?>
+<?php
+// Show website if set
+if( isset($team['Team']['website']) ) {
+  $display = str_replace(array('http://','https://', 'www.', '/'), '', $team['Team']['website']);
+  echo $this->Html->link(
+    $display, 
+    $team['Team']['website'],
+    array('class'=>'i-url')
+  );
+}
+?>
 
 <div class="cta">
   <?php echo $this->Html->link('Add to Calendar',array('action'=>'export',$team['Team']['id']),array('class'=>'btn btn-large', 'type'=>'text/calendar')); ?>
