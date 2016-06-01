@@ -66,12 +66,16 @@ header {
         
         h3 {
             font-size: 1rem;
-            margin-bottom: 1rem;
+            margin: 10px 0;
             
             a {
                 display: block;
                 text-align: center;
             }
+        }
+        
+        .group:first-child h3 {
+            margin-top: 0; 
         }
         
         ul {
@@ -92,6 +96,24 @@ header {
             a {
                 display: block;
                 padding: 0.3rem;
+
+                &:after {
+                    content: attr(data-short);
+                    display: none;
+                    width: auto;
+                    height: auto;
+                    text-align: center;
+                }
+                
+                @media screen and (max-width: $break-small) {
+                    text-indent: -9999em;
+                    padding: 0;
+                    
+                    &:after {
+                        text-indent: 0;
+                        display: block;
+                    }
+                }
             }
         }
     }
