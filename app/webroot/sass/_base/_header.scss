@@ -116,6 +116,14 @@ header {
                 }
             }
         }
+        
+        .slick-prev:before {
+            content: '\003c';
+        }
+        .slick-next:before {
+            content: '\003e';
+        }
+    
     }
       
     form {
