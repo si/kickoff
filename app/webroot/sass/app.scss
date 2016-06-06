@@ -16,6 +16,9 @@ $title-distance : -99em;
 @import "_base/tables";
 @import "_base/typography";
 
+// Vendors
+@import "_vendors/slick";
+
 // Globals
 @import "_globals/animations";
 @import "_globals/buttons";
