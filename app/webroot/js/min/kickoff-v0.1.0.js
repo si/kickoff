@@ -3516,7 +3516,7 @@ $(function(){
     
 	$(".slick-nav").slick({
 		dots: true,
-		infinite: false,
+		infinite: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		draggable: true,
