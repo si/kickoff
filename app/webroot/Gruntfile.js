@@ -18,6 +18,7 @@ module.exports = function (grunt) {
 			first_version: {
 				src: [
 					'js/libs/jquery-1.10.2.min.js'
+					, 'js/libs/slick.min.js'
 					, 'js/libs/bootstrap.js'
 					, 'js/libs/bootstrap-datetimepicker.min.js'
 					, 'js/app/**.js'
