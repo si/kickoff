@@ -10,6 +10,24 @@ echo $this->Form->create('Theme', array('type' => 'file'));
   <legend>Details</legend>
   <div class="row">
 		<?php 
+		echo $this->Form->input('name', 
+			array(
+				'label'=>'Name',
+				'div'=>'span4',
+				'class'=>'span4'
+			)
+		); ?>
+		<?php 
+		echo $this->Form->input('primary_colour', 
+		  array(
+		    //'type'=>'color',
+		    'label'=>'Primary Colour (RGB)',
+		    'placeholder'=>'255,255,255',
+		    'div'=>'span4',
+		    'class'=>'span4'
+		  )
+		); ?>
+		<?php 
 		echo $this->Form->input('image', 
 		  array(
 		    'type'=>'file',
@@ -18,26 +36,8 @@ echo $this->Form->create('Theme', array('type' => 'file'));
 		    'class'=>'span4'
 		  )
 		); ?>
-		<?php 
-		echo $this->Form->input('primary_colour', 
-		  array(
-		    'type'=>'color',
-		    'label'=>'Primary Colour (RGB)',
-		    'placeholder'=>'255,255,255',
-		    'div'=>'span4',
-		    'class'=>'span4'
-		  )
-		); ?>
-		<?php 
-		echo $this->Form->input('name', 
-		  array(
-		    'label'=>'Name',
-		    'div'=>'span4',
-		    'class'=>'span4'
-		  )
-		); ?>
   </div>
-  <div class="row">
+  <div class="flex-col">
     <?php echo $this->Form->input('Team.theme_id', array('options'=>$teams, 'empty'=>'-', 'multiple' => 'checkbox')); ?>
   </div>
 </fieldset>
