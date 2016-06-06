@@ -18,7 +18,6 @@ class CustomHtmlHelper extends HtmlHelper {
 	}
 
 	public function colorHexToDec($hex) {
-        //echo 'color: ' . $hex . ';';
         if(strpos($hex,'#') > -1) {
         
             $color = array(
@@ -38,18 +37,19 @@ class CustomHtmlHelper extends HtmlHelper {
             $color['rgb'] = $hex;
         }
 
-      return $color;
+        //var_dump($color);
+        return $color;
 
 	}
 
-    public function cssThemeBackground($img, $color='0,0,0', $position='') {
+    public function cssThemeBackground($img='', $color='0,0,0', $position='') {
         $color = $this->Html->colorHexToDec($color);
-        return 'background: linear-gradient(
+        $bg = 'background: linear-gradient(
                         rgba(' . $color['rgb'] . ', 0.93), 
                         rgba(' . $color['rgb'] . ', 1)
-                    ), 
-                    ' . $position . ' url(/' . $img . ') no-repeat 50% 50%;
-                background-size: cover;';
+                    )';
+        if($img != '') $bg .= ', ' . $position . ' url(/' . $img . ') no-repeat 50% 50%; background-size: cover;';
+        return $bg;
     }
 
 	public function teamLink($team, $args=array()) {
