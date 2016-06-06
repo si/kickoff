@@ -6,7 +6,9 @@
 
     <button class="toggle-nav">Toggle navigation</button>
     <nav>
+        <div class="slick-nav">
         <?php echo $this->requestAction('teams/by_competition/context:nav', ['return']); ?>
+        </div>
     </nav>
     
     
