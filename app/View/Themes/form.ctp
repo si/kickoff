@@ -13,18 +13,28 @@ echo $this->Form->create('Theme', array('type' => 'file'));
 		echo $this->Form->input('name', 
 			array(
 				'label'=>'Name',
-				'div'=>'span4',
-				'class'=>'span4'
+		    'div'=>'span3',
+		    'class'=>'span3'
 			)
 		); ?>
 		<?php 
 		echo $this->Form->input('primary_colour', 
 		  array(
 		    //'type'=>'color',
-		    'label'=>'Primary Colour (RGB)',
-		    'placeholder'=>'255,255,255',
-		    'div'=>'span4',
-		    'class'=>'span4'
+		    'label'=>'Primary Colour',
+		    'placeholder'=>'#RGB or R,G,B',
+		    'div'=>'span3',
+		    'class'=>'span3'
+		  )
+		); ?>
+		<?php 
+		echo $this->Form->input('secondary_colour', 
+		  array(
+		    //'type'=>'color',
+		    'label'=>'Secondary Colour',
+		    'placeholder'=>'#RGB or R,G,B',
+		    'div'=>'span3',
+		    'class'=>'span3'
 		  )
 		); ?>
 		<?php 
@@ -32,13 +42,10 @@ echo $this->Form->create('Theme', array('type' => 'file'));
 		  array(
 		    'type'=>'file',
 		    'label'=>'Image',
-		    'div'=>'span4',
-		    'class'=>'span4'
+		    'div'=>'span3',
+		    'class'=>'span3'
 		  )
 		); ?>
-  </div>
-  <div class="flex-col">
-    <?php echo $this->Form->input('Team.theme_id', array('options'=>$teams, 'empty'=>'-', 'multiple' => 'checkbox')); ?>
   </div>
 </fieldset>
 <?php
