@@ -11,7 +11,7 @@
     } else {
       $color = $this->Html->colorHexToDec($theme['primary_colour']);
     }
-    if($theme['image']!='') {
+    if( $theme['image'] != '' || $color['rgb'] != '' ) {
       echo '<style> body { ' . $this->Html->cssThemeBackground($theme['image'], $color['rgb'], 'fixed') . ' } </style>';
     }
   }
