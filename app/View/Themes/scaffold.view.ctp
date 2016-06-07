@@ -10,9 +10,14 @@ if(isset($theme['Theme']['image']) && $theme['Theme']['image']!='')
 ?>
 
 <?php 
-if(isset($theme['Theme']['primary_colour']) && $theme['Theme']['primary_colour']!='') 
-  echo $this->Html->tag('figcaption', $theme['Theme']['primary_colour'])
-    . '</figure>'; ?>
+if(isset($theme['Theme']['primary_colour']) && $theme['Theme']['primary_colour']!='') {
+  $colour = $this->Html->tag('span', $theme['Theme']['primary_colour'], array('class'=>'swatch', 'style'=>'background-color:'.$theme['Theme']['primary_colour']));
+  if(isset($theme['Theme']['secondary_colour']) && $theme['Theme']['secondary_colour']!='') {
+    $colour .= ' / ' . $this->Html->tag('span', $theme['Theme']['secondary_colour'], array('class'=>'swatch', 'style'=>'background-color:'.$theme['Theme']['secondary_colour']));
+  }
+  echo $this->Html->tag('figcaption', $colour);
+}
+echo '</figure>'; ?>
 
 
 <p><small>Created <?php echo $this->Time->niceShort($theme['Theme']['created']); ?></small></p> 
