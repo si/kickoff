@@ -386,12 +386,14 @@ class TeamsController extends AppController {
 					, `Team`.`name` AS `name`
 					, `Team`.`slug` AS `slug`
 					, `Team`.`short` AS `short`
+					, `Theme`.`primary_colour` AS `primary_colour`
 					, `Competition`.`id` AS `id`
 					, `Competition`.`name` AS `name`
 					, `Competition`.`slug` AS `slug`
 				FROM `events` AS `Event`
 				LEFT JOIN `teams` AS `Team` ON `Event`.`home_team_id` = `Team`.`id`
 				LEFT JOIN `competitions` AS `Competition` ON `Event`.`competition_id` = `Competition`.`id`
+				LEFT JOIN `themes` AS `Theme` ON `Team`.`theme_id` = `Theme`.`id`
 				WHERE `Competition`.`status` = 'L'
 				AND `Event`.`season` = 2015
 				ORDER BY `Competition`.`name` DESC, `Team`.`name` ASC";
