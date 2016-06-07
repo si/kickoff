@@ -117,12 +117,9 @@ header {
             }
         }
         
-        .slick-prev:before {
-            content: '\003c';
-        }
+        .slick-prev,
         .slick-next {
-            right: -10px;
-            
+
             &:before {
                 display: inline-block;
                 width: 9px;
@@ -131,7 +128,14 @@ header {
                 background: url($icon-base + 'arrow-right-white.svg') no-repeat 0 0;
             }
         }
-    
+
+        .slick-prev {
+            transform: scaleX(-1);
+            left: -10px;
+        }    
+        .slick-next {
+            right: -10px;
+        }    
     }
       
     form {
