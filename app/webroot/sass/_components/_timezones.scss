@@ -5,6 +5,10 @@ a.timezone {
     display: block;
     width: 3rem;
     margin: 0 auto;
+
+    @media (min-width: $break-small) {
+        display: inline-block;
+    }
 }
 
 #timezones {
