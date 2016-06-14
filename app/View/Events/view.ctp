@@ -18,8 +18,11 @@ $this->viewVars['title_for_layout'] = $title;
     if(isset($this->params['named']['timezone'])) {
       $start->setTimezone( new DateTimeZone( str_replace('-', '/', $this->params['named']['timezone'] ) ) );
     }
-    echo $start->format('D j\<\s\u\p\>S\<\/\s\u\p\> M Y'); 
-    ?>
+    echo $start->format('D j');
+    echo $this->Html->tag('sup', $start->format('S'), array('class'=>'suffix'));
+    ?> 
+    <?php echo $this->Html->tag('span', $start->format('M'), array('class'=>'month')); ?> 
+    <?php echo $this->Html->tag('span', $start->format('Y'), array('class'=>'year')); ?> 
   </span>
   <span class="time">
     <span class="hour"><?php echo $start->format('g'); ?></span><span class="separator">:</span><span class="minute"><?php echo $start->format('i'); ?></span><span class="ordinal"><?php echo $start->format('a'); ?></span>
