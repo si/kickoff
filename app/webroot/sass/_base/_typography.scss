@@ -35,6 +35,8 @@ pre, textarea.code {
 .empty {
   font-size: 1.4rem;
   color: rgba(#FFF, 0.6);
+  margin: 3rem;
+  transform: skewY(($title-skew + 5));
 }
 
 ul {
