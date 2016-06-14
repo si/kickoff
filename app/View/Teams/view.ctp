@@ -5,6 +5,8 @@ $this->viewVars['title_for_layout'] = $title;
 ?>
 
 <h1><?php echo $team['Team']['name']; ?></h1>
+
+<p class="meta">
 <?php
 // Show Twitter handle if set
 if( isset($team['Team']['twitter']) ) {
@@ -26,6 +28,7 @@ if( isset($team['Team']['website']) ) {
   );
 }
 ?>
+</p>
 
 <div class="cta">
   <?php echo $this->Html->link('Add to Calendar',array('action'=>'export',$team['Team']['id']),array('class'=>'btn btn-large', 'type'=>'text/calendar')); ?>
@@ -36,7 +39,7 @@ if( isset($team['Team']['website']) ) {
 echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming')); 
 ?>
 
-<p class="meta"><small>
+<p class="meta">
   <?php
   if( isset($team['Competition']['id']) ) {
     $competition = $team['Competition'];
@@ -61,8 +64,7 @@ echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upc
     ), array(
       'class'=>'sport'
     )); ?>
-    
-</small></p>
+</p>
 
 <div class="admin-cta">
   <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','home_team_id'=>$team['Team']['id']),array('class'=>'btn')); ?>
