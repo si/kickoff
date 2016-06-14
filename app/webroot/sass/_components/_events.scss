@@ -28,6 +28,13 @@ Events
             sup {
                 font-size: 0.7rem;
             }
+
+            .year {
+                
+                @media screen and (max-width : $break-small) {
+                    display: block;
+                }
+            }
         }
         .time {
             margin-left: 16px;
@@ -47,7 +54,7 @@ Events
             .timezone {
                 opacity: 0.3;
                 
-                @media screen and (max-width : 320px) {
+                @media screen and (max-width : $break-small) {
                     display: block;
                 }
             }
