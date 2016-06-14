@@ -24,6 +24,10 @@ if(count($events)>0) {
 ?>
 <div class="calendar">
   <h2><?php echo $first_month; ?></h2>
+
+  <?php if(count($events)==0) : ?>
+  <p class="empty">No games scheduled</p>
+  <?php else : ?>
   <table>
     <thead>
       <tr>
@@ -107,6 +111,9 @@ if(count($events)>0) {
     </tbody>
   </table>
   <?php
+  endif;  // Any events?
+
+
   // Previous and Next Month links
   echo $this->Html->link(
     date('M Y', strtotime($first_month . ' -1 month'))
