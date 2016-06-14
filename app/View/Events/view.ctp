@@ -39,54 +39,7 @@ $this->viewVars['title_for_layout'] = $title;
 
 <?php echo $this->element('Ads/google'); ?>
 
-<h2><a href="#broadcast">Watching</a> or <a href="#travel">Going</a>?</h2>
-
-<div class="col-2">
-    
-  <section class="col" id="broadcast">
-
-    <h3>Stay at Home</h3>
-    <p>This game will be broadcast on the following channels</p>
-    
-    <ul class="inline">
-      <li><a href="#">Sky Sports</a></li>
-      <li><a href="#">BT Sports</a></li>
-      <li><a href="#">BBC</a></li>
-      <li><a href="#">ITV</a></li>
-      <li><a href="#">Five</a></li>
-      <li><a href="#">BBC 5 Live</a></li>
-      <li><a href="#">BBC Local</a></li>
-      <li><a href="#">Online</a></li>
-    </ul>  
-
-    <div id="pub">
-      <h3>Pub?</h3>
-      <?php echo $this->element('Modules/matchpint', array('location'=>$event['Location'])); ?>
-    </div>
-
-  </section>
-
-  <section class="col" id="travel">
-
-    <h3>Travel Options</h3>
-    <?php echo $this->element('Modules/map', array('location'=>$event['Location'])); ?>
-
-    <div id="driving">
-      <h4>Driving?</h4>
-      <p>[insert map route element here]</p>
-    </div>
-
-    <div id="public">
-      <h4>Public Transport</h4>
-      <p>[insert transport options (train/bus) here]</p>
-    </div>
-
-    <div id="accommodation">
-      <h4>Local Accommodation</h4>
-      <p>[insert hotel/restaurant finder element here]</p>
-    </div>
-
-  </section>
+<?php echo $this->element('Modules/map', array('location'=>$event['Location'])); ?>
 
 </div>
 
