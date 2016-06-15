@@ -74,7 +74,13 @@ if(count($events)>0) {
                   . $this->Html->tag('span', $event['AwayTeam']['short'], array('class'=>'team'))
                   //. utf8_encode($event['Event']['summary'])
                   //. $this->Html->tag('span', utf8_encode($event['Event']['location']), array('class'=>'location'))
-                  , array('controller'=>'events','action'=>'view',$event['Event']['id'])
+                  , array(
+                    'controller'=>'events',
+                    'action'=>'view',
+                    $event['Event']['id'],
+                    $event['HomeTeam']['slug'],
+                    $event['AwayTeam']['slug'],
+                  )
                   , array(
                     'title'=>$this->Time->format('d-m-Y H:i',$event['Event']['start']),
                     'escape' => false,

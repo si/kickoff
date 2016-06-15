@@ -1,6 +1,6 @@
 <?php
 if( isset($location) && $location['id'] !== null) {
-    var_dump($location);
+    //var_dump($location);
     $position = $location['lat'];
     $name = $location['name'];
 ?>

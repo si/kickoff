@@ -64,6 +64,7 @@ class TeamsController extends AppController {
 		    $this->set('future_params', $future_params);
 		
 		    $events = $this->Team->Event->find('all',$future_params);
+			//var_dump($events);
 		    $this->set('events', $events);
 		
 		}
@@ -156,6 +157,7 @@ class TeamsController extends AppController {
  
 	function import_events($id='') {
 
+		$season = '2016';	
 		$content = '';
 
 		if($id=='') {
@@ -342,6 +344,7 @@ class TeamsController extends AppController {
 								'away' => $away_team_name,
 								'home_team_id' => $home_team_id,
 								'away_team_id' => $away_team_id,
+								'season' => $season,
 								'group' => $competition_name,
 								'remote_id' => $remote_id,
 								'competition_id' => $competition_id,
@@ -399,7 +402,6 @@ class TeamsController extends AppController {
 				LEFT JOIN `competitions` AS `Competition` ON `Event`.`competition_id` = `Competition`.`id`
 				LEFT JOIN `themes` AS `Theme` ON `Team`.`theme_id` = `Theme`.`id`
 				WHERE `Competition`.`status` = 'L'
-				AND `Event`.`season` = 2015
 				ORDER BY `Competition`.`name` DESC, `Team`.`name` ASC";
 
         $this->set('teams', $this->Team->query($sql));
