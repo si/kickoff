@@ -278,6 +278,9 @@ class TeamsController extends AppController {
 						// Get home team id
 						$home_team_id = (isset($home_team['Team'])) ? $home_team['Team']['id'] : $home_team['id'];
 
+						// Get location id based on home team
+						$location_id = (isset($home_team['Team']['location_id'])) ? $home_team['Team']['location_id'] : '';
+
 						// Find away team as main name or alias
 						$conditions = array(
 							'or' => array(
@@ -333,7 +336,7 @@ class TeamsController extends AppController {
 						$data = array(
 							'Event' => array(
 								'start' => $kickoff,
-								'end' => $ends,
+								'ends' => $ends,
 								'summary' => $home_team['Team']['name'] . ' v ' . $away_team['Team']['name'],
 								'home' => $home_team_name,
 								'away' => $away_team_name,
@@ -341,7 +344,8 @@ class TeamsController extends AppController {
 								'away_team_id' => $away_team_id,
 								'group' => $competition_name,
 								'remote_id' => $remote_id,
-								'competition_id' => $competition_id
+								'competition_id' => $competition_id,
+								'location_id' => $location_id,
 							),
 						);
 
