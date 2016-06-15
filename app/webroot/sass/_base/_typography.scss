@@ -35,8 +35,11 @@ pre, textarea.code {
 .empty {
   font-size: 1.4rem;
   color: rgba(#FFF, 0.6);
-  margin: 3rem;
+  padding: 3rem;
   transform: skewY(($title-skew + 5));
+  border: 2px solid rgba(#FFF,0.2);
+  border-width: 2px 0;
+
 }
 
 ul {
