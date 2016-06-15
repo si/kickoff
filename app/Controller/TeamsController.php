@@ -308,8 +308,8 @@ class TeamsController extends AppController {
 
 						// Set kickoff time to support BST 
 						// store as UTC (-1h) between last Sun of Mar to last Sun of Oct
-						$bst_start = strtotime('Last Sunday of March');
-						$bst_end = strtotime('Last Sunday of October');
+						$bst_start = date_create('Last Sunday of March');
+						$bst_end = date_create('Last Sunday of October');
 						if($starts >= $bst_start && $starts < $bst_end) {
 							$starts = date_add($starts, date_interval_create_from_date_string('-1 hour'));
 						}
