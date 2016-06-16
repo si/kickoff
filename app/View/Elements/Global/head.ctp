@@ -21,11 +21,11 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/src/png/favicon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/src/png/favicon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/src/png/favicon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/src/png/favicon-57.png">
+    <link rel="shortcut icon" href="/img/src/png/favicon-144.png">
 
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
