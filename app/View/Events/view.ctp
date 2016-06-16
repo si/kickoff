@@ -49,9 +49,12 @@ $this->viewVars['title_for_layout'] = $title;
     <p><?php echo $event['Event']['description']; ?></p>
   <?php endif; ?>
 
-
   <p class="meta">
 
+    <?php
+    $hashtag = '#' . $event['HomeTeam']['short'] . 'v' . $event['AwayTeam']['short']; 
+    echo $this->Html->link($hashtag, 'https://twitter.com/search/'.$hashtag, array('class'=>'i-twitter', 'title'=>'Twitter Hashtag')); 
+    ?>
     <?php echo $this->Html->competitionLink($event['Competition'], array('property'=>'superEvent')); ?> 
     <time class="i-time"><?php echo $this->Time->format('d M y H:i', $event['Event']['updated']); ?></time>
 
