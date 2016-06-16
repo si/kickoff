@@ -9,6 +9,7 @@ button,
 .btn {
   background: rgba($btn-background, 0.5);
   border: none !important;
+  box-shadow: none;
   border-radius: 0.25rem;
   color: rgba($btn-text, 0.85);
   padding: 0.67rem 1rem;
