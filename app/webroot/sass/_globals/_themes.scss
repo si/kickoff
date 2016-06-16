@@ -32,7 +32,7 @@
     color: rgba(#FFF,0.5);
     display: flex;
     
-    a {
+    > * {
       flex: 1;
       margin-bottom: 0.5rem;
       font-size: 0.8rem;

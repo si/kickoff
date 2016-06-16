@@ -23,7 +23,7 @@ $icon-size: 48px;
     @include icon('football', 24px);
 }
 
-small time:before {
+.i-time:before {
     @include icon('clock', 24px);
 }
 
