@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.4 (15588) - http://www.bohemiancoding.com/sketch -->
+<svg width="20px" height="21px" viewBox="0 0 20 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
     <title>clock-white</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Icon-Board" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="clock-white" sketch:type="MSLayerGroup" fill="#FFFFFF">
-            <path d="M12,24 C5.4,24 0,18.6 0,12 C0,5.4 5.4,0 12,0 C18.6,0 24,5.4 24,12 C24,18.6 18.6,24 12,24 L12,24 Z M12,2 C6.5,2 2,6.5 2,12 C2,17.5 6.5,22 12,22 C17.5,22 22,17.5 22,12 C22,6.5 17.5,2 12,2 L12,2 Z" id="Shape" sketch:type="MSShapeGroup"></path>
-            <path d="M12,13 C11.4,13 11,12.6 11,12 L11,5 C11,4.4 11.4,4 12,4 C12.6,4 13,4.4 13,5 L13,12 C13,12.6 12.6,13 12,13 L12,13 Z" id="Shape" sketch:type="MSShapeGroup"></path>
-            <path d="M16,17 C15.7,17 15.5,16.9 15.3,16.7 L11.3,12.7 C10.9,12.3 10.9,11.7 11.3,11.3 C11.7,10.9 12.3,10.9 12.7,11.3 L16.7,15.3 C17.1,15.7 17.1,16.3 16.7,16.7 C16.5,16.9 16.3,17 16,17 L16,17 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Iconography" transform="translate(-217.000000, -39.000000)" fill="#FFFFFF">
+            <path d="M227,57.14 C223.134007,57.14 220,54.0059932 220,50.14 C220,46.2740068 223.134007,43.14 227,43.14 C230.865993,43.14 234,46.2740068 234,50.14 C234,54.0059932 230.865993,57.14 227,57.14 L227,57.14 Z M227,41.14 C222.029437,41.14 218,45.1694373 218,50.14 C218,55.1105627 222.029437,59.14 227,59.14 C231.970563,59.14 236,55.1105627 236,50.14 C236,45.1694373 231.970563,41.14 227,41.14 L227,41.14 Z M227.5,45.14 L226,45.14 L226,51.14 L230.75,53.99 L231.5,52.76 L227.5,50.39 L227.5,45.14 L227.5,45.14 Z M222.88,40.53 L221.6,39 L217,42.85 L218.29,44.38 L222.88,40.53 L222.88,40.53 Z M237,42.86 L232.4,39 L231.11,40.53 L235.71,44.39 L237,42.86 L237,42.86 Z" id="clock-white"></path>
         </g>
     </g>
 </svg>
