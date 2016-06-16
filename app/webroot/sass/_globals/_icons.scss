@@ -23,12 +23,16 @@ $icon-size: 48px;
     @include icon('football', 24px);
 }
 
+.location:before {
+    @include icon('pin', 24px);
+}
+
 .i-time:before {
     @include icon('clock', 24px);
 }
 
-.location:before {
-    @include icon('pin', 24px);
+.i-day-time:before {
+    @include icon('calendar-clock', 24px);
 }
 
 .i-twitter:before {
