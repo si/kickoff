@@ -28,12 +28,15 @@ $timezone_identifiers = array(
             $display = str_replace(['_', '/'], ' ', $display);
         ?>
         <li>
-        <?php echo $this->Html->link($display, array(
+        <?php 
+        echo $this->Html->link($display, array(
                 'controller' => $this->params['controller'], 
                 'action' => $this->params['action'], 
                 $this->params['pass'][0],
                 'timezone' => str_replace('/', '-', $name),
-            )); ?></li>
+            ),
+            array('rel'=>'nofollow')
+        ); ?></li>
         <?php endforeach; ?>      
     </ul>
     </section>
