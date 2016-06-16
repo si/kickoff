@@ -32,7 +32,7 @@ pre, textarea.code {
   }
 }
 
-.empty {
+.empty:not(td) {
   font-size: 1.4rem;
   color: rgba(#FFF, 0.6);
   padding: 3rem;
