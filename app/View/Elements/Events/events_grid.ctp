@@ -78,8 +78,7 @@ if(count($events)>0) {
                     'controller'=>'events',
                     'action'=>'view',
                     $event['Event']['id'],
-                    $event['HomeTeam']['slug'],
-                    $event['AwayTeam']['slug'],
+                    $event['HomeTeam']['slug'] . '-' . $event['AwayTeam']['slug'],
                   )
                   , array(
                     'title'=>$this->Time->format('d-m-Y H:i',$event['Event']['start']),
