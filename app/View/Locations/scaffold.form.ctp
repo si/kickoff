@@ -39,8 +39,8 @@ echo $this->Form->create('Location');
 	}
 	?>
 	<div class="btn-group btn-block">
+        <button type="submit">Save</button>
 	<?php
-        echo $this->Form->submit('Save', array('class'=>'btn', 'div'=>'')); 
         echo $this->Html->link('Cancel',$cancel_link, array('class'=>'btn', 'div'=>null)); 
     ?>
 	</div>
