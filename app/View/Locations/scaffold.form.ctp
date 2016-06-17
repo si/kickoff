@@ -9,21 +9,24 @@ echo $this->Form->create('Location');
   if(isset($this->data['Location']['id'])) echo $this->Form->input('id',array('type'=>'hidden'));
 ?>
 <fieldset>
-    <legend>Basics</legend>
+    <legend>Data</legend>
 
     <div class="row">
         <?php echo $this->Form->input('name', array('class'=>'span12','div'=>'span12')); ?>
     </div>
 
     <div class="row">
-        <?php echo $this->Form->input('city',array('class'=>'span6','div'=>'span6')); ?>
-        <?php echo $this->Form->input('postcode',array('class'=>'span6','div'=>'span6')); ?>
-    </div>
-    
-    <div class="row">
+        <?php echo $this->Form->input('city',array('class'=>'span3','div'=>'span3')); ?>
+        <?php echo $this->Form->input('postcode',array('class'=>'span3','div'=>'span3')); ?>
         <?php echo $this->Form->input('lat', array('div'=>'span3','class'=>'span3')); ?>
         <?php echo $this->Form->input('long', array('div'=>'span3','class'=>'span3')); ?>
-        <output class="location-preview" class="span6">Map Preview</output>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Preview</legend>
+    <div class="row">
+        <output class="span12 map">Map Preview</output>
     </div>
 </fieldset>
 <?php
