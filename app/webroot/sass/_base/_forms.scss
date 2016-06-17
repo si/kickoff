@@ -2,6 +2,10 @@ h2, form, input {
   text-align: center;
 }
 
+fieldset {
+  margin: 1rem 0;
+}
+
 legend {
   display: inline-block;
   color: rgba(#FFF, 0.5);
@@ -10,8 +14,8 @@ legend {
   font-size: 0.8rem;
   line-height: 2;
   margin: 0 auto 0.5rem;
-  padding: 0 3rem;
-  width: auto;
+  padding: 0.5rem 3rem;
+  width: 80%;
   text-transform: uppercase;
 }
 
