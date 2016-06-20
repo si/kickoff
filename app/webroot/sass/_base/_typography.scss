@@ -1,10 +1,15 @@
-body, h1, h2, h3 {
+body {
   color: #FFF;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
 }
 
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 31px;  
+  line-height: 0.9;
+}
 h2 {
   font-size: 25px;  
 }
