@@ -1,5 +1,5 @@
 <?php
-if( isset($location) && $location['id'] !== null) {
+if( isset($location) && $location['id'] !== null) :
     //var_dump($location);
     $position = $location['lat'] . ',' . $location['long'];
     $name = $location['name'];
@@ -11,10 +11,6 @@ if( isset($location) && $location['id'] !== null) {
         <a href="http://maps.apple.com/?sll=<?php echo ($position); ?>&z=10&t=s" class="btn">Apple Maps</a>
     </div>
 </div>
-<?php
-} else {
-?>
+<?php else: ?>
 <p class="empty">Map unavailable</p>
-<?php    
-}
-?>
+<?php endif; ?>
