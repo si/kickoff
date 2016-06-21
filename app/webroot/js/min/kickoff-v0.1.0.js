@@ -3434,12 +3434,18 @@ $(document).ready(function(){
     var url = $(link).attr('href');
     if(provider.toLowerCase() === 'apple') {
       url = setWebCalProtocol(url);
+    } else {
+      url = setCalUrl(url, provider);
     }
 
     link
       .siblings('.atc__options:first')
       .append('<a href="' + url + '" class="btn atc__provider atc__' + provider.toLowerCase() + '">' + provider + '</a>');
 
+  };
+
+  var setCalUrl = function(url, provider) {
+    return url + '/' + provider.toLowerCase() ;
   };
 
   var setDefaultService = function() {
@@ -3529,7 +3535,12 @@ $(function(){
         console.log('Set preview');
         var center = getCoords(),
             googleMapUrl = '//maps.googleapis.com/maps/api/staticmap?center=' + center 
-                + '&amp;size=800x600&amp;style=element:labels|visibility:off&amp;style=element:geometry.stroke|visibility:off&amp;style=feature:landscape|element:geometry|saturation:-100&amp;style=feature:water|saturation:-100|invert_lightness:true&amp;key=AIzaSyBMISecHzJR_Mie1nlsQWpQkv-E6B7ZFno';
+                + '&size=800x600'
+                + '&style=element:labels|visibility:off'
+                + '&style=element:geometry.stroke|visibility:off'
+                + '&style=feature:landscape|element:geometry|saturation:-100'
+                + '&style=feature:water|saturation:-100|invert_lightness:true'
+                + '&key=AIzaSyBMISecHzJR_Mie1nlsQWpQkv-E6B7ZFno';
         $('.map')
             .css('background-image', 'url(' + googleMapUrl + ')')
             .text(center);

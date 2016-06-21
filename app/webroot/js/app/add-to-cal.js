@@ -55,12 +55,18 @@ $(document).ready(function(){
     var url = $(link).attr('href');
     if(provider.toLowerCase() === 'apple') {
       url = setWebCalProtocol(url);
+    } else {
+      url = setCalUrl(url, provider);
     }
 
     link
       .siblings('.atc__options:first')
       .append('<a href="' + url + '" class="btn atc__provider atc__' + provider.toLowerCase() + '">' + provider + '</a>');
 
+  };
+
+  var setCalUrl = function(url, provider) {
+    return url + '/' + provider.toLowerCase() ;
   };
 
   var setDefaultService = function() {
