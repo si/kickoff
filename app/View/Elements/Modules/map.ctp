@@ -8,7 +8,7 @@ if( isset($location) && $location['id'] !== null) {
     <h3 class="location"><?php echo ($name); ?></h3>
     <div class="actions">
         <a href="http://www.google.com/maps/place/<?php echo ($position); ?>" class="btn">Google Maps</a>
-        <a href="maps://<?php echo ($position); ?>" class="btn">Apple Maps</a>
+        <a href="http://maps.apple.com/?sll=<?php echo ($position); ?>&z=10&t=s" class="btn">Apple Maps</a>
     </div>
 </div>
 <?php
