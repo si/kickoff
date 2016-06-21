@@ -66,7 +66,7 @@ $(document).ready(function(){
   };
 
   var setCalUrl = function(url, provider) {
-    return url + '/' + provider.toLowerCase() ;
+    return url;
   };
 
   var setDefaultService = function() {
