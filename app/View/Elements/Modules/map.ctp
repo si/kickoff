@@ -9,6 +9,7 @@ if( isset($location) && $location['id'] !== null) :
     <div class="actions">
         <a href="http://www.google.com/maps/place/<?php echo ($position); ?>" class="btn">Google Maps</a>
         <a href="http://maps.apple.com/?sll=<?php echo ($position); ?>&z=10&t=s" class="btn">Apple Maps</a>
+        <input type="text" readonly value="<?php echo ($position); ?>" class="postal-code">
     </div>
 </div>
 <?php else: ?>
