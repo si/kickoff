@@ -1,12 +1,13 @@
 $sports: football, rugby, tennis, formula-1;
 $icon-size: 48px;
+$icon-spacing : 6px;
 
 @mixin icon($name, $size: $icon-size, $color: 'white') {
     display: block;   
     content: ' ';
 
     width: 100%;
-    height: $size;
+    height: $size + $icon-spacing;
     margin: 0;
 
     background: url($icon-base + $name + '-' + $color + '.svg') no-repeat 0 0;
