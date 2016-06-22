@@ -158,7 +158,7 @@ class TeamsController extends AppController {
 	function import_events($id='') {
 
 		$season = '2016';	
-		$content = '';
+		$content = '<table>';
 
 		if($id=='') {
 			// Get next empty/oldest import
@@ -185,7 +185,7 @@ class TeamsController extends AppController {
 
 		if(count($team)>0) {
 			$source = $team['Team']['events_import_url'];
-			$content .= 'Source: ' . $source . '<br/>';
+			$content .= '<caption>Source: ' . $source . '</caption>';
 			$sport_id = $team['Team']['sport_id'];
 			$competition_id = $team['Team']['competition_id'];
 
@@ -222,7 +222,7 @@ class TeamsController extends AppController {
 
 			// Loop through tables (months)
 			foreach($xml->table as $table) {
-				$content .= '<li>' . $table->caption . ', ' . $tables . '<ul>';
+				$content .= '<tr><th colspan="10">' . $table->caption . ', ' . $tables . '</th></tr>';
 
 				$month = $xml->h2[$tables];
 
@@ -277,7 +277,7 @@ class TeamsController extends AppController {
 							);
 							$home_team = $this->Team->save($home_team_data);
 						}
-						// Get home team id
+						// Get home team id TODO: something wrong with this
 						$home_team_id = (isset($home_team['Team'])) ? $home_team['Team']['id'] : $home_team['id'];
 
 						// Get location id based on home team
@@ -332,7 +332,12 @@ class TeamsController extends AppController {
 						$ends = $this->_dateToArray($ends);
 
 						// Output scraped data
-						$content .= '<li>' . $remote_id . ': ' . $competition_name . ' (' . $competition_id . ') - ' . $home_team_name . ' (' . $home_team_id . ') v ' . $away_team_name . ' (' . $away_team_id . ') - ' . $kickoff_str;
+						$content .= '<tr>'
+									. '<td><a href="/teams/view/' . $home_team_id . '">' . $home_team_name . '</a></td>' 
+									. '<td><a href="/teams/view/' . $away_team_id . '">' . $away_team_name . '</a></td>' 
+									. '<td><a href="/competitions/view/' . $competition_id . '">' . $competition_name . '</a>' . '</td>'
+									. '<td>' . $kickoff_str . '</td>'
+									. '<td>' . $remote_id . '</td>';
 
 						// Define data structure for saving
 						$data = array(
@@ -357,16 +362,16 @@ class TeamsController extends AppController {
 
 						// Set id to record if found
 						if(count($event)>0) $data['Event']['id'] = $event['Event']['id'];
-						$content .= ', ID: ' . $data['Event']['id'];
+//						$content .= ', ID: ' . $data['Event']['id'];
 
 						// Save (INSERT or UPDATE) all the data
 						$savedResponse = $this->Team->Event->save($data);
 
 						//echo ' (<em>' . var_dump($savedResponse) . '</em>)';
+						$content .= '<td><a href="/events/view/' . $data['Event']['id']. '">'.$data['Event']['id']. '</a></td>'
+								. '</tr>';
 
 					}	// loop through rows (games)
-
-					$content .= '</ul></li>';
 
 				}	// if any rows
 
@@ -376,6 +381,9 @@ class TeamsController extends AppController {
 			}	// loop tables
 
 		}	/// end team data
+
+		$content .= '</table>';
+
 
 		// Update import updated 
 		$this->Team->save( array(
