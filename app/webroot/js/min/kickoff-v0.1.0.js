@@ -3432,8 +3432,11 @@ $(document).ready(function(){
   // Bind calendar shortcut links to existing calendar link
   var addShortcutLink = function(link, provider) {
     var url = $(link).attr('href');
+    var googleCalBase = 'http://www.google.com/calendar/render?cid={CAL_URL}';
     if(provider.toLowerCase() === 'apple') {
       url = setWebCalProtocol(url);
+    } else if(provider.toLowerCase() === 'google') {
+      url = googleCalBase.replace(/{CAL_URL}/, setCalUrl(url, provider) );
     } else {
       url = setCalUrl(url, provider);
     }
@@ -3445,6 +3448,16 @@ $(document).ready(function(){
   };
 
   var setCalUrl = function(url, provider) {
+    var provider = provider.toLowerCase(),
+        host = window.location.hostname;
+
+    if(host.indexOf('.dev') !== -1) {
+      host = 'kickoff-build.herokuapp.com';
+    }
+
+    if(provider==='google') {
+      url = window.location.protocol + '//' + host + url;
+    }
     return url;
   };
 
