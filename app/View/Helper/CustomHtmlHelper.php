@@ -42,13 +42,16 @@ class CustomHtmlHelper extends HtmlHelper {
 
 	}
 
-    public function cssThemeBackground($img='', $color='0,0,0', $position='') {
+    public function cssThemeBackground($img='', $color='0,0,0', $position='', $gradient_from=0.93, $gradient_to=1) {
         $color = $this->Html->colorHexToDec($color);
         $bg = 'background: linear-gradient(
-                        rgba(' . $color['rgb'] . ', 0.93), 
-                        rgba(' . $color['rgb'] . ', 1)
+                        rgba(' . $color['rgb'] . ', ' . $gradient_from . '), 
+                        rgba(' . $color['rgb'] . ', ' . $gradient_to . ')
                     )';
-        if($img != '') $bg .= ', ' . $position . ' url(/' . $img . ') no-repeat 50% 50%; background-size: cover;';
+        if($img != '') {
+            if(strpos($img, '//')==-1) $img = '/' . $img;
+            $bg .= ', ' . $position . ' url(' . $img . ') no-repeat 50% 50%; background-size: cover;';
+        }
         return $bg;
     }
 

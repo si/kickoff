@@ -2,7 +2,7 @@
 if( isset($location) && $location['id'] !== null) :
     //var_dump($location);
     $position = $location['lat'] . ',' . $location['long'];
-    $static_map_url = 'https://maps.googleapis.com/maps/api/staticmap?'
+    $static_map_url = '//maps.googleapis.com/maps/api/staticmap?'
                     . 'center=' . $position 
                     . '&zoom=13'
                     //. '&maptype=roadmap'
@@ -14,7 +14,7 @@ if( isset($location) && $location['id'] !== null) :
                     . '&key=AIzaSyDF79W5Fgg5DWryOVz1WOwbY80cOjOXzaM';
     $name = $location['name'];
 ?>
-<div class="map" style="background-size: cover;background-image: url(<?php echo $static_map_url; ?>);">
+<div class="map" style="<?php echo $this->Html->cssThemeBackground($static_map_url, '#000', 'fixed', 0.3, 0.5); ?>">
     <h3 class="location"><?php echo ($name); ?></h3>
     <div class="actions">
         <a href="http://www.google.com/maps/place/<?php echo ($position); ?>" class="btn">Google Maps</a>
