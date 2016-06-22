@@ -12,8 +12,10 @@ button,
   box-shadow: none;
   border-radius: 0.25rem;
   color: rgba($btn-text, 0.85);
+  font-weight: 900;
   padding: 0.67rem 1rem;
   text-shadow: none;
+  text-transform: uppercase;
   transition: all 0.25s ease;
   
   &.btn-large {
