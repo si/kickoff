@@ -11,7 +11,7 @@ $this->viewVars['title_for_layout'] = $title;
   </h1>
 
   <time class="dtstart dtstamp">
-    <span class="date" property="startDate">
+    <a href="/competitions/view/<?php echo $event['Competition']['slug'] . '/date:' . $this->Time->format('Y-m-d', $event['Event']['start']); ?>" class="date" property="startDate">
       <?php
       $start = new DateTime($event['Event']['start'], new DateTimeZone('UTC'));
 
@@ -23,7 +23,7 @@ $this->viewVars['title_for_layout'] = $title;
       ?> 
       <?php echo $this->Html->tag('span', $start->format('M'), array('class'=>'month')); ?> 
       <?php echo $this->Html->tag('span', $start->format('Y'), array('class'=>'year')); ?> 
-    </span>
+    </a>
     <span class="time">
       <span class="hour"><?php echo $start->format('g'); ?></span><span class="separator">:</span><span class="minute"><?php echo $start->format('i'); ?></span><span class="ordinal"><?php echo $start->format('a'); ?></span>
       <a href="#timezones" class="timezone"><?php echo $start->format('T'); ?></a>
