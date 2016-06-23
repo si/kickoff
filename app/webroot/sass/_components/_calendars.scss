@@ -40,10 +40,26 @@ $color-share: #FFF;
 
   .pagination-previous {
     left: 0;
+    text-align: left;
+    
+    &:before {
+      content: '<';
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+    }
   }
 
   .pagination-next {
     right: 0;
+    text-align: right;
+    
+    &:after {
+      content: '>';
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+    }
   }
 
   & td {
