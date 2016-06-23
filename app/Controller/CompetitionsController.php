@@ -63,20 +63,28 @@ class CompetitionsController extends AppController {
 	    // Pass through Competition settings
 	    $this->set('competition', $competition);
     	$future_params['conditions'][] = 'Event.competition_id = ' . $competition['Competition']['id'];
-	
-	    // Set month to passed parameter if defined, current month if not
-	    if(isset($this->params['named']['month'])) {
-	      $start = strtotime($this->params['named']['month']."-01 00:00:00");
-	    } else {
-	      $start = strtotime(date('Y-m')."-01 00:00:00");
-	    } 
 
-	    // Set end date to passed parameter if defined, next month if not
-	    if(isset($this->params['named']['end'])) {
-	      $end = strtotime($this->params['named']['end']."-01 00:00:00");
-	    } else {
-	      $end = strtotime('+1 month',$start);
-	    } 
+		// Set date range to specific date if defined
+	    if(isset($this->params['named']['date'])) { 
+			$start = strtotime($this->params['named']['date']." 00:00:00");
+			$end = strtotime($this->params['named']['date']." 23:59:59");
+
+		// Otherwise check for month params		
+		} else {
+			// Set month to passed parameter if defined, current month if not
+			if(isset($this->params['named']['month'])) {
+				$start = strtotime($this->params['named']['month']."-01 00:00:00");
+			} else {
+				$start = strtotime(date('Y-m')."-01 00:00:00");
+			} 
+
+		    // Set end date to passed parameter if defined, next month if not
+			if(isset($this->params['named']['end'])) {
+				$end = strtotime($this->params['named']['end']."-01 00:00:00");
+			} else {
+				$end = strtotime('+1 month',$start);
+			} 
+		}
 	    
 	    $future_params['conditions'][] = "Event.start >= '" . date('Y-m-d H:i:s',$start) . "'";
 	    $future_params['conditions'][] = "Event.start < '" . date('Y-m-d H:i:s',$end) . "'";
