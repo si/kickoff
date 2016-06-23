@@ -87,4 +87,21 @@ class CustomHtmlHelper extends HtmlHelper {
         }
         return $this->Html->link($competition['name'], $path, $args);
 	}
+
+	public function locationLink($location, $args=array()) {
+
+        $path = array('controller'=>'locations','action'=>'view');
+        $args = array_merge(
+            array(
+                'class'=>'location'
+            ), $args);
+            
+        if( isset($location['slug']) && $location['slug']!='') {
+            $path[] = $location['slug'];
+        } else {
+            $path[] = $location['id'];
+        }
+        return $this->Html->link($location['name'], $path, $args);
+	}
+
 }
