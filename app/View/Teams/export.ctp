@@ -6,19 +6,19 @@ switch($format) {
     unset($data['User']);
     unset($data['Sport']);  
 
-    header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[0]['Team']['name']).'.json"');
+    header('Content-Disposition: attachment; filename="'.$data['Team']['slug'].'.json"');
     
     echo json_encode($data);
     break;
   
   default:  // ICS
   
-    header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[0]['Team']['name']).'.ics"');
+    header('Content-Disposition: attachment; filename="'.$data['Team']['slug'].'.ics"');
 
-    foreach($data[0]['Event'] as $event) : 
+    foreach($data['Event'] as $event) : 
       echo "
 BEGIN:VEVENT
-UID:". md5($data[0]['Team']['name'] . $event['id']) . "
+UID:". md5($data['Team']['name'] . $event['id']) . "
 SUMMARY:".  $event['summary'] . "
 LOCATION:" . ( ( trim($event['location']) != '' ) ? $event['location'] : "TBC") . "
 DTSTART;VALUE=DATETIME:".$this->Time->format('Ymd\THis\Z',$event['start']) . "
