@@ -98,13 +98,13 @@ class TeamsController extends AppController {
 
 		$this->layout = $format.'/default';
 		// Find fields needed without recursing through associated models 
-		$data = $this->Team->find('all', 
-			array( 
-				'conditions' => array(
-					'Team.id'=>$id
-				),
-			)
-		);
+
+		if(is_numeric($id)) {
+			$data = $this->Team->findById($id);
+		} else {
+			$data = $this->Team->findBySlug($id);
+		}
+
 		// Make the data available to the view (and the resulting CSV file) 
 		$this->set(compact('data','format')); 
 
