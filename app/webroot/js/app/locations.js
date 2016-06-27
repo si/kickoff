@@ -1,7 +1,7 @@
 // Auto-update location preview based on lat/long settings
 $(function(){
     var getCoords = function() {
-        console.log('Get coordinates');
+        //window.console && console.log('Get coordinates');
         return $('#LocationLat').val() + ',' + $('#LocationLong').val();
     };
 
@@ -21,7 +21,7 @@ $(function(){
     };
 
     var setListeners = function() {
-        console.log('Set listeners');
+        //window.console && console.log('Set listeners');
         $('#LocationLat, #LocationLong').on('change', setPreview);
     }();
 

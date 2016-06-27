@@ -3463,7 +3463,7 @@ $(document).ready(function(){
 
   var setDefaultService = function() {
     var userAgent = navigator.platform;
-    console.log(userAgent);
+    //window.console && console.log(userAgent);
   };
 
   // Test for ICS supported platforms
@@ -3540,7 +3540,7 @@ $(document).ready(function(){
 // Auto-update location preview based on lat/long settings
 $(function(){
     var getCoords = function() {
-        console.log('Get coordinates');
+        //window.console && console.log('Get coordinates');
         return $('#LocationLat').val() + ',' + $('#LocationLong').val();
     };
 
@@ -3560,7 +3560,7 @@ $(function(){
     };
 
     var setListeners = function() {
-        console.log('Set listeners');
+        //window.console && console.log('Set listeners');
         $('#LocationLat, #LocationLong').on('change', setPreview);
     }();
 

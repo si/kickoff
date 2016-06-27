@@ -84,7 +84,7 @@ $(document).ready(function(){
 
   var setDefaultService = function() {
     var userAgent = navigator.platform;
-    console.log(userAgent);
+    //window.console && console.log(userAgent);
   };
 
   // Test for ICS supported platforms
