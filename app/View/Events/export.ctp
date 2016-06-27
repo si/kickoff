@@ -3,7 +3,7 @@ switch($format) {
 
   case 'json':
     
-    header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[0]['Calendar']['name']).'.json"');
+    header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[1]['Event']['summary']).'.json"');
     
     echo json_encode($data);
     break;
