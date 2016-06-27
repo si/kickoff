@@ -30,12 +30,14 @@
   .meta {
     color: rgba(#FFF,0.5);
     display: flex;
+    flex-wrap: wrap;
     margin: 2rem 0;
     
     > * {
       flex: 1;
       margin-bottom: 0.5rem;
       font-size: 0.8rem;
+      min-width: 160px;
     }
   }
 }
