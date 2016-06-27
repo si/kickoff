@@ -75,7 +75,18 @@ class CompetitionsController extends AppController {
 			if(isset($this->params['named']['month'])) {
 				$start = strtotime($this->params['named']['month']."-01 00:00:00");
 			} else {
-				$start = strtotime(date('Y-m')."-01 00:00:00");
+				$next = $this->Competition->Event->find('first', array(
+					'fields'=>array(
+						'start'
+					), 
+					'conditions'=>$future_params['conditions'], 
+					'order'=>array('start ASC')
+				));
+				if(count($next)>0) {
+					$start = strtotime($next['Event']['start']);
+				} else {
+					$start = strtotime(date('Y-m')."-01 00:00:00");
+				}
 			} 
 
 		    // Set end date to passed parameter if defined, next month if not
