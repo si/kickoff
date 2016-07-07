@@ -69,9 +69,9 @@ if(count($events)>0) {
                 echo '<li class="event" data-time="' . $this->Time->format('H:i',$event['Event']['start']) .'">' 
                 . $this->Html->link(
                   //$this->Html->tag('span', $this->Time->format('H:i',$event['Event']['start']) . ' UTC', array('class'=>'time'))
-                  $this->Html->tag('span', $event['HomeTeam']['short'], array('class'=>'team'))
+                  $this->Html->tag('abbr', $event['HomeTeam']['short'], array('class'=>'team', 'title'=>$event['HomeTeam']['name']))
                   . $this->Html->tag('abbr', 'v', array('class'=>'vs'))
-                  . $this->Html->tag('span', $event['AwayTeam']['short'], array('class'=>'team'))
+                  . $this->Html->tag('abbr', $event['AwayTeam']['short'], array('class'=>'team', 'title'=>$event['AwayTeam']['name']))
                   //. utf8_encode($event['Event']['summary'])
                   //. $this->Html->tag('span', utf8_encode($event['Event']['location']), array('class'=>'location'))
                   , array(
