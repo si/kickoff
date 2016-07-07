@@ -66,7 +66,7 @@ header {
         
         h3 {
             font-size: 1rem;
-            margin: 0;
+            margin: 0 0 0.5rem;
             
             a {
                 display: block;
@@ -93,6 +93,10 @@ header {
                 column-count: 4; 
             }
 
+            li {
+                height: 2rem;
+            }
+
             a {
                 display: block;
                 padding: 0.3rem;
@@ -108,7 +112,7 @@ header {
                 @media screen and (max-width: $break-small) {
                     text-indent: -9999em;
                     padding: 0;
-                    
+
                     &:after {
                         text-indent: 0;
                         display: block;
