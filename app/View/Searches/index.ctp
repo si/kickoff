@@ -12,13 +12,13 @@ $this->viewVars['title_for_layout'] = $title;
 		<p class="empty">No teams found</p>
 	<?php else: ?>
 		<h2>Teams</h2>
-		<ol class="tiles">
+		<ul class="unstyled">
 		<?php foreach($teams as $team): ?>
-			<li <?php if($team['Theme']['image']!='') echo 'style="background-image: url('.$team['Theme']['image'].');"'; ?>">
+			<li>
 				<?php echo $this->Html->teamLink($team['Team']); ?>
 			</li>
 		<?php endforeach; ?>
-		</ol>
+		</ul>
 	<?php endif; ?>
 	</div>
 
@@ -27,11 +27,11 @@ $this->viewVars['title_for_layout'] = $title;
 		<p class="empty">No competitions found</p>
 	<?php else: ?>
 		<h2>Competitions</h2>
-		<ol class="tiles">
+		<ul class="unstyled">
 		<?php foreach($competitions as $competition): ?>
 			<li><?php echo $this->Html->competitionLink($competition['Competition']); ?></li>
 		<?php endforeach; ?>
-		</ol>
+		</ul>
 	<?php endif; ?>
 	</div>
 
@@ -40,11 +40,11 @@ $this->viewVars['title_for_layout'] = $title;
 		<p class="empty">No sports found</p>
 	<?php else: ?>
 		<h2>Sports</h2>
-		<ol class="tiles">
+		<ul class="unstyled">
 		<?php foreach($sports as $sport): ?>
 			<li><?php echo $this->Html->link($sport['Sport']['name'], array('controller'=>'sports', 'action'=>'view', $sport['Sport']['id'])); ?></li>
 		<?php endforeach; ?>
-		</ol>
+		</ul>
 	<?php endif; ?>
 	</div>
 	
