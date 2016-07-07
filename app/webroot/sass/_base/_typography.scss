@@ -37,6 +37,10 @@ pre, textarea.code {
   }
 }
 
+abbr[title] {
+  border-bottom: none;
+}
+
 .empty:not(td) {
   font-size: 1.4rem;
   color: rgba(#FFF, 0.6);
