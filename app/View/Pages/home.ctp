@@ -1,8 +1,8 @@
 <?php
-$this->viewVars['title_for_layout'] = 'Kick off times for your calendar - Kick Off Calendars';
+$this->viewVars['title_for_layout'] = 'Premier League and Championship kick off times for your calendar';
 ?>
 
-<h1>Kick off times for all the Premier League and Championship games</h1>
+<h1><?php echo $this->viewVars['title_for_layout']; ?></h1>
 
 <?php 
 echo $this->requestAction(['controller' => 'teams', 'action' => 'by_competition'], ['return']);
