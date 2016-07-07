@@ -8,14 +8,14 @@ $this->viewVars['title_for_layout'] = 'Premier League and Championship kick off 
 echo $this->requestAction(['controller' => 'teams', 'action' => 'by_competition'], ['return']);
 ?>
 
-<div id="intro" class="story">
+<div id="about" class="story">
   <h2>Convenient kick-off times</h2>
   <p>Kick Off Calendars believes the football fixtures data should be available to you, the fans, in more convenient formats.</p>
   <p>You can add kick off dates and times directly to your calendar. Our calendars work on any supported devices; Outlook, Google, iOS, OS X - any application that supports the standard ICS format.</p>
   <p>For added convenience, you can also subscribe to team or competition calendars which automatically update when fixtures change. Handy, eh?</p> 
 </div>
 
-<div id="focus" class="story breakout">
+<div id="engage" class="story breakout">
   <p>Kick Off Calendars is adopting the “<em>release early, release often</em>” mantra.</p>
   <p>We are working with an active focus group to tailor the experience exactly for digitally connected sports fans.</p> 
 </div>
