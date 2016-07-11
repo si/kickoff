@@ -77,9 +77,9 @@ $(document).ready(function(){
     }
 
     if(provider==='google') {
-      url = window.location.protocol + '//' + host + url;
+      url = 'http://' + host + url;
     }
-    return url;
+    return encodeURIComponent(url);
   };
 
   var setDefaultService = function() {
