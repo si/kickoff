@@ -12,7 +12,8 @@ $this->viewVars['title_for_layout'] = $title;
 
 <?php
 //_debug($events);
-echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming')); 
+//echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming')); 
+echo $this->element('Events/events_table',array('events'=>$events, 'team_id'=>$team['Team']['id'])); 
 ?>
 
 <p class="meta">
