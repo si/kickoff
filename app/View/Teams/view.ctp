@@ -10,10 +10,17 @@ $this->viewVars['title_for_layout'] = $title;
   <?php echo $this->Html->link('Add to Calendar',array('action'=>'export',$team['Team']['id']),array('class'=>'btn btn-large', 'type'=>'text/calendar')); ?>
 </div>
 
+<ul class="shortcuts">
+  <li><?php echo $this->Html->link('Calendar', '/teams/view/' . $team['Team']['slug']); ?></li>
+  <li><?php echo $this->Html->link('Table', '/teams/view/' . $team['Team']['slug'] . '/view:table/end:2017-06-01'); ?></li>
+</ul>
 <?php
 //_debug($events);
-//echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming')); 
-echo $this->element('Events/events_table',array('events'=>$events, 'team_id'=>$team['Team']['id'])); 
+if($view == 'table') {
+  echo $this->element('Events/events_table',array('events'=>$events, 'team_id'=>$team['Team']['id'])); 
+} else {
+  echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming')); 
+}
 ?>
 
 <p class="meta">
