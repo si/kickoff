@@ -74,7 +74,7 @@ class TeamsController extends AppController {
 
 		    $this->set(compact('start','end'));
 		    $this->set('future_params', $future_params);
-			$this->set('view', (isset($this->params['named']['view'])) ? $this->params['named']['view'] : '');
+			$this->set('layout', (isset($this->params['named']['layout'])) ? $this->params['named']['layout'] : '');
 		
 		    $events = $this->Team->Event->find('all',$future_params);
 			//var_dump($events);
