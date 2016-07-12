@@ -11,8 +11,8 @@ $this->viewVars['title_for_layout'] = $title;
 </div>
 
 <ul class="shortcuts">
-  <li><?php echo $this->Html->link('Calendar', '/teams/view/' . $team['Team']['slug']); ?></li>
-  <li><?php echo $this->Html->link('Table', '/teams/view/' . $team['Team']['slug'] . '/layout:table/end:2017-06-01'); ?></li>
+  <li><?php echo $this->Html->link('Calendar', '/teams/view/' . $team['Team']['slug'], array('class'=> (($layout!='table') ? 'active' : '') ) ); ?></li>
+  <li><?php echo $this->Html->link('Table', '/teams/view/' . $team['Team']['slug'] . '/layout:table/end:2017-06-01', array('class'=> (($layout=='table') ? 'active' : '') )); ?></li>
 </ul>
 <?php
 //_debug($events);
