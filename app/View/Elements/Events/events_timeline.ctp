@@ -3,7 +3,11 @@
         <div class="events-wrapper">
             <div class="events">
                 <ol>
-                <?php foreach($events as $event) : ?>
+                <?php
+                $count = 0; 
+                foreach($events as $event) :
+                    $count++; 
+                ?>
                 <li>
                     <?php 
                     $format = 'd M';
@@ -20,7 +24,8 @@
                         */
                         ,
                         array(
-                            'data-date'=>$this->Time->format('d/m/Y',$event['Event']['start'])
+                            'class' => (($count == 1) ? 'selected' : ''),
+                            'data-date'=>$this->Time->format('d/m/Y',$event['Event']['start']),
                         )
                     ); ?>
                 </li>
