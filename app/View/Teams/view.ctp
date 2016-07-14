@@ -13,13 +13,20 @@ $this->viewVars['title_for_layout'] = $title;
 <ul class="shortcuts">
   <li><?php echo $this->Html->link('Calendar', '/teams/view/' . $team['Team']['slug'], array('class'=> (($layout=='') ? 'active' : '') ) ); ?></li>
   <li><?php echo $this->Html->link('List', '/teams/view/' . $team['Team']['slug'] . '/layout:list/end:2017-06-01', array('class'=> (($layout=='list') ? 'active' : '') )); ?></li>
+  <li><?php echo $this->Html->link('Timeline', '/teams/view/' . $team['Team']['slug'] . '/layout:timeline/end:2017-06-01', array('class'=> (($layout=='timeline') ? 'active' : '') )); ?></li>
 </ul>
 <?php
 //_debug($events);
-if($layout == 'list') {
-  echo $this->element('Events/events_list',array('events'=>$events, 'team_id'=>$team['Team']['id'])); 
-} else {
-  echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming')); 
+switch($layout) {
+  case 'list':
+    echo $this->element('Events/events_list',array('events'=>$events, 'team_id'=>$team['Team']['id']));
+    break; 
+  case 'timeline':
+    echo $this->element('Events/events_timeline',array('events'=>$events, 'team_id'=>$team['Team']['id']));
+    break; 
+  default:
+    echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming'));
+    break; 
 }
 ?>
 
