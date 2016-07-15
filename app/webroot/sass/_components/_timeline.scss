@@ -209,6 +209,10 @@ Main Components
 	overflow: hidden;
 	transition: height 0.4s ease;
 
+	ol {
+		margin: 0;
+	}
+
 	li {
 		position: absolute;
 		z-index: 1;
@@ -216,7 +220,8 @@ Main Components
 		left: 0;
 		top: 0;
 		transform: translateX(-100%);
-		padding: 0 5%;
+		padding: 0;
+		margin: 0;
 		opacity: 0;
 		animation-duration: 0.4s;
 		animation-timing-function: ease-in-out;
