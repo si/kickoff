@@ -26,6 +26,18 @@
     <link rel="apple-touch-icon-precomposed" href="/img/src/png/favicon-57.png">
     <link rel="shortcut icon" href="/img/src/png/favicon-144.png">
 
+    <!-- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup -->
+    <meta property="fb:app_id" content="1641522066103110">
+    <meta property="og:url" content="https://kickoffcalendars.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kick Off Calendars">
+    <meta property="og:image" content="https://kickoffcalendars.com/img/png/fb-cover.png">
+    <meta property="og:description" content="Premier League and Championship football kick off times for your calendar apps">
+    <meta property="og:site_name" content="Kick Off Calendars">
+    <meta property="og:locale" content="en_GB">
+    <meta property="article:author" content="">
+    <!-- Open Graph: http://ogp.me/ -->
+
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
