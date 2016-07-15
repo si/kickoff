@@ -109,7 +109,7 @@ Main Components
 			/* this is used to create the event spot */
 			content: '';
 			position: absolute;
-			//@include center(x);
+			@include center(x);
 			bottom: -5px;
 			height: 12px;
 			width: 12px;
@@ -152,7 +152,7 @@ Main Components
 	/* these are the left/right arrows to navigate the timeline */
 	position: absolute;
 	z-index: 1;
-	//@include center(y);
+	@include center(y);
 	height: 34px;
 	width: 34px;
 	border-radius: 50%;
@@ -170,7 +170,7 @@ Main Components
 		position: absolute;
 		height: 16px;
 		width: 16px;
-		//@include center;
+		@include center;
 		background: url(../img/src/icons/arrow-right-white.svg) no-repeat 0 0;
 	}
 
