@@ -57,15 +57,18 @@ Main Components
 			width: 20px;
 		}
 
+		/*
+		TODO: Any way this can be set transparent faded?
 		&::before {
 			left: 0;
-	    	//@include background-image(linear-gradient(to right,$color-4, rgba($color-4, 0)));
+	    	background-image: linear-gradient(to right,$color-4, rgba($color-4, 0));
 		}
 
 		&::after {
 			right: 0;
-			//@include background-image(linear-gradient(to left,$color-4, rgba($color-4, 0)));
+			background-image: linear-gradient(to left,$color-4, rgba($color-4, 0));
 		}
+		*/
 	}
 
 	.events {
@@ -76,7 +79,7 @@ Main Components
 		top: 49px;
 		height: 2px;
 		/* width will be set using JavaScript */
-		background: darken($color-4, 10%);
+		background: rgba(#FFF, 0.2);
 		transition: transform 0.4s ease;
 	}
 
@@ -88,7 +91,7 @@ Main Components
 		top: 0;
 		height: 100%;
 		width: 100%;
-		background-color: $color-2;
+		background-color: $color-3;
 		transform: scaleX(0);
 		transform-origin: left center;
 		transition: transform 0.3s ease;
@@ -101,7 +104,7 @@ Main Components
 		text-align: center;
 		font-size: 0.8rem;
 		padding-bottom: 15px;
-		color: $color-1;
+		color: $color-3;
 		/* fix bug on Safari - text flickering while timeline translates */
 		transform: translateZ(0);
 
@@ -114,8 +117,8 @@ Main Components
 			height: 12px;
 			width: 12px;
 			border-radius: 50%;
-			border: 2px solid darken($color-4, 10%);
-			background-color: $color-4;
+			//border: 2px solid darken($color-4, 10%);
+			background-color: rgba($color-4, 0.5);
 			transition: background-color 0.3s ease, border-color 0.3s ease;
 		}
 
@@ -128,13 +131,12 @@ Main Components
 			pointer-events: none;
 
 			&::after {
-				background-color: $color-2;
-				border-color: $color-2;
+				background-color: $color-4;
 			}
 		}
 
 		&.older-event::after {
-			border-color: $color-2;
+			background-color: rgba($color-4, 0.9);
 		}
 	}
 

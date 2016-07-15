@@ -1,7 +1,7 @@
 jQuery(document).ready(function($){
 	console.log('initiate horizontal timeline ...');
 	var timelines = $('.cd-horizontal-timeline'),
-		eventsMinDistance = 60;
+		eventsMinDistance = 45;
 
 	(timelines.length > 0) && initTimeline(timelines);
 
