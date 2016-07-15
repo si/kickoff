@@ -48,8 +48,15 @@
                 $count++; 
             ?>
 			<li data-date="<?php echo $this->Time->format('d/m/Y',$event['Event']['start']); ?>" <?php echo ($count == 1) ? 'class="selected"' : ''; ?>>
-				<h2><?php echo $event['Event']['summary']; ?></h2>
-				<em><?php echo $this->Time->format('D d M Y',$event['Event']['start']); ?></em>
+				<h2 class="">
+                <?php echo $this->Html->link($event['Event']['summary'], array(
+                    'controller'=>'events',
+                    'action'=>'view',
+                    $event['Event']['id'],
+                    $event['HomeTeam']['slug'] . '-' . $event['AwayTeam']['slug'],
+                  )); ?>
+                </h2>
+				<time datetime="<?php echo $this->Time->format('c',$event['Event']['start']); ?>"><?php echo $this->Time->format('D d M Y g:ia',$event['Event']['start']); ?></time>
 			</li>
             <?php endforeach; ?>
         </ol>
