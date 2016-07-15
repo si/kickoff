@@ -164,7 +164,7 @@ Main Components
 	color: transparent;
 	text-indent: 100%;
 	white-space: nowrap;
-	transition: border-color 0.3s ease;
+	transition: all 0.3s ease;
 	
 	&::after {
 		/* arrow icon */
@@ -191,10 +191,7 @@ Main Components
 
 	&.inactive {
 		cursor: not-allowed;
-
-		&::after {
-			background-position: 0 -16px;
-		}
+		opacity: 0.2;
 
 		.no-touch &:hover {
 			border-color: darken($color-4, 10%);
