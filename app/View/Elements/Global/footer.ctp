@@ -1,12 +1,11 @@
 <footer>
+    <div class="social">
+        <?php
+        echo $this->element('Global/share', array(
+            'title'=>$title_for_layout, 
+            'link'=>('https://kickoffcalendars.com' . $this->params->here )
+        )); 
+        ?>
+    </div>
     <p class="copyright">&copy; KickOff Calendars <?php echo date('Y'); ?></p>
-    <ul>
-    <?php 
-    if($this->Session->read('Auth.User.id')!='') {
-        echo $this->element('Navigation/user_menu');
-    } else {
-        echo $this->element('Navigation/guest_menu');
-    } 
-    ?>
-    </ul>
 </footer>
