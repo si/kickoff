@@ -3456,9 +3456,9 @@ $(document).ready(function(){
     }
 
     if(provider==='google') {
-      url = 'http://' + host + url;
+      url = encodeURIComponent('http://' + host + url);
     }
-    return encodeURIComponent(url);
+    return url;
   };
 
   var setDefaultService = function() {
