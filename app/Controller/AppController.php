@@ -9,7 +9,7 @@ class AppController extends Controller {
 		'Email',
 		'Session',
 		'Auth' => array(
-			'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+			'loginRedirect' => array('controller' => 'users', 'action' => 'view'),
 			'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
 		),
 	);
