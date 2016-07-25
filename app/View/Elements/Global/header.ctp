@@ -9,7 +9,7 @@
         <div class="slick-nav">
         <?php echo $this->requestAction('teams/by_competition/context:nav', ['return']); ?>
         </div>
-        <ul>
+        <ul class="user-shortcuts">
 			<?php if($this->Session->read('Auth.User.id')=='') : ?>
             <li><?php echo $this->Html->link( 'Log in', array('controller'=>'users', 'action'=>'login')); ?></li>
             <li><?php echo $this->Html->link( 'Register', array('controller'=>'users', 'action'=>'add')); ?></li>

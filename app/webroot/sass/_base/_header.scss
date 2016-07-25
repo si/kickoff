@@ -98,8 +98,12 @@ header {
                 text-align: center;
             }
 
-            a[data-short] {
+            a {
                 display: block;
+                padding: 1rem;
+            }
+
+            a[data-short] {
                 padding: 0.3rem;
 
                 &:after {
@@ -118,6 +122,17 @@ header {
                         display: block;
                     }
                 }
+            }
+
+            &.user-shortcuts {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                background: rgba(#FFF, 0.1);
+                column-rule: 1px solid rgba(#FFF, 0.1);
+                
             }
         }
         
