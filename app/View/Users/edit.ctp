@@ -1,3 +1,6 @@
+<?php  
+$this->viewVars['title_for_layout'] = 'Edit ' . $this->data['User']['username'] . ' - Kick Off Calendars';
+?>
 <?php
 echo $this->Form->create('User');
 
