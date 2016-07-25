@@ -3,7 +3,7 @@
    RewriteBase /
 
    # Force SSL Redirection
-   RewriteCond %{SERVER_PORT} !=80
+   RewriteCond %{HTTPS} !=on
    RewriteRule ^/?(.*) https://%(SERVER_NAME)/$1 [R=301,L]
    
    # Cake routing
