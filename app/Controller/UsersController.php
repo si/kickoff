@@ -21,12 +21,12 @@ class UsersController extends AppController {
     }
 
 
-    public function view($id = null) {
+    public function view() {
         $this->User->id = $this->Session->read('Auth.User.id');
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
-        $this->set('user', $this->User->read(null, $id));
+        $this->set('user', $this->User->read(null, $this->User->id));
 
     }
     public function add() {
