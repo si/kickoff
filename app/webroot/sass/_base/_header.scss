@@ -95,9 +95,10 @@ header {
 
             li {
                 height: 2rem;
+                text-align: center;
             }
 
-            a {
+            a[data-short] {
                 display: block;
                 padding: 0.3rem;
 
@@ -106,7 +107,6 @@ header {
                     display: none;
                     width: auto;
                     height: auto;
-                    text-align: center;
                 }
                 
                 @media screen and (max-width: $break-small) {
@@ -143,7 +143,14 @@ header {
         }    
         .slick-next {
             right: -10px;
-        }    
+        }
+
+        .slick-dots li {
+            button:before,
+            &.slick-active button:before {
+                background: #FFF; 
+            }
+        }
     }
       
     form {
