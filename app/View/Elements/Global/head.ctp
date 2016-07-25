@@ -14,6 +14,21 @@
 
     <link href="/css/kickoff-v0.1.0.css" rel="stylesheet">
 
+    <?php
+    // Check for any Themes in the data layer
+    if((count(array_column($this->viewVars, 'Theme'))>0) || isset($this->request['data']['Theme'])) {
+        $theme = (count(array_column($this->viewVars, 'Theme'))>0) ? array_column($this->viewVars, 'Theme')[0] : $this->request['data']['Theme'];
+        if($theme['primary_colour']!='') {
+            $color = $this->Html->colorHexToDec($theme['primary_colour']);
+        } else {
+            $color['rgb'] = '0,0,0';
+        }
+        if( $theme['image'] != '' || $color['rgb'] != '' ) {
+        echo '<style> body { ' . $this->Html->cssThemeBackground($theme['image'], $color['rgb'], 'fixed') . ' } </style>';
+        }
+    }
+    ?>
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.js"></script>

@@ -49,7 +49,7 @@ class CustomHtmlHelper extends HtmlHelper {
                         rgba(' . $color['rgb'] . ', ' . $gradient_to . ')
                     )';
         if($img != '') {
-            if(strpos($img, '//')==-1) $img = '/' . $img;
+            $img = '/' . $img;
             $bg .= ', ' . $position . ' url(' . $img . ') no-repeat 50% 50%; background-size: cover;';
         }
         return $bg;
