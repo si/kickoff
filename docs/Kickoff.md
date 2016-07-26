@@ -8,10 +8,14 @@
 ## Project goal
 Provide usable, engaging data for sports events
 
-## Target
+## Roadmap
  
- * **Rugby World Cup 2015** in England & Wales
- * **FA 2015-16** football season (FA Cup, Premiership, Championship, League 1 and 2)
+| Phase | Date |
+|---|---|
+| Premier League 2016-17 | 16 Jun 2016  |
+| Championship 2016-17 | 23 Jun 2016  |
+| FA Cup 2016-17 | TBC |
+| World Cup 2018 | TBC  |
 
 ## Legacy Products
 
