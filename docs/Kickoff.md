@@ -38,7 +38,7 @@ Provide usable, engaging data for sports events
 Provide tailored selection of suitable services for specific events.
 
 * Cheapest, most valuable or unique offers for nearby hotels, restaurants and travel
-* Gathered by people with exclusive partner deals for customers
+* Gathered by people (experts, bloggers) with exclusive partner deals for members
 * Only available to registered users or subscribed calendars
 * Focus on key events ([Arsenal v Spurs](https://kickoffcalendars.com/events/view/236/arsenal-tottenham-hotspur), [Manchester United v Manchester City](https://kickoffcalendars.com/events/view/279/manchester-united-manchester-city)) to test and learn from 
 
