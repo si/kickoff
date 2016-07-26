@@ -28,12 +28,21 @@ Provide usable, engaging data for sports events
 ## Features
 ### Consumption
 
- * **Calendar View** - view of all events, either as calendar grid or list
- * **Competition Calendar Subscriptions** - ICS calendar file/subscription grouped by a competition
+ * **Calendar View** - view of all events, either as calendar grid, list or timeline
+ * **Competition Calendar Subscriptions** - ICS calendar file/subscription grouped by competition
  * **Open data** - XML, JSON and RSS feeds of events
- * **Share calendars** – invite people to see the calendar via social and email
-
+ * **Share calendars** – invite people to see the calendar via social channels
+ 
 ### Curation
+
+Provide tailored selection of suitable services for specific events.
+
+* Cheapest, most valuable or unique offers for nearby hotels, restaurants and travel
+* Gathered by people with exclusive partner deals for customers
+* Only available to registered users or subscribed calendars
+* Focus on key events ([Arsenal v Spurs](https://kickoffcalendars.com/events/view/236/arsenal-tottenham-hotspur), [Manchester United v Manchester City](https://kickoffcalendars.com/events/view/279/manchester-united-manchester-city)) to test and learn from 
+
+### Components
 
  * **Calendars** – create and manage calendars
  	* **Residency** – location with map
