@@ -1,6 +1,9 @@
 # Kickoff
-*Author: Si Jobling ([@Si](http://twitter.com/Si))*
-*Collaborators: Brian Suda ([@briansuda](http://twitter.com/briansuda))*
+
+## Team
+
+* Founder: Si Jobling ([@Si](http://twitter.com/Si))
+* Contributors: Andy Higgs ([@andyhiggs](http://twitter.com/andyhiggs)), Brian Suda ([@briansuda](http://twitter.com/briansuda))
 
 ## Project goal
 Provide usable, engaging data for sports events
