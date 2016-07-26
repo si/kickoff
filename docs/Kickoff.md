@@ -42,6 +42,13 @@ Provide tailored selection of suitable services for specific events.
 * Only available to registered users or subscribed calendars
 * Focus on key events ([Arsenal v Spurs](https://kickoffcalendars.com/events/view/236/arsenal-tottenham-hotspur), [Manchester United v Manchester City](https://kickoffcalendars.com/events/view/279/manchester-united-manchester-city)) to test and learn from 
 
+### Convenience
+
+* Social channels (provider, accounts, hashtags) to engage with fellow fans
+* Locate nearest pub or club to broadcast the event (via Matchpint)
+* Latest gambling odds from preferred/partner betting shop
+* On-demand service provider (Sky, BT etc) with possible deals
+
 ### Components
 
  * **Calendars** – create and manage calendars
