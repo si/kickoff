@@ -43,14 +43,22 @@ class CustomHtmlHelper extends HtmlHelper {
 	}
 
     public function cssThemeBackground($img='', $color='0,0,0', $position='', $gradient_from=0.93, $gradient_to=1) {
+
         $color = $this->Html->colorHexToDec($color);
+
+        // Reduce opacity if image provided
+        if($img != '') {
+            $gradient_from = 0.5;
+            $gradient_to = 0.8;
+        }
+
         $bg = 'background: linear-gradient(
                         rgba(' . $color['rgb'] . ', ' . $gradient_from . '), 
                         rgba(' . $color['rgb'] . ', ' . $gradient_to . ')
                     )';
+
         if($img != '') {
-            if(strpos($img, '//')==-1) $img = '/' . $img;
-            $bg .= ', ' . $position . ' url(' . $img . ') no-repeat 50% 50%; background-size: cover;';
+            $bg .= ', ' . $position . ' url(/' . $img . ') no-repeat 50% 50%; background-size: cover;';
         }
         return $bg;
     }
