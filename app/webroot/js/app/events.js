@@ -34,4 +34,22 @@ $(document).ready(function(){
 
   $('#EventStart').on('blur', updateEventEnd);
 
+
+  /*
+    Team lookup
+  */
+  var searchTeams = function(input) {
+    console.log('input', input);
+    $.ajax(
+      {
+        url : '/teams/search/' + input.target.value + '.json',
+        method : 'get'
+      }
+    ).done(function(response){
+      console.log(response);
+    });
+  };
+
+  $('.team-lookup').on('keyup', searchTeams);
+
 });
