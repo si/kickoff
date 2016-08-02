@@ -28,5 +28,8 @@ class AppController extends Controller {
 
 	public function beforeRender() {
 		parent::beforeRender();
+		if( isset($this->params['ext']) && in_array($this->params['ext'], array('json', 'ics') )) {
+			$this->layout = $this->params['ext'] . '/default';
+		}   
 	}
 }
