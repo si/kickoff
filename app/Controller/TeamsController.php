@@ -6,7 +6,7 @@ class TeamsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
-        $this->Auth->allow('index', 'view', 'export', 'import_events', 'by_competition');
+        $this->Auth->allow('index', 'view', 'search', 'export', 'import_events', 'by_competition', 'vs');
 	}
 	
 	function beforeRender() {
@@ -21,6 +21,23 @@ class TeamsController extends AppController {
 		}
 
 		$this->set('teams', $this->paginate('Team', $conditions));
+	}
+
+	function search($search='') {
+		$this->set('teams', $this->Team->find('all', array(
+			'fields' => array(
+				'Team.name',
+				'Team.slug',
+				'Team.id',
+				//'Event.id'
+			),
+			'conditions' => array(
+				'or' => array(
+					"Team.name LIKE '%" . $search . "%'", 
+					"Team.slug LIKE '%" . $search . "%'", 
+				)
+			)
+		)));
 	}
 
 	function view($id='') {
@@ -433,6 +450,10 @@ class TeamsController extends AppController {
 		if($team_id!='') $sql .= ' WHERE `teams`.`id` = ' . $team_id;
 		$this->set('sql',$sql);
 		$this->set('response', $this->Team->query($sql) );
+	}
+
+	function vs($team_a = '', $team_b = '') {
+		var_dump($this->data);
 	}
 
 }
