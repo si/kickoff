@@ -39,15 +39,28 @@ $(document).ready(function(){
     Team lookup
   */
   var searchTeams = function(input) {
-    console.log('input', input);
     $.ajax(
       {
         url : '/teams/search/' + input.target.value + '.json',
         method : 'get'
       }
     ).done(function(response){
-      console.log(response);
+      displayTeams(input.target, response);
     });
+  };
+
+  var displayTeams = function(element, response) {
+
+    var data = JSON.parse(response),
+        markup = '',
+        $target = $(element);
+
+    $target.siblings('.team-list').remove();
+    for(team in data) {
+      markup += '<li><a href="#' + data[team].id + '">' + data[team].name + '</a></li>';
+    }
+    markup = '<ul class="team-list">' + markup + '</ul>';
+    $target.after(markup);
   };
 
   $('.team-lookup').on('keyup', searchTeams);
