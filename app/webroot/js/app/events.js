@@ -55,11 +55,21 @@ $(document).ready(function(){
         markup = '',
         $target = $(element);
 
+    // Wrap lookup if not already
+    console.log( $target.parents('.team-lookup-wrapper') );
+    if($target.parents('.team-lookup-wrapper').length === 0) {
+      $target.wrap('<div class="team-lookup-wrapper />');
+    }
+    // Remove existing list
     $target.siblings('.team-list').remove();
+
+    // Build options
     for(team in data) {
       markup += '<li><a href="#' + data[team].id + '">' + data[team].name + '</a></li>';
     }
     markup = '<ul class="team-list">' + markup + '</ul>';
+
+    // Place options after target
     $target.after(markup);
   };
 
