@@ -11,11 +11,11 @@ $this->viewVars['title_for_layout'] = $title;
 </div>
 
 <?php
-echo $this->element('Events/event_formats',array('view'=>'view')); 
+echo $this->element('Events/event_formats',array('view'=>'programme')); 
 ?>
 
 <?php
-echo $this->element('Events/events_grid',array('events'=>$events,'context'=>'upcoming')); 
+echo $this->element('Events/events_list',array('events'=>$events, 'team_id'=>$team['Team']['id'])); 
 ?>
 
 <p class="meta">
