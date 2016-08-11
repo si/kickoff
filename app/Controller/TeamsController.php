@@ -6,7 +6,7 @@ class TeamsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
-        $this->Auth->allow('index', 'view', 'export', 'import_events', 'by_competition');
+        $this->Auth->allow('index', 'view', 'programme', 'export', 'import_events', 'by_competition');
 	}
 	
 	function beforeRender() {
@@ -23,7 +23,7 @@ class TeamsController extends AppController {
 		$this->set('teams', $this->paginate('Team', $conditions));
 	}
 
-	function view($id='') {
+	private function _get_events($id='') {
 		if($id!='') {
 			// Set query parameters
 		    $future_params = array(
@@ -74,13 +74,21 @@ class TeamsController extends AppController {
 
 		    $this->set(compact('start','end'));
 		    $this->set('future_params', $future_params);
-			$this->set('layout', (isset($this->params['named']['layout'])) ? $this->params['named']['layout'] : '');
-		
+			
 		    $events = $this->Team->Event->find('all',$future_params);
-			//var_dump($events);
-		    $this->set('events', $events);
+		    return $events;
 		
 		}
+	}
+
+	function view($id='') {
+		$events = $this->_get_events($id);
+		$this->set('events', $events);
+	}
+
+	function programme($id='') {
+		$events = $this->_get_events($id);
+		$this->set('events', $events);
 	}
 
 	function form($id='') {
