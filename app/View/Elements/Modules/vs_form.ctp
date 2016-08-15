@@ -4,7 +4,7 @@
     ))); ?>
     <fieldset>
         <legend>When Does</legend>
-        <?php echo $this->Form->input('TeamA', array('class'=>'team-lookup', 'div'=>'team-lookup-wrapper')); ?>
+        <?php echo $this->Form->input('TeamA', array('class'=>'team-lookup')); ?>
         <abbr title="versus">vs</abbr>
         <?php echo $this->Form->input('TeamB', array('class'=>'team-lookup')); ?>
         <button type="submit">Kick Off</button>

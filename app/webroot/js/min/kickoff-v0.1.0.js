@@ -3547,7 +3547,7 @@ $(document).ready(function(){
       }
     ).done(function(response){
       displayTeams(input.target, response)
-      initLookup();
+      initListOptions();
     });
   };
 
@@ -3558,12 +3558,13 @@ $(document).ready(function(){
         $target = $(element);
 
     // Wrap lookup if not already
-    console.log( $target.parents('#team-lookup-wrapper') );
-    if($target.parents('#team-lookup-wrapper').length !== 0) {
-      $($target).unwrap();
-    } else {
-      $target.wrap('<div id="team-lookup-wrapper />');
+    
+  //  console.log( $target.parent().is('.team-lookup-wrapper') );
+    if( ! $target.parent().is('.team-lookup-wrapper') ) {
+//      console.log('wrapping');
+      $($target).wrap('<div class="team-lookup-wrapper" />');
     }
+
     // Remove existing list
     $target.siblings('.team-list').remove();
 
@@ -3582,11 +3583,20 @@ $(document).ready(function(){
         input = '#' + $target.attr('data-for'),
         name = $target.text();
     $(input).val(name);
+    hideSuggestions();
   };
+
+  var hideSuggestions = function() {
+    $('.team-list').remove();
+  };
+
+  var initListOptions = function() {
+    $('.team-list a').on('click', selectTeam);
+  }
 
   var initLookup = function() {
     $('.team-lookup').on('keyup', searchTeams);
-    $('.team-list a').on('click', selectTeam);
+    initListOptions();
   };
 
   initLookup();
