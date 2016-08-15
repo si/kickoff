@@ -66,6 +66,12 @@ Events
     }
 }
 
+.team-list {
+    background: rgba(#000, 0.9);
+    z-index: 30;
+}
+
+
 @keyframes flash {
     from {
         opacity: 1;
