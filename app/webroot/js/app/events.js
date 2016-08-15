@@ -45,7 +45,8 @@ $(document).ready(function(){
         method : 'get'
       }
     ).done(function(response){
-      displayTeams(input.target, response);
+      displayTeams(input.target, response)
+      initLookup();
     });
   };
 
@@ -56,16 +57,18 @@ $(document).ready(function(){
         $target = $(element);
 
     // Wrap lookup if not already
-    console.log( $target.parents('.team-lookup-wrapper') );
-    if($target.parents('.team-lookup-wrapper').length === 0) {
-      $target.wrap('<div class="team-lookup-wrapper />');
+    console.log( $target.parents('#team-lookup-wrapper') );
+    if($target.parents('#team-lookup-wrapper').length !== 0) {
+      $($target).unwrap();
+    } else {
+      $target.wrap('<div id="team-lookup-wrapper />');
     }
     // Remove existing list
     $target.siblings('.team-list').remove();
 
     // Build options
     for(team in data) {
-      markup += '<li><a href="#' + data[team].id + '">' + data[team].name + '</a></li>';
+      markup += '<li><a href="#' + data[team].slug + '" data-for="' + element.id + '">' + data[team].name + '</a></li>';
     }
     markup = '<ul class="team-list">' + markup + '</ul>';
 
@@ -73,6 +76,18 @@ $(document).ready(function(){
     $target.after(markup);
   };
 
-  $('.team-lookup').on('keyup', searchTeams);
+  var selectTeam = function(element) {
+    var $target = $(element.target),
+        input = '#' + $target.attr('data-for'),
+        name = $target.text();
+    $(input).val(name);
+  };
+
+  var initLookup = function() {
+    $('.team-lookup').on('keyup', searchTeams);
+    $('.team-list a').on('click', selectTeam);
+  };
+
+  initLookup();
 
 });
