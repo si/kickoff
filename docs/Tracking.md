@@ -1,5 +1,9 @@
 # Tracking
 
+This document outlines the tracking for Kick Off Calendars, using [Segment.com](https://segment.com) to proxy Google Analytics plus any other third-party monitoring tools.
+
+[Segment's tracking plan](https://segment.com/blog/segment-tracking-plan/) is used as a guide.
+
 ## Key Metrics
 
 |Metric|Why|
