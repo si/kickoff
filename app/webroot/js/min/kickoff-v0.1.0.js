@@ -3595,7 +3595,14 @@ $(document).ready(function(){
   }
 
   var initLookup = function() {
-    $('.team-lookup').on('keyup', searchTeams);
+    var $inputs = $('.team-lookup');
+    
+    $inputs.each(function(i,e){
+      $(e).attr('autocomplete', 'off');
+    });
+    
+    $inputs.on('keyup', searchTeams);
+    
     initListOptions();
   };
 
