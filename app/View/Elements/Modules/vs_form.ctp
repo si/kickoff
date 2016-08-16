@@ -1,4 +1,4 @@
-<?php echo $this->Form->create('Team', array('action' => 'vs', 'type' => 'get', 'inputDefaults' => array(
+<?php echo $this->Form->create('Event', array('action' => 'vs', 'type' => 'get', 'inputDefaults' => array(
         'label' => false,
         'div' => false
     ))); ?>

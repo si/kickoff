@@ -8,7 +8,7 @@ class EventsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
-    $this->Auth->allow('view', 'export', 'share');
+    $this->Auth->allow('view', 'export', 'share', 'vs');
 	}
 	
 	function beforeRender() {
@@ -149,4 +149,14 @@ class EventsController extends AppController {
   function bulk() {
       
   }
+
+	public function vs($team_a = '', $team_b = '') {
+		echo '<label>Data <textarea>'; var_dump($this->params->query); echo '</textarea></label>';
+
+    if( isset($this->params->query) && isset($this->params->query['TeamA']) ) {
+  		$teamA = $this->Event->HomeTeam->find('first', array('conditions'=> array('HomeTeam.name' => $this->params->query['TeamA'])));
+  		echo '<label>Team <textarea>'; var_dump($teamA); echo '</textarea></label>';
+    } 
+
+	}
 }

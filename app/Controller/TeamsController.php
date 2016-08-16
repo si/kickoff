@@ -461,8 +461,4 @@ class TeamsController extends AppController {
 		$this->set('response', $this->Team->query($sql) );
 	}
 
-	function vs($team_a = '', $team_b = '') {
-		var_dump($this->data);
-	}
-
 }
