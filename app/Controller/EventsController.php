@@ -153,9 +153,15 @@ class EventsController extends AppController {
 	public function vs($team_a = '', $team_b = '') {
 		echo '<label>Data <textarea>'; var_dump($this->params->query); echo '</textarea></label>';
 
-    if( isset($this->params->query) && isset($this->params->query['TeamA']) ) {
-  		$teamA = $this->Event->HomeTeam->find('first', array('conditions'=> array('HomeTeam.name' => $this->params->query['TeamA'])));
-  		echo '<label>Team <textarea>'; var_dump($teamA); echo '</textarea></label>';
+    if( isset($this->params->query['TeamA']) && isset($this->params->query['TeamB']) ) {
+      echo 'Gotcha!';
+  		$events = $this->Event->find('first', array(
+        'conditions'=> array(
+          'HomeTeam.name' => $this->params->query['TeamA'],
+          'AwayTeam.name' => $this->params->query['TeamB'],
+        )
+      ));
+  		echo '<label>Events <textarea>'; var_dump($events); echo '</textarea></label>';
     } 
 
 	}
