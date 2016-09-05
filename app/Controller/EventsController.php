@@ -160,7 +160,11 @@ class EventsController extends AppController {
         ),
         'order' => array('Event.start ASC')
       ));
-      $this->redirect( array('controller'=>'events', 'action'=>'view', $event['Event']['id'], $event['HomeTeam']['slug'] . '-' . $event['AwayTeam']['slug'] ));
+      
+      if($event!=false) {
+        //echo '<textarea class="debug">'; var_dump($event); echo '</textarea>';
+        $this->redirect( array('controller'=>'events', 'action'=>'view', $event['Event']['id'], $event['HomeTeam']['slug'] . '-' . $event['AwayTeam']['slug'] ));
+      }
     }
 	}
 
