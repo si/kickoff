@@ -159,7 +159,8 @@ class EventsController extends AppController {
         'conditions'=> array(
           'HomeTeam.name' => $this->params->query['TeamA'],
           'AwayTeam.name' => $this->params->query['TeamB'],
-        )
+        ),
+        'order' => array('Event.start ASC')
       ));
   		echo '<label>Events <textarea>'; var_dump($events); echo '</textarea></label>';
     } 
