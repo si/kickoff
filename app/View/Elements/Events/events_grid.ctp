@@ -68,8 +68,8 @@ if(count($events)>0) {
               foreach($month_events[$d] as $event) {
                 echo '<li class="event" data-time="' . $this->Time->format('H:i',$event['Event']['start']) .'">' 
                 . $this->Html->link(
-                  //$this->Html->tag('span', $this->Time->format('H:i',$event['Event']['start']) . ' UTC', array('class'=>'time'))
-                  $this->Html->tag('abbr', $event['HomeTeam']['short'], array('class'=>'team', 'title'=>$event['HomeTeam']['name']))
+                  $this->Html->tag('span', $this->Time->format('H:i',$event['Event']['start']) . ' UTC', array('class'=>'time', 'title'=>'Kick off at ' . $this->Time->format('H:i',$event['Event']['start'])))
+                  . $this->Html->tag('abbr', $event['HomeTeam']['short'], array('class'=>'team', 'title'=>$event['HomeTeam']['name']))
                   . $this->Html->tag('abbr', 'v', array('class'=>'vs'))
                   . $this->Html->tag('abbr', $event['AwayTeam']['short'], array('class'=>'team', 'title'=>$event['AwayTeam']['name']))
                   //. utf8_encode($event['Event']['summary'])
