@@ -31,11 +31,12 @@ h1,
         }
     }
 
-    abbr[title] {
+    abbr[title],
+    .description {
         display: block;
         border-bottom: none;
         font-size: 1rem;
-        font-style: italic;
+        font-style: normal;
         line-height: 0;
         margin: 1em 0;
         animation: fadeAndScaleIn 1s 1;
