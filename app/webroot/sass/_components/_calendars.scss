@@ -97,9 +97,17 @@ $color-share: #FFF;
             margin: 0 0.3rem;
         }
         
-        .time, .location {
-          display: none;
-        }
+          .time {
+            display: block;
+            font-size: 0.8em;
+            font-weight: bold;
+          }
+          .location {
+            display: block;
+            font-size: 0.8em;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+          }
         
       }
 
@@ -139,17 +147,6 @@ $color-share: #FFF;
         
         a {
           text-decoration: none;
-          .time {
-            display: block;
-            font-size: 0.8em;
-            font-weight: bold;
-          }
-          .location {
-            display: block;
-            font-size: 0.8em;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-          }
         }
 
         .download, .share {
