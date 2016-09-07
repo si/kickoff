@@ -2,7 +2,7 @@
 $this->viewVars['title_for_layout'] = $competition['Competition']['name'] . ' - Kick Off Calendar';
 ?>
 
-<h1><?php echo $competition['Competition']['name']; ?></h1>
+<h1><?php echo $competition['Competition']['name']; ?> <span class="description">kick off times</span></h1>
 
 <?php if( $competition['Competition']['description']!='') : ?>
 <p class="lead"><?php echo $competition['Competition']['description']; ?></p>
@@ -10,7 +10,7 @@ $this->viewVars['title_for_layout'] = $competition['Competition']['name'] . ' - 
     
 
 <div class="cta">
-  <?php echo $this->Html->link('Add to Calendar',array('action'=>'export',$competition['Competition']['id']),array('class'=>'btn btn-large', 'type'=>'text/calendar'
+  <?php echo $this->Html->link('Add to Calendar',array('action'=>'export',$competition['Competition']['id']),array('class'=>'btn btn-large', 'type'=>'text/calendar', 'title'=>'Add kick off times to your calendar'
 )); ?>
 </div>
 
