@@ -4,10 +4,10 @@ if(isset($team)) $title = $team['Team']['name'] . ' - ' . $title;
 $this->viewVars['title_for_layout'] = $title;
 ?>
 
-<h1><?php echo $team['Team']['name']; ?></h1>
+<h1><?php echo $team['Team']['name']; ?> <span class="description">kick off times</span></h1>
 
 <div class="cta">
-  <?php echo $this->Html->link('Add to Calendar',array('action'=>'export',$team['Team']['id']),array('class'=>'btn btn-large', 'type'=>'text/calendar')); ?>
+  <?php echo $this->Html->link('Add to calendar',array('action'=>'export',$team['Team']['id']),array('class'=>'btn btn-large', 'type'=>'text/calendar', 'title'=>'Add kick off times to your calendar')); ?>
 </div>
 
 <?php
