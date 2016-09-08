@@ -38,6 +38,9 @@ $this->viewVars['title_for_layout'] = $title;
       'class'=>'btn btn-large',
       'type'=>'text/calendar'
     ));?>
+    
+    <a href="#share" title="Share with friends"><img src="/img/src/icons/share-white.svg" alt="Share"></a>
+    
   </div>
 
   <?php echo $this->element('Ads/google'); ?>
