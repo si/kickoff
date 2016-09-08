@@ -39,8 +39,8 @@ $this->viewVars['title_for_layout'] = $title;
       'type'=>'text/calendar'
     ));?>
     
-    <a href="#share" title="Share with friends"><img src="/img/src/icons/share-white.svg" alt="Share"></a>
-    
+    <?php // echo $this->element('Modules/share'); ?>
+
   </div>
 
   <?php echo $this->element('Ads/google'); ?>
