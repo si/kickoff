@@ -13,16 +13,17 @@ $timezone_identifiers = array(
 $timezones = array();
 
 foreach ($timezone_identifiers as $continent=>$list) {
+//    $timezones[] = $continent;
     foreach ($list as $index=>$name) {
         // Remove continents 
         $display = str_replace($continent . '/', '', $name);
         $display = str_replace(['_', '/'], ' ', $display);
         $timezone = str_replace('/', '-', $name);
-        $timezones[$timezone] = $display; 
+        $timezones[$continent][$timezone] = $display; 
     }
 }
 
-_debug($timezones);
+//_debug($timezones);
 
 ?>
 
@@ -30,11 +31,11 @@ _debug($timezones);
     <a href="#" class="close">&times;</a>
 
     <h3>Select your timezone</h3>
+    <?php echo $this->Form->create('UserTimezone'); ?>
+        <?php echo $this->Form->input('Location', array('options' => $timezones, 'empty' => 'UTC (+00:00)') ); ?>
+        <?php echo $this->Form->input('Remember', array( 'type'=>'checkbox', 'label' => 'Remember timezone' ) ); ?>
 
-    <?php echo $this->Form->select('TimezoneContinent', array_keys($timezone_identifiers) ); ?>
-    <?php echo $this->Form->select('TimezoneName', $timezones ); ?>
-    <?php echo $this->Form->input('TimezoneRemember', array( 'type'=>'checkbox', 'label' => 'Remember timezone' ) ); ?>
-
-    <?php echo $this->Form->button('Update' ); ?>
+        <?php echo $this->Form->button('Update' ); ?>
+    <?php echo $this->Form->end(''); ?>
 
 </div>
