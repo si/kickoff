@@ -8,7 +8,6 @@
         <abbr title="versus">vs</abbr>
         <?php echo $this->Form->input('TeamB', array('class'=>'team-lookup')); ?>
         <button type="submit">Kick Off</button>
-        <span>?</span>  
     </fieldset>
 </form>
 <?php echo $this->Form->end(); ?>

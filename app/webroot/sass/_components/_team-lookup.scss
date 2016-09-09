@@ -1,6 +1,18 @@
+input.team-lookup {
+    @media (max-width: $break-small) {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
 .team-lookup-wrapper {
     display: inline-block;
     position: relative;
+
+    @media (max-width: $break-small) {
+        display: block;
+    }
+
 }
 
 .team-list {
