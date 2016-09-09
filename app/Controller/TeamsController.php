@@ -41,7 +41,7 @@ class TeamsController extends AppController {
 		)));
 	}
 
-	private function _get_events($id='') {
+	private function _get_events($id='', $start='' ) {
 		if($id!='') {
 			// Set query parameters
 		    $future_params = array(
@@ -62,7 +62,9 @@ class TeamsController extends AppController {
 		    $this->set('team', $team);
 		
 		    // Set month to passed parameter if defined, current month if not
-		    if(isset($this->params['named']['month'])) {
+			if($start!='') {
+				$start = $start;
+			} else if(isset($this->params['named']['month'])) {
 		      	$start = strtotime($this->params['named']['month']."-01 00:00:00");
 		    } else {
 				$start = strtotime(date('Y-m')."-01 00:00:00");
@@ -107,7 +109,7 @@ class TeamsController extends AppController {
 	}
 
 	function programme($id='') {
-		$events = $this->_get_events($id);
+		$events = $this->_get_events($id, strtotime('2016-08-01') );
 		$this->set('events', $events);
 	}
 
