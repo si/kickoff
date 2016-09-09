@@ -1,3 +1,12 @@
+<?php
+/*
+<small>
+  All times in <a href="#timezones" class="timezone"><?php echo $this->Time->format('T',$events[0]['Event']['start']); ?></a>
+  <?php echo $this->element('Modules/timezones'); ?>
+</small>
+*/
+?>
+
 <table class="table">
   <caption><?php echo count($events) . (isset($context) ? ' '.$context : '') ; ?> events</caption>
   <thead>
@@ -12,14 +21,16 @@
   <?php foreach($events as $event) : ?>
     <tr>
       <td>
-      <?php 
-        $format = 'D d M';
-        echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'competitions','action'=>'view',$event['Competition']['slug'], 'date'=>$this->Time->format('Y-m-d',$event['Event']['start']))); ?>
+        <?php 
+          $format = 'D d M';
+          echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'competitions','action'=>'view',$event['Competition']['slug'], 'date'=>$this->Time->format('Y-m-d',$event['Event']['start'])));
+        ?>
       </td>
       <td>
-      <?php 
-        $format = 'H:i';
-        echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'competitions','action'=>'view',$event['Competition']['slug'], 'date'=>$this->Time->format('Y-m-d',$event['Event']['start']))); ?>
+        <?php 
+          $format = 'H:i';
+          echo $this->Html->link($this->Time->format($format,$event['Event']['start']), array('controller'=>'competitions','action'=>'view',$event['Competition']['slug'], 'date'=>$this->Time->format('Y-m-d',$event['Event']['start']))); 
+        ?>
       </td>
       <td><?php echo $this->Html->link((($event['HomeTeam']['id']==$team_id) ? $event['AwayTeam']['name'] : $event['HomeTeam']['name']), array('controller'=>'events','action'=>'view',$event['Event']['id'])); ?></td>
       <td><?php echo ($event['HomeTeam']['id']==$team_id) ? 'H' : 'A'; ?></td>
