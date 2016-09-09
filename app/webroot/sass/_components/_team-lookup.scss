@@ -24,6 +24,8 @@ input.team-lookup {
     list-style: none;
     background: rgba(#000, 0.8);
     z-index: 30;
+    overflow-y: scroll;
+    max-height: 20rem;
 
     a {
         display: inline-block;
