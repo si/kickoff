@@ -5,7 +5,7 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'logout');
+        $this->Auth->allow('add', 'logout', 'set_timezone');
     }
 
     public function login() {
@@ -78,5 +78,20 @@ class UsersController extends AppController {
         }
         $this->Session->setFlash(__('User was not deleted'));
         $this->redirect(array('action' => 'index'));
+    }
+
+    public function set_timezone() {
+        //var_dump($this->data);
+        $destination =  '/';
+
+        $return = explode('/', $this->data['UserTimezone']['ReturnURL']);
+        foreach($return as $index => $part) {
+            if(strpos($part, 'timezone') === false) {
+                $destination .= $part . '/';
+            }
         }
+
+        $destination .=  '/timezone:' . str_replace('/','-',$this->data['UserTimezone']['Location']);
+        $this->redirect( $destination );
+    }
  }
