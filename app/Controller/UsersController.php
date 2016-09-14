@@ -91,7 +91,9 @@ class UsersController extends AppController {
             }
         }
 
-        $destination .=  '/timezone:' . str_replace('/','-',$this->data['UserTimezone']['Location']);
+        if($this->data['UserTimezone']['Location'] != '') {
+            $destination .=  '/timezone:' . str_replace('/','-',$this->data['UserTimezone']['Location']);
+        }
         $this->redirect( $destination );
     }
  }
