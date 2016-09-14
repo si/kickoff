@@ -8,6 +8,7 @@ $this->viewVars['title_for_layout'] = $title;
     <?php echo $this->Html->teamLink($event['HomeTeam'], array('class'=>null, 'property'=>'performers')); ?>
     <abbr title="versus">v</abbr>
     <?php echo $this->Html->teamLink($event['AwayTeam'], array('class'=>null, 'property'=>'performers')); ?>
+    <span class="description">kick off details</span>
   </h1>
 
   <time class="dtstart dtstamp">
