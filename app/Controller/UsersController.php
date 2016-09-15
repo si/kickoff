@@ -3,9 +3,22 @@
 
 class UsersController extends AppController {
 
+    public $components = array('Cookie');
+
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('add', 'logout', 'set_timezone');
+
+        $this->Cookie->name = 'user_id';
+        $this->Cookie->time = 3600 * 24 * 90;
+        $this->Cookie->path = '/users/preferences';
+        $this->Cookie->domain = 'kickoffcalendars.com';
+        $this->Cookie->secure = false; // only sent if using secure HTTPS
+        $this->Cookie->key = 'qwe1230iasdo-0(*09ausdoijaosiu9021u309jasodj()(_)oijaosijdaoisjd';
+        $this->Cookie->httpOnly = true;
+        $this->Cookie->type('cipher');
+        // f2a1cc9fd86fa0dd8b59df5e20a29470
+        // f2a1cc9fd86fa0dd8b59df5e20a29470
     }
 
     public function login() {
@@ -94,6 +107,11 @@ class UsersController extends AppController {
         if($this->data['UserTimezone']['Location'] != '') {
             $destination .=  '/timezone:' . str_replace('/','-',$this->data['UserTimezone']['Location']);
         }
+
+        if($this->data['UserTimezone']['Remember'] != '') {
+            $this->Cookie->write('timezone', $this->data['UserTimezone']['Location']);
+        }
+
         $this->redirect( $destination );
     }
  }
