@@ -76,9 +76,16 @@ if(count($events)>0) {
             if(isset($month_events[$d]) && count($month_events[$d])>0) {
               echo '<ol class="unstyled">';
               foreach($month_events[$d] as $event) {
-                echo '<li class="event" data-time="' . $this->Time->format('H:i',$event['Event']['start']) .'">' 
+
+                $start = new DateTime($event['Event']['start'], new DateTimeZone('UTC'));
+
+                if(isset($this->params['named']['timezone'])) {
+                  $start->setTimezone( new DateTimeZone( str_replace('-', '/', $this->params['named']['timezone'] ) ) );
+                }
+
+                echo '<li class="event" data-time="' . $start->format('H:i') .'">' 
                 . $this->Html->link(
-                  $this->Html->tag('span', $this->Time->format('H:i',$event['Event']['start']) . ' UTC', array('class'=>'time', 'title'=>'Kick off at ' . $this->Time->format('H:i',$event['Event']['start'])))
+                  $this->Html->tag('span', $start->format('H:i T'), array('class'=>'time', 'title'=>'Kick off at ' . $start->format('H:i')))
                   . $this->Html->tag('abbr', $event['HomeTeam']['short'], array('class'=>'team', 'title'=>$event['HomeTeam']['name']))
                   . $this->Html->tag('abbr', 'v', array('class'=>'vs'))
                   . $this->Html->tag('abbr', $event['AwayTeam']['short'], array('class'=>'team', 'title'=>$event['AwayTeam']['name']))
