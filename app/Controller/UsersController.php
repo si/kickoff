@@ -7,7 +7,7 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'logout', 'set_timezone');
+        $this->Auth->allow('add', 'logout', 'set_timezone', 'get_timezone');
 
         $this->Cookie->name = 'user_id';
         $this->Cookie->time = 3600 * 24 * 90;
@@ -108,10 +108,19 @@ class UsersController extends AppController {
             $destination .=  '/timezone:' . str_replace('/','-',$this->data['UserTimezone']['Location']);
         }
 
-        if($this->data['UserTimezone']['Remember'] != '') {
+        if($this->data['UserTimezone']['Remember'] != '') { 
             $this->Cookie->write('timezone', $this->data['UserTimezone']['Location']);
+            var_dump( $this->Cookie->read('timezone') );
         }
 
-        $this->redirect( $destination );
+        //$this->redirect( $destination );
     }
- }
+
+    public function get_timezone() {
+
+        $timezone = $this->Cookie->read('timezone');
+        var_dump($timezone);
+
+    }
+
+}
