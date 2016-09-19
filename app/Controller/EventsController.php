@@ -14,6 +14,10 @@ class EventsController extends AppController {
 	function beforeRender() {
 	  parent::beforeRender();
 	}
+  
+  function _slugify($name) {
+    return strtolower(str_replace(array('/',' '), '-', $name));
+  }
 	
   function view($id='') {
     if($id!='') {
@@ -42,6 +46,8 @@ class EventsController extends AppController {
   	  if(empty($home_team)) {
   	    $team_data = array(
 	        'name' => $this->data['Event']['home'],
+          'slug' => $this->_slugify($this->data['Event']['home']),
+          'competition' => $this->data['Event']['competition_id'],
 	        'sport_id' => 1,
         );
     	  $home_team = $this->Event->HomeTeam->save($team_data);
@@ -62,6 +68,8 @@ class EventsController extends AppController {
   	  if(empty($away_team)) {
   	    $team_data = array(
 	        'name' => $this->data['Event']['away'],
+          'slug' => $this->_slugify($this->data['Event']['away']),
+          'competition' => $this->data['Event']['competition_id'],
 	        'sport_id' => 1,
         );
     	  $away_team = $this->Event->AwayTeam->save($team_data);
