@@ -31,7 +31,7 @@ echo $this->Form->create('Event');
       <label for="EventEnds">Ends</label>
       <input type="text" name="data[Event][ends]" id="EventEnds" data-format="dd/MM/yyyy HH:mm PP" class="span3" value="<?php if(isset($this->data['Event']['ends'])) echo $this->Time->format('d/m/Y h:i A',$this->data['Event']['ends']); ?>">
     </div>
-	  <?php echo $this->Form->input('location_id',array('class'=>'span6','div'=>'span6')); ?>
+	  <?php echo $this->Form->input('location_id',array('class'=>'span6','div'=>'span6', 'empty'=>'-')); ?>
   </div>
 </fieldset>
 
