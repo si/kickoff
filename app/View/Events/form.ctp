@@ -17,15 +17,15 @@ echo $this->Form->create('Event');
 		  <option value="<?php echo $name; ?>">
     <?php endforeach; ?>
 		</datalist>
-		<?php echo $this->Form->input('home', array('label'=>'First Side','class'=>'span3','div'=>'span3', 'list'=>'teams')); ?>
-		<?php echo $this->Form->input('away', array('label'=>'Second Side','class'=>'span3','div'=>'span3', 'list'=>'teams')); ?>
+		<?php echo $this->Form->input('home', array('label'=>'First Side','class'=>'span3 team-lookup','div'=>'span3', 'list'=>'teams')); ?>
+		<?php echo $this->Form->input('away', array('label'=>'Second Side','class'=>'span3 team-lookup','div'=>'span3', 'list'=>'teams')); ?>
     <?php echo $this->Form->input('summary', array('readonly'=>'readonly', 'class'=>'span6','div'=>'span6')); ?>
   </div>
 
   <div class="row">
     <div class="span3">
       <label for="EventStart">Starts</label>
-      <input type="text" name="data[Event][start]" id="EventStart" data-format="dd/MM/yyyy HH:mm PP" value="<?php if(isset($this->data['Event']['start'])) echo $this->Time->format('d/m/Y h:i A',$this->data['Event']['start']); ?>" class="span3" />
+      <input type="text" name="data[Event][start]" id="EventStart" data-format="dd/MM/yyyy HH:mm PP" class="span3" value="<?php if(isset($this->data['Event']['start'])) echo $this->Time->format('d/m/Y h:i A',$this->data['Event']['start']); ?>" />
     </div>
     <div class="span3">
       <label for="EventEnds">Ends</label>
