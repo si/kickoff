@@ -8,7 +8,7 @@ elseif( isset($postcode) && $postcode !== '') :
     $name = strtoupper($postcode);
 endif;
 
-if($position != '') :
+if(isset($position) && $position != '') :
 
     $static_map_url = '//maps.googleapis.com/maps/api/staticmap?'
                     . 'center=' . $position 
