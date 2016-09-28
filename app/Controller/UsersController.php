@@ -110,10 +110,10 @@ class UsersController extends AppController {
 
         if($this->data['UserTimezone']['Remember'] != '') { 
             $this->Cookie->write('timezone', $this->data['UserTimezone']['Location']);
-            var_dump( $this->Cookie->read('timezone') );
+            //var_dump( $this->Cookie->read('timezone') );
         }
 
-        //$this->redirect( $destination );
+        $this->redirect( $destination );
     }
 
     public function get_timezone() {
