@@ -62,9 +62,7 @@ class TeamsController extends AppController {
 		    $this->set('team', $team);
 		
 		    // Set month to passed parameter if defined, current month if not
-			if($start!='') {
-				$start = $start;
-			} else if(isset($this->params['named']['month'])) {
+			if(isset($this->params['named']['month'])) {
 		      	$start = strtotime($this->params['named']['month']."-01 00:00:00");
 		    } else {
 				$start = strtotime(date('Y-m')."-01 00:00:00");
