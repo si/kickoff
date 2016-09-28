@@ -23,7 +23,7 @@ $this->viewVars['title_for_layout'] = $competition['Competition']['name'] . ' - 
 </small></p>
 
 <menu>
-  <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','calendar'=>$competition['Competition']['id']),array('class'=>'btn btn-small')); ?>
+  <?php echo $this->Html->adminLink('Add Event',array('controller'=>'events','action'=>'form','competition'=>$competition['Competition']['id']),array('class'=>'btn btn-small')); ?>
   <?php echo $this->Html->link('Export',array('action'=>'export',$competition['Competition']['id'],'json'),array('download'=>true, 'class'=>'btn btn-small')); ?>
   <?php echo $this->Html->adminLink('Edit',array('action'=>'form',$competition['Competition']['id']),array('class'=>'btn btn-small')); ?>
   <?php echo $this->Html->adminPostLink( 'Delete',
