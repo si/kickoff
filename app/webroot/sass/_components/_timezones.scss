@@ -1,10 +1,25 @@
+.timezone-detail {
+    float: left;
+}
+
 a.timezone {
     background: url(/img/src/icons/globe-white.png) no-repeat 100% 0%;
     background-size: 13px;
     padding-right: 18px;
-    display: block;
+    display: inline-block;
     width: 3rem;
     margin: 0 auto;
+
+    &.icon-left {
+        background-position: 0 0;
+        background-size: 18px;
+        height: 22px;
+        line-height: 22px;
+        padding-left: 18px;
+        padding-right: 0;
+        margin-left: 5px;
+        float: left;
+    }
 
     @media (min-width: $break-small) {
         display: inline-block;

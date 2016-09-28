@@ -9,7 +9,7 @@ if(isset($this->params['named']['timezone'])) {
   $start->setTimezone( new DateTimeZone( str_replace('-', '/', $this->params['named']['timezone'] ) ) );
 }
 ?>
-<small>Times in <a href="#timezones" class="timezone"><?php echo $start->format('T'); ?></a></small>
+<a href="#timezones" class="timezone icon-left"><?php echo $start->format('T'); ?></a>
 <?php echo $this->element('Modules/timezones'); ?>
 
 <?php
