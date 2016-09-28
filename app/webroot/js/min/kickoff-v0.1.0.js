@@ -3501,14 +3501,6 @@ $(document).ready(function(){
 });
 $(document).ready(function(){
 
-  /* Apply slick carousel to timezone list */
-  $("#timezones .continents").slick({
-		dots: true,
-		infinite: true,
-		slidesToShow: 2,
-		slidesToScroll: 1,
-		draggable: true,
-	});
 
   /* Auto-populate Event Summary from home and away teams */
   var createEventSummary = function() {
