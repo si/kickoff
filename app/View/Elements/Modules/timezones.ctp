@@ -38,6 +38,6 @@ $timezone = (isset($this->params['named']['timezone'])) ? str_replace('-', '/', 
 
         <?php echo $this->Form->input('ReturnURL', array('type'=>'hidden', 'value' => $this->params->url ) ); ?>
         <?php echo $this->Form->button('Update' ); ?>
-    <?php echo $this->Form->end(''); ?>
+    <?php echo $this->Form->end(); ?>
 
 </div>
