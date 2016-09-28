@@ -1,11 +1,4 @@
-<?php
-/*
-<small>
-  All times in <a href="#timezones" class="timezone"><?php echo $this->Time->format('T',$events[0]['Event']['start']); ?></a>
-  <?php echo $this->element('Modules/timezones'); ?>
-</small>
-*/
-?>
+<?php echo $this->element('Events/events_timezone'); ?>
 
 <table class="table">
   <caption><?php echo count($events) . (isset($context) ? ' '.$context : '') ; ?> events</caption>
