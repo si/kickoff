@@ -3,6 +3,7 @@ switch($format) {
 
   case 'json':
     
+    unset($data['Team']['events_import_url']);
     unset($data['User']);
     unset($data['Sport']);  
 
