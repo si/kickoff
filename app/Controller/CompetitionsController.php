@@ -9,22 +9,22 @@ class CompetitionsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
-        $this->Auth->allow('index', 'view', 'export','import_events');
+		$this->Auth->allow('index', 'view', 'export', 'import_events');
 	}
 	
 	function beforeRender() {
-        parent::beforeRender();
+		parent::beforeRender();
 	}
 	
-    function index() {
-        $settings = array(
-            'order' => array('Competition.status DESC')
-        );
+	function index() {
+		$settings = array(
+			'order' => array('Competition.status DESC')
+		);
 
-        if( !$this->Session->read('Auth.User.is_admin') ) $settings['conditions'][] = "Competition.status = 'L'";
-        
-        $this->set('competitions', $this->Competition->find('all', $settings));
-    }
+		if( !$this->Session->read('Auth.User.is_admin') ) $settings['conditions'][] = "Competition.status = 'L'";
+		
+		$this->set('competitions', $this->Competition->find('all', $settings));
+	}
     
 	function form($id='') {
 	
@@ -137,10 +137,7 @@ class CompetitionsController extends AppController {
 	            'name' => utf8_encode($event['AwayTeam']['name']),
 	            'theme_id' => $event['AwayTeam']['theme_id']
 	          ),
-	          'group' => $event['Event']['grouping'],
 	          'description' => utf8_encode($event['Event']['description']),
-	          'all_day' => $event['Event']['all_day'],
-	          'location' => utf8_encode($event['Event']['location']),
 	          'created' => $event['Event']['created'],
 	          'updated' => $event['Event']['updated'],
 	          'url' => 'http://' . $_SERVER['SERVER_NAME'] . '/events/view/' . $event['Event']['id'],
@@ -176,7 +173,7 @@ class CompetitionsController extends AppController {
     $this->set('reminder_unit','H');
 
     // Save subscription to competition and store response
-    $subscription = $this->requestAction('/subscriptions/add/competition/' . $id, ['return']);
+    //$subscription = $this->requestAction('/subscriptions/add/competition/' . $id, ['return']);
 
   }
 
@@ -335,7 +332,6 @@ class CompetitionsController extends AppController {
 							'away' => $away_team_name,
 							'home_team_id' => $home_team_id,
 							'away_team_id' => $away_team_id,
-							'group' => $competition_name,
 							'remote_id' => $remote_id,
 							'competition_id' => $competition_id
 						),

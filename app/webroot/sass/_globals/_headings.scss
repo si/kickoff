@@ -60,3 +60,14 @@ h1,
     }
 }
 
+  caption,
+  .calendar h2,
+  .calendar .pagination-previous,
+  .calendar .pagination-next {
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+  }

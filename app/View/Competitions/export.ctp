@@ -4,6 +4,21 @@ switch($format) {
 
   case 'json':
     
+    /* 
+      "created":"2015-06-25 16:44:36",
+      "updated":"2016-03-22 08:05:01",
+      "user_id":"0",
+      "sport_id":"1",
+      "theme_id":"32",
+      "status":"L"
+    */
+    unset($data['Competition']['created']);
+    unset($data['Competition']['updated']);
+    unset($data['Competition']['user_id']);
+    unset($data['Competition']['sport_id']);
+    unset($data['Competition']['theme_id']);
+    unset($data['Competition']['status']);
+    unset($data['Theme']);
     unset($data['User']);
     unset($data['Sport']);  
 

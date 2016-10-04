@@ -1,7 +1,7 @@
 <?php echo $this->element('Events/events_timezone'); ?>
 
 <table class="table">
-  <caption><?php echo count($events) . (isset($context) ? ' '.$context : '') ; ?> events</caption>
+  <caption><?php echo (count($events)>0) ? $this->Time->format('Y', $events[0]['Event']['start']) . '–' . $this->Time->format('Y', $events[(count($events)-1)]['Event']['start']) : $this->Time->format('Y', strtotime('now'))  ; ?></caption>
   <thead>
     <tr>
       <th>Date</th>
