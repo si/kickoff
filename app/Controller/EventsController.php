@@ -183,19 +183,20 @@ class EventsController extends AppController {
 			return ceil(($image_width - $dimensions[4]) / 2);				
   }
 
-  private function _create_image($user){
+  private function _create_image($user, $image){
 
-      $fontname = 'files/Capriola-Regular.ttf';
+      $height = 0;
+      $i=30;
       $quality = 90;
       $file = "files/generated/".md5($user[0]['name'].$user[1]['name'].$user[2]['name']).".jpg";	
-      $i=30;
+      $fontname = 'files/Capriola-Regular.ttf';
     
     // if the file already exists dont create it again just serve up the original	
     //if (!file_exists($file)) {	
         
 
         // define the base image that we lay our text on
-        $im = imagecreatefromjpeg("files/pass.jpg");
+        $im = imagecreatefromjpeg($image);
         
         // setup the text colours
         $color['grey'] = imagecolorallocate($im, 54, 56, 60);
@@ -223,20 +224,28 @@ class EventsController extends AppController {
 
   public function meme($id='') {
 
-  	$user = array(
+    $event = $this->Event->findById($id);
+
+    $image = "files/pass.jpg";
+    if($event) {
+      $competition = $this->Event->Competition->findById($event['Event']['competition_id']);
+      $image = $competition['Theme']['image'];
+    }
+
+  	$data = array(
 	
       array(
-        'name'=> 'Ashley Ford', 
+        'name'=> $event['Event']['summary'], 
         'font-size'=>'27',
         'color'=>'grey'),
         
       array(
-        'name'=> 'Technical Director',
+        'name'=> date('D jS M Y', strtotime($event['Event']['start'])), 
         'font-size'=>'16',
         'color'=>'grey'),
         
       array(
-        'name'=> 'ashley@papermashup.com',
+        'name'=> date('H:i e', strtotime($event['Event']['start'])),
         'font-size'=>'13',
         'color'=>'green'
         )
@@ -244,8 +253,8 @@ class EventsController extends AppController {
     );
     
     // run the script to create the image
-    $filename = $this->_create_image($user);
-    $this->set(compact('filename'));
+    $filename = $this->_create_image($data, $image);
+    $this->set(compact('filename', 'event', 'competition'));
 			
 	}
 
