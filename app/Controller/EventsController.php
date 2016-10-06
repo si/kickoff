@@ -201,6 +201,7 @@ class EventsController extends AppController {
         // setup the text colours
         $color['grey'] = imagecolorallocate($im, 54, 56, 60);
         $color['green'] = imagecolorallocate($im, 55, 189, 102);
+        $color['white'] = imagecolorallocate($im, 255, 255, 255);
         
         // this defines the starting height for the text block
         $y = imagesy($im) - $height - 365;
@@ -237,12 +238,12 @@ class EventsController extends AppController {
       array(
         'name'=> $event['Event']['summary'], 
         'font-size'=>'27',
-        'color'=>'grey'),
+        'color'=>'white'),
         
       array(
         'name'=> date('D jS M Y', strtotime($event['Event']['start'])), 
         'font-size'=>'16',
-        'color'=>'grey'),
+        'color'=>'white'),
         
       array(
         'name'=> date('H:i e', strtotime($event['Event']['start'])),
