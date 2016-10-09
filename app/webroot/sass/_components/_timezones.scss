@@ -39,6 +39,13 @@ a.timezone {
     opacity: 0;
     transform: translateY(-100%);
     transition: all 0.3s ease;
+
+    form {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+    }
     
     h3, h2 {
         padding: 0 20px 0 10px;

@@ -31,8 +31,8 @@ $timezone = (isset($this->params['named']['timezone'])) ? str_replace('-', '/', 
 <div id="timezones">
     <a href="#" class="close">&times;</a>
 
-    <h3>Select your timezone</h3>
     <?php echo $this->Form->create('UserTimezone', array('url'=>'/users/set_timezone')); ?>
+        <h3>Select your timezone</h3>
         <?php echo $this->Form->input('Location', array('options' => $timezones, 'empty' => 'UTC (+00:00)', 'selected' => $timezone ) ); ?>
         <?php echo $this->Form->input('Remember', array( 'type'=>'checkbox', 'label' => 'Remember timezone' ) ); ?>
 
