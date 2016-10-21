@@ -40,7 +40,7 @@ class TeamsController extends AppController {
 		)));
 	}
 
-	private function _get_events($id='', $start='' ) {
+	private function _get_events($id='', $start='', $ends='' ) {
 		if($id!='') {
 			// Set query parameters
 		    $future_params = array(
@@ -83,6 +83,8 @@ class TeamsController extends AppController {
 		    // Set end date to passed parameter if defined, next month if not
 		    if(isset($this->params['named']['end'])) {
 		      $end = strtotime($this->params['named']['end']."-01 00:00:00");
+				} else if( $ends != '' ) {
+		      $end = strtotime($ends."-01 00:00:00");
 		    } else {
 		      $end = strtotime('+1 month',$start);
 		    } 
@@ -113,7 +115,7 @@ class TeamsController extends AppController {
 	}
 
 	function browse($id='') {
-		$events = $this->_get_events($id, strtotime('2016-08-01') );
+		$events = $this->_get_events($id, strtotime('2016-08-01') , '2017-07');
 		$this->set('events', $events);
 	}
 
