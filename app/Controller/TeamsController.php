@@ -6,7 +6,18 @@ class TeamsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('index', 'view', 'programme', 'export', 'import_events', 'by_competition', 'vs', 'search', 'browse');
+		$this->Auth->allow(
+			'browse',
+			'by_competition',
+			'export',
+			'import_events',
+			'index',
+			'next',
+			'programme',
+			'search',
+			'view',
+			'vs'
+		);
 	}
 	
 	function beforeRender() {
@@ -105,6 +116,11 @@ class TeamsController extends AppController {
 	}
 
 	function view($id='') {
+		$events = $this->_get_events($id);
+		$this->set('events', $events);
+	}
+
+	function next($id='') {
 		$events = $this->_get_events($id);
 		$this->set('events', $events);
 	}
