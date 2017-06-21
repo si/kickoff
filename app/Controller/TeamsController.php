@@ -281,7 +281,7 @@ class TeamsController extends AppController {
 			// Parse response as (valid) XML
 			$xml = simplexml_load_string($response);
 
-			//_debug($xml);
+			_debug($xml);
 
 			$tables = 0;
 
