@@ -276,7 +276,7 @@ class TeamsController extends AppController {
 			$length = $end - $start;
 			$response = substr($response, $start, $length);
 
-			//_debug($response);
+			_debug($response);
 
 			// Parse response as (valid) XML
 			$xml = simplexml_load_string($response);
