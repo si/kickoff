@@ -3,7 +3,7 @@ App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
 
-  	public $helpers = array('Html' => array('className'=>'CustomHtml'),'Form','Time','Session','Number');
+	public $helpers = array('Html' => array('className'=>'CustomHtml'),'Form','Time','Session','Number','Ics');
 
 	var $components = array(
 		'Email',
