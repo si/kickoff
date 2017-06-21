@@ -367,7 +367,7 @@ class TeamsController extends AppController {
 							);
 							$away_team = $this->Team->save($away_team_data);
 						}
-						//var_dump($away_team); echo '<hr>';
+						var_dump($away_team); echo '<hr>';
 						$away_team_id = (isset($away_team['Team'])) ? $away_team['Team']['id'] : $away_team['id'];
 
 						// Build start field from date and time
