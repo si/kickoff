@@ -6,7 +6,7 @@ if(isset($events) && count($events) > 0) :
   //$ends = strtotime('31 May 2017');
   echo 'From ' . date('M Y', $starts) . ' to ' . date('M Y', $ends) . '<br>';
   ?>
-<ol class="months">
+<ol class="months date-range">
   <?php 
   $month = $starts; 
   while($month <= $ends) { 
@@ -20,7 +20,7 @@ if(isset($events) && count($events) > 0) :
   ?>
 </ol>
 
-<ol class="dates">
+<ol class="dates date-range">
   <?php
   $previous = ''; 
   foreach($events as $event) :
