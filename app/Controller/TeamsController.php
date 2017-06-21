@@ -342,6 +342,7 @@ class TeamsController extends AppController {
 							);
 							$home_team = $this->Team->save($home_team_data);
 						}
+						echo '<label>Home (' . $home_team_name . ')'; var_dump($home_team); echo '</label><hr>';
 						// Get home team id TODO: something wrong with this
 						$home_team_id = (isset($home_team['Team'])) ? $home_team['Team']['id'] : $home_team['id'];
 
@@ -367,7 +368,7 @@ class TeamsController extends AppController {
 							);
 							$away_team = $this->Team->save($away_team_data);
 						}
-						var_dump($away_team); echo '<hr>';
+						echo '<label>Away (' . $away_team_name . ')'; var_dump($away_team); echo '</label><hr>';
 						$away_team_id = (isset($away_team['Team'])) ? $away_team['Team']['id'] : $away_team['id'];
 
 						// Build start field from date and time
