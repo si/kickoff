@@ -3,9 +3,22 @@
 
 class UsersController extends AppController {
 
+    public $components = array('Cookie');
+
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'logout');
+        $this->Auth->allow('add', 'logout', 'set_timezone', 'get_timezone');
+
+        $this->Cookie->name = 'user_id';
+        $this->Cookie->time = 3600 * 24 * 90;
+        $this->Cookie->path = '/users/preferences';
+        $this->Cookie->domain = 'kickoffcalendars.com';
+        $this->Cookie->secure = false; // only sent if using secure HTTPS
+        $this->Cookie->key = 'qwe1230iasdo-0(*09ausdoijaosiu9021u309jasodj()(_)oijaosijdaoisjd';
+        $this->Cookie->httpOnly = true;
+        $this->Cookie->type('cipher');
+        // f2a1cc9fd86fa0dd8b59df5e20a29470
+        // f2a1cc9fd86fa0dd8b59df5e20a29470
     }
 
     public function login() {
@@ -21,12 +34,12 @@ class UsersController extends AppController {
     }
 
 
-    public function view($id = null) {
+    public function view() {
         $this->User->id = $this->Session->read('Auth.User.id');
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
-        $this->set('user', $this->User->read(null, $id));
+        $this->set('user', $this->User->read(null, $this->User->id));
 
     }
     public function add() {
@@ -78,5 +91,36 @@ class UsersController extends AppController {
         }
         $this->Session->setFlash(__('User was not deleted'));
         $this->redirect(array('action' => 'index'));
+    }
+
+    public function set_timezone() {
+        //var_dump($this->data);
+        $destination =  '/';
+
+        $return = explode('/', $this->data['UserTimezone']['ReturnURL']);
+        foreach($return as $index => $part) {
+            if(strpos($part, 'timezone') === false) {
+                $destination .= $part . '/';
+            }
         }
- }
+
+        if($this->data['UserTimezone']['Location'] != '') {
+            $destination .=  '/timezone:' . str_replace('/','-',$this->data['UserTimezone']['Location']);
+        }
+
+        if($this->data['UserTimezone']['Remember'] != '') { 
+            $this->Cookie->write('timezone', $this->data['UserTimezone']['Location']);
+            //var_dump( $this->Cookie->read('timezone') );
+        }
+
+        $this->redirect( $destination );
+    }
+
+    public function get_timezone() {
+
+        $timezone = $this->Cookie->read('timezone');
+        var_dump($timezone);
+
+    }
+
+}

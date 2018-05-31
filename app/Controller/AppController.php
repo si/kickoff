@@ -3,13 +3,13 @@ App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
 
-  	public $helpers = array('Html' => array('className'=>'CustomHtml'),'Form','Time','Session','Number');
+	public $helpers = array('Html' => array('className'=>'CustomHtml'),'Form','Time','Session','Number','Ics');
 
 	var $components = array(
 		'Email',
 		'Session',
 		'Auth' => array(
-			'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+			'loginRedirect' => array('controller' => 'users', 'action' => 'view'),
 			'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
 		),
 	);
@@ -28,5 +28,8 @@ class AppController extends Controller {
 
 	public function beforeRender() {
 		parent::beforeRender();
+		if( isset($this->params['ext']) && in_array($this->params['ext'], array('json', 'ics') )) {
+			$this->layout = $this->params['ext'] . '/default';
+		}   
 	}
 }

@@ -6,7 +6,18 @@ class TeamsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
-        $this->Auth->allow('index', 'view', 'export', 'import_events', 'by_competition');
+		$this->Auth->allow(
+			'browse',
+			'by_competition',
+			'export',
+			'import_events',
+			'index',
+			'next',
+			'programme',
+			'search',
+			'view',
+			'vs'
+		);
 	}
 	
 	function beforeRender() {
@@ -23,7 +34,24 @@ class TeamsController extends AppController {
 		$this->set('teams', $this->paginate('Team', $conditions));
 	}
 
-	function view($id='') {
+	function search($search='') {
+		$this->set('teams', $this->Team->find('all', array(
+			'fields' => array(
+				'Team.name',
+				'Team.slug',
+				'Team.id',
+				//'Event.id'
+			),
+			'conditions' => array(
+				'or' => array(
+					"Team.name LIKE '%" . $search . "%'", 
+					"Team.slug LIKE '%" . $search . "%'", 
+				)
+			)
+		)));
+	}
+
+	private function _get_events($id='', $start='', $ends='' ) {
 		if($id!='') {
 			// Set query parameters
 		    $future_params = array(
@@ -44,9 +72,11 @@ class TeamsController extends AppController {
 		    $this->set('team', $team);
 		
 		    // Set month to passed parameter if defined, current month if not
-		    if(isset($this->params['named']['month'])) {
+			if(isset($this->params['named']['month'])) {
 		      	$start = strtotime($this->params['named']['month']."-01 00:00:00");
 		    } else {
+				$start = strtotime(date('Y-m')."-01 00:00:00");
+				/*
 				$next = $this->Team->Event->find('first', array(
 					'fields'=>array(
 						'start'
@@ -57,30 +87,52 @@ class TeamsController extends AppController {
 				if(count($next)>0) {
 					$start = strtotime($next['Event']['start']);
 				} else {
-					$start = strtotime(date('Y-m')."-01 00:00:00");
 				}
+				*/
 		    } 
 
 		    // Set end date to passed parameter if defined, next month if not
 		    if(isset($this->params['named']['end'])) {
 		      $end = strtotime($this->params['named']['end']."-01 00:00:00");
+				} else if( $ends != '' ) {
+		      $end = strtotime($ends."-01 00:00:00");
 		    } else {
 		      $end = strtotime('+1 month',$start);
 		    } 
 		    
 		    $future_params['conditions']['and'][] = "Event.start >= '" . date('Y-m-d H:i:s',$start) . "'";
 		    $future_params['conditions']['and'][] = "Event.ends < '" . date('Y-m-d H:i:s',$end) . "'";
-		    $future_params['conditions']['and'][] = "Event.competition_id = " . $team['Team']['competition_id'];
+			if($team['Team']['competition_id']!='') {
+		    	$future_params['conditions']['and'][] = "Event.competition_id = " . $team['Team']['competition_id'];
+			}
 
 		    $this->set(compact('start','end'));
 		    $this->set('future_params', $future_params);
-			$this->set('layout', (isset($this->params['named']['layout'])) ? $this->params['named']['layout'] : '');
-		
+			
 		    $events = $this->Team->Event->find('all',$future_params);
-			//var_dump($events);
-		    $this->set('events', $events);
+		    return $events;
 		
 		}
+	}
+
+	function view($id='') {
+		$events = $this->_get_events($id);
+		$this->set('events', $events);
+	}
+
+	function next($id='') {
+		$events = $this->_get_events($id);
+		$this->set('events', $events);
+	}
+
+	function programme($id='') {
+		$events = $this->_get_events($id, strtotime('2016-08-01') );
+		$this->set('events', $events);
+	}
+
+	function browse($id='') {
+		$events = $this->_get_events($id, strtotime('2016-08-01') , '2017-07');
+		$this->set('events', $events);
 	}
 
 	function form($id='') {
@@ -224,12 +276,12 @@ class TeamsController extends AppController {
 			$length = $end - $start;
 			$response = substr($response, $start, $length);
 
-			//_debug($response);
+			_debug($response);
 
 			// Parse response as (valid) XML
 			$xml = simplexml_load_string($response);
 
-			//_debug($xml);
+			_debug($xml);
 
 			$tables = 0;
 
@@ -290,6 +342,7 @@ class TeamsController extends AppController {
 							);
 							$home_team = $this->Team->save($home_team_data);
 						}
+						echo '<label>Home (' . $home_team_name . ')'; var_dump($home_team); echo '</label><hr>';
 						// Get home team id TODO: something wrong with this
 						$home_team_id = (isset($home_team['Team'])) ? $home_team['Team']['id'] : $home_team['id'];
 
@@ -315,7 +368,7 @@ class TeamsController extends AppController {
 							);
 							$away_team = $this->Team->save($away_team_data);
 						}
-						//var_dump($away_team); echo '<hr>';
+						echo '<label>Away (' . $away_team_name . ')'; var_dump($away_team); echo '</label><hr>';
 						$away_team_id = (isset($away_team['Team'])) ? $away_team['Team']['id'] : $away_team['id'];
 
 						// Build start field from date and time
@@ -358,12 +411,9 @@ class TeamsController extends AppController {
 								'start' => $kickoff,
 								'ends' => $ends,
 								'summary' => $home_team['Team']['name'] . ' v ' . $away_team['Team']['name'],
-								'home' => $home_team_name,
-								'away' => $away_team_name,
 								'home_team_id' => $home_team_id,
 								'away_team_id' => $away_team_id,
 								'season' => $season,
-								'group' => $competition_name,
 								'remote_id' => $remote_id,
 								'competition_id' => $competition_id,
 								'location_id' => $location_id,

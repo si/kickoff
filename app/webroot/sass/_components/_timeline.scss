@@ -1,0 +1,277 @@
+/*
+@import 'bourbon'; // http://bourbon.io/
+*/
+
+@import '_timeline/variables'; // colors, fonts etc...
+@import '_timeline/mixins'; // custom mixins
+@import '_timeline/layout'; // responsive grid and media queries
+
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+.cd-horizontal-timeline {
+	//opacity: 0;
+	margin: 2rem auto 5rem;
+	transition: opacity .2s ease;
+
+    ol, ul {
+        list-style: none;
+    }
+
+	&::before {
+		/* never visible - this is used in jQuery to check the current MQ */
+		content: 'mobile';
+		display: none;
+	}
+
+	&.loaded {
+		/* show the timeline after events position has been set (using JavaScript) */
+		opacity: 1;
+	}
+
+	.timeline {
+		position: relative;
+		height: 100px;
+		width: 90%;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.events-wrapper {
+		position: relative;
+		height: 100%;
+		margin: 0 40px;
+		overflow: hidden;
+
+		&::after, &::before {
+			/* these are used to create a shadow effect at the sides of the timeline */
+			content: '';
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			height: 100%;
+			width: 20px;
+		}
+
+		/*
+		TODO: Any way this can be set transparent faded?
+		&::before {
+			left: 0;
+	    	background-image: linear-gradient(to right,$color-4, rgba($color-4, 0));
+		}
+
+		&::after {
+			right: 0;
+			background-image: linear-gradient(to left,$color-4, rgba($color-4, 0));
+		}
+		*/
+	}
+
+	.events {
+		/* this is the grey line/timeline */
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		top: 49px;
+		height: 2px;
+		/* width will be set using JavaScript */
+		background: rgba(#FFF, 0.2);
+		transition: transform 0.4s ease;
+	}
+
+	.filling-line {
+		/* this is used to create the green line filling the timeline */
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: $color-3;
+		transform: scaleX(0);
+		transform-origin: left center;
+		transition: transform 0.3s ease;
+	}
+
+	.events a {
+		position: absolute;
+		bottom: 0;
+		z-index: 2;
+		text-align: center;
+		font-size: 0.8rem;
+		padding-bottom: 4px;
+		color: $color-3;
+		/* fix bug on Safari - text flickering while timeline translates */
+		transform: translateZ(0);
+
+		&::after {
+			/* this is used to create the event spot */
+			content: '';
+			position: absolute;
+			@include center(x);
+			bottom: -5px;
+			height: 12px;
+			width: 12px;
+			border-radius: 50%;
+			//border: 2px solid darken($color-4, 10%);
+			background-color: rgba($color-4, 0.5);
+			transition: background-color 0.3s ease, border-color 0.3s ease;
+		}
+
+		.no-touch &:hover::after {
+			background-color: $color-2;
+			border-color: $color-2;
+		}
+
+		&.selected {
+			pointer-events: none;
+
+			&::after {
+				background-color: $color-4;
+			}
+		}
+
+		&.older-event::after {
+			background-color: rgba($color-4, 0.9);
+		}
+	}
+
+    @include MQ(L) {
+		margin: 6em auto;
+		
+		&::before {
+			// never visible - this is used in jQuery to check the current MQ
+			content: 'desktop';
+		}
+	}
+}
+
+.cd-timeline-navigation a {
+	/* these are the left/right arrows to navigate the timeline */
+	position: absolute;
+	z-index: 1;
+	@include center(y);
+	height: 34px;
+	width: 34px;
+	border-radius: 50%;
+	border: 2px solid darken($color-4, 10%);
+	/* replace text with an icon */
+	overflow: hidden;
+	color: transparent;
+	text-indent: 100%;
+	white-space: nowrap;
+	transition: all 0.3s ease;
+	
+	&::after {
+		/* arrow icon */
+		content: '';
+		position: absolute;
+		height: 14px;
+		width: 9px;
+		@include center;
+		background: url(../img/src/icons/arrow-right-white.svg) no-repeat 0 0;
+	}
+
+	&.prev {
+		left: 0;
+		transform: translateY(-50%) rotate(180deg);
+	}
+
+	&.next {
+		right: 0;
+	}
+
+	.no-touch &:hover {
+		border-color: $color-2;
+	}
+
+	&.inactive {
+		cursor: not-allowed;
+		opacity: 0.2;
+
+		.no-touch &:hover {
+			border-color: darken($color-4, 10%);
+		}
+	}
+}
+
+.cd-horizontal-timeline .events-content {
+	position: relative;
+	width: 100%;
+	margin: 2em 0;
+	overflow: hidden;
+	transition: height 0.4s ease;
+
+	ol {
+		margin: 0;
+	}
+
+	li {
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		min-height: 10em;
+		left: 0;
+		top: 0;
+		transform: translateX(-100%);
+		padding: 0;
+		margin: 0;
+		opacity: 0;
+		animation-duration: 0.4s;
+		animation-timing-function: ease-in-out;
+
+		&.selected {
+			/* visible event content */
+			position: relative;
+			z-index: 2;
+			opacity: 1;
+			transform: translateX(0);
+		}
+
+		&.enter-right, &.leave-right {
+			animation-name: cd-enter-right;
+		}
+
+		&.enter-left,  &.leave-left {
+			animation-name: cd-enter-left;
+		}
+		
+		&.leave-right, &.leave-left {
+			animation-direction: reverse;
+		}
+	}
+	
+	li > * {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+}
+
+@keyframes cd-enter-right {
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+
+@keyframes cd-enter-left {
+	0% {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}

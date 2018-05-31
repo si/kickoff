@@ -1,11 +1,20 @@
 <?php
 
+unset($data['Competition']);
+unset($data['Competition']['created']);
+unset($data['Competition']['updated']);
+unset($data['Competition']['user_id']);
+unset($data['Competition']['sport_id']);
+unset($data['Competition']['theme_id']);
+unset($data['Competition']['status']);
+unset($data['Theme']);
+unset($data['User']);
+unset($data['Sport']);  
+
+
 switch($format) {
 
   case 'json':
-    
-    unset($data['User']);
-    unset($data['Sport']);  
 
     header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[0]['Competition']['name']).'.json"');
     

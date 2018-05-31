@@ -1,3 +1,6 @@
+<?php  
+$this->viewVars['title_for_layout'] = 'Edit ' . $this->data['User']['username'] . ' - Kick Off Calendars';
+?>
 <?php
 echo $this->Form->create('User');
 
@@ -26,13 +29,13 @@ echo $this->Form->create('User');
   <legend>Postcodes</legend>
   <div class="input-group">
     <?php
-      echo $this->Form->input('home_postcode', array(
+      echo $this->Form->input('postcode_home', array(
         'label' => 'Home',
         'div' => 'col-6',
       ));
     ?>
     <?php
-      echo $this->Form->input('work_postcode', array(
+      echo $this->Form->input('postcode_work', array(
         'label' => 'Work',
         'div' => 'col-6',
       ));

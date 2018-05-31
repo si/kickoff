@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="20px" viewBox="0 0 18 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Calendar White</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mood" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Iconography" transform="translate(-422.000000, -170.000000)" fill="#FFFFFF">
+            <path d="M438,188 L438,176 L424,176 L424,188 L438,188 L438,188 Z M435,170 L437,170 L437,172 L438,172 C439.104569,172 440,172.895431 440,174 L440,188 C440,189.104569 439.104569,190 438,190 L424,190 C422.89,190 422,189.1 422,188 L422,174 C422,172.89 422.89,172 424,172 L425,172 L425,170 L427,170 L427,172 L435,172 L435,170 L435,170 Z" id="Calendar-White"></path>
+        </g>
+    </g>
+</svg>

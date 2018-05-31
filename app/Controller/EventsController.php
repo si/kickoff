@@ -8,12 +8,16 @@ class EventsController extends AppController {
   
 	function beforeFilter() {
 		parent::beforeFilter();
-    $this->Auth->allow('view', 'export', 'share');
+    $this->Auth->allow('view', 'export', 'share', 'vs', 'meme');
 	}
 	
 	function beforeRender() {
 	  parent::beforeRender();
 	}
+  
+  function _slugify($name) {
+    return strtolower(str_replace(array('/',' '), '-', $name));
+  }
 	
   function view($id='') {
     if($id!='') {
@@ -42,6 +46,8 @@ class EventsController extends AppController {
   	  if(empty($home_team)) {
   	    $team_data = array(
 	        'name' => $this->data['Event']['home'],
+          'slug' => $this->_slugify($this->data['Event']['home']),
+          'competition' => $this->data['Event']['competition_id'],
 	        'sport_id' => 1,
         );
     	  $home_team = $this->Event->HomeTeam->save($team_data);
@@ -62,6 +68,8 @@ class EventsController extends AppController {
   	  if(empty($away_team)) {
   	    $team_data = array(
 	        'name' => $this->data['Event']['away'],
+          'slug' => $this->_slugify($this->data['Event']['away']),
+          'competition' => $this->data['Event']['competition_id'],
 	        'sport_id' => 1,
         );
     	  $away_team = $this->Event->AwayTeam->save($team_data);
@@ -149,4 +157,106 @@ class EventsController extends AppController {
   function bulk() {
       
   }
+
+	public function vs($team_a = '', $team_b = '') {
+
+    if( isset($this->params->query['TeamA']) && isset($this->params->query['TeamB']) ) {
+  		$event = $this->Event->find('first', array(
+        'conditions'=> array(
+          'HomeTeam.name' => $this->params->query['TeamA'],
+          'AwayTeam.name' => $this->params->query['TeamB'],
+        ),
+        'order' => array('Event.start ASC')
+      ));
+      
+      if($event!=false) {
+        //echo '<textarea class="debug">'; var_dump($event); echo '</textarea>';
+        $this->redirect( array('controller'=>'events', 'action'=>'view', $event['Event']['id'], $event['HomeTeam']['slug'] . '-' . $event['AwayTeam']['slug'] ));
+      }
+    }
+	}
+
+  private function _center_text($string, $font_size){
+      $fontname = 'files/Capriola-Regular.ttf';
+			$image_width = 800;
+			$dimensions = imagettfbbox($font_size, 0, $fontname, $string);
+			return ceil(($image_width - $dimensions[4]) / 2);				
+  }
+
+  private function _create_image($user, $image){
+
+      $height = 0;
+      $i=30;
+      $quality = 90;
+      $file = "files/generated/".md5($user[0]['name'].$user[1]['name'].$user[2]['name']).".jpg";	
+      $fontname = 'files/Capriola-Regular.ttf';
+    
+    // if the file already exists dont create it again just serve up the original	
+    //if (!file_exists($file)) {	
+        
+
+        // define the base image that we lay our text on
+        $im = imagecreatefromjpeg($image);
+        
+        // setup the text colours
+        $color['grey'] = imagecolorallocate($im, 54, 56, 60);
+        $color['green'] = imagecolorallocate($im, 55, 189, 102);
+        $color['white'] = imagecolorallocate($im, 255, 255, 255);
+        
+        // this defines the starting height for the text block
+        $y = imagesy($im) - $height - 365;
+        
+      // loop through the array and write the text	
+      foreach ($user as $value){
+        // center the text in our image - returns the x value
+        $x = $this->_center_text($value['name'], $value['font-size']);	
+        imagettftext($im, $value['font-size'], 0, $x, $y+$i, $color[$value['color']], $fontname,$value['name']);
+        // add 32px to the line height for the next text block
+        $i = $i+32;	
+        
+      }
+        // create the image
+        imagejpeg($im, $file, $quality);
+        
+    //}
+              
+      return $file;	
+  }
+
+  public function meme($id='') {
+
+    $event = $this->Event->findById($id);
+
+    $image = "files/pass.jpg";
+    if($event) {
+      $competition = $this->Event->Competition->findById($event['Event']['competition_id']);
+      $image = $competition['Theme']['image'];
+    }
+
+  	$data = array(
+	
+      array(
+        'name'=> $event['Event']['summary'], 
+        'font-size'=>'27',
+        'color'=>'white'),
+        
+      array(
+        'name'=> date('D jS M Y', strtotime($event['Event']['start'])), 
+        'font-size'=>'16',
+        'color'=>'white'),
+        
+      array(
+        'name'=> date('H:i e', strtotime($event['Event']['start'])),
+        'font-size'=>'13',
+        'color'=>'green'
+        )
+        
+    );
+    
+    // run the script to create the image
+    $filename = $this->_create_image($data, $image);
+    $this->set(compact('filename', 'event', 'competition'));
+			
+	}
+
 }

@@ -95,10 +95,15 @@ header {
 
             li {
                 height: 2rem;
+                text-align: center;
             }
 
             a {
                 display: block;
+                padding: 1rem;
+            }
+
+            a[data-short] {
                 padding: 0.3rem;
 
                 &:after {
@@ -106,7 +111,6 @@ header {
                     display: none;
                     width: auto;
                     height: auto;
-                    text-align: center;
                 }
                 
                 @media screen and (max-width: $break-small) {
@@ -118,6 +122,17 @@ header {
                         display: block;
                     }
                 }
+            }
+
+            &.user-shortcuts {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                background: rgba(#FFF, 0.1);
+                column-rule: 1px solid rgba(#FFF, 0.1);
+                
             }
         }
         
@@ -143,7 +158,14 @@ header {
         }    
         .slick-next {
             right: -10px;
-        }    
+        }
+
+        .slick-dots li {
+            button:before,
+            &.slick-active button:before {
+                background: #FFF; 
+            }
+        }
     }
       
     form {

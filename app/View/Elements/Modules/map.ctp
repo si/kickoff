@@ -2,6 +2,14 @@
 if( isset($location) && $location['id'] !== null) :
     //var_dump($location);
     $position = $location['lat'] . ',' . $location['long'];
+    $name = $location['name'];
+elseif( isset($postcode) && $postcode !== '') :
+    $position = $postcode;
+    $name = strtoupper($postcode);
+endif;
+
+if(isset($position) && $position != '') :
+
     $static_map_url = '//maps.googleapis.com/maps/api/staticmap?'
                     . 'center=' . $position 
                     . '&zoom=13'
@@ -12,7 +20,6 @@ if( isset($location) && $location['id'] !== null) :
                     //. '&style=feature:landscape|element:geometry|saturation:-100'
                     //. '&style=feature:water|saturation:-100|invert_lightness:true'
                     . '&key=AIzaSyDF79W5Fgg5DWryOVz1WOwbY80cOjOXzaM';
-    $name = $location['name'];
 ?>
 <div class="map" style="<?php echo $this->Html->cssThemeBackground($static_map_url, '#000', 'fixed', 0.3, 0.5); ?>">
     <h3 class="location"><?php echo ($name); ?></h3>

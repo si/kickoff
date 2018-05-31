@@ -14,6 +14,21 @@
 
     <link href="/css/kickoff-v0.1.0.css" rel="stylesheet">
 
+    <?php
+    // Check for any Themes in the data layer
+    if((count(array_column($this->viewVars, 'Theme'))>0) || isset($this->request['data']['Theme'])) {
+        $theme = (count(array_column($this->viewVars, 'Theme'))>0) ? array_column($this->viewVars, 'Theme')[0] : $this->request['data']['Theme'];
+        if($theme['primary_colour']!='') {
+            $color = $this->Html->colorHexToDec($theme['primary_colour']);
+        } else {
+            $color['rgb'] = '0,0,0';
+        }
+        if( $theme['image'] != '' || $color['rgb'] != '' ) {
+        echo '<style> body { ' . $this->Html->cssThemeBackground($theme['image'], $color['rgb'], 'fixed') . ' } </style>';
+        }
+    }
+    ?>
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.js"></script>
@@ -25,6 +40,18 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/src/png/favicon-72.png">
     <link rel="apple-touch-icon-precomposed" href="/img/src/png/favicon-57.png">
     <link rel="shortcut icon" href="/img/src/png/favicon-144.png">
+
+    <!-- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup -->
+    <meta property="fb:app_id" content="1641522066103110">
+    <meta property="og:url" content="https://kickoffcalendars.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kick Off Calendars">
+    <meta property="og:image" content="https://kickoffcalendars.com/img/png/fb-cover.png">
+    <meta property="og:description" content="Premier League and Championship football kick off times for your calendar apps">
+    <meta property="og:site_name" content="Kick Off Calendars">
+    <meta property="og:locale" content="en_GB">
+    <meta property="article:author" content="">
+    <!-- Open Graph: http://ogp.me/ -->
 
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
