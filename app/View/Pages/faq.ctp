@@ -9,7 +9,7 @@
 </ul>
 <div>
   <h2 id="question_1">Which applications support calendar subscriptions?</h2>
-  <p>Calendar subscriptions work in most popular organiser applications now including Microsoft Office 2011+, Calendar (iOS and OSX), Mozilla Thunderbird and Google Calendar.</p>
+  <p>Calendar subscriptions work in most popular organiser applications now including Microsoft Office 2011+, Apple Calendars (iOS and OSX), Google Calendar - any office applications that support the ICS file standard.</p>
 </div>
 <div>
   <h2 id="question_2">Question 2</h2>
