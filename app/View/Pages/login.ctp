@@ -1,4 +1,4 @@
-<h2>Join Us</h2>
+<h2>Log In</h2>
 
 <form id="login" action="/" method="post">
   <div class="input">
