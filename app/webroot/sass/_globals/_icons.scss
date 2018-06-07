@@ -28,6 +28,10 @@ $icon-spacing : 6px;
     @include icon('pin', 24px);
 }
 
+.i-grouping:before {
+    @include icon('shirt', 24px);
+}
+
 .i-time:before {
     @include icon('clock', 24px);
 }
