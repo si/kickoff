@@ -159,11 +159,12 @@ class CompetitionsController extends AppController {
     // Find fields needed without recursing through associated models 
     $data = $this->Competition->find( 
       'all', 
-      array( 
+      array(
+		/* 
         'fields' => array(
 			'Competition.name',
 			'Competition.description',
-			//'Event.id',
+			'Event.id',
 			'Event.summary',
 			'Event.start',
 			'Event.end',
@@ -178,6 +179,7 @@ class CompetitionsController extends AppController {
 			'Location.lat',
 			'Location.long'
 		), 
+		*/
         'conditions' => array('Competition.id'=>$id),
 //        'order' => array("Event.created ASC"), 
       )
