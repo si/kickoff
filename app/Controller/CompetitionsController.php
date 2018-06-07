@@ -155,7 +155,7 @@ class CompetitionsController extends AppController {
   
     $this->layout = $format.'/default';
     // Stop Cake from displaying action's execution time 
-//    Configure::write('debug',0); 
+    Configure::write('debug',2); 
     // Find fields needed without recursing through associated models 
     $data = $this->Competition->find( 
       'all', 
