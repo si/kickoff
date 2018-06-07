@@ -56,6 +56,7 @@ $this->viewVars['title_for_layout'] = $title;
     echo $this->Html->link($hashtag, 'https://twitter.com/search?q='.urlencode($hashtag), array('class'=>'i-twitter', 'title'=>'Twitter Hashtag')); 
     ?>
     <?php echo $this->Html->competitionLink($event['Competition'], array('property'=>'superEvent')); ?> 
+    <?php if($event['Event']['grouping']!='') echo $this->Html->tag('span', $event['Event']['grouping'], array('class'=>'i-grouping', 'title'=>'Grouping')); ?> 
     <time class="i-time" datetime="<?php echo $this->Time->format('c', $event['Event']['updated']); ?>"><?php echo $this->Time->format('d M \'y', $event['Event']['updated']); ?></time>
 
   </p>
