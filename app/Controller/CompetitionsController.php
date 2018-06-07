@@ -163,10 +163,10 @@ class CompetitionsController extends AppController {
         'fields' => array(
 			'Competition.name',
 			'Competition.description',
-			'Event.id',
+			//'Event.id',
+			'Event.summary',
 			'Event.start',
 			'Event.end',
-			'Event.summary',
 			'Event.grouping',
 			'Event.updated',
 			'HomeTeam.name',
