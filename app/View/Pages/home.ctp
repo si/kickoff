@@ -8,6 +8,8 @@ $this->viewVars['title_for_layout'] = 'Premier League and Championship kick off 
 echo $this->requestAction(['controller' => 'teams', 'action' => 'by_competition'], ['return']);
 ?>
 
+<?php echo $this->element('Modules/vs_form'); ?>
+
 <div id="about" class="story">
   <h2>Convenient kick-off times</h2>
   <p>Kick Off Calendars believes the football fixtures data should be available to you, the fans, in more convenient formats.</p>

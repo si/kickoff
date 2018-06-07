@@ -3,6 +3,14 @@ switch($format) {
 
   case 'json':
     
+    unset($data['Team']['events_import_url']);
+    unset($data['Team']['created']);
+    unset($data['Team']['updated']);
+    unset($data['Team']['user_id']);
+    unset($data['Team']['sport_id']);
+    unset($data['Team']['theme_id']);
+    unset($data['Theme']);
+    unset($data['Location']['sport_id']);
     unset($data['User']);
     unset($data['Sport']);  
 
@@ -16,41 +24,17 @@ switch($format) {
     header('Content-Disposition: attachment; filename="'.$data['Team']['slug'].'.ics"');
 
     foreach($data['Event'] as $event) : 
-      echo "
-BEGIN:VEVENT
-UID:". md5($data['Team']['name'] . $event['id']) . "
-SUMMARY:".  $event['summary'] . "
-LOCATION:" . ( ( trim($event['location']) != '' ) ? $event['location'] : "TBC") . "
-DTSTART;VALUE=DATETIME:".$this->Time->format('Ymd\THis\Z',$event['start']) . "
-DTSTAMP:" . $this->Time->format('Ymd\THis\Z',$event['start']) . "
-DTEND:" . $this->Time->format('Ymd\THis\Z',$event['ends']) . "
-DESCRIPTION:".  (($event['grouping']!='') ? 'Group: ' . $event['grouping'] . "\n" : '') . "
-CLASS:PUBLIC
-STATUS:FREE
-X-MICROSOFT-CDO-BUSYSTATUS:FREE\n";
+      $data = [];
+      $data['uid'] = md5($data['Team']['name'] . $event['id']);
+      $data['summary'] = $event['summary'];
+      $data['location'] = ( ( trim($event['location']) != '' ) ? $event['location'] : "TBC");
+      $data['dtstart'] = $event['start'];
+      $data['dtend'] = $event['ends'];
+      $data['url'] = $_SERVER['SERVER_PROTOCOL'] . '://' . $_SERVER['SERVER_NAME'] . '/events/view/' . $event['id'];
+      $data['description'] = 'Get match day details and directions at ' . $data['url'];
+      
+      echo $this->Ics->event($data);
 
-      if(isset($reminder_value) && isset($reminder_unit)){
-        $reminder_date = '-P';
-        switch($reminder_unit){
-          default: 
-          case 'H': 
-          case 'M': 
-          case 'S': 
-            $reminder_date .= 'T' . (int)$reminder_value . $reminder_unit; 
-            break;
-          case 'D': 
-            $reminder_date .= (int)$reminder_value . $reminder_unit; 
-            break;
-        }
-        
-        echo 'BEGIN:VALARM'."\n";
-        echo 'ACTION:DISPLAY'."\n";
-        echo 'DESCRIPTION:REMINDER'."\n";
-        echo 'TRIGGER;RELATED=START:'.$reminder_date."\n";
-        echo 'END:VALARM'."\n";
-      }
-
-      echo "END:VEVENT\n";    
 
     endforeach; 
     ?>

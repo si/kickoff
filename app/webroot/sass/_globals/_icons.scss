@@ -1,21 +1,31 @@
-$sports: football, rugby, tennis, formula-1;
+$sports: football,
+rugby,
+tennis,
+formula-1;
 $icon-size: 48px;
-$icon-spacing : 6px;
+$icon-spacing: 6px;
 
 @mixin icon($name, $size: $icon-size, $color: 'white') {
-    display: block;   
+    display: block;
     content: ' ';
-
-    width: 100%;
+    //width: 100%;
     height: $size + $icon-spacing;
     margin: 0;
-
     background: url($icon-base + $name + '-' + $color + '.svg') no-repeat 0 0;
     background-position-x: 50%;
     background-size: $size $size;
 }
 
-/* Sections */  
+.i-only {
+    width: 24px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+/* Sections */
+
 .competition:before {
     @include icon('trophy', 24px);
 }
@@ -32,6 +42,10 @@ $icon-spacing : 6px;
     @include icon('shirt', 24px);
 }
 
+.i-calendar {
+    @include icon('calendar', 24px);
+}
+
 .i-time:before {
     @include icon('clock', 24px);
 }
@@ -44,6 +58,10 @@ $icon-spacing : 6px;
     @include icon('twitter', 24px);
 }
 
+.i-list {
+    @include icon('list', 24px);
+}
+
 .i-email:before {
     @include icon('mail', 24px);
 }
@@ -54,8 +72,9 @@ $icon-spacing : 6px;
 
 
 /* Sports */
+
 @each $sport in $sports {
     .i-#{$sport}:before {
         @include icon('#{$sport}');
-    }    
+    }
 }

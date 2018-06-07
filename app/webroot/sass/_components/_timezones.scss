@@ -1,10 +1,25 @@
+.timezone-detail {
+    float: left;
+}
+
 a.timezone {
     background: url(/img/src/icons/globe-white.png) no-repeat 100% 0%;
     background-size: 13px;
     padding-right: 18px;
-    display: block;
+    display: inline-block;
     width: 3rem;
     margin: 0 auto;
+
+    &.icon-left {
+        background-position: 0 0;
+        background-size: 18px;
+        height: 22px;
+        line-height: 22px;
+        padding-left: 18px;
+        padding-right: 0;
+        margin-left: 5px;
+        float: left;
+    }
 
     @media (min-width: $break-small) {
         display: inline-block;
@@ -19,11 +34,18 @@ a.timezone {
     left: 0;
     right: 0;
     overflow: scroll;
-    background: rgba(#000,0.9);
+    background: rgba(#000,0.85);
     visibility: hidden;
     opacity: 0;
     transform: translateY(-100%);
     transition: all 0.3s ease;
+
+    form {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+    }
     
     h3, h2 {
         padding: 0 20px 0 10px;
@@ -39,6 +61,10 @@ a.timezone {
         font-size: 1rem;
     }
     
+    button {
+        border: 1px solid #FFF;
+    }
+
     &:target {
         z-index: 1000;
         transform: translateY(0);

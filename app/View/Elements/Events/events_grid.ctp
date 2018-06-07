@@ -1,3 +1,5 @@
+<?php echo $this->element('Events/events_timezone'); ?>
+
 <?php
 //_debug($events);
 
@@ -66,14 +68,22 @@ if(count($events)>0) {
             if(isset($month_events[$d]) && count($month_events[$d])>0) {
               echo '<ol class="unstyled">';
               foreach($month_events[$d] as $event) {
-                echo '<li class="event" data-time="' . $this->Time->format('H:i',$event['Event']['start']) .'">' 
+
+                $start = new DateTime($event['Event']['start'], new DateTimeZone('UTC'));
+
+                if(isset($this->params['named']['timezone'])) {
+                  $start->setTimezone( new DateTimeZone( str_replace('-', '/', $this->params['named']['timezone'] ) ) );
+                }
+
+                echo '<li class="vevent">' 
                 . $this->Html->link(
-                  //$this->Html->tag('span', $this->Time->format('H:i',$event['Event']['start']) . ' UTC', array('class'=>'time'))
-                  $this->Html->tag('abbr', $event['HomeTeam']['short'], array('class'=>'team', 'title'=>$event['HomeTeam']['name']))
-                  . $this->Html->tag('abbr', 'v', array('class'=>'vs'))
-                  . $this->Html->tag('abbr', $event['AwayTeam']['short'], array('class'=>'team', 'title'=>$event['AwayTeam']['name']))
-                  //. utf8_encode($event['Event']['summary'])
-                  //. $this->Html->tag('span', utf8_encode($event['Event']['location']), array('class'=>'location'))
+                    $this->Html->tag('span', $start->format('H:i T'), array('class'=>'dtstart dtstamp', 'title'=> $start->format('c') ))
+                  . $this->Html->tag('span', 
+                    $this->Html->tag('span', $event['HomeTeam']['name'], array('class'=>'team', 'data-short'=>$event['HomeTeam']['short']))
+                    . $this->Html->tag('abbr', 'v', array('class'=>'vs'))
+                    . $this->Html->tag('span', $event['AwayTeam']['name'], array('class'=>'team', 'data-short'=>$event['AwayTeam']['short']))
+                  , array('class'=>'summary'))
+                  . ( ($event['Event']['location']!='') ? $this->Html->tag('span', utf8_encode($event['Event']['location']), array('class'=>'location')) : '')
                   , array(
                     'controller'=>'events',
                     'action'=>'view',
@@ -81,7 +91,6 @@ if(count($events)>0) {
                     $event['HomeTeam']['slug'] . '-' . $event['AwayTeam']['slug'],
                   )
                   , array(
-                    'title'=>$this->Time->format('d-m-Y H:i',$event['Event']['start']),
                     'escape' => false,
                     )
                   )

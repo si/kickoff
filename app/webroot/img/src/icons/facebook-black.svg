@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>facebook-black</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mood" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Iconography" transform="translate(-342.000000, -239.000000)" fill="#000000">
+            <path d="M352,239 L352,239 L352,239 L352,243 L350,243 C349.31,243 349,243.81 349,244.5 L349,247 L349,247 L352,247 L352,251 L349,251 L349,259 L345,259 L345,251 L342,251 L342,247 L345,247 L345,243 C345,240.790861 346.790861,239 349,239 L352,239 L352,239 Z" id="facebook-black"></path>
+        </g>
+    </g>
+</svg>
