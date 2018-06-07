@@ -160,7 +160,24 @@ class CompetitionsController extends AppController {
     $data = $this->Competition->find( 
       'all', 
       array( 
-//        'fields' => array('Competition.name','Competition.description','Event.id','Event.start','Event.end','Event.summary','Event.location','Event.created'), 
+        'fields' => array(
+			'`Competition`.`name`',
+			'`Competition`.`description`',
+			'`Event`.`id`',
+			'`Event`.`start`',
+			'`Event`.`end`',
+			'`Event`.`summary`',
+			'`Event`.`grouping`',
+			'`Event`.`updated`',
+			'`HomeTeam`.`name`',
+			'`HomeTeam`.`short`',
+			'`AwayTeam`.`name`',
+			'`AwayTeam`.`short`',
+			'`Location`.`name`',
+			'`Location`.`city`',
+			'`Location`.`lat`',
+			'`Location`.`long`'
+		), 
         'conditions' => array('Competition.id'=>$id),
 //        'order' => array("Event.created ASC"), 
       )
