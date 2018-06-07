@@ -46,7 +46,7 @@ echo $this->Form->create('Event');
       echo $this->Form->input('competition_id', array('default'=>$default_competition,'class'=>'span6','div'=>'span6')); 
     ?>
     <?php echo $this->Form->input('description', array('div'=>'span6','class'=>'span6')); ?>
-    <?php echo $this->Form->input('group', array('div'=>'span6','class'=>'span6')); ?>
+    <?php echo $this->Form->input('grouping', array('div'=>'span6','class'=>'span6')); ?>
   </div>
 </fieldset>
 <?php
