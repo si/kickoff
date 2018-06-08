@@ -1,8 +1,6 @@
 <?php
 
-unset($data['Competition']);
 unset($data['Competition']['created']);
-unset($data['Competition']['updated']);
 unset($data['Competition']['user_id']);
 unset($data['Competition']['sport_id']);
 unset($data['Competition']['theme_id']);
