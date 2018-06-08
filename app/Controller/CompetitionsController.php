@@ -191,11 +191,8 @@ class CompetitionsController extends AppController {
 			'order' => array("Event.created ASC"), 
 		)
 	);
-
-	$obj->Competition = $competition;
-	$obj->Event = $events;
-	$data = json_encode($obj);
-	
+	$data = array('Competition'=>$competition, 'Event'=>$events);
+	// Make the data available to the view (and the resulting CSV file) 
     $this->set(compact('data','format')); 
 
     // Set calendar reminder to 1 hour
