@@ -16,18 +16,18 @@ switch($format) {
 
   case 'json':
 
-    header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[0]['Competition']['name']).'.json"');
+    header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data['Competition']['name']).'.json"');
     
     echo json_encode($data);
     break;
   
   default:  // ICS
   
-    header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[0]['Competition']['name']).'.ics"');
+    header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data['Competition']['name']).'.ics"');
 
-    foreach($data[0]['Event'] as $event) : 
+    foreach($data['Event'] as $event) : 
       echo "BEGIN:VEVENT\n" 
-          . "UID:". md5($data[0]['Competition']['name'] . $event['id']) . "\n"
+          . "UID:". md5($data['Competition']['name'] . $event['id']) . "\n"
           . "SUMMARY:".  $event['summary'] . "\n"
           . "LOCATION:" . (
               (trim($event['location']) != '') 
