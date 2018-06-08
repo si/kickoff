@@ -154,8 +154,6 @@ class CompetitionsController extends AppController {
   function export($id='',$format='ics') { 
   
     $this->layout = $format.'/default';
-    // Stop Cake from displaying action's execution time 
-    Configure::write('debug',2); 
     // Find fields needed without recursing through associated models 
     $competition = $this->Competition->find( 
     	'first', 
@@ -166,7 +164,8 @@ class CompetitionsController extends AppController {
 			), 
         	'conditions' => array('Competition.id'=>$id),
       	)
-    ); 
+	); 
+	$cleanCompetition = $competition['Competition'];
     $events = $this->Competition->Event->find( 
 		'all', 
 		array(
@@ -191,7 +190,7 @@ class CompetitionsController extends AppController {
 			'order' => array("Event.created ASC"), 
 		)
 	);
-	$data = array('Competition'=>$competition, 'Event'=>$events);
+	$data = array('Competition'=>$cleanCompetition, 'Event'=>$events);
 	// Make the data available to the view (and the resulting CSV file) 
     $this->set(compact('data','format')); 
 

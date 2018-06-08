@@ -1,6 +1,5 @@
 <?php
-var_dump($data['Competition']);
-$competitionName = $data['Competition'][0]['name'];
+$competitionName = $data['Competition']['name'];
 $fileName = str_replace(' ','-', $competitionName);
 
 switch($format) {
