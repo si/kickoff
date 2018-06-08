@@ -157,34 +157,41 @@ class CompetitionsController extends AppController {
     // Stop Cake from displaying action's execution time 
     Configure::write('debug',2); 
     // Find fields needed without recursing through associated models 
-    $data = $this->Competition->find( 
-      'all', 
-      array(
-		/* 
-        'fields' => array(
-			'Competition.name',
-			'Competition.description',
-			'Event.id',
-			'Event.summary',
-			'Event.start',
-			'Event.end',
-			'Event.grouping',
-			'Event.updated',
-			'HomeTeam.name',
-			'HomeTeam.short',
-			'AwayTeam.name',
-			'AwayTeam.short',
-			'Location.name',
-			'Location.city',
-			'Location.lat',
-			'Location.long'
-		), 
-		*/
-        'conditions' => array('Competition.id'=>$id),
-//        'order' => array("Event.created ASC"), 
-      )
+    $competition = $this->Competition->find( 
+    	'first', 
+    	array(
+        	'fields' => array(
+				'Competition.name',
+				'Competition.description',
+			), 
+        	'conditions' => array('Competition.id'=>$id),
+      	)
     ); 
-    // Make the data available to the view (and the resulting CSV file) 
+    $events = $this->Competition->Event->find( 
+		'all', 
+		array(
+			'fields' => array(
+				'Event.id',
+				'Event.summary',
+				'Event.start',
+				'Event.end',
+				'Event.grouping',
+				'Event.updated',
+				'HomeTeam.name',
+				'HomeTeam.short',
+				'AwayTeam.name',
+				'AwayTeam.short',
+				'Location.name',
+				'Location.city',
+				'Location.lat',
+				'Location.long'
+			), 
+			'conditions' => array('Competition.id'=>$id),
+			'order' => array("Event.created ASC"), 
+		)
+	);
+	$data = array('Competition'=>$competition, 'Event'=>$events);
+	// Make the data available to the view (and the resulting CSV file) 
     $this->set(compact('data','format')); 
 
     // Set calendar reminder to 1 hour
