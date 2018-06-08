@@ -1,15 +1,6 @@
 <?php
-
-unset($data['Competition']['created']);
-unset($data['Competition']['user_id']);
-unset($data['Competition']['sport_id']);
-unset($data['Competition']['theme_id']);
-unset($data['Competition']['status']);
-unset($data['Theme']);
-unset($data['User']);
-unset($data['Sport']);  
-
-$competitionName = $data['Competition']['name'];
+var_dump($data['Competition']);
+$competitionName = $data['Competition'][0]['name'];
 $fileName = str_replace(' ','-', $competitionName);
 
 switch($format) {
