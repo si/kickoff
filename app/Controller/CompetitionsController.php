@@ -161,8 +161,8 @@ class CompetitionsController extends AppController {
     	'first', 
     	array(
         	'fields' => array(
-				'Competition.name',
-				'Competition.description',
+				'name',
+				'description',
 			), 
         	'conditions' => array('Competition.id'=>$id),
       	)
