@@ -11,23 +11,25 @@ unset($data['Theme']);
 unset($data['User']);
 unset($data['Sport']);  
 
+$competitionName = $data['Competition']['name'];
+$fileName = str_replace(' ','-', $competitionName);
 
 switch($format) {
 
   case 'json':
 
-    header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data['Competition']['name']).'.json"');
+    header('Content-Disposition: attachment; filename="'.$fileName.'.json"');
     
     echo json_encode($data);
     break;
   
   default:  // ICS
   
-    header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data['Competition']['name']).'.ics"');
+    header('Content-Disposition: attachment; filename="'.$fileName.'.ics"');
 
     foreach($data['Event'] as $event) : 
       echo "BEGIN:VEVENT\n" 
-          . "UID:". md5($data['Competition']['name'] . $event['id']) . "\n"
+          . "UID:". md5($competitionName . $event['id']) . "\n"
           . "SUMMARY:".  $event['summary'] . "\n"
           . "LOCATION:" . (
               (trim($event['location']) != '') 
