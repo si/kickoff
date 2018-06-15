@@ -11,7 +11,8 @@ switch($format) {
   default:  // ICS
     
     header('Content-Disposition: attachment; filename="'.str_replace(' ','-',$data[1]['Event']['summary']).'.ics"');
-    if($data['Event']) : 
+    var_dump($data);
+    if($data[1]['Event']) : 
       $event = $data[1]['Event'];
       echo "BEGIN:VEVENT
 UID:". md5($event['id']) . "
