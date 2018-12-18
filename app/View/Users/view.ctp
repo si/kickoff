@@ -7,7 +7,11 @@ $this->viewVars['title_for_layout'] = $user['User']['username'] . ' - Kick Off C
     <?php echo $user['User']['username']; ?>
 </h1>
 
-<?php echo $this->element('Modules/map', array('postcode'=>$user['User']['postcode_home'])); ?>
+<?php 
+if(isset($user['User']['postcode_home'])) {
+    echo $this->element('Modules/map', array('postcode'=>$user['User']['postcode_home'])); 
+}
+?>
 
 <?php //echo '<textarea class="code">'; var_dump($stats); echo '</textarea>'; ?>
 
